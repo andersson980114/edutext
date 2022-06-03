@@ -7,6 +7,7 @@ import { getFocusedRouteNameFromRoute} from '@react-navigation/native';
 import WordScreen from './screens/WordScreen';
 import TemasScreen from './screens/TemasScreen';
 import ContenidoScreen from './screens/ContenidoScreen'; 
+import PreguntaA from './screens/PreguntaA';
 
 const Stack = createNativeStackNavigator();
 
@@ -77,6 +78,21 @@ export default function App() {
         />
 
         < Stack.Screen name="Contenido" component={ContenidoScreen} 
+          options ={{ 
+            
+            headerStyle: {
+              backgroundColor: '#52ACB9',   
+              
+            },
+            headerTintColor: '#fff',
+            headerTitleAlign: "center",
+            headerTitleStyle:{
+              fontSize:44, 
+            },
+          }}
+        />
+
+        < Stack.Screen name="PreguntaA" component={PreguntaA} 
           options ={{ 
             
             headerStyle: {

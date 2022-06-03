@@ -97,13 +97,7 @@ export default function WordScreen({ navigation }) {
             </View>
           </Pressable>
         </View>
-
-
-
-
-      
-
-        
+ 
     </View>
   )
 }
