@@ -18,7 +18,7 @@ export default function HomeScreen({ navigation }) {
         </View>
 
         <View style={styles.cardContainer} >
-          <Pressable onPress={() => navigation.navigate('Docs')} >
+          <Pressable onPress={() => navigation.navigate('Word')} >
             <Image 
                 resizeMode="cover"
                 source={require('../assets/screenAssets/DocsLogo.png')}
