@@ -5,7 +5,7 @@ import { Card} from 'react-native-elements'
 
 export default function HomeScreen({ navigation }) {
   return (
-    <View View style={{ flex: 2, alignItems: 'center', justifyContent: 'center' }}>
+    <View View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         
         <View style={styles.cardContainer} >
           <Pressable onPressIn={() => navigation.navigate('Word')} >
@@ -35,13 +35,6 @@ export default function HomeScreen({ navigation }) {
 const deviceWidth = Math.round(Dimensions.get('window').width)
 const deviceHeight = Math.round(Dimensions.get('window').height)
 const styles = StyleSheet.create({
-  image: {
-    resizeMode: 'cover',
-    width: deviceWidth * 0.55,
-    height: deviceHeight * 0.32,
-    alignContent: 'center',
-    alignSelf: 'center', },
-
   cardContainer:{
     width: deviceWidth - 35,
     height: deviceHeight * 0.35,
@@ -55,7 +48,14 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.75,
     shadowRadius: 5,
     elevation: 10,
-    margin: 20, 
-
-  },
-})
+    margin: 20,  
+    },
+    
+    image: {
+      resizeMode: 'cover',
+      width: deviceWidth * 0.55,
+      height: deviceHeight * 0.32,
+      alignContent: 'center',
+      alignSelf: 'center', },
+  
+  }) 

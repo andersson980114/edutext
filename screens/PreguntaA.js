@@ -5,58 +5,50 @@ import { Card} from 'react-native-elements'
 
 export default function PreguntaA({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View style={styles.container}>
         
         <View style={styles.pregunta} >
-            <Text style={{ fontWeight: "bold", fontSize: 26 }}> 
-                Acá se realizará una pregunta, puede ser larga o corta, lo que importa es que se entienda
+            <Text style={styles.textPregunta}> 
+                Acá se realizará una pregunta, puede ser larga o corta, lo que importa es que se entienda.
+                En este ejemplo se alargará lo mas posibleasssssssssssssssssssssssssssssssssssssssssssssas
             </Text>
         </View>
 
-        <View style={styles.cardContainer} >
-          <Pressable onPressIn={() => navigation.navigate('Temas')} >
-            <View style={styles.titleIntro} >
-              
-              <Text style={styles.titleCar} >
-                a- Opción
-              </Text>
-            </View> 
-          </Pressable>
-        </View>
+        <View style={styles.opciones}>
+          
+          <View style={styles.cardContainer} >
+            <Pressable onPressIn={() => navigation.navigate('Temas')} >   
+                <Text style={styles.titleCar} >
+                  a- Opción
+                </Text> 
+            </Pressable>
+          </View>
 
-        <View style={styles.cardContainer} >
-        <Pressable onPressIn={() => navigation.navigate('Temas')} >
-            <View style={styles.titleIntro} >
-            
-            <Text style={styles.titleCar} >
-                a- Opción
-            </Text>
-            </View> 
-        </Pressable>
-        </View>
+          <View style={styles.cardContainer} >
+            <Pressable onPressIn={() => navigation.navigate('Temas')} >   
+                <Text style={styles.titleCar} >
+                  b- Opción
+                </Text> 
+            </Pressable>
+          </View>
 
-        <View style={styles.cardContainer} >
-        <Pressable onPressIn={() => navigation.navigate('Temas')} >
-            <View style={styles.titleIntro} >
-            
-            <Text style={styles.titleCar} >
-                a- Opción
-            </Text>
-            </View> 
-        </Pressable>
-        </View>
+          <View style={styles.cardContainer} >
+            <Pressable onPressIn={() => navigation.navigate('Temas')} >   
+                <Text style={styles.titleCar} >
+                  c- Opción
+                </Text> 
+            </Pressable>
+          </View>
 
-        <View style={styles.cardContainer} >
-        <Pressable onPressIn={() => navigation.navigate('Temas')} >
-            <View style={styles.titleIntro} >
-            
-            <Text style={styles.titleCar} >
-                a- Opción
-            </Text>
-            </View> 
-        </Pressable>
-        </View>
+          <View style={styles.cardContainer} >
+            <Pressable onPressIn={() => navigation.navigate('Temas')} >   
+                <Text style={styles.titleCar} >
+                  b- Opción
+                </Text> 
+            </Pressable>
+          </View>
 
+        </View>
  
     </View>
   )
@@ -67,34 +59,41 @@ const deviceWidth = Math.round(Dimensions.get('window').width)
 
 const styles = StyleSheet.create({
 
+  container:{
+    flex: 1, 
+    alignItems: 'center', 
+    justifyContent: 'center' ,
+    height: '90%',
+    width: '100%', 
+  }, 
   
-  topCard:{ 
-    flexWrap: 'wrap',
-    flexDirection: 'row'
-  },
- 
-
   titleCar:{
     fontSize: 30,
-    alignContent: 'center',
-    alignSelf: 'center',
-    marginLeft: '10%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 10,
   },
 
-  titleIntro:{
-    fontSize: 40,
-    alignContent: 'center',
-    alignSelf: 'center', 
-    marginTop: '10%', 
+  opciones:{
+     
+    height: '60%', 
   },
  
-  pregunta:{
-      margin: 20,
+  pregunta:{  
+    
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '30%',
   },
 
-
+  textPregunta:{
+    fontWeight: "bold", 
+    fontSize: 26,   
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+ 
   cardContainer:{ 
-    flexDirection: 'column',
     width: deviceWidth - 35, 
     backgroundColor: '#EBEBEB',
     borderRadius: 15,

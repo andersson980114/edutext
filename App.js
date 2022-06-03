@@ -1,13 +1,14 @@
 import React from 'react'
+import { StyleSheet } from 'react-native'
 import Navigation from './Navigations';
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { getFocusedRouteNameFromRoute} from '@react-navigation/native'; 
+import { getFocusedRouteNameFromRoute} from '@react-navigation/native';
 
-import WordScreen from './screens/WordScreen';
+import WordScreen from './screens/WordScreen'; 
 import TemasScreen from './screens/TemasScreen';
 import ContenidoScreen from './screens/ContenidoScreen'; 
-import PreguntaA from './screens/PreguntaA';
+import PreguntaA from  './screens/PreguntaA';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,91 +28,40 @@ function getHeaderTitle(route) {
 
 export default function App() {
   return (
-    <NavigationContainer> 
-      <Stack.Navigator >
+    <NavigationContainer > 
+      <Stack.Navigator 
+         screenOptions ={{ 
+            
+          headerStyle: {
+            backgroundColor: '#52ACB9',     
+          }, 
+          headerTintColor: '#fff',
+          headerTitleAlign: "center",
+          headerTitleStyle:{
+            fontSize:44, 
+          }, 
+        }}
+      >
         <Stack.Screen  
           name="Inicio"
-          component={Navigation}
-          
+          component={Navigation} 
           options={({ route }) => ({
-            headerTitle: getHeaderTitle(route),
-            
-            headerStyle: {
-              backgroundColor: '#52ACB9',   
-              
-            },
-            headerTintColor: '#fff',
-            headerTitleAlign: "center",
-            headerTitleStyle:{
-              fontSize:44, 
-            }
-          })} 
+            headerTitle: getHeaderTitle(route),  
+          })}
         />
-        <Stack.Screen name="Word" component={WordScreen} 
-          options ={{ 
-            
-            headerStyle: {
-              backgroundColor: '#52ACB9',   
-              
-            },
-            headerTintColor: '#fff',
-            headerTitleAlign: "center",
-            headerTitleStyle:{
-              fontSize:44, 
-            },
-          }}
-        />
+        <Stack.Screen name="Word" component={WordScreen}  />
 
-        <Stack.Screen name="Temas" component={TemasScreen} 
-          options ={{ 
-            
-            headerStyle: {
-              backgroundColor: '#52ACB9',   
-              
-            },
-            headerTintColor: '#fff',
-            headerTitleAlign: "center",
-            headerTitleStyle:{
-              fontSize:44, 
-            },
-          }}
-        />
+        <Stack.Screen name="Temas" component={TemasScreen}  />
 
-        < Stack.Screen name="Contenido" component={ContenidoScreen} 
-          options ={{ 
-            
-            headerStyle: {
-              backgroundColor: '#52ACB9',   
-              
-            },
-            headerTintColor: '#fff',
-            headerTitleAlign: "center",
-            headerTitleStyle:{
-              fontSize:44, 
-            },
-          }}
-        />
+        < Stack.Screen name="Contenido" component={ContenidoScreen}  /> 
 
-        < Stack.Screen name="PreguntaA" component={PreguntaA} 
-          options ={{ 
-            
-            headerStyle: {
-              backgroundColor: '#52ACB9',   
-              
-            },
-            headerTintColor: '#fff',
-            headerTitleAlign: "center",
-            headerTitleStyle:{
-              fontSize:44, 
-            },
-          }}
-        />
+        <Stack.Screen name="PreguntaA" component={PreguntaA}  />
+
       </Stack.Navigator> 
         
     </NavigationContainer>    
   );
 }
-
 
 
 

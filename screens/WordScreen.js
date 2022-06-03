@@ -9,9 +9,8 @@ export default function WordScreen({ navigation }) {
         
         <View style={styles.cardContainer} >
           <Pressable onPressIn={() => navigation.navigate('Temas')} >
-            <View style={styles.titleIntro} >
-              
-              <Text style={styles.titleCar} >
+            <View style={styles.topCard} > 
+              <Text style={styles.titleIntro} >
                 INTRODUCCIÓN
               </Text>
             </View>
@@ -25,11 +24,13 @@ export default function WordScreen({ navigation }) {
         <View style={styles.cardContainer} >
           <Pressable onPressIn={() => navigation.navigate('Temas')} >
             <View style={styles.topCard} >
-              <Image 
-                resizeMode="cover"
-                source={require('../assets/screenAssets/bronce.png')}
-                style={styles.imgCard}
-                />
+              <View style={styles.imgContent}>
+                <Image 
+                  resizeMode="cover"
+                  source={require('../assets/screenAssets/bronce.png')}
+                  style={styles.imgCard}
+                  />
+              </View>
               <Text style={styles.titleCar} >
                 BRONCE
               </Text>
@@ -44,11 +45,13 @@ export default function WordScreen({ navigation }) {
         <View style={styles.cardContainer} >
           <Pressable onPressIn={() => navigation.navigate('Temas')} >
             <View style={styles.topCard} >
-              <Image 
-                resizeMode="cover"
-                source={require('../assets/screenAssets/Plata.png')}
-                style={styles.imgCard}
-                />
+              <View style={styles.imgContent}>
+                <Image 
+                  resizeMode="cover"
+                  style={styles.imgCard}
+                  source={require('../assets/screenAssets/Plata.png')}
+                  />
+              </View>
               <Text style={styles.titleCar} >
                PLATA
               </Text>
@@ -63,11 +66,13 @@ export default function WordScreen({ navigation }) {
         <View style={styles.cardContainer} >
           <Pressable onPressIn={() => navigation.navigate('Temas')} >
             <View style={styles.topCard} >
-              <Image 
-                resizeMode="cover"
-                source={require('../assets/screenAssets/oro.png')}
-                style={styles.imgCard}
-                />
+              <View style={styles.imgContent}>
+                <Image 
+                  resizeMode="cover"
+                  source={require('../assets/screenAssets/oro.png')}
+                  style={styles.imgCard}
+                  />
+              </View>
               <Text style={styles.titleCar} >
                 ORO
               </Text>
@@ -82,11 +87,13 @@ export default function WordScreen({ navigation }) {
         <View style={styles.cardContainer} >
           <Pressable onPressIn={() => navigation.navigate('Temas')} >
             <View style={styles.topCard} >
-              <Image 
-                resizeMode="cover"
-                source={require('../assets/screenAssets/diamante.png')}
-                style={styles.imgCard}
-                />
+              <View style={styles.imgContent}>
+                <Image 
+                  resizeMode="cover"
+                  source={require('../assets/screenAssets/diamante.png')}
+                  style={styles.imgCard}
+                  />
+              </View>
               <Text style={styles.titleCar} >
                DIAMANTE
               </Text>
@@ -97,40 +104,50 @@ export default function WordScreen({ navigation }) {
             </View>
           </Pressable>
         </View>
- 
+  
     </View>
   )
 }
 
-const deviceWidth = Math.round(Dimensions.get('window').width)
+const deviceWidth = (Dimensions.get("window").height) * 0.5
+const height = (Dimensions.get("window").height) * 0.5;
+
+const ANCHO_CONTENEDOR = (height / deviceWidth ) * 90 ; 
+const ALTO_CONTENEDOR = (height / deviceWidth ) * 90 ;  
 
 const styles = StyleSheet.create({
-
-  
   topCard:{ 
+    height: '90%',
+    width: '100%',
     flexWrap: 'wrap',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   imgCard:{
-    width: 110,
-    height: 120,
-    alignContent: 'flex-start',
-    alignSelf: 'flex-start',
+    width: ANCHO_CONTENEDOR,
+    height: ALTO_CONTENEDOR,  
+    margin: '10%',
+  },
+
+  imgContent:{
+    width: '30%',
   },
 
   titleCar:{
-    fontSize: 40,
+    fontSize: 40, 
+    width: '70%',
     alignContent: 'center',
-    alignSelf: 'center',
-    marginLeft: '10%',
+    alignSelf: 'center', 
   },
 
   titleIntro:{
+    height: '90%',
+    marginTop: '10%',
     fontSize: 40,
     alignContent: 'center',
-    alignSelf: 'center', 
-    marginTop: '10%',
+    alignSelf: 'center',  
     height: 84,
   },
 
@@ -156,7 +173,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     width: deviceWidth - 35,
-    height: 160,
+    height: ALTO_CONTENEDOR,
     backgroundColor: '#EBEBEB',
     borderRadius: 15,
     shadowColor:'#000',
