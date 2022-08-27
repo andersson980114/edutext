@@ -43,7 +43,7 @@ export default function PreguntaA({ navigation }) {
           <View style={styles.cardContainer} >
             <Pressable onPressIn={() => navigation.navigate('Temas')} >   
                 <Text style={styles.titleCar} >
-                  b- Opción
+                  d- Opción
                 </Text> 
             </Pressable>
           </View>
