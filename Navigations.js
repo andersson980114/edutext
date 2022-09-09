@@ -2,19 +2,20 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import HomeScreen from './screens/HomeScreen';
 import AvatarScreen from './screens/AvatarScreen';
-import InsigniaScreen from './screens/InsigniaScreen'; 
+import InsigniaScreen from './screens/InsigniaScreen';  
 
 //iconos
 import { FontAwesome5 } from '@expo/vector-icons'; 
-import { Colors, Header } from 'react-native/Libraries/NewAppScreen';
+import { Colors, Header } from 'react-native/Libraries/NewAppScreen'; 
 
 //constantes de navegacion
-const Tab = createBottomTabNavigator();//tab o footer 
+const Tab = createBottomTabNavigator();//tab o footer  
 
 export default function Navigation(){
+ 
     return(
         
-        <Tab.Navigator 
+        <Tab.Navigator initialRouteName='Home'
             screenOptions={({ route }) => ({
                 headerShown: false,
                 tabBarStyle: { height: 70 },
@@ -35,14 +36,14 @@ export default function Navigation(){
                     
                     return <FontAwesome5 name={iconName} size={size} color={color}/>;
 
-                }
-                
+                } 
             })}
             >
             
             <Tab.Screen name='Avatar' component={AvatarScreen}/>
-            <Tab.Screen name='Home' component={HomeScreen}/>
+            <Tab.Screen name='Home' component={HomeScreen} />
             <Tab.Screen name='Insignias' component={InsigniaScreen}/>
+            
         </Tab.Navigator>
     )
 }
