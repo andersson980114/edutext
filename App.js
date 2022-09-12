@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { StyleSheet } from 'react-native'
 import Navigation from './Navigations';
 import { NavigationContainer } from '@react-navigation/native'
@@ -12,6 +12,8 @@ import PreguntaA from  './screens/PreguntaA';
 import OnboardingScreen from './screens/OnboardingScreen';
 import SplashScreen from './screens/SplashScreen';
 import RegisterScreen from './screens/RegisterScreen';
+
+import {initDatadabase} from './utils/db'
 const Stack = createNativeStackNavigator();
  
 
@@ -32,10 +34,16 @@ function getHeaderTitle(route) {
 export default function App() {
     const [logueado, setLogueado] = useState(true)
    
+    useEffect(function() {
+      async function init(){
+        await initDatadabase();
+      }
+    }, []);
+    
     return (
       <NavigationContainer > 
         
-        <Stack.Navigator    initialRouteName='Splash'
+        <Stack.Navigator    initialRouteName='Register'
           screenOptions ={{ 
               
             headerStyle: {
@@ -65,9 +73,12 @@ export default function App() {
   
           <Stack.Screen name="PreguntaA" component={PreguntaA}  />
             
-          <Stack.Screen name="Splash" component={SplashScreen}  navigation={Navigation} logueo={logueado} options={{header: ()=>null}}/>
+          
             
-          <Stack.Screen name='Register' component={RegisterScreen} />
+          <Stack.Screen name="Splash" component={SplashScreen}  navigation={Navigation} logueo={logueado} options={{header: ()=>null}}/>
+
+          <Stack.Screen name="Register" component={RegisterScreen}  navigation={Navigation}  options={{header: ()=>null}}/>
+            
           <Stack.Screen name="Onboarding" component={OnboardingScreen}  options={{header: ()=>null}} />
         </Stack.Navigator> 
           
