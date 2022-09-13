@@ -13,7 +13,7 @@ import OnboardingScreen from './screens/OnboardingScreen';
 import SplashScreen from './screens/SplashScreen';
 import RegisterScreen from './screens/RegisterScreen';
 
-import {initDatadabase} from './utils/db'
+import {initDatadabase} from './utils/db' 
 const Stack = createNativeStackNavigator();
  
 
@@ -37,13 +37,14 @@ export default function App() {
     useEffect(function() {
       async function init(){
         await initDatadabase();
+        console.log("db creada")
       }
     }, []);
     
     return (
       <NavigationContainer > 
         
-        <Stack.Navigator    initialRouteName='Register'
+        <Stack.Navigator    initialRouteName='Splash'
           screenOptions ={{ 
               
             headerStyle: {
@@ -63,8 +64,7 @@ export default function App() {
               headerTitle: getHeaderTitle(route),  
             })}
           />
-          
-          
+           
           <Stack.Screen name="Word" component={WordScreen}  />
   
           <Stack.Screen name="Temas" component={TemasScreen}  />
@@ -72,14 +72,14 @@ export default function App() {
           < Stack.Screen name="Contenido" component={ContenidoScreen}  /> 
   
           <Stack.Screen name="PreguntaA" component={PreguntaA}  />
-            
+ 
+          <Stack.Screen name="Onboarding" component={OnboardingScreen}  options={{header: ()=>null}} />
           
-            
           <Stack.Screen name="Splash" component={SplashScreen}  navigation={Navigation} logueo={logueado} options={{header: ()=>null}}/>
 
           <Stack.Screen name="Register" component={RegisterScreen}  navigation={Navigation}  options={{header: ()=>null}}/>
             
-          <Stack.Screen name="Onboarding" component={OnboardingScreen}  options={{header: ()=>null}} />
+          
         </Stack.Navigator> 
           
       </NavigationContainer>    

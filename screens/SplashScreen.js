@@ -12,7 +12,7 @@ export default function SplashScreen ({navigation, logueo})  {
     useEffect(() => { 
         if(authLoaded){
             if(logueo ){
-                navigation.navigate('Inicio')
+                navigation.navigate('Onboarding')
             }else{
                 navigation.navigate('Onboarding') 
             } 
