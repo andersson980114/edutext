@@ -12,8 +12,8 @@ import PreguntaA from  './screens/PreguntaA';
 import OnboardingScreen from './screens/OnboardingScreen';
 import SplashScreen from './screens/SplashScreen';
 import RegisterScreen from './screens/RegisterScreen';
-
-import {initDatadabase} from './utils/db' 
+import {initDb} from './utils/db' 
+//import {initDatadabase} from './utils/db' 
 const Stack = createNativeStackNavigator();
  
 
@@ -33,7 +33,15 @@ function getHeaderTitle(route) {
 
 export default function App() {
     const [logueado, setLogueado] = useState(true)
-   
+    useEffect(function() {
+      async function init(){
+        await initDb();
+        console.log("db")
+      }
+      init();
+    }, []);
+    
+    /*
     useEffect(function() {
       async function init(){
         await initDatadabase();
@@ -41,7 +49,7 @@ export default function App() {
       }
       init();
     }, []);
-    
+    */
     return (
       <NavigationContainer > 
         

@@ -1,4 +1,43 @@
-import { enablePromise, openDatabase } from "react-native-sqlite-storage";
+import * as SQLite from "expo-sqlite";
+
+export function conectionDb(){
+    const db = SQLite.openDatabase(
+        {
+        main: 'usersDb',
+        location: 'default'
+        }, 
+        () => {},
+        error => {console.log(error)}
+    );
+
+    return db;
+}
+
+export  function createUserTable(db){
+    db.transaction((tx) =>{
+        tx.executeSql(
+            "CREATE TABLE IF NOT EXISTS users (ID INTEGER PRIMARY KEY AUTOINCREMENT, Name VARCHAR(128), LastName  VARCHAR(128), Genero VARCHAR(128))"
+        )
+    })
+}
+
+export function initDb(){
+    const db = openDatabase();
+    createUserTable(db)
+}
+
+export function insertUsers(db, name, lastName, genero){
+    db.transaction((tx) => {
+        tx.executeSql(
+            "INSERT INTO users (Name, LastName, Genero) VALUES (?,?,?)",
+            [name,lastName,genero]
+        )
+    },
+    null)
+}
+
+
+/*import { enablePromise, openDatabase } from "react-native-sqlite-storage";
 
 enablePromise(true);
 
@@ -32,7 +71,7 @@ export async function getUsers(db){
     return db.executeSql(query)
 }
 
-
+*/
 /*
 import SQlite from 'react-native-sqlite-storage'
 
