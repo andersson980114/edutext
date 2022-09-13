@@ -37,14 +37,15 @@ export default function App() {
     useEffect(function() {
       async function init(){
         await initDatadabase();
-        console.log("db creada")
+        console.log("db")
       }
+      init();
     }, []);
     
     return (
       <NavigationContainer > 
         
-        <Stack.Navigator    initialRouteName='Splash'
+        <Stack.Navigator    initialRouteName='Register'
           screenOptions ={{ 
               
             headerStyle: {

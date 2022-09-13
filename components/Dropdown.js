@@ -7,7 +7,6 @@ export default function Dropdown({
     value = {},
     onSelect = () => {} }) {
     
-    console.log("selected: ", !!value)
     const [show, setShow] = useState(false)
     
     const onSelectItem = (val) =>{

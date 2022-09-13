@@ -37,7 +37,7 @@ export default function RegisterScreen() {
   async function createUser(){  
      
      if(userName === '' || lastName === '' || selectedItem.name === null){
-      Alert.alert( 'Por favor llene los campos')
+      console.log( 'Por favor llene los campos')
       return false
   }
     try {
@@ -56,7 +56,10 @@ export default function RegisterScreen() {
       );
       db.close();
     } catch (error) {
-      setError(`error catch:${error.message}`)
+      console.log(userName)
+      console.log(lastName)
+      console.log(selectedItem.name)
+      console.log(`error catch:${error.message}`)
     } 
   }
 
@@ -70,8 +73,9 @@ export default function RegisterScreen() {
         <TextInput
           style={styles.input}
           placeholder='Ingrese su nombre' 
+          onChangeText ={setUserName}
           value={userName} 
-          onChange={(value) => setUserName(value)}
+
         /> 
         <Text style={styles.text}>
           Apellido:
@@ -80,8 +84,8 @@ export default function RegisterScreen() {
         <TextInput
           style={styles.input}
           placeholder='Ingrese su Apellido' 
+          onChangeText={setLastName}
           value={lastName}
-          onChange={(value) => setLastName(value)}
         /> 
         <Text style={styles.text}>
           Genero:
