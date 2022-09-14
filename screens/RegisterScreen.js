@@ -96,7 +96,7 @@ export default function RegisterScreen({navigation}) {
           onSelect={onSelect}  
         />
     
-        <Button title="Registrar" onPress={createUser} />
+        <Button title="Registrar" onPress={() => navigation.navigate('Inicio')} />
         
       </SafeAreaView>
     </View>

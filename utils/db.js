@@ -22,8 +22,9 @@ export  function createUserTable(db){
 }
 
 export function initDb(){
-    const db = openDatabase();
+    const db = conectionDb();
     createUserTable(db)
+    return db
 }
 
 export function insertUsers(db, name, lastName, genero){
