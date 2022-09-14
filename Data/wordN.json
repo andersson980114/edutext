@@ -1,0 +1,29 @@
+{
+    "Niveles":[
+        {
+            "id": 0,
+            "idOpcion": 1,
+            "Nivel": "INTRODUCCION",
+            "Progreso": 0
+        },
+        {
+            "id": 1,
+            "idOpcion": 1,
+            "Nivel": "Bronce",
+            "Progreso": 0
+        },
+        {
+            "id": 2,
+            "idOpcion": 1,
+            "Nivel": "Plata",
+            "Progreso": 0
+        },
+        {
+            "id": 3,
+            "idOpcion": 1,
+            "Nivel": "Oro",
+            "Progreso": 0
+        }
+    ]
+
+}

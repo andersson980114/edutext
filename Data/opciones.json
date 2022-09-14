@@ -1,0 +1,14 @@
+{
+    "opciones":[
+        {
+            "id": 1,
+            "name": "Microsoft Word" ,
+            "temas": "Word.json"
+        },
+        {
+            "id": 2,
+            "name": "Google Docs" ,
+            "temas": "Docs.json"
+        }
+    ]
+}

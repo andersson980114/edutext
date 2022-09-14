@@ -7,7 +7,7 @@ export default function InsigniaScreen() {
     <View  style={Styles.container}>  
         <Text style={Styles.textUser}>Mis Insignias</Text>
         <View style={Styles.boxContainer}>
-          <Image style={Styles.box}></Image> 
+          <Image style={Styles.box} source={require("../assets/insigniasAssets/OroWord.png")}></Image> 
           <Image style={Styles.box}></Image> 
           <Image style={Styles.box}></Image> 
           <Image style={Styles.box}></Image> 
@@ -55,6 +55,8 @@ const Styles = StyleSheet.create({
     backgroundColor: '#D9D9D9',  
     borderRadius: 20,
     margin:  Espacio, 
+    borderColor: "#2C6B80",
+    borderWidth: 3
   },
 
 });
