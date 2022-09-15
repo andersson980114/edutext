@@ -1,33 +1,97 @@
-import React, {useState, useEffect} from "react";
-import { StyleSheet, Text, View, Image, Dimensions, Pressable} from "react-native";
+import React, {useState, useEffect, useRef} from "react";
+import { StyleSheet, Text, View, Image, Dimensions, Pressable, Button, Animated} from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 
 export default function OnboardingScreen({navigation})  {
    
+  const startAnimation = useRef(new Animated.Value(0)).current;
+
+  const endAnimation = useRef(new Animated.Value(350)).current;
+
+  const edges = useSafeAreaInsets()
+
+  useEffect(() => {
+    setTimeout(() =>{
+      Animated.sequence([
+          Animated.timing(
+            startAnimation,
+            {
+              toValue:-Dimensions.get('window').height + (edges.top + 10),
+              useNativeDriver: true
+            }
+          ),
+          Animated.timing(
+            endAnimation,
+            {
+              toValue:-700,
+              useNativeDriver: true
+            }
+          )
+      ]) 
+      .start();
+    }, 10000)
+  }, [])
+
+  
+  
 
   return (
     <View  style={Styles.container}>    
-            <View style={Styles.mensajes}>
-              <View style={Styles.Bienvenido}>
-                <Pressable onPress={()=> navigation.navigate('Register')}>
-                  <Text style={Styles.textUser}>¡HOLA!</Text>
-                  <Text style={Styles.textUser}>Bienvenido a EDUTEXT</Text>
-                </Pressable>
-              </View>
+        <View style={Styles.mensajes}>
+          <Animated.View style={{
+            transform: [
+              {translateY: startAnimation}
+            ]
+          }}>
+            <View style={{
+              backgroundColor:"#FCFFFD",
+              height: 150,
+              width: 310, 
+              
+            }}> 
+                <Text style={Styles.textUser}>¡HOLA!</Text>
+                <Text style={Styles.textUser}>Bienvenido a EDUTEXT</Text> 
+            </View>
 
-              <View style={Styles.info}>
-                  <Pressable onPress={()=> navigation.navigate('Register')}>
-                    <Text Text style={Styles.textInfo}>Aquí aprenderás a identificar e implementar los procesadores de textos que mas requieres en la actualidad</Text> 
-                  </Pressable>
-              </View>
+            <View style={{
+              marginTop:20,
+              backgroundColor:"#FCFFFD",
+              width: 310,   
+              }}> 
+                  <Text Text style={Styles.textInfo}>Aquí aprenderás a identificar e implementar los procesadores de textos que mas requieres en la actualidad</Text>  
+            </View>
+            <Image  source={require("../assets/screenAssets/oboarding1.png")}
+              style={{
+                padding: 20,
+                margin: 70,
+              }}
+            ></Image>
+          </Animated.View>
 
-              <View style={Styles.info}>
-                <Pressable onPress={()=> navigation.navigate('Register')}>
-                  <Text style={Styles.textInfo}>¡Ingresa ya! Completa los desafios y obtén las reco m pe nsas</Text> 
-                </Pressable>
-              </View>
 
-            </View>  
+          <Animated.View style={{
+            transform: [
+              {translateY: endAnimation}
+            ]
+          }}>
+            <View style={Styles.info}> 
+                <Text style={Styles.textInfo}>¡Ingresa ya! Completa los desafios y obtén las recompensas</Text>  
+                <Image  source={require("../assets/screenAssets/oboarding2.png")} 
+                style={{
+                  margin: 15,
+                  marginLeft: 20,
+                }}></Image>
+            </View>
+  
+            <Pressable style={Styles.button}  onPress={() => navigation.navigate('Register')}>
+              <Text style={Styles.textBut}>
+              Iniciar Aventura
+              </Text>
+            </Pressable> 
+
+          </Animated.View>
+        </View>  
     </View>
 
   )
@@ -51,17 +115,32 @@ const Styles = StyleSheet.create({
   }, 
   Bienvenido:{
     backgroundColor:"#FCFFFD",
-    
     height: 150,
     width: 310, 
   },
   info:{
-    marginTop:20,
     backgroundColor:"#FCFFFD",
-    width: 310,  
+    width: 310, 
+  },
+  infod:{
+      
   },
   textInfo:{
     fontSize:30,  
     marginLeft: '10%',
-  },
+  }, 
+  textBut:{
+    fontSize:30,   
+    textAlign: 'center',
+    color: "#FFFFFF"
+  }, 
+  button:{
+    backgroundColor: "#2C6B80",
+    width: 150,
+    textAlign: 'center',
+    borderRadius: 15,
+    position: 'absolute',
+    top: 310,
+    left: 150,
+  }
 });

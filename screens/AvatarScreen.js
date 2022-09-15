@@ -1,7 +1,78 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 import { StyleSheet, Text, View, Image, Dimensions } from "react-native";
+import * as data from '../Data/avatars.json';
 
-export default function AvatarScreen({}) {
+
+
+const Avatars = [
+  {
+      id: 0,
+      url: require("../assets/avatarAssets/Neutro.png"),
+      Bloqueado: true
+  },
+  {
+      id: 1,
+      url: require("../assets/avatarAssets/Monroe.png"),
+      Bloqueado: true
+  },
+  {
+      id: 2,
+      url:  require("../assets/avatarAssets/Coraline.png"),
+      Bloqueado: true
+  },
+  {
+      id: 3,
+      url: require("../assets/avatarAssets/Queen.png" ),
+      Bloqueado: true
+  },
+  {
+      id: 4,
+      url:  require("../assets/avatarAssets/Gamora.png"),
+      Bloqueado: true
+  },
+  {
+      id: 5,
+      url:  require("../assets/avatarAssets/Keanu.png"),
+      Bloqueado: true
+  },
+  {
+      id: 6,
+      url: require("../assets/avatarAssets/Isabel.png") ,
+      Bloqueado: true
+  },
+  {
+      id: 7,
+      url: require("../assets/avatarAssets/Jackson.png" ),
+      Bloqueado: true
+  },
+  {
+      id: 8,
+      url: require("../assets/avatarAssets/Tiffany.png") ,
+      Bloqueado: true
+  },
+  {
+      id: 9,
+      url:  require("../assets/avatarAssets/Queen.png"),
+      Bloqueado: true
+  },
+  {
+      id: 10,
+      url:  require("../assets/avatarAssets/Monroe.png"),
+      Bloqueado: true
+  },
+  {
+      id: 11,
+      url:  require("../assets/avatarAssets/Neutro.png"),
+      Bloqueado: true
+  }
+  
+]
+
+
+
+export default function AvatarScreen({}) {  
+  const avatar = data.Avatars
+
   return (
     <View  style={Styles.container}> 
         <View style={Styles.topContainer}>
@@ -10,18 +81,15 @@ export default function AvatarScreen({}) {
         </View>
         <Text style={Styles.textUser}>Mis Avatares</Text>
         <View style={Styles.boxContainer}>
-          <Image style={Styles.box} source={require("../assets/avatarAssets/Gamora.png")}></Image> 
-          <Image style={Styles.box}></Image> 
-          <Image style={Styles.box}></Image> 
-          <Image style={Styles.box}></Image> 
-          <Image style={Styles.box}></Image> 
-          <Image style={Styles.box}></Image> 
-          <Image style={Styles.box}></Image> 
-          <Image style={Styles.box}></Image> 
-          <Image style={Styles.box}></Image> 
-          <Image style={Styles.box}></Image> 
-          <Image style={Styles.box}></Image> 
-          <Image style={Styles.box}></Image> 
+          {
+            avatar.map((item,  key) => { 
+              const avat = encodeURI(item.url)
+              
+              return(
+                <Image style={Styles.box} key={key} source={{require: avat}}></Image> 
+              );
+            })
+          } 
         </View>
         
     </View>

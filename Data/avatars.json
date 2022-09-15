@@ -1,0 +1,65 @@
+{
+    "Avatars":[
+        {
+            "id": 0,
+            "url": "../assets/avatarAssets/Neutro.png",
+            "Bloqueado": true
+        },
+        {
+            "id": 1,
+            "url": "../assets/avatarAssets/Monroe.png",
+            "Bloqueado": true
+        },
+        {
+            "id": 2,
+            "url": "../assets/avatarAssets/Coraline.png",
+            "Bloqueado": true
+        },
+        {
+            "id": 3,
+            "url":"../assets/avatarAssets/Queen.png" ,
+            "Bloqueado": true
+        },
+        {
+            "id": 4,
+            "url": "../assets/avatarAssets/Gamora.png",
+            "Bloqueado": true
+        },
+        {
+            "id": 5,
+            "url": "../assets/avatarAssets/Keanu.png",
+            "Bloqueado": true
+        },
+        {
+            "id": 6,
+            "url":"../assets/avatarAssets/Isabel.png" ,
+            "Bloqueado": true
+        },
+        {
+            "id": 7,
+            "url":"../assets/avatarAssets/Jackson.png" ,
+            "Bloqueado": true
+        },
+        {
+            "id": 8,
+            "url":"../assets/avatarAssets/Tiffany.png" ,
+            "Bloqueado": true
+        },
+        {
+            "id": 9,
+            "url": "../assets/avatarAssets/Queen.png",
+            "Bloqueado": true
+        },
+        {
+            "id": 10,
+            "url": "../assets/avatarAssets/Monroe.png",
+            "Bloqueado": true
+        },
+        {
+            "id": 11,
+            "url": "../assets/avatarAssets/Neutro.png",
+            "Bloqueado": true
+        }
+        
+    ]
+}
