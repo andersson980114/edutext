@@ -3,7 +3,7 @@ import * as SQLite from "expo-sqlite";
 export function conectionDb(){
     const db = SQLite.openDatabase(
         {
-        main: 'usersDb',
+        name: 'usersDb',
         location: 'default'
         }, 
         () => {},

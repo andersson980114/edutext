@@ -2,6 +2,7 @@ import React,{useEffect, useState} from "react";
 import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, Alert } from "react-native";
 import * as data from '../Data/avatars.json';
 import { Avatars } from "../Data/imagenes";
+import {conectionDb} from "../utils/db"
 
 export default function AvatarScreen({}) {  
   const avatar = data.Avatars
@@ -43,11 +44,13 @@ export default function AvatarScreen({}) {
     }
   }
 
+
+
   return (
     <View  style={Styles.container}> 
         <View style={Styles.topContainer}>
           <Image source={Avatars[user].url} style={Styles.Ubox}></Image> 
-          <Text style={Styles.textUser}>User Name</Text>
+          <Text style={Styles.textUser}></Text>
         </View>
         <Text style={Styles.textUser}>Mis Avatares</Text>
         <View style={Styles.boxContainer}>

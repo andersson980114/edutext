@@ -33,20 +33,32 @@ function getHeaderTitle(route) {
 
 export default function App() {
     const [logueado, setLogueado] = useState(true)
-    /*
+    
     useEffect(function() {
        function init(){
-         initDb();
+         const db = initDb();
         console.log("db")
+        
+db.transaction(
+(tx) => {
+  tx.executeSql(
+  ".tables",
+  [],
+  (tx, results) => {
+    console.log(results)
+  },
+  error => {console.log("falle")})
+}
+)
       }
       init();
     }, []);
-    */
+    
 
     return (
       <NavigationContainer > 
         
-        <Stack.Navigator    initialRouteName='Avatar'
+        <Stack.Navigator    initialRouteName='Register'
           screenOptions ={{ 
               
             headerStyle: {
