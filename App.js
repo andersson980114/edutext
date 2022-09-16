@@ -19,7 +19,7 @@ const Stack = createNativeStackNavigator();
 
 
 function getHeaderTitle(route) {
-  const routeName = getFocusedRouteNameFromRoute(route) ?? 'Avatar';
+  const routeName = getFocusedRouteNameFromRoute(route) ?? 'Home';
 
   switch (routeName) {
     case 'Avatar':

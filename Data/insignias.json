@@ -1,0 +1,52 @@
+{
+    "Insignias":[
+        {
+            "id": 0, 
+            "Bloqueado": false
+        },
+        {
+            "id": 1, 
+            "Bloqueado": true
+        },
+        {
+            "id": 2, 
+            "Bloqueado": true
+        },
+        {
+            "id": 3, 
+            "Bloqueado": true
+        },
+        {
+            "id": 4, 
+            "Bloqueado": true
+        },
+        {
+            "id": 5, 
+            "Bloqueado": true
+        },
+        {
+            "id": 6, 
+            "Bloqueado": true
+        },
+        {
+            "id": 7, 
+            "Bloqueado": true
+        },
+        {
+            "id": 8, 
+            "Bloqueado": true
+        },
+        {
+            "id": 9, 
+            "Bloqueado": true
+        },
+        {
+            "id": 10, 
+            "Bloqueado": true
+        },
+        {
+            "id": 11, 
+            "Bloqueado": true
+        }
+    ]
+}

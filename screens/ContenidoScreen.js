@@ -3,13 +3,8 @@ import React from 'react';
 import { View, Text, StyleSheet, FlatList, Image, Dimensions, SafeAreaView, Animated} from 'react-native' 
 
 const imagenes = [
-  "https://images.unsplash.com/photo-1559494007-9f5847c49d94?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-  "https://images.unsplash.com/photo-1506477331477-33d5d8b3dc85?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2425&q=80",
-  "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=652&q=80",
-  "https://images.unsplash.com/photo-1525183995014-bd94c0750cd5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-  "https://images.unsplash.com/photo-1488462237308-ecaa28b729d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=714&q=80",
-  "https://images.unsplash.com/photo-1503756234508-e32369269deb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1035&q=80",
-  "https://images.unsplash.com/photo-1504681869696-d977211a5f4c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=652&q=80", 
+  require("../assets/Niveles/intro/1.png"),
+  require("../assets/Niveles/intro/2.png"),
 ];
 
 
@@ -68,10 +63,10 @@ export default function ContenidoScreen() {
                   transform: [{ translateY: scrollY }],
                 }}
               >
-                <Image source={{ uri: item }} style={styles.posterImage} />
+                <Image source={item} style={styles.posterImage} />
                 <Text style={{ fontWeight: "bold", fontSize: 26 }}>
                   {" "} 
-                  descripción o explicación breve de la imagen que se está mostrando
+                  Debemos dirigirnos al buscador de nuestra barra de tareas y poner Word en el buscador y seleccionar el procesador de textos.
                 </Text>
               </Animated.View>
             </View>
@@ -96,5 +91,7 @@ const styles = StyleSheet.create({
     borderRadius: 24,
     margin: 0,
     marginBottom: 10,
+    borderColor: "#2C6B80",
+    borderWidth: 3
   },
 });

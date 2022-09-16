@@ -1,92 +1,70 @@
 import React,{useEffect, useState} from "react";
-import { StyleSheet, Text, View, Image, Dimensions } from "react-native";
+import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, Alert } from "react-native";
 import * as data from '../Data/avatars.json';
-
-
-
-const Avatars = [
-  {
-      id: 0,
-      url: require("../assets/avatarAssets/Neutro.png"),
-      Bloqueado: true
-  },
-  {
-      id: 1,
-      url: require("../assets/avatarAssets/Monroe.png"),
-      Bloqueado: true
-  },
-  {
-      id: 2,
-      url:  require("../assets/avatarAssets/Coraline.png"),
-      Bloqueado: true
-  },
-  {
-      id: 3,
-      url: require("../assets/avatarAssets/Queen.png" ),
-      Bloqueado: true
-  },
-  {
-      id: 4,
-      url:  require("../assets/avatarAssets/Gamora.png"),
-      Bloqueado: true
-  },
-  {
-      id: 5,
-      url:  require("../assets/avatarAssets/Keanu.png"),
-      Bloqueado: true
-  },
-  {
-      id: 6,
-      url: require("../assets/avatarAssets/Isabel.png") ,
-      Bloqueado: true
-  },
-  {
-      id: 7,
-      url: require("../assets/avatarAssets/Jackson.png" ),
-      Bloqueado: true
-  },
-  {
-      id: 8,
-      url: require("../assets/avatarAssets/Tiffany.png") ,
-      Bloqueado: true
-  },
-  {
-      id: 9,
-      url:  require("../assets/avatarAssets/Queen.png"),
-      Bloqueado: true
-  },
-  {
-      id: 10,
-      url:  require("../assets/avatarAssets/Monroe.png"),
-      Bloqueado: true
-  },
-  {
-      id: 11,
-      url:  require("../assets/avatarAssets/Neutro.png"),
-      Bloqueado: true
-  }
-  
-]
-
-
+import { Avatars } from "../Data/imagenes";
 
 export default function AvatarScreen({}) {  
   const avatar = data.Avatars
+  const [user, setUser] = useState(0)//imagen de usuario
+
+
+  useEffect(() => {
+    avatar.map((item) => {
+      if(item.Selected){
+        setUser(item.id)
+      }
+    })
+  }, [])
+  
+  const cambioUser =(id, bloqueado) =>{
+    if(!bloqueado){
+      Alert.alert(
+        'Seleccionar Avatar',
+        'Usted ha cambiado de avatar',
+        [
+          {
+            text: 'OK', 
+          }
+        ],
+        {cancelable: false}
+      ); 
+      setUser(id)
+    }else{
+      Alert.alert(
+        'Avatar Bloqueado',
+        'Este avatar aun no puede ser elegido',
+        [
+          {
+            text: 'OK', 
+          }
+        ],
+        {cancelable: false}
+      ); 
+    }
+  }
 
   return (
     <View  style={Styles.container}> 
         <View style={Styles.topContainer}>
-          <View style={Styles.Ubox}></View> 
+          <Image source={Avatars[user].url} style={Styles.Ubox}></Image> 
           <Text style={Styles.textUser}>User Name</Text>
         </View>
         <Text style={Styles.textUser}>Mis Avatares</Text>
         <View style={Styles.boxContainer}>
           {
-            avatar.map((item,  key) => { 
-              const avat = encodeURI(item.url)
-              
+            avatar.map((item) => { 
+              let url=""
+              if(item.Bloqueado){
+                url = require("../assets/screenAssets/Bloqueado.png")
+              }else{
+                url = Avatars[item.id].url
+              }
               return(
-                <Image style={Styles.box} key={key} source={{require: avat}}></Image> 
+                <View key={item.id}>
+                  <TouchableOpacity onPress={() => cambioUser(item.id, item.Bloqueado)}>
+                    <Image source={url} style={Styles.box} ></Image>  
+                  </TouchableOpacity>
+                </View>
               );
             })
           } 
@@ -133,6 +111,8 @@ const Styles = StyleSheet.create({
     backgroundColor: '#D9D9D9', 
     borderRadius: 50,
     marginTop: 10,
+    borderColor: "#2C6B80",
+    borderWidth: 3
   },
   box:{
     height: ANCHO_CONTENEDOR,
