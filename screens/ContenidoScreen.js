@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { View, Text, StyleSheet, FlatList, Image, Dimensions, SafeAreaView, Animated} from 'react-native' 
+import * as data from '../Data/wordContenido.json'
+import { Contenido } from '../Data/imagenes';
 
 const imagenes = [
   require("../assets/Niveles/intro/1.png"),
@@ -28,6 +30,7 @@ export default function ContenidoScreen() {
           [{ nativeEvent: { contentOffset: { x: scrollX } } }],
           { useNativeDriver: true }
         )}
+        
         showsHorizontalScrollIndicator={false}
         horizontal={true}
         snapToAlignment="start"

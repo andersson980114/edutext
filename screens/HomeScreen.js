@@ -1,14 +1,22 @@
 import React from "react";
 import { Text, View,Button, Image, StyleSheet, Dimensions, Pressable ,SafeAreaView} from "react-native";
 import { Card} from 'react-native-elements'
-
+import { UseOpcionContext } from "../Contexts/InfoProvider";
 
 export default function HomeScreen({ navigation }) {
+
+  const {opcion, handleOption} = UseOpcionContext()
+
+  const handleChange = (nombre) => {
+    handleOption(nombre)
+    navigation.navigate('Word')
+  }
+
   return (
     <View View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         
         <View style={styles.cardContainer} >
-          <Pressable onPressIn={() => navigation.navigate('Word')} >
+          <Pressable onPressIn={() =>   {handleChange('Word')}} >
             <Image 
               resizeMode="cover"
               source={require('../assets/screenAssets/WordLogo.png')}
@@ -18,7 +26,7 @@ export default function HomeScreen({ navigation }) {
         </View>
 
         <View style={styles.cardContainer} >
-          <Pressable onPress={() => navigation.navigate('PreguntaA')} >
+          <Pressable onPress={() =>  {handleChange('Docs')}} >
             <Image 
                 resizeMode="cover"
                 source={require('../assets/screenAssets/DocsLogo.png')}
@@ -27,7 +35,6 @@ export default function HomeScreen({ navigation }) {
           </Pressable>
         </View>
 
-        
     </View>
   )
 };

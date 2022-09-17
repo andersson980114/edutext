@@ -114,7 +114,7 @@ export const Avatars = [
     
   ]
 
-  const Contenido = [
+export const Contenido = [
     {
         id: 0,
         url:require("../assets/Niveles/intro/1.png")

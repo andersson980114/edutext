@@ -1,17 +1,25 @@
-import React from "react";
+import React,{useContext, useEffect} from "react";
 import { Text, View,Button, Image, StyleSheet, Dimensions, Pressable } from "react-native";
-import { Card} from 'react-native-elements'
-
+import { Card} from 'react-native-elements' 
+import { UseNivelContext } from "../Contexts/InfoProvider";
 
 export default function WordScreen({ navigation }) {
+  
+  const {nivel, handleNivel} =  UseNivelContext() 
+
+  const handleChange = (nombre) => {
+    handleNivel(nombre)
+    navigation.navigate('Temas')
+  }
+
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         
         <View style={styles.cardContainer} >
-          <Pressable onPressIn={() => navigation.navigate('Temas')} >
+          <Pressable onPressIn={() => {handleChange('Introduccion')}} >
             <View style={styles.topCard} > 
               <Text style={styles.titleIntro} >
-                INTRODUCCIÓN
+                INTRODUCCIÓN 
               </Text>
             </View>
             <View  style={styles.bottomCard} >
@@ -22,7 +30,7 @@ export default function WordScreen({ navigation }) {
         </View>
 
         <View style={styles.cardContainer} >
-          <Pressable onPressIn={() => navigation.navigate('Temas')} >
+          <Pressable onPressIn={() => {handleChange('Bronce')}} >
             <View style={styles.topCard} >
               <View style={styles.imgContent}>
                 <Image 
@@ -43,7 +51,7 @@ export default function WordScreen({ navigation }) {
         </View>
 
         <View style={styles.cardContainer} >
-          <Pressable onPressIn={() => navigation.navigate('Temas')} >
+          <Pressable onPressIn={() => {handleChange('Plata')}} >
             <View style={styles.topCard} >
               <View style={styles.imgContent}>
                 <Image 
@@ -64,7 +72,7 @@ export default function WordScreen({ navigation }) {
         </View>
 
         <View style={styles.cardContainer} >
-          <Pressable onPressIn={() => navigation.navigate('Temas')} >
+          <Pressable onPressIn={() =>{handleChange('Oro')}} >
             <View style={styles.topCard} >
               <View style={styles.imgContent}>
                 <Image 
@@ -85,7 +93,7 @@ export default function WordScreen({ navigation }) {
         </View>
 
         <View style={styles.cardContainer} >
-          <Pressable onPressIn={() => navigation.navigate('Temas')} >
+          <Pressable onPressIn={() =>{handleChange('Favoritos')}} >
             <View style={styles.topCard} >
               <View style={styles.imgContent}>
                 <Image 
@@ -95,7 +103,7 @@ export default function WordScreen({ navigation }) {
                   />
               </View>
               <Text style={styles.titleCar} >
-               DIAMANTE
+               Favoritos
               </Text>
             </View>
             <View  style={styles.bottomCard} >

@@ -3,7 +3,7 @@ import { Text, View,Button, Image, StyleSheet, Dimensions, Pressable } from "rea
 import { Card} from 'react-native-elements'
 
 
-export default function TemasScreen({ navigation }) {
+export default function TemasScreen({navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 
