@@ -3,10 +3,14 @@ import React from 'react';
 import { View, Text, StyleSheet, FlatList, Image, Dimensions, SafeAreaView, Animated} from 'react-native' 
 import * as data from '../Data/wordContenido.json'
 import { Contenido } from '../Data/imagenes';
+import ContenidoC from '../components/ContenidoC';
+import { UseInfoContext} from "../Contexts/InfoProvider";
 
 const imagenes = [
   require("../assets/Niveles/intro/1.png"),
   require("../assets/Niveles/intro/2.png"),
+  require("../assets/Niveles/intro/2.png"),
+
 ];
 
 
@@ -21,7 +25,10 @@ const ALTURA_BACKDROP = height * 0.5;
  
 
 export default function ContenidoScreen() {
-  const contenido = data.Contenido
+  
+  const {opcion, nivel, tema} = UseInfoContext();
+
+  const contenidoD = data.Contenido
   const imgNivel = Contenido
   const scrollX = React.useRef(new Animated.Value(0)).current;
 
@@ -47,8 +54,8 @@ export default function ContenidoScreen() {
         scrollEventThrottle={16}
         
         //contenido
-        data={contenido}
-        keyExtractor={(item) => item}
+        data={Contenido}
+        keyExtractor={(item) => item.id}
         renderItem={({ item, index }) => {
           const inputRange = [
             (index - 1) * ANCHO_CONTENEDOR,
@@ -60,26 +67,31 @@ export default function ContenidoScreen() {
             inputRange,
             outputRange: [0, -50, 0],
           });
-          return (
-            <View style={{ width: ANCHO_CONTENEDOR }} >
-              <Animated.View 
-                style={{
-                  marginHorizontal: ESPACIO,
-                  padding: ESPACIO,
-                  borderRadius: 34,
-                  backgroundColor: "#fff",
-                  alignItems: "center",
-                  transform: [{ translateY: scrollY }],
-                }}
-              >
-                <Image source={imgNivel[item.id].url} style={styles.posterImage} />
-                <Text style={{ fontWeight: "bold", fontSize: 26 }}>
-                  {" "} 
-                  {item.Texto}
-                </Text>
-              </Animated.View>
-            </View>
-          );
+
+          if(item.Nivel == nivel[1] && item.Opcion == opcion[1] && item.Tema == tema[1] ){
+            //console.log(item.Nivel, ", ", item.Opcion, ", ", item.Tema)
+            //console.log(nivel[1], " - ", opcion[1], " - ", tema[1])
+            return (
+              <View style={{ width: ANCHO_CONTENEDOR }} >
+                <Animated.View 
+                  style={{
+                    marginHorizontal: ESPACIO,
+                    padding: ESPACIO,
+                    borderRadius: 34,
+                    backgroundColor: "#fff",
+                    alignItems: "center",
+                    transform: [{ translateY: scrollY }],
+                  }}
+                >
+                  <Image source={item.url} style={styles.posterImage} />
+                  <Text style={{ fontWeight: "bold", fontSize: 26 }}>
+                    {" "} 
+                    {item.Texto}
+                  </Text>
+                </Animated.View>
+              </View>
+            );
+          }
         }}
       />
       

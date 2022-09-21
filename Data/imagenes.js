@@ -117,10 +117,20 @@ export const Avatars = [
 export const Contenido = [
     {
         id: 0,
-        url:require("../assets/Niveles/intro/1.png")
+        Opcion: 0,
+        Nivel: 0, 
+        Tema: 0,
+        Texto:"Debemos dirigirnos al buscador de nuestra barra de tareas y poner Word en el buscador y seleccionar el procesador de textos.",
+        url:require("../assets/Niveles/intro/1.png"),
+        Prueba: false
     },
     {
         id: 1,
-        url: require("../assets/Niveles/intro/2.png")
+        Opcion: 0,
+        Nivel: 0, 
+        Tema:0,
+        Texto:"En la siguiente pestaña debemos seleccionar la opcion de Documento en Blanco, la cual nos creará un nuevo documento",
+        url:require("../assets/Niveles/intro/2.png"),
+        Prueba: false
     }
   ]

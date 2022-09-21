@@ -6,23 +6,17 @@
             "Nivel": 0, 
             "Tema": 1,
             "Texto":"Debemos dirigirnos al buscador de nuestra barra de tareas y poner Word en el buscador y seleccionar el procesador de textos.",
-            "Pueba": false
+            "url":"../assets/Niveles/intro/2.png",
+            "Prueba": false
         },
         {
             "id": 1,
             "Opcion": 0,
             "Nivel": 0, 
-            "Tema": 1,
-            "Texto": "P",
-            "Pueba": false
-        },
-        {
-            "id": 2,
-            "Opcion": 0,
-            "Nivel": 0, 
             "Tema":1,
             "Texto":"En la siguiente pestaña debemos seleccionar la opcion de Documento en Blanco, la cual nos creará un nuevo documento",
-            "Pueba": false
+            "url":"../assets/Niveles/intro/2.png",
+            "Prueba": false
         }
     ]
 

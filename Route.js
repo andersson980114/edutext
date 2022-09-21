@@ -19,12 +19,12 @@ const Stack = createNativeStackNavigator();
   
 
 function getHeaderTitle(route) {
-  const routeName = getFocusedRouteNameFromRoute(route) ?? 'Home'; 
+  const routeName = getFocusedRouteNameFromRoute(route) ?? 'Inicio'; 
   switch (routeName) {
     case 'Avatar':
       return 'Avatar';
-    case 'Home':
-      return 'Home';
+    case 'Inicio':
+      return 'Inicio';
     case 'Insignias':
       return 'Insignias'; 
   }
@@ -57,7 +57,7 @@ export default function App() {
     return (
         <NavigationContainer > 
         
-          <Stack.Navigator    initialRouteName='Home'
+          <Stack.Navigator    initialRouteName='Inicio'
             screenOptions ={{ 
                 
               headerStyle: {

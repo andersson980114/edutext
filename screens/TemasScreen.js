@@ -11,7 +11,7 @@ export default function TemasScreen({navigation }) {
   const temas = data.Temas
 
   const handleChange = (nombre) => {
-    handleNivel(nombre)
+    handleTema(nombre)
     navigation.navigate('Contenido')
   }
   
@@ -22,10 +22,10 @@ export default function TemasScreen({navigation }) {
           temas.map((item, key) => {
             //console.log(item.Nivel, ", ", item.Opcion)
             //console.log(nivel[1], " - ", opcion[1])
-            if(item.Nivel == nivel[1] && item.Opcion == opcion[1]){
+            if(item.Nivel == nivel[1] && item.Opcion == opcion[1] ){
              return(
                 <View key={key} >
-                  <TouchableOpacity onPress={() => navigation.navigate('Contenido')}  style={styles.cardContainer}>
+                  <TouchableOpacity onPress={() => handleChange([item.Nombre, item.id])}  style={styles.cardContainer}>
                     
                     <Text style={styles.titleCar} >
                         {item.Nombre}
