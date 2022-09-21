@@ -24,9 +24,9 @@ export function UseTemaContext(){
 
 export  function InfoProvider({children}) {
 
-  const [opcion, setOpcion] = useState('Word')
-  const [nivel, setNivel] = useState('Introduccion')
-  const [tema, setTema] = useState('Inicio')
+  const [opcion, setOpcion] = useState(['Word', 0])
+  const [nivel, setNivel] = useState(['Introduccion',0])
+  const [tema, setTema] = useState(['Inicio',0])
   
 
   const handleOption = (a) =>{

@@ -1,57 +1,48 @@
-import React from "react";
-import { Text, View,Button, Image, StyleSheet, Dimensions, Pressable } from "react-native";
-import { Card} from 'react-native-elements'
-
+import React , { useEffect } from "react";
+import { Text, View,ScrollView, Image, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
+import * as data from '../Data/wordTemas.json';
+import { UseInfoContext, UseTemaContext} from "../Contexts/InfoProvider";
 
 export default function TemasScreen({navigation }) {
+  const {opcion, nivel, tema} = UseInfoContext();
+  const {mytema, handleTema} = UseTemaContext();
+  const favorite = require('../assets/screenAssets/favorite.png') ;
+  const noFavorite =  require('../assets/screenAssets/noFavorite.png');
+  const temas = data.Temas
+
+  const handleChange = (nombre) => {
+    handleNivel(nombre)
+    navigation.navigate('Contenido')
+  }
+  
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <ScrollView >
+        {
+          temas.map((item, key) => {
+            //console.log(item.Nivel, ", ", item.Opcion)
+            //console.log(nivel[1], " - ", opcion[1])
+            if(item.Nivel == nivel[1] && item.Opcion == opcion[1]){
+             return(
+                <View key={key} >
+                  <TouchableOpacity onPress={() => navigation.navigate('Contenido')}  style={styles.cardContainer}>
+                    
+                    <Text style={styles.titleCar} >
+                        {item.Nombre}
+                    </Text>
 
-        <View  >
-          <Pressable onPressIn={() => navigation.navigate('Contenido')}  style={styles.cardContainer}>
-            
-            <Text style={styles.titleCar} >
-                ABRIR WORD
-            </Text>
-
-            <Image 
-                resizeMode="cover"
-                source={require('../assets/screenAssets/noFavorite.png')}
-                style={styles.imgCard}
-            /> 
-          </Pressable>
-        </View> 
-
-        <View  >
-          <Pressable onPressIn={() => navigation.navigate('Contenido')}  style={styles.cardContainer}>
-            
-            <Text style={styles.titleCar} >
-                ABRIR WORD
-            </Text>
-
-            <Image 
-                resizeMode="cover"
-                source={require('../assets/screenAssets/noFavorite.png')}
-                style={styles.imgCard}
-            /> 
-          </Pressable>
-        </View> 
-
-        <View  >
-          <Pressable onPressIn={() => navigation.navigate('Contenido')}  style={styles.cardContainer}>
-            
-            <Text style={styles.titleCar} >
-                ABRIR WORD
-            </Text>
-
-            <Image 
-                resizeMode="cover"
-                source={require('../assets/screenAssets/favorite.png')}
-                style={styles.imgCard}
-            /> 
-          </Pressable>
-        </View> 
-        
+                    <Image 
+                        resizeMode="cover"
+                        source={item.Favorito ? favorite: noFavorite}
+                        style={styles.imgCard}
+                    /> 
+                  </TouchableOpacity>
+                </View> 
+             )
+            }
+          })
+        }
+      </ScrollView>
 
     </View>
   )

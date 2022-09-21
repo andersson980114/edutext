@@ -6,7 +6,7 @@ export default function SplashScreen ({navigation, logueo})  {
     useEffect(() => {
         setTimeout(() =>{
         setAuthLoaded(true);
-        }, 1000);
+        }, 1600);
     }, []);
     
     useEffect(() => { 

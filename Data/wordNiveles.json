@@ -2,26 +2,62 @@
     "Niveles":[
         {
             "id": 0,
-            "idOpcion": 1,
+            "idOpcion": 0,
             "Nivel": "INTRODUCCION",
             "Progreso": 0
         },
         {
             "id": 1,
-            "idOpcion": 1,
+            "idOpcion": 0,
             "Nivel": "Bronce",
             "Progreso": 0
         },
         {
             "id": 2,
-            "idOpcion": 1,
+            "idOpcion": 0,
             "Nivel": "Plata",
             "Progreso": 0
         },
         {
             "id": 3,
+            "idOpcion": 0,
+            "Nivel": "Oro",
+            "Progreso": 0
+        },
+        {
+            "id": 4,
+            "idOpcion": 0,
+            "Nivel": "Favoritos",
+            "Progreso": 0
+        },
+        {
+            "id": 5,
+            "idOpcion": 1,
+            "Nivel": "INTRODUCCION",
+            "Progreso": 0
+        },
+        {
+            "id": 6,
+            "idOpcion": 1,
+            "Nivel": "Bronce",
+            "Progreso": 0
+        },
+        {
+            "id": 7,
+            "idOpcion": 1,
+            "Nivel": "Plata",
+            "Progreso": 0
+        },
+        {
+            "id": 8,
             "idOpcion": 1,
             "Nivel": "Oro",
+            "Progreso": 0
+        },
+        {
+            "id": 9,
+            "idOpcion": 1,
+            "Nivel": "Favoritos",
             "Progreso": 0
         }
     ]

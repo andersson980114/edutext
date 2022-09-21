@@ -21,27 +21,33 @@ const ALTURA_BACKDROP = height * 0.5;
  
 
 export default function ContenidoScreen() {
+  const contenido = data.Contenido
+  const imgNivel = Contenido
   const scrollX = React.useRef(new Animated.Value(0)).current;
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar hidden /> 
       <Animated.FlatList
         onScroll={Animated.event(
-          [{ nativeEvent: { contentOffset: { x: scrollX } } }],
-          { useNativeDriver: true }
-        )}
+            [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+            { useNativeDriver: true }
+          )}
         
         showsHorizontalScrollIndicator={false}
         horizontal={true}
         snapToAlignment="start"
         contentContainerStyle={{
-          paddingTop: 100,
-          paddingHorizontal: ESPACIO_CONTENEDOR,
-        }}
+            paddingTop: 100,
+            paddingHorizontal: ESPACIO_CONTENEDOR,
+          }}
+
         snapToInterval={ANCHO_CONTENEDOR}
         decelerationRate={0}
         scrollEventThrottle={16}
-        data={imagenes}
+        
+        //contenido
+        data={contenido}
         keyExtractor={(item) => item}
         renderItem={({ item, index }) => {
           const inputRange = [
@@ -55,8 +61,8 @@ export default function ContenidoScreen() {
             outputRange: [0, -50, 0],
           });
           return (
-            <View style={{ width: ANCHO_CONTENEDOR }}>
-              <Animated.View
+            <View style={{ width: ANCHO_CONTENEDOR }} >
+              <Animated.View 
                 style={{
                   marginHorizontal: ESPACIO,
                   padding: ESPACIO,
@@ -66,10 +72,10 @@ export default function ContenidoScreen() {
                   transform: [{ translateY: scrollY }],
                 }}
               >
-                <Image source={item} style={styles.posterImage} />
+                <Image source={imgNivel[item.id].url} style={styles.posterImage} />
                 <Text style={{ fontWeight: "bold", fontSize: 26 }}>
                   {" "} 
-                  Debemos dirigirnos al buscador de nuestra barra de tareas y poner Word en el buscador y seleccionar el procesador de textos.
+                  {item.Texto}
                 </Text>
               </Animated.View>
             </View>

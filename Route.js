@@ -57,7 +57,7 @@ export default function App() {
     return (
         <NavigationContainer > 
         
-          <Stack.Navigator    initialRouteName='Register'
+          <Stack.Navigator    initialRouteName='Home'
             screenOptions ={{ 
                 
               headerStyle: {
@@ -75,19 +75,21 @@ export default function App() {
               component={Navigation} 
               options={({ route }) => ({
                 headerTitle: getHeaderTitle(route),  
-              })}
+                headerBackVisible:false 
+              })
+            }
             />
             
             <Stack.Screen name="Word" options={() =>( {
-                headerTitle:String(opcion)
+                headerTitle:String(opcion[0]) 
             })} component={WordScreen}  />
 
             <Stack.Screen name="Temas" options={() =>( {
-                headerTitle:String(nivel)
+                headerTitle:String(nivel[0])
             })} component={TemasScreen}  />
     
             < Stack.Screen name="Contenido" options={() =>( {
-                headerTitle:String(tema)
+                headerTitle:String(tema[0])
             })} component={ContenidoScreen}  /> 
     
             <Stack.Screen name="PreguntaA" component={PreguntaA}  />

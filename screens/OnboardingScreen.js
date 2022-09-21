@@ -3,6 +3,13 @@ import { StyleSheet, Text, View, Image, Dimensions, Pressable, Button, Animated}
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 
+const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
+
+const ANCHO_CONTENEDOR = width * 0.5;
+const ALTURA_CONTENEDOR = height * 0.5;
+const ESPACIO_CONTENEDOR = (width - ANCHO_CONTENEDOR) / 2;
+
 export default function OnboardingScreen({navigation})  {
    
   const startAnimation = useRef(new Animated.Value(0)).current;
@@ -11,6 +18,8 @@ export default function OnboardingScreen({navigation})  {
 
   const edges = useSafeAreaInsets()
 
+  const timeAnimation = 8000;
+  
   useEffect(() => {
     setTimeout(() =>{
       Animated.sequence([
@@ -30,7 +39,7 @@ export default function OnboardingScreen({navigation})  {
           )
       ]) 
       .start();
-    }, 10000)
+    }, timeAnimation)
   }, [])
 
   
@@ -140,7 +149,7 @@ const Styles = StyleSheet.create({
     textAlign: 'center',
     borderRadius: 15,
     position: 'absolute',
-    top: 310,
-    left: 150,
+    top: ALTURA_CONTENEDOR,
+    left: ANCHO_CONTENEDOR-75,
   }
 });
