@@ -16,7 +16,7 @@ import RegisterScreen from './screens/RegisterScreen';
 import {initDb} from './utils/db' 
 //import {initDatadabase} from './utils/db' 
 const Stack = createNativeStackNavigator();
-  
+   ;
 
 function getHeaderTitle(route) {
   const routeName = getFocusedRouteNameFromRoute(route) ?? 'Inicio'; 
@@ -35,29 +35,16 @@ export default function App() {
     const {opcion, nivel, tema} = UseInfoContext()
     useEffect(function() {
        function init(){
-         const db = initDb();
-        console.log("db")
-        
-    db.transaction(
-    (tx) => {
-      tx.executeSql(
-      ".tables",
-      [],
-      (tx, results) => {
-        console.log(results)
-      },
-      error => {console.log("falle")})
-    }
-    )
+        const db = initDb();
+        //console.log(db) 
       }
       init();
-    }, []);
-    
+    }, []);  
 
     return (
         <NavigationContainer > 
         
-          <Stack.Navigator    initialRouteName='Inicio'
+          <Stack.Navigator    initialRouteName='PreguntaA'
             screenOptions ={{ 
                 
               headerStyle: {

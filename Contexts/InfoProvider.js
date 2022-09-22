@@ -5,6 +5,7 @@ const InfoContext = React.createContext();
 const OpcionContext = React.createContext();
 const NivelContext = React.createContext();
 const TemaContext = React.createContext();
+const PreguntaContext = React.createContext();
 
 export function UseInfoContext(){
   return useContext(InfoContext)
@@ -22,11 +23,16 @@ export function UseTemaContext(){
   return useContext(TemaContext)
 }
 
+export function UsePreguntaContext(){
+  return useContext(PreguntaContext)
+}
+
 export  function InfoProvider({children}) {
 
   const [opcion, setOpcion] = useState(['Word', 0])
   const [nivel, setNivel] = useState(['Introduccion',0])
   const [tema, setTema] = useState(['Inicio',0])
+  const [pregunta, setPregunta] = useState(['Onboarding',0])
   
 
   const handleOption = (a) =>{
@@ -41,16 +47,21 @@ export  function InfoProvider({children}) {
     setTema(a)
   }
  
+  const handlePregunta = (a) =>{
+    setPregunta(a)
+  }
 
   return (
     <OpcionContext.Provider  value={{opcion,handleOption}}>
       <NivelContext.Provider  value={{nivel,handleNivel}}>
         <TemaContext.Provider  value={{tema,handleTema}}> 
+          <PreguntaContext.Provider value={{pregunta, handlePregunta}}>
 
-          <InfoContext.Provider value={{opcion,nivel, tema}}>
-            {children}
-          </InfoContext.Provider>
+            <InfoContext.Provider value={{opcion,nivel, tema}}>
+              {children}
+            </InfoContext.Provider>
 
+          </PreguntaContext.Provider>
         </TemaContext.Provider>
       </NivelContext.Provider>
     </OpcionContext.Provider>

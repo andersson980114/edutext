@@ -1,0 +1,115 @@
+{
+    "Onboarding":[
+        {
+            "id": 0,
+            "Pregunta": "¿Cuál de los siguientes es un procesador de textos?",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Excel",
+                    "correcta": false
+                },
+                {
+                    "item": "b",
+                    "text":"Block de notas",
+                    "correcta": false
+                },
+                {
+                    "item": "c",
+                    "text":"Word",
+                    "correcta": true
+                },
+                {
+                    "item": "d",
+                    "text":"Power Point",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 1,
+            "Pregunta": "¿Cuál de los siguientes es un procesador de textos?",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Block de notas",
+                    "correcta": false
+                },
+                {
+                    "item": "b",
+                    "text":"Google Docs",
+                    "correcta": true
+                },
+                {
+                    "item": "c",
+                    "text":"Power Point",
+                    "correcta": false
+                },
+                {
+                    "item": "d",
+                    "text":"WhatsApp",
+                    "correcta": false
+                }
+            ] 
+        }
+    ],
+
+    "Word":[
+        {
+            "id": 0,
+            "Pregunta": "¿Cuál de los siguientes es un procesador de textos?",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Excel",
+                    "correcta": false
+                },
+                {
+                    "item": "b",
+                    "text":"Block de notas",
+                    "correcta": false
+                },
+                {
+                    "item": "c",
+                    "text":"Word",
+                    "correcta": true
+                },
+                {
+                    "item": "d",
+                    "text":"Power Point",
+                    "correcta": false
+                }
+            ] 
+        }
+    ],
+
+    "Docs":[
+        {
+            "id": 0,
+            "Pregunta": "¿Cuál de los siguientes es un procesador de textos?",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Excel",
+                    "correcta": false
+                },
+                {
+                    "item": "b",
+                    "text":"Block de notas",
+                    "correcta": false
+                },
+                {
+                    "item": "c",
+                    "text":"Word",
+                    "correcta": true
+                },
+                {
+                    "item": "d",
+                    "text":"Power Point",
+                    "correcta": false
+                }
+            ] 
+        }
+    ]
+
+}

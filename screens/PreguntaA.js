@@ -1,53 +1,67 @@
-import React from "react";
+import React,{useState} from "react";
 import { Text, View,Button, Image, StyleSheet, Dimensions, Pressable } from "react-native";
 import { Card} from 'react-native-elements'
+import * as data from  '../Data/preguntas.json'
+import Retroalimentacion from "../components/Retroalimentacion";
+import {UsePreguntaContext} from '../Contexts/InfoProvider';
+import Respuesta from '../components/Respuesta.js'
 
+let tema;
+let index;
 
 export default function PreguntaA({ navigation }) {
+  const {pregunta, setPregunta} = UsePreguntaContext() 
+  const [estado, setEstado] = useState(false) //si se activo una respuesta o no
+  const [respuesta, setRespuesta] = useState(false)
+  const [pres, setPress] = useState(false)
+
+  index = pregunta[1]
+  switch(pregunta[0]){
+    case 'Word':
+      tema = data.Word
+      break;
+    case 'Docs':
+      tema = data.Docs
+      break;
+    default:
+      tema = data.Onboarding
+      break;
+  }
+  //console.log(tema[index].Opciones);
+
+  const correcta = (opcion) => {
+    setEstado(true)
+    setRespuesta(opcion) 
+    setPress(true)  
+  }
   return (
     <View style={styles.container}>
         
         <View style={styles.pregunta} >
             <Text style={styles.textPregunta}> 
-                Acá se realizará una pregunta, puede ser larga o corta, lo que importa es que se entienda.
-                En este ejemplo se alargará lo mas posibleasssssssssssssssssssssssssssssssssssssssssssssas
+               {tema[index].Pregunta}
             </Text>
         </View>
 
         <View style={styles.opciones}>
+
+          {
+            tema[index].Opciones.map((item, key) => {
+                return(
+                  <View key={key}>
+                    <Pressable  >  
+                      <Respuesta onChange={correcta} item={item.item} texto={item.text} correctaR={item.correcta} pres={pres}/> 
+                    </Pressable>
+                  
+                  </View>
+                )
+            })
+          }
           
-          <View style={styles.cardContainer} >
-            <Pressable onPressIn={() => navigation.navigate('Temas')} >   
-                <Text style={styles.titleCar} >
-                  a- Opción
-                </Text> 
-            </Pressable>
-          </View>
-
-          <View style={styles.cardContainer} >
-            <Pressable onPressIn={() => navigation.navigate('Temas')} >   
-                <Text style={styles.titleCar} >
-                  b- Opción
-                </Text> 
-            </Pressable>
-          </View>
-
-          <View style={styles.cardContainer} >
-            <Pressable onPressIn={() => navigation.navigate('Temas')} >   
-                <Text style={styles.titleCar} >
-                  c- Opción
-                </Text> 
-            </Pressable>
-          </View>
-
-          <View style={styles.cardContainer} >
-            <Pressable onPressIn={() => navigation.navigate('Temas')} >   
-                <Text style={styles.titleCar} >
-                  d- Opción
-                </Text> 
-            </Pressable>
-          </View>
-
+        </View>
+        
+        <View style={styles.notificacion}  >
+          <Retroalimentacion respuesta={respuesta} estado={estado}/>
         </View>
  
     </View>
@@ -74,16 +88,24 @@ const styles = StyleSheet.create({
     margin: 10,
   },
 
+  retoText:{
+    fontSize: 23,
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 10,
+  },
+
   opciones:{
-     
-    height: '60%', 
+    height: '55%', 
+  },
+  notificacion:{
+    height: '10%', 
   },
  
   pregunta:{  
-    
     alignItems: 'center',
     justifyContent: 'center',
-    height: '30%',
+    height: '25%',
   },
 
   textPregunta:{
@@ -102,6 +124,24 @@ const styles = StyleSheet.create({
       width: 5,
       height: 5,
     },
+    shadowOpacity: 0.75,
+    shadowRadius: 5,
+    elevation: 7,
+    margin: 10, 
+
+  },
+
+  retroalimentacion:{
+    width: deviceWidth - 35, 
+    borderWidth: 3,
+    borderRadius: 15,
+    backgroundColor: '#ACF6AB',
+    borderColor: '#16B20C',
+    shadowOffset: {
+      width: 5,
+      height: 5,
+    },
+    shadowColor:'#000',
     shadowOpacity: 0.75,
     shadowRadius: 5,
     elevation: 7,
