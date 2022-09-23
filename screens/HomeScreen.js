@@ -16,7 +16,7 @@ export default function HomeScreen({ navigation }) {
     <View View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         
         <View style={styles.cardContainer} >
-          <Pressable onPressIn={() =>   {handleChange(['Word',0])}} >
+          <Pressable onPress={() =>   {handleChange(['Word',0])}} >
             <Image 
               resizeMode="cover"
               source={require('../assets/screenAssets/WordLogo.png')}

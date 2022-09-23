@@ -13,6 +13,7 @@ import PreguntaA from  './screens/PreguntaA';
 import OnboardingScreen from './screens/OnboardingScreen';
 import SplashScreen from './screens/SplashScreen';
 import RegisterScreen from './screens/RegisterScreen';
+import Head from './components/Head';
 import {initDb} from './utils/db' 
 //import {initDatadabase} from './utils/db' 
 const Stack = createNativeStackNavigator();
@@ -86,7 +87,9 @@ export default function App() {
             
             <Stack.Screen name="Splash" component={SplashScreen}  navigation={Navigation} logueo={logueado} options={{header: ()=>null}}/>
 
-            <Stack.Screen name="Register" component={RegisterScreen}  navigation={Navigation}  options={{header: ()=>null}}/>
+            <Stack.Screen name="Register" component={RegisterScreen}  navigation={Navigation}  
+                options={{header: ()=>null}}
+            />
               
             
           </Stack.Navigator> 

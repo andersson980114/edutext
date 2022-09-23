@@ -114,6 +114,29 @@ export const Avatars = [
     
   ]
 
+export const Niveles = [
+    {
+        id: 0,
+        url: null
+    },
+    {
+        id: 1,
+        url: require('../assets/screenAssets/bronce.png')
+    },
+    {
+        id: 2,
+        url: require('../assets/screenAssets/Plata.png')
+    },
+    {
+        id: 3,
+        url: require('../assets/screenAssets/oro.png')
+    },
+    {
+        id: 4,
+        url: require('../assets/screenAssets/diamante.png')
+    },
+]
+
 export const Contenido = [
     {
         id: 0,

@@ -1,10 +1,14 @@
 import React,{useState, useEffect, component }from 'react'
-import { Text, View,Button, StyleSheet, TextInput, TouchableOpacity, Alert } from "react-native";
+import { Text, View,Button, StyleSheet, TextInput, Pressable, Dimensions, Alert, Image } from "react-native";
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Dropdown from '../components/Dropdown';
 import { conectionDb, insertUsers } from '../utils/db';
 
 let options = [{id:1, name:'Hombre'},{id:2, name:'Mujer'},{id:3, name:'Otro'}]
+
+const widthC = Dimensions.get("window").width; 
+const heightC = Dimensions.get("window").height;
+
 
 export default function RegisterScreen({navigation}) {
   const [userName, setUserName] = useState('');
@@ -63,50 +67,65 @@ export default function RegisterScreen({navigation}) {
   }
 
   return (
-    <View style={styles.container}>
-      <SafeAreaView>
-        <Text style={styles.text}>
-          Nombre:
-        </Text> 
+      
+      <View  style={styles.container}>
 
-        <TextInput
-          style={styles.input}
-          placeholder='Ingrese su nombre' 
-          onChangeText ={setUserName}
-          value={userName} 
+        <View style={styles.head}>
+          <Image source={require("../assets/screenAssets/Logotipo.png")} style={styles.img}></Image>
+        </View>
+        <View style={styles.formu}>
+          <SafeAreaView >
+              <Text style={styles.text}>
+                Nombre:
+              </Text> 
 
-        /> 
-        <Text style={styles.text}>
-          Apellido:
-        </Text>
+              <TextInput
+                style={styles.input}
+                placeholder='Ingrese su nombre' 
+                onChangeText ={setUserName}
+                value={userName} 
 
-        <TextInput
-          style={styles.input}
-          placeholder='Ingrese su Apellido' 
-          onChangeText={setLastName}
-          value={lastName}
-        /> 
-        <Text style={styles.text}>
-          Genero:
-        </Text>
+              /> 
+              <Text style={styles.text}>
+                Apellido:
+              </Text>
 
-        <Dropdown
-          data = {options}
-          value = {selectedItem}
-          onSelect={onSelect}  
-        />
-    
-        <Button title="Registrar" onPress={() => navigation.navigate('Inicio')} />
-        
-      </SafeAreaView>
-    </View>
+              <TextInput
+                style={styles.input}
+                placeholder='Ingrese su Apellido' 
+                onChangeText={setLastName}
+                value={lastName}
+              /> 
+              <Text style={styles.text}>
+                Genero:
+              </Text>
+
+              <Dropdown
+                data = {options}
+                value = {selectedItem}
+                onSelect={onSelect}  
+              />
+          
+              <Pressable onPress={() => navigation.navigate('Inicio')} >
+                <Text style={styles.button}>
+                  Ingresar
+                </Text>
+              </Pressable>
+              
+          </SafeAreaView>
+
+        </View>
+      </View>
   )
 }
 
 const styles = StyleSheet.create({
-  container : {
+  container:{ 
       flex            : 1,
-      backgroundColor: 'rgba(82, 172, 185, 0.61)',
+      backgroundColor: 'rgba(82, 172, 185, 0.61)', 
+      
+  },
+  formu : {  
       alignItems      : "center",
       justifyContent  : "center",
   },
@@ -114,6 +133,7 @@ const styles = StyleSheet.create({
       fontSize: 24,
       color: '#000', 
       textAlign: 'left',
+      marginTop:10
   },
   options: {
     fontSize: 24,
@@ -144,4 +164,32 @@ const styles = StyleSheet.create({
     fontSize: 24,
     marginBottom: 10,
   },
+  head:{ 
+    backgroundColor: "#2C6B80",
+    padding: 25,   
+    width: widthC, 
+    alignItems: 'center',
+    justifyContent: 'center', 
+  },
+  img:{ 
+    width:widthC*0.9,  
+    marginTop: 40, 
+    height: heightC*0.07,
+    resizeMode: "contain"
+  },
+  button:{
+    backgroundColor: "#2C6B80",
+    width:widthC*0.4,  
+    height: heightC*0.07,
+    textAlign: 'center',
+    justifyContent: 'center', 
+    padding: 8,
+    margin: 20,
+    marginLeft: widthC*0.9 - widthC*0.6,
+    borderRadius: 15,
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "#fff",
+    
+  }
 })
