@@ -1,18 +1,22 @@
 import React, {useState, useEffect} from 'react' 
 import { StyleSheet, View, Image } from "react-native";
+import { useDbContext } from '../Context/DbContext';
+import {countUsers} from '../utils/db'  
 
 export default function SplashScreen ({navigation, logueo})  {
     const [authLoaded, setAuthLoaded] = useState(false) 
+    const context = useDbContext();
     useEffect(() => {
         setTimeout(() =>{
         setAuthLoaded(true);
         }, 1000);
     }, []);
-    
+   
     useEffect(() => { 
+        const count =  context.count; 
         if(authLoaded){
-            if(logueo ){
-                navigation.navigate('Onboarding')
+            if(True){
+                navigation.navigate('Home')
             }else{
                 navigation.navigate('Onboarding') 
             } 

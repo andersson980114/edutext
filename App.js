@@ -11,9 +11,8 @@ import ContenidoScreen from './screens/ContenidoScreen';
 import PreguntaA from  './screens/PreguntaA';
 import OnboardingScreen from './screens/OnboardingScreen';
 import SplashScreen from './screens/SplashScreen';
-import RegisterScreen from './screens/RegisterScreen';
-import {initDb} from './utils/db' 
-//import {initDatadabase} from './utils/db' 
+import RegisterScreen from './screens/RegisterScreen'; 
+import { DbContextProvider } from './Context/DbContext'; 
 const Stack = createNativeStackNavigator();
  
 
@@ -33,65 +32,52 @@ function getHeaderTitle(route) {
 
 export default function App() {
     const [logueado, setLogueado] = useState(true)
-    useEffect(function() {
-      async function init(){
-        await initDb();
-        console.log("db")
-      }
-      init();
-    }, []);
-    
-    /*
-    useEffect(function() {
-      async function init(){
-        await initDatadabase();
-        console.log("db")
-      }
-      init();
-    }, []);
-    */
+      
     return (
-      <NavigationContainer > 
-        
-        <Stack.Navigator    initialRouteName='Register'
-          screenOptions ={{ 
-              
-            headerStyle: {
-              backgroundColor: '#52ACB9',     
-            }, 
-            headerTintColor: '#fff',
-            headerTitleAlign: "center",
-            headerTitleStyle:{
-              fontSize:44, 
-            }, 
-          }}
-        >
-          <Stack.Screen  
-            name="Inicio"
-            component={Navigation} 
-            options={({ route }) => ({
-              headerTitle: getHeaderTitle(route),  
-            })}
-          />
-           
-          <Stack.Screen name="Word" component={WordScreen}  />
-  
-          <Stack.Screen name="Temas" component={TemasScreen}  />
-  
-          < Stack.Screen name="Contenido" component={ContenidoScreen}  /> 
-  
-          <Stack.Screen name="PreguntaA" component={PreguntaA}  />
- 
-          <Stack.Screen name="Onboarding" component={OnboardingScreen}  options={{header: ()=>null}} />
-          
-          <Stack.Screen name="Splash" component={SplashScreen}  navigation={Navigation} logueo={logueado} options={{header: ()=>null}}/>
+      <DbContextProvider>
 
-          <Stack.Screen name="Register" component={RegisterScreen}  navigation={Navigation}  options={{header: ()=>null}}/>
+        <NavigationContainer > 
+          
+          <Stack.Navigator    initialRouteName='Register'
+            screenOptions ={{ 
+                
+              headerStyle: {
+                backgroundColor: '#52ACB9',     
+              }, 
+              headerTintColor: '#fff',
+              headerTitleAlign: "center",
+              headerTitleStyle:{
+                fontSize:44, 
+              }, 
+            }}
+          >
+            <Stack.Screen  
+              name="Inicio"
+              component={Navigation} 
+              options={({ route }) => ({
+                headerTitle: getHeaderTitle(route),  
+              })}
+            />
             
-          
-        </Stack.Navigator> 
-          
-      </NavigationContainer>    
+            <Stack.Screen name="Word" component={WordScreen}  />
+    
+            <Stack.Screen name="Temas" component={TemasScreen}  />
+    
+            < Stack.Screen name="Contenido" component={ContenidoScreen}  /> 
+    
+            <Stack.Screen name="PreguntaA" component={PreguntaA}  />
+  
+            <Stack.Screen name="Onboarding" component={OnboardingScreen}  options={{header: ()=>null}} />
+            
+            <Stack.Screen name="Splash" component={SplashScreen}  navigation={Navigation} logueo={logueado} options={{header: ()=>null}}/>
+
+            <Stack.Screen name="Register" component={RegisterScreen}  navigation={Navigation}  options={{header: ()=>null}}/>
+              
+            
+          </Stack.Navigator> 
+            
+        </NavigationContainer>    
+      </DbContextProvider>
     );
    
 

@@ -2,7 +2,8 @@ import React,{useState, useEffect, component }from 'react'
 import { Text, View,Button, StyleSheet, TextInput, TouchableOpacity, Alert } from "react-native";
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Dropdown from '../components/Dropdown';
-import { conectionDb, insertUsers } from '../utils/db';
+import { UseDbContext } from '../Context/DbContext';
+import { insertUsers, countUsers, initDb } from '../utils/db';
 
 let options = [{id:1, name:'Hombre'},{id:2, name:'Mujer'},{id:3, name:'Otro'}]
 
@@ -10,6 +11,7 @@ export default function RegisterScreen({navigation}) {
   const [userName, setUserName] = useState('');
   const [lastName, setLastName] = useState('');
   const [genero, setGenero] = useState(0);
+  const db = UseDbContext();
 
   const [selectedItem, setSelectedItem] = useState(null)
 
@@ -35,14 +37,18 @@ export default function RegisterScreen({navigation}) {
   }
 
   function createUser(){  
-     
+     //console.log(db)
+     console.log(countUsers(db))
+     /*
      if(userName === '' || lastName === '' || selectedItem.name === null){
       console.log( 'Por favor llene los campos')
       return false
-  }
-    try {
-      const db =  conectionDb();
+      }
+    try { 
+      countUsers(db)
+      
       insertUsers(db, userName, lastName, selectedItem.name)
+     
       Alert.alert(
         'Succes',
         'Usuario Registrado',
@@ -60,6 +66,8 @@ export default function RegisterScreen({navigation}) {
       console.log(selectedItem.name)
       console.log(`error catch:${error.message}`)
     } 
+
+     */
   }
 
   return (

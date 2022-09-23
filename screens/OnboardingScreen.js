@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
-import { StyleSheet, Text, View, Image, Dimensions, Pressable} from "react-native";
+import { StyleSheet, Text, View, Image, Dimensions, Pressable, Button, Animated} from "react-native";
+import {  } from "react-native-elements";
 
 
 export default function OnboardingScreen({navigation})  {
@@ -8,25 +9,22 @@ export default function OnboardingScreen({navigation})  {
   return (
     <View  style={Styles.container}>    
             <View style={Styles.mensajes}>
-              <View style={Styles.Bienvenido}>
-                <Pressable onPress={()=> navigation.navigate('Register')}>
+              <Animated.View style={Styles.Bienvenido}> 
                   <Text style={Styles.textUser}>¡HOLA!</Text>
-                  <Text style={Styles.textUser}>Bienvenido a EDUTEXT</Text>
-                </Pressable>
-              </View>
+                  <Text style={Styles.textUser}>Bienvenido a EDUTEXT</Text> 
+              </Animated.View>
 
-              <View style={Styles.info}>
-                  <Pressable onPress={()=> navigation.navigate('Register')}>
-                    <Text Text style={Styles.textInfo}>Aquí aprenderás a identificar e implementar los procesadores de textos que mas requieres en la actualidad</Text> 
-                  </Pressable>
-              </View>
+              <Animated.View style={Styles.info}> 
+                    <Text Text style={Styles.textInfo}>Aquí aprenderás a identificar e implementar los procesadores de textos que mas requieres en la actualidad</Text>  
+              </Animated.View>
 
-              <View style={Styles.info}>
-                <Pressable onPress={()=> navigation.navigate('Register')}>
-                  <Text style={Styles.textInfo}>¡Ingresa ya! Completa los desafios y obtén las reco m pe nsas</Text> 
-                </Pressable>
-              </View>
+              <Animated.View style={Styles.info}> 
+                  <Text style={Styles.textInfo}>¡Ingresa ya! Completa los desafios y obtén las reco m pe nsas</Text>  
+              </Animated.View>
 
+              <Animated.View>
+                <Button title="Iniciar Aventura" onPress={() => navigation.navigate('Register')} />
+              </Animated.View>
             </View>  
     </View>
 
