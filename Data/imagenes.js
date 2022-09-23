@@ -114,6 +114,29 @@ export const Avatars = [
     
   ]
 
+export const Niveles = [
+    {
+        id: 0,
+        url: null
+    },
+    {
+        id: 1,
+        url: require('../assets/screenAssets/bronce.png')
+    },
+    {
+        id: 2,
+        url: require('../assets/screenAssets/Plata.png')
+    },
+    {
+        id: 3,
+        url: require('../assets/screenAssets/oro.png')
+    },
+    {
+        id: 4,
+        url: require('../assets/screenAssets/diamante.png')
+    },
+]
+
 export const Contenido = [
     {
         id: 0,
@@ -122,6 +145,7 @@ export const Contenido = [
         Tema: 0,
         Texto:"Debemos dirigirnos al buscador de nuestra barra de tareas y poner Word en el buscador y seleccionar el procesador de textos.",
         url:require("../assets/Niveles/intro/1.png"),
+        visto: false,
         Prueba: false
     },
     {
@@ -129,8 +153,9 @@ export const Contenido = [
         Opcion: 0,
         Nivel: 0, 
         Tema:0,
-        Texto:"En la siguiente pestaña debemos seleccionar la opcion de Documento en Blanco, la cual nos creará un nuevo documento",
+        Texto:"En la misma barra del lado izquierdo pero la parte inferior se observa:\n-Cuenta: versión de microsoft word instalada.\n-Comentarios:sugerencia al soporte de Microsoft Word\n-Opciones:configuración general.",
         url:require("../assets/Niveles/intro/2.png"),
+        visto: false,
         Prueba: false
     }
   ]

@@ -3,61 +3,71 @@
         {
             "id": 0,
             "idOpcion": 0,
-            "Nivel": "INTRODUCCION",
-            "Progreso": 0
+            "Nivel": "Introducción",
+            "idNivel":0,
+            "Progreso": 60
         },
         {
             "id": 1,
             "idOpcion": 0,
             "Nivel": "Bronce",
-            "Progreso": 0
+            "idNivel":1,
+            "Progreso": 50
         },
         {
             "id": 2,
             "idOpcion": 0,
             "Nivel": "Plata",
-            "Progreso": 0
+            "idNivel":2,
+            "Progreso": 40
         },
         {
             "id": 3,
             "idOpcion": 0,
             "Nivel": "Oro",
-            "Progreso": 0
+            "idNivel":3,
+            "Progreso": 10
         },
         {
             "id": 4,
             "idOpcion": 0,
             "Nivel": "Favoritos",
+            "idNivel":4,
             "Progreso": 0
         },
         {
             "id": 5,
             "idOpcion": 1,
-            "Nivel": "INTRODUCCION",
+            "Nivel": "Introducción",
+            "idNivel":0,
             "Progreso": 0
         },
         {
             "id": 6,
             "idOpcion": 1,
             "Nivel": "Bronce",
+            "idNivel":1,
             "Progreso": 0
         },
         {
             "id": 7,
             "idOpcion": 1,
             "Nivel": "Plata",
+            "idNivel":2,
             "Progreso": 0
         },
         {
             "id": 8,
             "idOpcion": 1,
             "Nivel": "Oro",
+            "idNivel":3,
             "Progreso": 0
         },
         {
             "id": 9,
             "idOpcion": 1,
             "Nivel": "Favoritos",
+            "idNivel":4,
             "Progreso": 0
         }
     ]

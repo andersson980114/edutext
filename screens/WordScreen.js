@@ -1,11 +1,18 @@
 import React,{useContext, useEffect} from "react";
 import { Text, View,ScrollView, Image, StyleSheet, Dimensions, Pressable } from "react-native";
 import * as data from '../Data/wordNiveles.json';
-import { UseNivelContext } from "../Contexts/InfoProvider";
+import { UseNivelContext, UseOpcionContext } from "../Contexts/InfoProvider";
+import Nivel from "../components/Nivel";
+import {Niveles} from '../Data/imagenes' 
+
+const d1 = "Prueba"
+const d2 = ['Prueba',0]
+const d3 = require('../assets/screenAssets/bronce.png')
 
 export default function WordScreen({ navigation }) {
-  const myNivel = data.Nivels
+  const Nivels = data.Niveles
   const {nivel, handleNivel} =  UseNivelContext() 
+  const {opcion, handleOpcion} =  UseOpcionContext() 
 
   const handleChange = (nombre) => {
     handleNivel(nombre)
@@ -14,107 +21,18 @@ export default function WordScreen({ navigation }) {
 
   return ( 
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        
-          
-       
-        <View style={styles.cardContainer} >
-          <Pressable onPress={() => {handleChange(['Introducción',0])}} >
-            <View style={styles.topCard} > 
-              <Text style={styles.titleIntro} >
-                INTRODUCCIÓN 
-              </Text>
-            </View>
-            <View  style={styles.bottomCard} >
-              <View style={styles.ProgresCard}>
-              </View>
-            </View>
-          </Pressable>
-        </View>
-
-        <View style={styles.cardContainer} >
-          <Pressable onPressIn={() => {handleChange(['Bronce',1])}} >
-            <View style={styles.topCard} >
-              <View style={styles.imgContent}>
-                <Image 
-                  resizeMode="cover"
-                  source={require('../assets/screenAssets/bronce.png')}
-                  style={styles.imgCard}
-                  />
-              </View>
-              <Text style={styles.titleCar} >
-                BRONCE
-              </Text>
-            </View>
-            <View  style={styles.bottomCard} >
-              <View style={styles.ProgresCard}>
-              </View>
-            </View>
-          </Pressable>
-        </View>
-
-        <View style={styles.cardContainer} >
-          <Pressable onPressIn={() => {handleChange(['Plata',2])}} >
-            <View style={styles.topCard} >
-              <View style={styles.imgContent}>
-                <Image 
-                  resizeMode="cover"
-                  style={styles.imgCard}
-                  source={require('../assets/screenAssets/Plata.png')}
-                  />
-              </View>
-              <Text style={styles.titleCar} >
-               PLATA
-              </Text>
-            </View>
-            <View  style={styles.bottomCard} >
-              <View style={styles.ProgresCard}>
-              </View>
-            </View>
-          </Pressable>
-        </View>
-
-        <View style={styles.cardContainer} >
-          <Pressable onPressIn={() =>{handleChange(['Oro',3])}} >
-            <View style={styles.topCard} >
-              <View style={styles.imgContent}>
-                <Image 
-                  resizeMode="cover"
-                  source={require('../assets/screenAssets/oro.png')}
-                  style={styles.imgCard}
-                  />
-              </View>
-              <Text style={styles.titleCar} >
-                ORO
-              </Text>
-            </View>
-            <View  style={styles.bottomCard} >
-              <View style={styles.ProgresCard}>
-              </View>
-            </View>
-          </Pressable>
-        </View>
-
-        <View style={styles.cardContainer} >
-          <Pressable onPressIn={() =>{handleChange(['Favoritos',4])}} >
-            <View style={styles.topCard} >
-              <View style={styles.imgContent}>
-                <Image 
-                  resizeMode="cover"
-                  source={require('../assets/screenAssets/diamante.png')}
-                  style={styles.imgCard}
-                  />
-              </View>
-              <Text style={styles.titleCar} >
-               Favoritos
-              </Text>
-            </View>
-            <View  style={styles.bottomCard} >
-              <View style={styles.ProgresCard}>
-              </View>
-            </View>
-          </Pressable>
-        </View>
-  
+        {
+          Nivels.map((item, key) => {
+            if(item.idOpcion==opcion[1]){
+              const url = Niveles[item.idNivel].url
+              return(
+                  <Nivel  key={key} nivel={item.Nivel} nombre={item.idNivel}  img={url}  progreso={item.Progreso}  onChange={handleChange} />
+                
+              )    
+            }
+          })
+        }
+         
     </View> 
   )
 }

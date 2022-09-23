@@ -84,7 +84,7 @@ export default function ContenidoScreen() {
                   }}
                 >
                   <Image source={item.url} style={styles.posterImage} />
-                  <Text style={{ fontWeight: "bold", fontSize: 26 }}>
+                  <Text style={{ fontWeight: "bold", fontSize: 26,}}>
                     {" "} 
                     {item.Texto}
                   </Text>
