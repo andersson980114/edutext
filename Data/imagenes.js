@@ -187,7 +187,7 @@ export const Contenido = [
         id: 5,
         Opcion: 0,
         Nivel: 0, 
-        Tema:0,
+        Tema:1,
         Texto:"En el resto de la pantalla del área inferior puede observarse otras funciones como lo son archivos recientes, anclados y compartidos.",
         url:require("../assets/Niveles/intro/0-6.png"),
         Prueba: false
@@ -196,7 +196,7 @@ export const Contenido = [
         id: 6,
         Opcion: 0,
         Nivel: 0, 
-        Tema:0,
+        Tema:1,
         Texto:"Si se desea trabajar sobre una plantilla, debe situarse sobre 'Más plantillas' y dar doble click izquierda sobre ella.",
         url:require("../assets/Niveles/intro/0-9.png"),
         Prueba: false

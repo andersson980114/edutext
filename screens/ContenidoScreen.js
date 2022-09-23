@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React,{useState, useEffect}from 'react';
 import { View, Text, StyleSheet, FlatList, Image, Dimensions, SafeAreaView, Animated} from 'react-native' 
 import * as data from '../Data/wordContenido.json'
 import { Contenido } from '../Data/imagenes';
@@ -25,11 +25,20 @@ const ALTURA_BACKDROP = height * 0.1;
 
 export default function ContenidoScreen() {
   
-  const {opcion, nivel, tema} = UseInfoContext();
-
-  const contenidoD = data.Contenido
-  const imgNivel = Contenido
+  const {opcion, nivel, tema} = UseInfoContext(); 
   const scrollX = React.useRef(new Animated.Value(0)).current;
+  const [content, setContent] = useState([])
+
+  useEffect(() => {
+    const data = []
+    Contenido.map((item) => {
+      if(item.Nivel == nivel[1] && item.Opcion == opcion[1] && item.Tema == tema[1] ){
+        data.push(item)
+      }
+    })
+    setContent(data)
+  }, [])
+  
 
   return (
     <SafeAreaView style={styles.container}>
@@ -53,44 +62,41 @@ export default function ContenidoScreen() {
         scrollEventThrottle={16}
         
         //contenido
-        data={Contenido}
+        data={content}
         keyExtractor={(item) => item.id}
-        renderItem={({ item, index }) => {
+        renderItem={({ item, index }) => { 
           const inputRange = [
             (index - 1) * ANCHO_CONTENEDOR,
             index * ANCHO_CONTENEDOR,
             (index + 1) * ANCHO_CONTENEDOR,
-          ];
-
+          ]; 
+          
           const scrollY = scrollX.interpolate({
             inputRange,
             outputRange: [0, -50, 0],
-          });
-
-          if(item.Nivel == nivel[1] && item.Opcion == opcion[1] && item.Tema == tema[1] ){
-            //console.log(item.Nivel, ", ", item.Opcion, ", ", item.Tema)
-            //console.log(nivel[1], " - ", opcion[1], " - ", tema[1])
-            return (
-              <View style={{ width: ANCHO_CONTENEDOR }} >
-                <Animated.View 
-                  style={{
-                    marginHorizontal: ESPACIO,
-                    padding: ESPACIO,
-                    borderRadius: 34,
-                    backgroundColor: "#fff",
-                    alignItems: "center",
-                    transform: [{ translateY: scrollY }],
-                  }}
-                >
-                  <Image source={item.url} style={styles.posterImage} />
-                  <Text style={{ fontWeight: "bold", fontSize: 26,}}>
-                    {" "} 
-                    {item.Texto}
-                  </Text>
-                </Animated.View>
-              </View>
-            );
-          }
+          });   
+          //console.log(item.Nivel, ", ", item.Opcion, ", ", item.Tema)
+          //console.log(nivel[1], " - ", opcion[1], " - ", tema[1])
+          return (
+            <View style={{ width: ANCHO_CONTENEDOR }} >
+              <Animated.View 
+                style={{
+                  marginHorizontal: ESPACIO,
+                  padding: ESPACIO,
+                  borderRadius: 34,
+                  backgroundColor: "#fff",
+                  alignItems: "center",
+                  transform: [{ translateY: scrollY }],
+                }}
+              >
+                <Image source={item.url} style={styles.posterImage} />
+                <Text style={{ fontWeight: "bold", fontSize: 26,}}>
+                  {" "} 
+                  {item.Texto}
+                </Text>
+              </Animated.View>
+            </View>
+          ); 
         }}
       />
       
