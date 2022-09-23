@@ -142,7 +142,7 @@ export const Contenido = [
         id: 0,
         Opcion: 0,
         Nivel: 0, 
-        Tema: 0,
+        Tema:0,
         Texto:"Situarse sobre la lupa que se encuentra en la barra de tareas (parte inferior) y dar click izquierdo para ser abierta",
         url:require("../assets/Niveles/intro/0-1.png"),
         Prueba: false
