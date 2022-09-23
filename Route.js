@@ -16,15 +16,15 @@ import RegisterScreen from './screens/RegisterScreen';
 import {initDb} from './utils/db' 
 //import {initDatadabase} from './utils/db' 
 const Stack = createNativeStackNavigator();
-   ;
+  
 
 function getHeaderTitle(route) {
-  const routeName = getFocusedRouteNameFromRoute(route) ?? 'Inicio'; 
+  const routeName = getFocusedRouteNameFromRoute(route) ?? 'Home'; 
   switch (routeName) {
     case 'Avatar':
       return 'Avatar';
-    case 'Inicio':
-      return 'Inicio';
+    case 'Home':
+      return 'Home';
     case 'Insignias':
       return 'Insignias'; 
   }
@@ -35,16 +35,19 @@ export default function App() {
     const {opcion, nivel, tema} = UseInfoContext()
     useEffect(function() {
        function init(){
-        const db = initDb();
-        //console.log(db) 
+         const db = initDb();
+        console.log("db")
+        
+    
       }
       init();
-    }, []);  
+    }, []);
+    
 
     return (
         <NavigationContainer > 
         
-          <Stack.Navigator    initialRouteName='PreguntaA'
+          <Stack.Navigator    initialRouteName='Inicio'
             screenOptions ={{ 
                 
               headerStyle: {
@@ -62,21 +65,19 @@ export default function App() {
               component={Navigation} 
               options={({ route }) => ({
                 headerTitle: getHeaderTitle(route),  
-                headerBackVisible:false 
-              })
-            }
+              })}
             />
             
             <Stack.Screen name="Word" options={() =>( {
-                headerTitle:String(opcion[0]) 
+                headerTitle:String(opcion)
             })} component={WordScreen}  />
 
             <Stack.Screen name="Temas" options={() =>( {
-                headerTitle:String(nivel[0])
+                headerTitle:String(nivel)
             })} component={TemasScreen}  />
     
             < Stack.Screen name="Contenido" options={() =>( {
-                headerTitle:String(tema[0])
+                headerTitle:String(tema)
             })} component={ContenidoScreen}  /> 
     
             <Stack.Screen name="PreguntaA" component={PreguntaA}  />

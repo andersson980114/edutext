@@ -120,8 +120,8 @@ export const Contenido = [
         Opcion: 0,
         Nivel: 0, 
         Tema: 0,
-        Texto:"Debemos dirigirnos al buscador de nuestra barra de tareas y poner Word en el buscador y seleccionar el procesador de textos.",
-        url:require("../assets/Niveles/intro/1.png"),
+        Texto:"Situarse sobre la lupa que se encuentra en la barra de tareas (parte inferior) y dar click izquierdo para ser abierta",
+        url:require("../assets/Niveles/intro/0-1.png"),
         Prueba: false
     },
     {
@@ -129,8 +129,53 @@ export const Contenido = [
         Opcion: 0,
         Nivel: 0, 
         Tema:0,
-        Texto:"En la siguiente pestaña debemos seleccionar la opcion de Documento en Blanco, la cual nos creará un nuevo documento",
-        url:require("../assets/Niveles/intro/2.png"),
+        Texto:"Una vez esté abierto el buscador, debe situarse en la parte superior y escribir la palabra ´Word´ para que pueda filtrar las aplicaciones y aparezca el procesador de textos.",
+        url:require("../assets/Niveles/intro/0-2.png"),
+        Prueba: false
+    },
+    {
+        id: 2,
+        Opcion: 0,
+        Nivel: 0, 
+        Tema:0,
+        Texto:"Cuando aparece el icono perteneciente a Word acompañado de su nombre, debe darse click izquierdo sobre él para abrir el procesador de textos.",
+        url:require("../assets/Niveles/intro/0-3.png"),
+        Prueba: false
+    },
+    {
+        id: 3,
+        Opcion: 0,
+        Nivel: 0, 
+        Tema:0,
+        Texto:"Procesador de textos: 1- Donde actualmente se encuentra situado. 2- Crea un documento nuevo. 3- Despliega opciones para cargar un documento ya existente.",
+        url:require("../assets/Niveles/intro/0-4.png"),
+        Prueba: false
+    },
+    {
+        id: 4,
+        Opcion: 0,
+        Nivel: 0, 
+        Tema:0,
+        Texto:"Lado izquierdo parte inferior: 1-Versión de microsoft word instalada. 2-Sugerencia al soporte de Microsoft Word. 3-Configuración general.",
+        url:require("../assets/Niveles/intro/0-5.png"),
+        Prueba: false
+    },
+    {
+        id: 5,
+        Opcion: 0,
+        Nivel: 0, 
+        Tema:0,
+        Texto:"En el resto de la pantalla del área inferior puede observarse otras funciones como lo son archivos recientes, anclados y compartidos.",
+        url:require("../assets/Niveles/intro/0-6.png"),
+        Prueba: false
+    },
+    {
+        id: 6,
+        Opcion: 0,
+        Nivel: 0, 
+        Tema:0,
+        Texto:"Si se desea trabajar sobre una plantilla, debe situarse sobre 'Más plantillas' y dar doble click izquierda sobre ella.",
+        url:require("../assets/Niveles/intro/0-9.png"),
         Prueba: false
     }
   ]
