@@ -1,14 +1,18 @@
-import React , { useEffect } from "react";
+import React , { useEffect, useState } from "react";
 import { Text, View,ScrollView, Image, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
 import * as data from '../Data/wordTemas.json';
 import { UseInfoContext, UseTemaContext} from "../Contexts/InfoProvider";
+import Tema from "../components/Tema";
 
 export default function TemasScreen({navigation }) {
   const {opcion, nivel, tema} = UseInfoContext();
   const {mytema, handleTema} = UseTemaContext();
+  
   const favorite = require('../assets/screenAssets/favorite.png') ;
   const noFavorite =  require('../assets/screenAssets/noFavorite.png');
   const temas = data.Temas
+
+  const  [fav, setFav] = useState(false)
 
   const handleChange = (nombre) => {
     handleTema(nombre)
@@ -22,22 +26,9 @@ export default function TemasScreen({navigation }) {
           temas.map((item, key) => {
             //console.log(item.Nivel, ", ", item.Opcion)
             //console.log(nivel[1], " - ", opcion[1])
-            if(item.Nivel == nivel[1] && item.Opcion == opcion[1] ){
+            if(item.Nivel == nivel[1] && item.Opcion == opcion[1] ){ 
              return(
-                <View key={key} >
-                  <TouchableOpacity onPress={() => handleChange([item.Nombre, item.id])}  style={styles.cardContainer}>
-                    
-                    <Text style={styles.titleCar} >
-                        {item.Nombre}
-                    </Text>
-
-                    <Image 
-                        resizeMode="cover"
-                        source={item.Favorito ? favorite: noFavorite}
-                        style={styles.imgCard}
-                    /> 
-                  </TouchableOpacity>
-                </View> 
+                <Tema  key={key} nombre={[item.Nombre, item.id]} Texto={item.Nombre} favo={item.Favorito} Onchage={handleChange}  />
              )
             }
           })

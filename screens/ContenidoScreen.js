@@ -3,7 +3,6 @@ import React from 'react';
 import { View, Text, StyleSheet, FlatList, Image, Dimensions, SafeAreaView, Animated} from 'react-native' 
 import * as data from '../Data/wordContenido.json'
 import { Contenido } from '../Data/imagenes';
-import ContenidoC from '../components/ContenidoC';
 import { UseInfoContext} from "../Contexts/InfoProvider";
 
 const imagenes = [
@@ -20,7 +19,7 @@ const height = Dimensions.get("window").height;
 const ANCHO_CONTENEDOR = width * 0.9;
 const ESPACIO_CONTENEDOR = (width - ANCHO_CONTENEDOR) / 2;
 const ESPACIO = 10;
-const ALTURA_BACKDROP = height * 0.5;
+const ALTURA_BACKDROP = height * 0.1;
 
  
 
@@ -45,7 +44,7 @@ export default function ContenidoScreen() {
         horizontal={true}
         snapToAlignment="start"
         contentContainerStyle={{
-            paddingTop: 100,
+            paddingTop: ALTURA_BACKDROP,
             paddingHorizontal: ESPACIO_CONTENEDOR,
           }}
 
