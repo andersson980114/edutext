@@ -237,6 +237,26 @@ export const Contenido = [
         url:require("../assets/Niveles/intro/0-9.png"),
         Prueba: false,
         Visto: false,
+    },
+    {
+        id: 10,
+        Opcion: 0,
+        Nivel: 0, 
+        Tema:1,
+        Texto:"En la parte inferior del resto de la pantalla se observan los archivos recientes, compartidos y anclados para ser abiertos de manera rápida.",
+        url:require("../assets/Niveles/intro/0-10.png"),
+        Prueba: false,
+        Visto: false,
+    },
+    {
+        id: 11,
+        Opcion: 0,
+        Nivel: 0, 
+        Tema:1,
+        Texto:"En la parte superior del resto de la pantalla se observan las plantillas existentes listas para ser usadas si son requeridas.",
+        url:require("../assets/Niveles/intro/0-10.png"),
+        Prueba: false,
+        Visto: false,
     }
 
   ]
