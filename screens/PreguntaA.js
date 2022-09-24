@@ -52,7 +52,7 @@ export default function PreguntaA({ navigation }) {
                     <Pressable  >  
                       <Respuesta onChange={correcta} item={item.item} texto={item.text} correctaR={item.correcta} pres={pres}/> 
                     </Pressable>
-                  
+                    
                   </View>
                 )
             })
@@ -61,7 +61,7 @@ export default function PreguntaA({ navigation }) {
         </View>
         
         <View style={styles.notificacion}  >
-          <Retroalimentacion respuesta={respuesta} estado={estado}/>
+          <Retroalimentacion respuesta={respuesta} estado={estado} navigation={navigation} />
         </View>
  
     </View>

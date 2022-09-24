@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, FlatList, Image, Dimensions, SafeAreaView, Anim
 import * as data from '../Data/wordContenido.json'
 import { Contenido } from '../Data/imagenes';
 import { UseInfoContext} from "../Contexts/InfoProvider";
+import Siguiente from '../components/Siguiente';
 
 const imagenes = [
   require("../assets/Niveles/intro/1.png"),
@@ -18,16 +19,18 @@ const height = Dimensions.get("window").height;
 
 const ANCHO_CONTENEDOR = width * 0.9;
 const ESPACIO_CONTENEDOR = (width - ANCHO_CONTENEDOR) / 2;
+const ALTURA_CONTENEDOR = height*0.9;
 const ESPACIO = 10;
 const ALTURA_BACKDROP = height * 0.1;
 
  
 
-export default function ContenidoScreen() {
+export default function ContenidoScreen({navigation}) {
   
   const {opcion, nivel, tema} = UseInfoContext(); 
   const scrollX = React.useRef(new Animated.Value(0)).current;
   const [content, setContent] = useState([])
+  const [cantidad, setCantidad] = useState(0)
 
   useEffect(() => {
     const data = []
@@ -37,7 +40,10 @@ export default function ContenidoScreen() {
       }
     })
     setContent(data)
+    setCantidad(data.length-1)
+
   }, [])
+  
   
 
   return (
@@ -94,7 +100,11 @@ export default function ContenidoScreen() {
                   {" "} 
                   {item.Texto}
                 </Text>
+                <View style={styles.boton}>
+                  <Siguiente cantidad={cantidad} id={index} prueba={item.Prueba} visto={item.Visto} navigation={navigation} />
+                </View>
               </Animated.View>
+
             </View>
           ); 
         }}
@@ -120,4 +130,9 @@ const styles = StyleSheet.create({
     borderColor: "#2C6B80",
     borderWidth: 3
   },
+  boton:{
+    position: 'absolute',
+    left:ANCHO_CONTENEDOR - 123,
+    top: ALTURA_CONTENEDOR- 82
+  }
 });
