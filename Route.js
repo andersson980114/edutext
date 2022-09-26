@@ -37,7 +37,7 @@ export default function App() {
     useEffect(function() {
        function init(){
          const db = initDb();
-        console.log("db")
+        //console.log("db")
         
     
       }
@@ -48,7 +48,7 @@ export default function App() {
     return (
         <NavigationContainer > 
         
-          <Stack.Navigator    initialRouteName='Inicio'
+          <Stack.Navigator    initialRouteName='Register'
             screenOptions ={{ 
                 
               headerStyle: {
@@ -63,10 +63,12 @@ export default function App() {
           >
             <Stack.Screen  
               name="Inicio"
-              component={Navigation} 
+              component={Navigation}  
               options={({ route }) => ({
-                headerTitle: getHeaderTitle(route),  
+                headerTitle: getHeaderTitle(route),
+                headerBackVisible:false
               })}
+              
             />
             
             <Stack.Screen name="Word" options={() =>( {
@@ -82,7 +84,8 @@ export default function App() {
             })} component={ContenidoScreen}  /> 
     
             <Stack.Screen name="PreguntaA" options={() =>( {
-                headerTitle:String(pregunta[0])
+                headerTitle:String(pregunta[0]), 
+                headerBackVisible:false
             })} component={PreguntaA}  />
   
             <Stack.Screen name="Onboarding" component={OnboardingScreen}  options={{header: ()=>null}} />

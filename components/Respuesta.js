@@ -8,8 +8,7 @@ export default function Respuesta({item, texto, correctaR, pres, onChange}) {
   const [border, setBorder] = useState("#EBEBEB")
 
   
-  const correcta = (opcion) => {
-    console.log(opcion[0])
+  const correcta = (opcion) => { 
     if(!pres){
         if(correctaR){
             setColor("#ACF6AB")
