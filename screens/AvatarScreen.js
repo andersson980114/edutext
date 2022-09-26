@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from "react";
-import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, Alert } from "react-native";
+import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, Alert, onPress } from "react-native";
 import * as data from '../Data/avatars.json';
 import { Avatars } from "../Data/imagenes";
 import {conectionDb} from "../utils/db"
@@ -17,20 +17,26 @@ export default function AvatarScreen({}) {
     })
   }, [])
   
+
   const cambioUser =(id, bloqueado) =>{
-    if(!bloqueado){
+    if(!bloqueado && user != id){
       Alert.alert(
-        'Seleccionar Avatar',
-        'Usted ha cambiado de avatar',
+        'Cambio de Avatar',
+        '¿Deseas cambiar de avatar?',
         [
           {
-            text: 'OK', 
+            text: 'No',  
+            style: 'cancel',
+          },
+          {
+            text: 'Si', 
+            onPress: () =>  setUser(id)
           }
         ],
         {cancelable: false}
       ); 
-      setUser(id)
-    }else{
+     
+    }else if(bloqueado){
       Alert.alert(
         'Avatar Bloqueado',
         'Este avatar aun no puede ser elegido',

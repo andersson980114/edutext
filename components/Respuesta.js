@@ -9,13 +9,14 @@ export default function Respuesta({item, texto, correctaR, pres, onChange}) {
 
   
   const correcta = (opcion) => {
+    console.log(opcion[0])
     if(!pres){
-        if(opcion){
+        if(correctaR){
             setColor("#ACF6AB")
             setBorder("#16B20C")
-        }else if(!opcion){
+        }else {
             setColor("#ED735B")
-            setBorder("#D32300")
+            setBorder("#D32300") 
         }
         
         onChange(opcion)
@@ -39,7 +40,7 @@ export default function Respuesta({item, texto, correctaR, pres, onChange}) {
         elevation: 7,
         margin: 10, 
       }} >
-        <Pressable onPressIn={() => correcta(correctaR)} >   
+        <Pressable onPress={() => correcta([correctaR, texto])} >   
             <Text style={styles.titleCar} >
               {item} - {texto}
             </Text> 

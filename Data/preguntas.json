@@ -2,6 +2,7 @@
     "Onboarding":[
         {
             "id": 0,
+            "Tipo": 0,
             "Pregunta": "¿Cuál de los siguientes es un procesador de textos?",
             "Opciones":[
                 {
@@ -27,7 +28,8 @@
             ] 
         },
         {
-            "id": 1,
+            "id": 1, 
+            "Tipo": 0,
             "Pregunta": "¿Cuál de los siguientes es un procesador de textos?",
             "Opciones":[
                 {
@@ -51,12 +53,58 @@
                     "correcta": false
                 }
             ] 
+        },
+        {
+            "id": 2, 
+            "Tipo": 1,
+            "Pregunta": "¿El Block de notas es un procesador de textos?",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Verdadero",
+                    "correcta": false
+                },
+                {
+                    "item": "b",
+                    "text":"Falso",
+                    "correcta": true
+                }
+            ] 
+        },
+        {
+            "id": 3, 
+            "Tipo": 2,
+            "Inicio": "Arial Black es un tipo de",
+            "Fin": "con un mayor grosor que Arial",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Fuente",
+                    "correcta": true
+                },
+                {
+                    "item": "b",
+                    "text":"Alineado",
+                    "correcta": false
+                },
+                {
+                    "item": "c",
+                    "text":"Procesador de texto",
+                    "correcta": false
+                },
+                {
+                    "item": "d",
+                    "text":"Tamaño",
+                    "correcta": false
+                }
+            ] 
         }
     ],
 
     "Word":[
         {
             "id": 0,
+            "Tipo": 0,
             "Pregunta": "¿Cuál de los siguientes es un procesador de textos?",
             "Opciones":[
                 {
@@ -86,6 +134,7 @@
     "Docs":[
         {
             "id": 0,
+            "Tipo": 0,
             "Pregunta": "¿Cuál de los siguientes es un procesador de textos?",
             "Opciones":[
                 {

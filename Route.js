@@ -4,8 +4,7 @@ import Navigation from './Navigations';
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { getFocusedRouteNameFromRoute} from '@react-navigation/native';
-import { UseInfoContext } from './Contexts/InfoProvider';
-
+import { UseInfoContext, UsePreguntaContext } from './Contexts/InfoProvider';
 import WordScreen from './screens/WordScreen';  
 import TemasScreen from './screens/TemasScreen';
 import ContenidoScreen from './screens/ContenidoScreen'; 
@@ -34,6 +33,7 @@ function getHeaderTitle(route) {
 export default function App() {
     const [logueado, setLogueado] = useState(true);
     const {opcion, nivel, tema} = UseInfoContext()
+    const {pregunta, setPregunta} = UsePreguntaContext()
     useEffect(function() {
        function init(){
          const db = initDb();
@@ -81,7 +81,9 @@ export default function App() {
                 headerTitle:String(tema[0])
             })} component={ContenidoScreen}  /> 
     
-            <Stack.Screen name="PreguntaA" component={PreguntaA}  />
+            <Stack.Screen name="PreguntaA" options={() =>( {
+                headerTitle:String(pregunta[0])
+            })} component={PreguntaA}  />
   
             <Stack.Screen name="Onboarding" component={OnboardingScreen}  options={{header: ()=>null}} />
             

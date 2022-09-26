@@ -32,7 +32,7 @@ export  function InfoProvider({children}) {
   const [opcion, setOpcion] = useState(['Word', 0])
   const [nivel, setNivel] = useState(['Introduccion',0])
   const [tema, setTema] = useState(['Inicio',0])
-  const [pregunta, setPregunta] = useState(['Onboarding',0])
+  const [pregunta, setPregunta] = useState(['Onboarding',3])
   
 
   const handleOption = (a) =>{

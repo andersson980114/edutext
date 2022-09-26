@@ -4,18 +4,20 @@ import { Card} from 'react-native-elements'
 import * as data from  '../Data/preguntas.json'
 import Retroalimentacion from "../components/Retroalimentacion";
 import {UsePreguntaContext} from '../Contexts/InfoProvider';
-import Respuesta from '../components/Respuesta.js'
+import PreguntaOpciones from '../components/PreguntaOpciones.js'
+import PreguntaFV from '../components/PreguntaFV.js'
+import PreguntaImagenes from '../components/PreguntaImagenes.js'
 
 let tema;
 let index;
-
+let tipo; 
 export default function PreguntaA({ navigation }) {
   const {pregunta, setPregunta} = UsePreguntaContext() 
   const [estado, setEstado] = useState(false) //si se activo una respuesta o no
   const [respuesta, setRespuesta] = useState(false)
   const [pres, setPress] = useState(false)
 
-  index = pregunta[1]
+  index = pregunta[1] 
   switch(pregunta[0]){
     case 'Word':
       tema = data.Word
@@ -27,45 +29,56 @@ export default function PreguntaA({ navigation }) {
       tema = data.Onboarding
       break;
   }
+  tipo = tema[index].Tipo
+
+   
   //console.log(tema[index].Opciones);
 
   const correcta = (opcion) => {
     setEstado(true)
-    setRespuesta(opcion) 
-    setPress(true)  
+    setRespuesta(opcion[0]) 
+    setPress(true)   
   }
-  return (
-    <View style={styles.container}>
-        
-        <View style={styles.pregunta} >
-            <Text style={styles.textPregunta}> 
-               {tema[index].Pregunta}
-            </Text>
-        </View>
-
-        <View style={styles.opciones}>
-
-          {
-            tema[index].Opciones.map((item, key) => {
-                return(
-                  <View key={key}>
-                    <Pressable  >  
-                      <Respuesta onChange={correcta} item={item.item} texto={item.text} correctaR={item.correcta} pres={pres}/> 
-                    </Pressable>
-                    
-                  </View>
-                )
-            })
-          }
+  
+  if(tipo == 0){
+    return (
+      <View style={styles.container}>
           
-        </View>
-        
-        <View style={styles.notificacion}  >
-          <Retroalimentacion respuesta={respuesta} estado={estado} navigation={navigation} />
-        </View>
- 
-    </View>
-  )
+          <PreguntaOpciones onChange={correcta} tema={tema} index={index} />
+          
+          <View style={styles.notificacion}  >
+            <Retroalimentacion respuesta={respuesta} estado={estado} navigation={navigation} pres={pres} />
+          </View>
+   
+      </View>
+    )
+    
+  }else if(tipo == 1){
+    return (
+      <View style={styles.container}>
+          
+          <PreguntaFV onChange={correcta} tema={tema} index={index} />
+          
+          <View style={styles.notificacion}  >
+            <Retroalimentacion respuesta={respuesta} estado={estado} navigation={navigation} pres={pres} />
+          </View>
+   
+      </View>
+    )
+  }else{
+    return (
+      <View style={styles.container}>
+          
+          <PreguntaImagenes onChange={correcta} tema={tema} index={index} />
+          
+          <View style={styles.notificacion}  >
+            <Retroalimentacion respuesta={respuesta} estado={estado} navigation={navigation} pres={pres} />
+          </View>
+   
+      </View>
+    )
+  }
+
 }
 
 
