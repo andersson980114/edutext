@@ -3,11 +3,17 @@ import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, Alert, onP
 import * as data from '../Data/avatars.json';
 import { Avatars } from "../Data/imagenes";
 import {conectionDb} from "../utils/db"
+import ModalPoup from "../components/ModalPoup";
 
 export default function AvatarScreen({}) {  
   const avatar = data.Avatars
   const [user, setUser] = useState(0)//imagen de usuario
-
+  const [show, setShow] = useState(false)
+  const [titulo, setTitulo] = useState("")
+  const [texto, setTexto] = useState("")
+  const [imagen, setImagen] = useState(require("../assets/screenAssets/success.png"))
+  const [botones, setBotones] = useState([])
+  const [success, setSuccess] = useState(false)
 
   useEffect(() => {
     avatar.map((item) => {
@@ -17,43 +23,59 @@ export default function AvatarScreen({}) {
     })
   }, [])
   
-
+  const getUserId = (opcion) =>{
+    if(opcion[0]){
+      setUser(opcion[1])
+    } 
+    setShow(false)
+  }
+ 
   const cambioUser =(id, bloqueado) =>{
     if(!bloqueado && user != id){
-      Alert.alert(
-        'Cambio de Avatar',
-        '¿Deseas cambiar de avatar?',
-        [
-          {
-            text: 'No',  
-            style: 'cancel',
-          },
-          {
-            text: 'Si', 
-            onPress: () =>  setUser(id)
-          }
-        ],
-        {cancelable: false}
-      ); 
-     
+      setShow(true)
+      setTitulo('Cambio de Avatar')
+      setTexto('¿Deseas cambiar de avatar?')
+      setImagen(require("../assets/screenAssets/cambioUser.png"))
+      setSuccess(true)
+      setBotones([
+        {
+          texto: "Cancelar",
+          id: id,  
+          success: false,
+          boton: "danger"
+
+        },
+        {
+          texto: "Aceptar",
+          id: id, 
+          success: true,
+          boton: "success"
+          
+        },
+      ])
     }else if(bloqueado){
-      Alert.alert(
-        'Avatar Bloqueado',
-        'Este avatar aun no puede ser elegido',
-        [
-          {
-            text: 'OK', 
-          }
-        ],
-        {cancelable: false}
-      ); 
-    }
+      setShow(true)
+      setTitulo('Avatar Bloqueado')
+      setTexto('Este avatar aun no puede ser elegido')
+      setImagen(require("../assets/screenAssets/prohibited.png"))
+      setSuccess(true)
+      setBotones([
+        {
+          texto: "Aceptar",
+          id: id,  
+          success: false,
+          boton: "danger"
+
+        }
+      ])
+    } 
   }
 
 
 
   return (
     <View  style={Styles.container}> 
+        <ModalPoup visible={show} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={getUserId} />
         <View style={Styles.topContainer}>
           <Image source={Avatars[user].url} style={Styles.Ubox}></Image> 
           <Text style={Styles.textUser}></Text>

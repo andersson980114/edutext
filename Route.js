@@ -48,7 +48,7 @@ export default function App() {
     return (
         <NavigationContainer > 
         
-          <Stack.Navigator    initialRouteName='Register'
+          <Stack.Navigator    initialRouteName='Inicio'
             screenOptions ={{ 
                 
               headerStyle: {
