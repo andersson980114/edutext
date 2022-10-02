@@ -43,7 +43,6 @@ export default function AvatarScreen({}) {
           id: id,  
           success: false,
           boton: "danger"
-
         },
         {
           texto: "Aceptar",

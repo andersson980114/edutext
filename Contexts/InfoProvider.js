@@ -27,12 +27,21 @@ export function UsePreguntaContext(){
   return useContext(PreguntaContext)
 }
 
+
+function random(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  var val = Math.floor((Math.random() * (max - min + 1)) + min); 
+
+  return val
+}
+
 export  function InfoProvider({children}) {
 
   const [opcion, setOpcion] = useState(['Word', 0])
   const [nivel, setNivel] = useState(['Introduccion',0])
   const [tema, setTema] = useState(['Inicio',0])
-  const [pregunta, setPregunta] = useState(['Onboarding',3])
+  const [pregunta, setPregunta] = useState(['Onboarding',random(0, 3)])
   
 
   const handleOption = (a) =>{
@@ -47,7 +56,7 @@ export  function InfoProvider({children}) {
     setTema(a)
   }
  
-  const handlePregunta = (a) =>{
+  const handlePregunta = (a) =>{ 
     setPregunta(a)
   }
 

@@ -4,6 +4,10 @@ import * as data from '../Data/wordTemas.json';
 import { UseInfoContext, UseTemaContext} from "../Contexts/InfoProvider";
 import Tema from "../components/Tema";
 
+
+const deviceWidth = Math.round(Dimensions.get('window').width)
+const deviceHeight = Math.round(Dimensions.get('window').height)
+
 export default function TemasScreen({navigation }) {
   const {opcion, nivel, tema} = UseInfoContext();
   const {mytema, handleTema} = UseTemaContext();
@@ -20,8 +24,8 @@ export default function TemasScreen({navigation }) {
   }
   
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <ScrollView >
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'  }}>
+      <ScrollView  >
         {
           temas.map((item, key) => {
             //console.log(item.Nivel, ", ", item.Opcion)
@@ -39,7 +43,6 @@ export default function TemasScreen({navigation }) {
   )
 }
 
-const deviceWidth = Math.round(Dimensions.get('window').width)
 
 const styles = StyleSheet.create({
 

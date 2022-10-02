@@ -1,7 +1,7 @@
 import React,{useContext, useEffect} from "react";
 import { Text, View,ScrollView, Image, StyleSheet, Dimensions, Pressable } from "react-native";
 import * as data from '../Data/wordNiveles.json';
-import { UseNivelContext, UseOpcionContext } from "../Contexts/InfoProvider";
+import { UseNivelContext, UseOpcionContext ,UsePreguntaContext} from "../Contexts/InfoProvider";
 import Nivel from "../components/Nivel";
 import {Niveles} from '../Data/imagenes' 
 

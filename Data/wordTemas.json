@@ -4,7 +4,7 @@
             "id":0 ,
             "Opcion": 0,
             "Nivel": 0, 
-            "Nombre": "Tema 0-1",
+            "Nombre": "Abrir Word",
             "Favorito": false,
             "Visto": false,
             "Completado": false
@@ -13,7 +13,7 @@
             "id":1 ,
             "Opcion": 0,
             "Nivel": 0, 
-            "Nombre": "Tema 0-2",
+            "Nombre": "Primera Vista",
             "Favorito": true,
             "Visto": false,
             "Completado": false
@@ -22,7 +22,7 @@
             "id":2 ,
             "Opcion": 0,
             "Nivel": 0, 
-            "Nombre": "Tema 0-3",
+            "Nombre": "Documento",
             "Favorito": false,
             "Visto": false,
             "Completado": false
@@ -30,8 +30,8 @@
         {
             "id":3 ,
             "Opcion": 0,
-            "Nivel": 1, 
-            "Nombre": "Tema 1-1",
+            "Nivel": 0, 
+            "Nombre": "Ideales",
             "Favorito": false,
             "Visto": false,
             "Completado": false
@@ -40,7 +40,7 @@
             "id":4 ,
             "Opcion": 0,
             "Nivel": 1, 
-            "Nombre": "Tema 1-2",
+            "Nombre": "Portapapeles",
             "Favorito": false,
             "Visto": false,
             "Completado": false
@@ -49,7 +49,7 @@
             "id":5 ,
             "Opcion": 0,
             "Nivel": 1, 
-            "Nombre": "Tema 1-3",
+            "Nombre": "Fuentes",
             "Favorito": false,
             "Visto": false,
             "Completado": false
@@ -58,7 +58,7 @@
             "id":6 ,
             "Opcion": 0,
             "Nivel": 1, 
-            "Nombre": "Tema 1-4",
+            "Nombre": "Párrafos",
             "Favorito": false,
             "Visto": false,
             "Completado": false
@@ -67,7 +67,7 @@
             "id":7 ,
             "Opcion": 0,
             "Nivel": 1, 
-            "Nombre": "Tema 1-5",
+            "Nombre": "Estilos",
             "Favorito": false,
             "Visto": false,
             "Completado": false
@@ -76,7 +76,7 @@
             "id":8 ,
             "Opcion": 0,
             "Nivel": 2, 
-            "Nombre": "Tema 2-1",
+            "Nombre": "Páginas",
             "Favorito": false,
             "Visto": false,
             "Completado": false
@@ -85,7 +85,7 @@
             "id":9 ,
             "Opcion": 0,
             "Nivel": 2, 
-            "Nombre": "Tema 2-2",
+            "Nombre": "Tablas",
             "Favorito": false,
             "Visto": false,
             "Completado": false
@@ -94,7 +94,7 @@
             "id":10 ,
             "Opcion": 0,
             "Nivel": 2, 
-            "Nombre": "Tema 2-3",
+            "Nombre": "Ilustraciones",
             "Favorito": false,
             "Visto": false,
             "Completado": false
@@ -103,7 +103,7 @@
             "id":11 ,
             "Opcion": 0,
             "Nivel": 2, 
-            "Nombre": "Tema 2-4",
+            "Nombre": "Encabezado",
             "Favorito": false,
             "Visto": false,
             "Completado": false
@@ -111,8 +111,8 @@
         {
             "id":12 ,
             "Opcion": 0,
-            "Nivel": 2, 
-            "Nombre": "Tema 2-5",
+            "Nivel": 3, 
+            "Nombre": "Disposición",
             "Favorito": false,
             "Visto": false,
             "Completado": false
@@ -121,7 +121,7 @@
             "id":13 ,
             "Opcion": 0,
             "Nivel": 3, 
-            "Nombre": "Tema 3-1",
+            "Nombre": "Referencias",
             "Favorito": false,
             "Visto": false,
             "Completado": false
@@ -130,7 +130,7 @@
             "id":14 ,
             "Opcion": 0,
             "Nivel": 3, 
-            "Nombre": "Tema 3-2",
+            "Nombre": "Revisar",
             "Favorito": false,
             "Visto": false,
             "Completado": false
@@ -139,7 +139,7 @@
             "id":15 ,
             "Opcion": 0,
             "Nivel": 3, 
-            "Nombre": "Tema 3-3",
+            "Nombre": "Atajos",
             "Favorito": false,
             "Visto": false,
             "Completado": false

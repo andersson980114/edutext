@@ -103,28 +103,361 @@
 
     "Word":[
         {
-            "id": 0,
+            "id": 1, 
             "Tipo": 0,
-            "Pregunta": "¿Cuál de los siguientes es un procesador de textos?",
+            "Pregunta": "¿Cuál de las siguientes opciones no es de la primera vista?",
             "Opciones":[
                 {
                     "item": "a",
-                    "text":"Excel",
+                    "text":"Nuevo",
                     "correcta": false
                 },
                 {
                     "item": "b",
-                    "text":"Block de notas",
+                    "text":"Fuente",
+                    "correcta": true
+                },
+                {
+                    "item": "c",
+                    "text":"Abrir",
+                    "correcta": false
+                },
+                {
+                    "item": "d",
+                    "text":"Inicio",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 1, 
+            "Tipo": 1,
+            "Pregunta": "¿Word nos permite elegir plantillas para nuestro documento?",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Verdadero",
+                    "correcta": true
+                },
+                {
+                    "item": "b",
+                    "text":"Falso",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 2, 
+            "Tipo": 2,
+            "Inicio": "Documento en blanco es una",
+            "Fin": "que permite crear un nuevo documento",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Plantilla",
+                    "correcta": true
+                },
+                {
+                    "item": "b",
+                    "text":"Cuenta",
                     "correcta": false
                 },
                 {
                     "item": "c",
-                    "text":"Word",
+                    "text":"Opción",
+                    "correcta": false
+                },
+                {
+                    "item": "d",
+                    "text":"Versión",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 3, 
+            "Tipo": 0,
+            "Pregunta": "¿Cuál de las siguientes opciones no es del portapapeles?",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Copiar",
+                    "correcta": false
+                },
+                {
+                    "item": "b",
+                    "text":"Cortar",
+                    "correcta": false
+                },
+                {
+                    "item": "c",
+                    "text":"Pegar",
+                    "correcta": false
+                },
+                {
+                    "item": "d",
+                    "text":"Resaltar",
+                    "correcta": true
+                }
+            ] 
+        },
+        {
+            "id": 4, 
+            "Tipo": 1,
+            "Pregunta": "¿Word nos permite asignar diferentes colores a nuestras fuentes?",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Verdadero",
+                    "correcta": true
+                },
+                {
+                    "item": "b",
+                    "text":"Falso",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 5, 
+            "Tipo": 2,
+            "Inicio": "Podemos usar la opción de",
+            "Fin": "para hacer énfasis en nuestro texto",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Plantilla",
+                    "correcta": false
+                },
+                {
+                    "item": "b",
+                    "text":"Cuenta",
+                    "correcta": false
+                },
+                {
+                    "item": "c",
+                    "text":"Opción",
+                    "correcta": false
+                },
+                {
+                    "item": "d",
+                    "text":"Resaltar",
+                    "correcta": true
+                }
+            ] 
+        },
+        {
+            "id": 6, 
+            "Tipo": 0,
+            "Pregunta": "¿Cuál de las siguientes opciones no es del portapapeles?",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Copiar",
+                    "correcta": false
+                },
+                {
+                    "item": "b",
+                    "text":"Cortar",
+                    "correcta": false
+                },
+                {
+                    "item": "c",
+                    "text":"Pegar",
+                    "correcta": false
+                },
+                {
+                    "item": "d",
+                    "text":"Resaltar",
+                    "correcta": true
+                }
+            ] 
+        },
+        {
+            "id": 7, 
+            "Tipo": 1,
+            "Pregunta": "¿Word nos permite asignar diferentes colores a nuestras fuentes?",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Verdadero",
+                    "correcta": true
+                },
+                {
+                    "item": "b",
+                    "text":"Falso",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 8, 
+            "Tipo": 2,
+            "Inicio": "Podemos usar la opción de",
+            "Fin": "para hacer énfasis en nuestro texto",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Plantilla",
+                    "correcta": false
+                },
+                {
+                    "item": "b",
+                    "text":"Cuenta",
+                    "correcta": false
+                },
+                {
+                    "item": "c",
+                    "text":"Opción",
+                    "correcta": false
+                },
+                {
+                    "item": "d",
+                    "text":"Resaltar",
+                    "correcta": true
+                }
+            ] 
+        },
+        {
+            "id": 9, 
+            "Tipo": 0,
+            "Pregunta": "¿Cuál de las siguientes opciones no se permite en la portada?",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Titulo",
+                    "correcta": false
+                },
+                {
+                    "item": "b",
+                    "text":"Autor",
+                    "correcta": false
+                },
+                {
+                    "item": "c",
+                    "text":"Dispositivo",
                     "correcta": true
                 },
                 {
                     "item": "d",
-                    "text":"Power Point",
+                    "text":"Fecha",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 10, 
+            "Tipo": 1,
+            "Pregunta": "¿Word nos permite portadas predeterminadas?",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Verdadero",
+                    "correcta": true
+                },
+                {
+                    "item": "b",
+                    "text":"Falso",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 11, 
+            "Tipo": 2,
+            "Inicio": "Para insertar una tabla debemos escoger las",
+            "Fin": ".",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Filas y Columnas",
+                    "correcta": true
+                },
+                {
+                    "item": "b",
+                    "text":"Frases y Palabras",
+                    "correcta": false
+                },
+                {
+                    "item": "c",
+                    "text":"Colores y Fuentes",
+                    "correcta": false
+                },
+                {
+                    "item": "d",
+                    "text":"Imagenes y formas",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 12, 
+            "Tipo": 0,
+            "Pregunta": "¿Cuál de las siguientes opciones se permite modificar en disposición?",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Margenes",
+                    "correcta": true
+                },
+                {
+                    "item": "b",
+                    "text":"Color",
+                    "correcta": false
+                },
+                {
+                    "item": "c",
+                    "text":"Titulo",
+                    "correcta": false
+                },
+                {
+                    "item": "d",
+                    "text":"Fuente",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 13, 
+            "Tipo": 1,
+            "Pregunta": "¿Click derecho nos muestra los atajos de Word?",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Verdadero",
+                    "correcta": true
+                },
+                {
+                    "item": "b",
+                    "text":"Falso",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 14, 
+            "Tipo": 2,
+            "Inicio": "Se puede corregir la Gramática y ",
+            "Fin": " en la pestaña revisar de Word.",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Tildes",
+                    "correcta": true
+                },
+                {
+                    "item": "b",
+                    "text":"Ortografia",
+                    "correcta": true
+                },
+                {
+                    "item": "c",
+                    "text":"Colores ",
+                    "correcta": false
+                },
+                {
+                    "item": "d",
+                    "text":"Espaciado",
                     "correcta": false
                 }
             ] 

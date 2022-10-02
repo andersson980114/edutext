@@ -59,15 +59,15 @@ const styles = StyleSheet.create({
     height: 140, 
     backgroundColor: '#EBEBEB',
     borderRadius: 15,
-    shadowColor:'#000',
+    shadowColor:'#262322',
     shadowOffset: {
       width: 5,
       height: 5,
     },
-    shadowOpacity: 0.75,
+    shadowOpacity: 0.5,
     shadowRadius: 5,
-    elevation: 10,  
-    margin: 10,
+    elevation: 7,  
+    margin: 12,
   },
 
   })

@@ -1,40 +1,26 @@
-import * as SQLite from "expo-sqlite";
+import * as SQLite from "expo-sqlite"; 
+//import { openDatabase } from "react-native-sqlite-storage";
+import { createAvatarTable } from "./avatarModel";
+import { createContenidoTable } from "./contenidoModel";
+import { createInsigniaTable } from "./insigniaModel"; 
+import { createNivelTable } from "./nivelModel";
+import { createTemaTable } from "./temaModel";
+import { createUserTable } from "./userModel";
 
 export function conectionDb(){
-    const db = SQLite.openDatabase(
-        {
-        name: 'usersDb',
-        location: 'default'
-        }, 
-        () => {},
-        error => {console.log(error)}
-    );
-
+    const db = SQLite.openDatabase('main');
     return db;
-}
-
-export  function createUserTable(db){
-    db.transaction((tx) =>{
-        tx.executeSql(
-            "CREATE TABLE IF NOT EXISTS users (ID INTEGER PRIMARY KEY AUTOINCREMENT, Name VARCHAR(128), LastName  VARCHAR(128), Genero VARCHAR(128))"
-        )
-    })
 }
 
 export function initDb(){
     const db = conectionDb();
     createUserTable(db)
+    createAvatarTable(db)
+    createContenidoTable(db)
+    createInsigniaTable(db)
+    createNivelTable(db)
+    createTemaTable(db)
     return db
-}
-
-export function insertUsers(db, name, lastName, genero){
-    db.transaction((tx) => {
-        tx.executeSql(
-            "INSERT INTO users (Name, LastName, Genero) VALUES (?,?,?)",
-            [name,lastName,genero]
-        )
-    },
-    null)
 }
 
 

@@ -1,10 +1,26 @@
 import React, {useState} from 'react'
 import { View, Image,Text, StyleSheet, TouchableOpacity } from 'react-native'
- 
-export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
+import { UseOpcionContext, UseNivelContext, UsePreguntaContext} from "../Contexts/InfoProvider";
 
-      
+function random(min, max) { 
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    var val = Math.floor((Math.random() * (max - min + 1)) + min)-1; 
+  
+    return val
+  }
+
+export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
+    
+    
+    const {nivel, handleNivel} =  UseNivelContext() 
+    const {pregunta, handlePregunta} = UsePreguntaContext()
+    const {opcion, handleOpcion} =  UseOpcionContext() 
+
     const handleChange = () =>{
+        var val= random(nivel[1], (parseInt(nivel[1])+1)*3)
+        console.log(nivel)
+        handlePregunta([opcion[0], val])
         if(prueba && !visto){
             navigation.navigate('PreguntaA')
         }else{

@@ -8,7 +8,7 @@ const ANCHO_CONTENEDOR = (height / deviceWidth ) * 90 ;
 const ALTO_CONTENEDOR = (height / deviceWidth ) * 90 ;  
 
 export default function Nivel({ nivel, nombre, img, progreso, onChange}) { 
-    
+   
     const porcentaje = (progres*progreso)/100
     const handleChange = () =>{
         onChange([nivel,nombre]) 

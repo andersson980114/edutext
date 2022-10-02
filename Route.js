@@ -13,6 +13,7 @@ import OnboardingScreen from './screens/OnboardingScreen';
 import SplashScreen from './screens/SplashScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import Head from './components/Head';
+import Open from './screens/Open';
 import {initDb} from './utils/db' 
 //import {initDatadabase} from './utils/db' 
 const Stack = createNativeStackNavigator();
@@ -36,10 +37,8 @@ export default function App() {
     const {pregunta, setPregunta} = UsePreguntaContext()
     useEffect(function() {
        function init(){
-         const db = initDb();
+        // const db = initDb();
         //console.log("db")
-        
-    
       }
       init();
     }, []);
@@ -88,6 +87,8 @@ export default function App() {
                 headerBackVisible:false
             })} component={PreguntaA}  />
   
+            <Stack.Screen name="Open" component={Open}  />
+
             <Stack.Screen name="Onboarding" component={OnboardingScreen}  options={{header: ()=>null}} />
             
             <Stack.Screen name="Splash" component={SplashScreen}  navigation={Navigation} logueo={logueado} options={{header: ()=>null}}/>
