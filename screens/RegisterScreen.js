@@ -63,37 +63,37 @@ export default function RegisterScreen({navigation}) {
   }
 
   function createUser(){  
-     
-     if(userName === '' || lastName === '' || selectedItem.name === null){
+    
+    if(userName === '' || lastName === '' || selectedItem.name === null){
       setShow(true)
-      setTexto('Por favor llene los campos') 
-      return false
-  }
-    try {
-      insertUsers(db, userName, lastName, selectedItem.name)
-      setShow(true)
-      setTitulo('¡Usuario Creado!')
-      setTexto("Bienvenido "+ userName)
-      setImagen(require("../assets/screenAssets/success.png"))
-      setSuccess(true)
-      setBotones([
-        {
-          texto: "Aceptar",
-          id: 0,  
-          success: false,
-          boton: "succes"
-
-        }
-      ])
-    } catch (error) {
-      setShow(true)
-      setTexto('Por favor Verifique los campos') 
-      console.log(db);
-      console.log(userName)
-      console.log(lastName)
-      console.log(selectedItem.name)
-      console.log(`error catch:${error.message}`)
-    } 
+      setTexto('Por favor llene los campos')  
+    }else{
+      try {
+        insertUsers(db, userName, lastName, selectedItem.name)
+        setShow(true)
+        setTitulo('¡Usuario Creado!')
+        setTexto("Bienvenido "+ userName)
+        setImagen(require("../assets/screenAssets/success.png"))
+        setSuccess(true)
+        setBotones([
+          {
+            texto: "Aceptar",
+            id: 0,  
+            success: false,
+            boton: "succes"
+  
+          }
+        ])
+      } catch (error) {
+        setShow(true)
+        setTexto('Por favor Verifique los campos') 
+        console.log(db);
+        console.log(userName)
+        console.log(lastName) 
+        console.log(`error catch:${error.message}`)
+      } 
+    }
+    
   }
 
   return (
