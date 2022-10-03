@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState, useEffect} from "react";
 import { Text, View,Button, Image, StyleSheet, Dimensions, Pressable } from "react-native";
 import { Card} from 'react-native-elements'
 import * as data from  '../Data/preguntas.json'
@@ -7,6 +7,7 @@ import {UsePreguntaContext} from '../Contexts/InfoProvider';
 import PreguntaOpciones from '../components/PreguntaOpciones.js'
 import PreguntaFV from '../components/PreguntaFV.js'
 import PreguntaImagenes from '../components/PreguntaImagenes.js'
+import ModalPoup from "../components/ModalPoup";
 
 let tema;
 let index;
@@ -16,6 +17,13 @@ export default function PreguntaA({ navigation }) {
   const [estado, setEstado] = useState(false) //si se activo una respuesta o no
   const [respuesta, setRespuesta] = useState(false)
   const [pres, setPress] = useState(false)
+  //
+  const [show, setShow] = useState(false)
+  const [titulo, setTitulo] = useState("")
+  const [texto, setTexto] = useState("")
+  const [imagen, setImagen] = useState(require("../assets/screenAssets/correcto.png"))
+  const [botones, setBotones] = useState([])
+  const [success, setSuccess] = useState(false)
 
   index = pregunta[1] 
   switch(pregunta[0]){
@@ -31,20 +39,44 @@ export default function PreguntaA({ navigation }) {
   }
   tipo = tema[index].Tipo
 
-   
-  //console.log(tema[index].Opciones);
+  const cerrrar = () =>{
+    setShow(false)
+  }
+  const setRetro = (respuesta) =>{
+    if(!respuesta){
+      setShow(true)
+      setTitulo('Incorrecto')
+      setTexto(tema[index].Retro)
+      setImagen(require("../assets/screenAssets/incorrecto.png"))
+      setSuccess(true)
+      setBotones([
+        {
+          texto: "Aceptar",
+          id: 0,  
+          success: false,
+          boton: "danger"
+
+        }
+      ])
+    }
+  }
 
   const correcta = (opcion) => {
     setEstado(true)
     setRespuesta(opcion[0]) 
-    setPress(true)   
+    setPress(true)    
+    setRetro(opcion[0])
   }
   
   if(tipo == 0){
     return (
       <View style={styles.container}>
-          
+
           <PreguntaOpciones onChange={correcta} tema={tema} index={index} />
+
+          <View>
+              <ModalPoup visible={show} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={cerrrar} />
+          </View>
           
           <View style={styles.notificacion}  >
             <Retroalimentacion respuesta={respuesta} estado={estado} navigation={navigation} pres={pres} />
@@ -57,6 +89,10 @@ export default function PreguntaA({ navigation }) {
     return (
       <View style={styles.container}>
           
+          <View>
+              <ModalPoup visible={show} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={cerrrar} />
+          </View>
+          
           <PreguntaFV onChange={correcta} tema={tema} index={index} />
           
           <View style={styles.notificacion}  >
@@ -68,6 +104,10 @@ export default function PreguntaA({ navigation }) {
   }else{
     return (
       <View style={styles.container}>
+          
+          <View>
+              <ModalPoup visible={show} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={cerrrar} />
+          </View>
           
           <PreguntaImagenes onChange={correcta} tema={tema} index={index} />
           

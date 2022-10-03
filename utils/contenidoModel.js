@@ -1,14 +1,18 @@
+
+import { Contenido } from '../Data/imagenes';
+
 export  function createContenidoTable(db){
     db.transaction((tx) =>{
         tx.executeSql(
             "CREATE TABLE IF NOT EXISTS contenido (id INTEGER PRIMARY KEY AUTOINCREMENT, Prueba Boolean, Visto Boolean)",
             [],
             (sqlTxn, res) => {
-                console.log("contenido creado")
+               // console.log("tabla Contenido creado")
             },
             error => { console.log(error)}
         )
     })
+    llenar(db)
 }
 
 export function insertContenido(db, Prueba, Visto){
@@ -17,12 +21,20 @@ export function insertContenido(db, Prueba, Visto){
             "INSERT INTO contenido ( Prueba, Visto)VALUES (?,?)",
             [Prueba, Visto],
             (sqlTxn, res) => {
-                console.log("contenido ingresado")
+               // console.log("contenido ingresado")
             },
             error => {console.log("no se pudo insert contenido")}
         )
     },
     null)
+}
+
+function llenar(db){ 
+    
+    Contenido.map((item) =>{
+            insertContenido(db, item.Prueba, item.Visto)
+        }
+    )
 }
 
 export  function  getContenido(db){

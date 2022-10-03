@@ -1,14 +1,17 @@
+import * as data from '../Data/wordNiveles.json';
+
 export  function createNivelTable(db){
     db.transaction((tx) =>{
         tx.executeSql(
             "CREATE TABLE IF NOT EXISTS nivel (id INTEGER PRIMARY KEY AUTOINCREMENT, Progreso INTEGER)",
             [],
             (sqlTxn, res) => {
-                console.log("nivel creado")
+              //  console.log("tabla Nivel creado")
             },
             error => { console.log(error)}
         )
     })
+    llenar(db)
 }
 
 
@@ -18,7 +21,7 @@ export function insertNivel(db, Progreso){
             "INSERT INTO nivel ( Progreso)VALUES (?)",
             [Progreso],
             (sqlTxn, res) => {
-                console.log("nivel ingresado")
+              //  console.log("nivel ingresado")
             },
             error => {console.log("no se pudo insert nivel")}
         )
@@ -26,6 +29,14 @@ export function insertNivel(db, Progreso){
     null)
 }
 
+function llenar(db){
+    const nivel = data.Niveles
+    
+    nivel.map((item) =>{
+            insertNivel(db, 0)
+        }
+    )
+} 
 
 export  function  getNivel(db){
     db.transaction((tx) => {

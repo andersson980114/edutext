@@ -1,14 +1,17 @@
+import * as data from '../Data/wordTemas.json';
+
 export  function createTemaTable(db){
     db.transaction((tx) =>{
         tx.executeSql(
             "CREATE TABLE IF NOT EXISTS tema (id INTEGER PRIMARY KEY AUTOINCREMENT, Favorito Boolean, Visto Boolean,  Completado Boolean)",
             [],
             (sqlTxn, res) => {
-                console.log("tema creado")
+                console.log("tabla Tema creado")
             },
             error => { console.log(error)}
         )
     })
+    llenar(db)
 }
 
 export function insertTema(db, Favorito, Visto, Completado){
@@ -17,12 +20,21 @@ export function insertTema(db, Favorito, Visto, Completado){
             "INSERT INTO tema ( Favorito, Visto, Completado)VALUES (?,?,?)",
             [Favorito, Visto, Completado],
             (sqlTxn, res) => {
-                console.log("tema ingresado")
+               // console.log("tema ingresado")
             },
             error => {console.log("no se pudo insert tema")}
         )
     },
     null)
+}
+
+function llenar(db){
+    const temas = data.Temas
+    
+    temas.map((item) =>{
+          //  insertTema(db, false, false, false)
+        }
+    )
 }
 
 export  function  getTema(db){

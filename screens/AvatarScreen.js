@@ -77,7 +77,7 @@ export default function AvatarScreen({}) {
         <ModalPoup visible={show} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={getUserId} />
         <View style={Styles.topContainer}>
           <Image source={Avatars[user].url} style={Styles.Ubox}></Image> 
-          <Text style={Styles.textUser}></Text>
+          <Text style={Styles.textUser}>Laura</Text>
         </View>
         <Text style={Styles.textUser}>Mis Avatares</Text>
         <View style={Styles.boxContainer}>

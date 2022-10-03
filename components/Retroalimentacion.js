@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { Text, View,Button, Image, StyleSheet, Dimensions, Pressable } from "react-native";
 import Siguiente from './Siguiente';
 
@@ -9,10 +9,13 @@ const ANCHO_CONTENEDOR = width * 0.9;
 const ALTURA_CONTENEDOR = height*0.9;
 
 export default function Retroalimentacion({respuesta, estado, navigation}) {
+  
+
+  
+
     if(estado){
         return (
           <View>
-
             <View style={{
                 width: deviceWidth - 35, 
                 borderWidth: 3,

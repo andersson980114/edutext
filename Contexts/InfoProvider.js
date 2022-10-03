@@ -1,5 +1,6 @@
 import React,{ useState, useContext } from 'react'
-import { View } from 'react-native-web'
+import { View } from 'react-native'
+import DataContext from './DataContext';
 
 const InfoContext = React.createContext();
 const OpcionContext = React.createContext();
@@ -66,8 +67,8 @@ export  function InfoProvider({children}) {
         <TemaContext.Provider  value={{tema,handleTema}}> 
           <PreguntaContext.Provider value={{pregunta, handlePregunta}}>
 
-            <InfoContext.Provider value={{opcion,nivel, tema}}>
-              {children}
+            <InfoContext.Provider value={{opcion,nivel, tema}}> 
+                {children} 
             </InfoContext.Provider>
 
           </PreguntaContext.Provider>

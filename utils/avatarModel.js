@@ -1,3 +1,4 @@
+import * as data from '../Data/avatars.json';
 
 export  function createAvatarTable(db){
     db.transaction((tx) =>{
@@ -5,11 +6,12 @@ export  function createAvatarTable(db){
             "CREATE TABLE IF NOT EXISTS avatar (id INTEGER PRIMARY KEY AUTOINCREMENT,  Bloqueado BOOLEAN, Selected  BOOLEAN)",
             [],
             (sqlTxn, res) => {
-                console.log("tabla creada")
+                //console.log("tabla Avatar creada")
             },
             error => { console.log(error)}
         )
     })
+    llenar(db)
 }
 
 export function insertAvatar(db, selected, bloqueado){
@@ -18,12 +20,21 @@ export function insertAvatar(db, selected, bloqueado){
             "INSERT INTO avatar ( Selected, Bloqueado)VALUES (?,?)",
             [selected, bloqueado],
             (sqlTxn, res) => {
-                console.log("avatar ingresado")
+                //console.log("avatar ingresado")
             },
             error => {console.log("no se pudo insert avatar")}
         )
     },
     null)
+}
+
+function llenar(db){
+    const avatar = data.Avatars
+    
+    avatar.map((item) =>{
+            insertAvatar(db, false, false)
+        }
+    )
 }
 
 export  function  getAvatar(db){

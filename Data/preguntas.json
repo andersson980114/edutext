@@ -4,6 +4,7 @@
             "id": 0,
             "Tipo": 0,
             "Pregunta": "¿Cuál de los siguientes es un procesador de textos?",
+            "Retro": "Word es un procesador de textos que hace parte del paquete de Microsoft Office",
             "Opciones":[
                 {
                     "item": "a",
@@ -31,6 +32,7 @@
             "id": 1, 
             "Tipo": 0,
             "Pregunta": "¿Cuál de los siguientes es un procesador de textos?",
+            "Retro": "Google Docs es un procesador de textos online que hace parte de suite de Google",
             "Opciones":[
                 {
                     "item": "a",
@@ -58,6 +60,7 @@
             "id": 2, 
             "Tipo": 1,
             "Pregunta": "¿El Block de notas es un procesador de textos?",
+            "Retro": "No es un precesador de textos ya que no tiene las cualidades para ser considerado así",
             "Opciones":[
                 {
                     "item": "a",
@@ -76,6 +79,7 @@
             "Tipo": 2,
             "Inicio": "Arial Black es un tipo de",
             "Fin": "con un mayor grosor que Arial",
+            "Retro": "Arial Black es un tipo de fuente de la familia Arial, con un grosor mayor al Arial",
             "Opciones":[
                 {
                     "item": "a",
@@ -106,6 +110,7 @@
             "id": 1, 
             "Tipo": 0,
             "Pregunta": "¿Cuál de las siguientes opciones no es de la primera vista?",
+            "Retro": "Fuente no es una opción de la primera vista ya que es una opción del documento",
             "Opciones":[
                 {
                     "item": "a",
@@ -133,6 +138,7 @@
             "id": 1, 
             "Tipo": 1,
             "Pregunta": "¿Word nos permite elegir plantillas para nuestro documento?",
+            "Retro": "Word si nos permite elegir plantillas en blanco o personalizadas para los documentos",
             "Opciones":[
                 {
                     "item": "a",
@@ -151,6 +157,7 @@
             "Tipo": 2,
             "Inicio": "Documento en blanco es una",
             "Fin": "que permite crear un nuevo documento",
+            "Retro": "Documento en blanco es una PLANTILLA que nos permite crear un nuevo documento",
             "Opciones":[
                 {
                     "item": "a",
@@ -164,7 +171,7 @@
                 },
                 {
                     "item": "c",
-                    "text":"Opción",
+                    "text":"Vista",
                     "correcta": false
                 },
                 {
@@ -178,6 +185,7 @@
             "id": 3, 
             "Tipo": 0,
             "Pregunta": "¿Cuál de las siguientes opciones no es del portapapeles?",
+            "Retro": "RESALTAR es una opción de fuente que nos permite hacer énsfasis en el texto, más no es una opción del portapapeles",
             "Opciones":[
                 {
                     "item": "a",
@@ -205,6 +213,7 @@
             "id": 4, 
             "Tipo": 1,
             "Pregunta": "¿Word nos permite asignar diferentes colores a nuestras fuentes?",
+            "Retro": "Word nos permite asignar colores, tamaños y demás estilos a las fuentes de textos",
             "Opciones":[
                 {
                     "item": "a",
@@ -223,6 +232,7 @@
             "Tipo": 2,
             "Inicio": "Podemos usar la opción de",
             "Fin": "para hacer énfasis en nuestro texto",
+            "Retro": "RESALTAR es una opción de fuente que nos permite hacer énsfasis en el texto, más no es una opción del portapapeles",
             "Opciones":[
                 {
                     "item": "a",
@@ -249,26 +259,27 @@
         {
             "id": 6, 
             "Tipo": 0,
-            "Pregunta": "¿Cuál de las siguientes opciones no es del portapapeles?",
+            "Pregunta": "¿Cuál de las siguientes opciones no es dePáginas?",
+            "Retro": "Cubir Página no es una opción siquiera de Microsoft Word",
             "Opciones":[
                 {
                     "item": "a",
-                    "text":"Copiar",
+                    "text":"Portada",
                     "correcta": false
                 },
                 {
                     "item": "b",
-                    "text":"Cortar",
+                    "text":"Pagina en Blanco",
                     "correcta": false
                 },
                 {
                     "item": "c",
-                    "text":"Pegar",
-                    "correcta": false
+                    "text":"Cubrir Página",
+                    "correcta": true
                 },
                 {
                     "item": "d",
-                    "text":"Resaltar",
+                    "text":"Salto de Página",
                     "correcta": true
                 }
             ] 
@@ -276,7 +287,8 @@
         {
             "id": 7, 
             "Tipo": 1,
-            "Pregunta": "¿Word nos permite asignar diferentes colores a nuestras fuentes?",
+            "Pregunta": "¿Word nos permite quitar la portada de un documento?",
+            "Retro": "Word si nos permite quitar la portada actual de un documento",
             "Opciones":[
                 {
                     "item": "a",
@@ -294,27 +306,28 @@
             "id": 8, 
             "Tipo": 2,
             "Inicio": "Podemos usar la opción de",
-            "Fin": "para hacer énfasis en nuestro texto",
+            "Fin": "para agregar Fotos al documento",
+            "Retro": "Con la opcion de IMAGENES podemos agregar cualquier foto a nuestro documento",
             "Opciones":[
                 {
                     "item": "a",
-                    "text":"Plantilla",
-                    "correcta": false
+                    "text":"Imagenes",
+                    "correcta": true
                 },
                 {
                     "item": "b",
-                    "text":"Cuenta",
+                    "text":"Tablas",
                     "correcta": false
                 },
                 {
                     "item": "c",
-                    "text":"Opción",
+                    "text":"Fuente",
                     "correcta": false
                 },
                 {
                     "item": "d",
                     "text":"Resaltar",
-                    "correcta": true
+                    "correcta": false
                 }
             ] 
         },
@@ -322,6 +335,7 @@
             "id": 9, 
             "Tipo": 0,
             "Pregunta": "¿Cuál de las siguientes opciones no se permite en la portada?",
+            "Retro": "DISPOSITIVO no es una Opcion de portada",
             "Opciones":[
                 {
                     "item": "a",
@@ -348,7 +362,8 @@
         {
             "id": 10, 
             "Tipo": 1,
-            "Pregunta": "¿Word nos permite portadas predeterminadas?",
+            "Pregunta": "¿Word nos permite usar portadas predeterminadas?",
+            "Retro": "Word si nos permite usar portadas predeterminadas",
             "Opciones":[
                 {
                     "item": "a",
@@ -367,6 +382,7 @@
             "Tipo": 2,
             "Inicio": "Para insertar una tabla debemos escoger las",
             "Fin": ".",
+            "Retro": "Las FILAS y COLUMNAS son necesarias para generar una tabla",
             "Opciones":[
                 {
                     "item": "a",
@@ -394,6 +410,7 @@
             "id": 12, 
             "Tipo": 0,
             "Pregunta": "¿Cuál de las siguientes opciones se permite modificar en disposición?",
+            "Retro": "MARGENES es la opción que se nos permite modificar en disposición",
             "Opciones":[
                 {
                     "item": "a",
@@ -421,6 +438,7 @@
             "id": 13, 
             "Tipo": 1,
             "Pregunta": "¿Click derecho nos muestra los atajos de Word?",
+            "Retro": "CLICK DERECHO SI nos muestra los atajos de Word",
             "Opciones":[
                 {
                     "item": "a",
@@ -439,11 +457,12 @@
             "Tipo": 2,
             "Inicio": "Se puede corregir la Gramática y ",
             "Fin": " en la pestaña revisar de Word.",
+            "Retro": "la pestaña revisar corrige la GRAMÁTICA y la ORTOGRAFIA ",
             "Opciones":[
                 {
                     "item": "a",
                     "text":"Tildes",
-                    "correcta": true
+                    "correcta": false
                 },
                 {
                     "item": "b",

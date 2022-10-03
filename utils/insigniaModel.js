@@ -1,4 +1,4 @@
-
+import * as data from '../Data/insignias.json';
 
 export  function createInsigniaTable(db){
     db.transaction((tx) =>{
@@ -6,11 +6,12 @@ export  function createInsigniaTable(db){
             "CREATE TABLE IF NOT EXISTS insignia (id INTEGER PRIMARY KEY AUTOINCREMENT, Bloqueado BOOLEAN)",
             [],
             (sqlTxn, res) => {
-                console.log("tabla Insignia creada")
+               // console.log("tabla Insignia creada")
             },
             error => { console.log(error)}
         )
     })
+    llenar(db)
 }
 
 export function insertInsignia(db, bloqueado){
@@ -19,12 +20,21 @@ export function insertInsignia(db, bloqueado){
             "INSERT INTO insignia (Bloqueado)VALUES (?)",
             [bloqueado],
             (sqlTxn, res) => {
-                console.log("Insignia ingresada")
+               // console.log("Insignia ingresada")
             },
             error => {console.log("no se pudo insertar insignia")}
         )
     },
     null)
+}
+
+function llenar(db){
+    const insignia = data.Insignias
+    
+    insignia.map((item) =>{
+            insertInsignia(db, false)
+        }
+    )
 }
 
 export  function  getInsignia(db){

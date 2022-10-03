@@ -4,7 +4,7 @@ export  function createUserTable(db){
             "CREATE TABLE IF NOT EXISTS user (id INTEGER PRIMARY KEY AUTOINCREMENT, Nombre VARCHAR(128), Apellido  VARCHAR(128), Genero VARCHAR(128))",
             [],
             (sqlTxn, res) => {
-                console.log("tabla creada")
+              //  console.log("tabla User ccreada")
             },
             error => { console.log(error)}
         )
@@ -17,7 +17,7 @@ export function insertUsers(db, name, lastName, genero){
             "INSERT INTO user (Name, LastName, Genero) VALUES (?,?,?)",
             [name,lastName,genero],
             (sqlTxn, res) => {
-                console.log("data ingresada")
+               // console.log("data ingresada")
             },
             error => {console.log("no se pudo")}
         )
@@ -25,7 +25,7 @@ export function insertUsers(db, name, lastName, genero){
     null)
 }
 
-export  function  getUsers(db){
+export  function  getUsers(db, setData){
     db.transaction((tx) => {
         tx.executeSql(
             `SELECT * FROM user`,
@@ -38,13 +38,16 @@ export  function  getUsers(db){
                     for(let i =0; i<len; i++){
                         let item =   res.rows.item(i);
                         //console.log(item)
+                        setData()
                         results.push(item)
                     }  
+                   
                     console.log(results)
                     return results;
                 }else{
-                    console.log("no hay data")
+                    //console.log("no hay data")
                 }
+                setData(len)
             },
             error => {console.log(error)}
         )
