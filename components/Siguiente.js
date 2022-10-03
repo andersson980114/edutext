@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { View, Image,Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { UseOpcionContext, UseNivelContext, UsePreguntaContext} from "../Contexts/InfoProvider";
 
+
 function random(min, max) { 
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -21,10 +22,14 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
         var val= random(nivel[1], (parseInt(nivel[1])+1)*3)
         console.log(nivel)
         handlePregunta([opcion[0], val])
-        if(prueba && !visto){
-            navigation.navigate('PreguntaA')
+        if(pregunta[0]!='Onboarding'){
+            if(prueba && !visto){
+                navigation.navigate('PreguntaA')
+            }else{
+                navigation.navigate('Temas')
+            }
         }else{
-            navigation.navigate('Temas')
+            navigation.navigate('Inicio')
         }
     }
 

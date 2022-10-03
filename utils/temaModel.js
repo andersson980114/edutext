@@ -6,7 +6,7 @@ export  function createTemaTable(db){
             "CREATE TABLE IF NOT EXISTS tema (id INTEGER PRIMARY KEY AUTOINCREMENT, Favorito Boolean, Visto Boolean,  Completado Boolean)",
             [],
             (sqlTxn, res) => {
-                console.log("tabla Tema creado")
+                //console.log("tabla Tema creado")
             },
             error => { console.log(error)}
         )
@@ -32,7 +32,7 @@ function llenar(db){
     const temas = data.Temas
     
     temas.map((item) =>{
-          //  insertTema(db, false, false, false)
+           insertTema(db, false, false, false)
         }
     )
 }

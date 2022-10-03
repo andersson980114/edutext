@@ -14,12 +14,12 @@ export  function createUserTable(db){
 export function insertUsers(db, name, lastName, genero){
     db.transaction((tx) => {
         tx.executeSql(
-            "INSERT INTO user (Name, LastName, Genero) VALUES (?,?,?)",
+            "INSERT INTO user (Nombre, Apellido, Genero) VALUES (?,?,?)",
             [name,lastName,genero],
             (sqlTxn, res) => {
-               // console.log("data ingresada")
+                console.log("user ingresado")
             },
-            error => {console.log("no se pudo")}
+            error => {console.log(error)}
         )
     },
     null)
@@ -42,7 +42,7 @@ export  function  getUsers(db, setData){
                         results.push(item)
                     }  
                    
-                    console.log(results)
+                    //console.log(results)
                     return results;
                 }else{
                     //console.log("no hay data")

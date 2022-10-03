@@ -2,7 +2,11 @@ import React,{useState, useEffect, component }from 'react'
 import { Text, View,Button, StyleSheet, TextInput, Pressable, Dimensions, Alert, Image } from "react-native";
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Dropdown from '../components/Dropdown';
-import { conectionDb, insertUsers } from '../utils/db';
+import { UseDbContext } from '../Contexts/DataContext';
+import { insertUsers } from '../utils/userModel'; 
+import ModalPoup from "../components/ModalPoup";
+
+//
 
 let options = [{id:1, name:'Hombre'},{id:2, name:'Mujer'},{id:3, name:'Otro'}]
 
@@ -11,9 +15,26 @@ const heightC = Dimensions.get("window").height;
 
 
 export default function RegisterScreen({navigation}) {
+  const db = UseDbContext()
   const [userName, setUserName] = useState('');
   const [lastName, setLastName] = useState('');
   const [genero, setGenero] = useState(0);
+  //alert
+  const [show, setShow] = useState(false)
+  const [titulo, setTitulo] = useState("Intentelo de Nuevo")
+  const [texto, setTexto] = useState("")
+  const [imagen, setImagen] = useState(require("../assets/screenAssets/prohibited.png"))
+  const [botones, setBotones] = useState([
+    {
+      texto: "Aceptar",
+      id: 0,  
+      success: false,
+      boton: "danger"
+
+    }
+  ])
+  const [success, setSuccess] = useState(false)
+
 
   const [selectedItem, setSelectedItem] = useState(null)
 
@@ -34,31 +55,40 @@ export default function RegisterScreen({navigation}) {
     this.setState({gener: gener})
   }
 
-  function handleGenero(text){
-    setGenero(text)
+  const cerrrar = () =>{
+    setShow(false)
+    if(success){
+      navigation.navigate('PreguntaA')
+    }
   }
 
   function createUser(){  
      
      if(userName === '' || lastName === '' || selectedItem.name === null){
-      console.log( 'Por favor llene los campos')
+      setShow(true)
+      setTexto('Por favor llene los campos') 
       return false
   }
     try {
-      const db =  conectionDb();
       insertUsers(db, userName, lastName, selectedItem.name)
-      Alert.alert(
-        'Succes',
-        'Usuario Registrado',
-        [
-          {
-            text: 'OK',
-            onPress: () => navigation.navigate('Inicio')
-          }
-        ],
-        {cancelable: false}
-      ); 
+      setShow(true)
+      setTitulo('¡Usuario Creado!')
+      setTexto("Bienvenido "+ userName)
+      setImagen(require("../assets/screenAssets/success.png"))
+      setSuccess(true)
+      setBotones([
+        {
+          texto: "Aceptar",
+          id: 0,  
+          success: false,
+          boton: "succes"
+
+        }
+      ])
     } catch (error) {
+      setShow(true)
+      setTexto('Por favor Verifique los campos') 
+      console.log(db);
       console.log(userName)
       console.log(lastName)
       console.log(selectedItem.name)
@@ -69,6 +99,10 @@ export default function RegisterScreen({navigation}) {
   return (
       
       <View  style={styles.container}>
+
+        <View>
+              <ModalPoup visible={show} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={cerrrar} />
+        </View>
 
         <View style={styles.head}>
           <Image source={require("../assets/screenAssets/Logotipo.png")} style={styles.img}></Image>
@@ -106,7 +140,7 @@ export default function RegisterScreen({navigation}) {
                 onSelect={onSelect}  
               />
           
-              <Pressable onPress={() => navigation.navigate('Inicio')} >
+              <Pressable onPress={()=> createUser()} >
                 <Text style={styles.button}>
                   Ingresar
                 </Text>
