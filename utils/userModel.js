@@ -31,14 +31,14 @@ export  function  getUsers(db, setData){
             `SELECT * FROM user`,
             [],
             (sqlTxn, res) => {
-                console.log("data obtenida");
+                console.log("users obtenidos");
                 let len  = res.rows.length;
+                setData(len) 
                 if(len > 0){
                     let results =[]
                     for(let i =0; i<len; i++){
                         let item =   res.rows.item(i);
-                        //console.log(item)
-                        setData()
+                        //console.log(item) 
                         results.push(item)
                     }  
                    
@@ -47,7 +47,25 @@ export  function  getUsers(db, setData){
                 }else{
                     //console.log("no hay data")
                 }
-                setData(len)
+                
+            },
+            error => {console.log(error)}
+        )
+    }
+    )
+}
+
+export  function  getUser(db, setUser){
+    db.transaction((tx) => {
+        tx.executeSql(
+            `SELECT * from user
+            WHERE id = (
+                SELECT MAX(id) FROM user
+            )`,
+            [],
+            (sqlTxn, res) => {
+                setUser(res.rows.item(0).Nombre)
+                console.log(res.rows.item(0).Nombre)
             },
             error => {console.log(error)}
         )

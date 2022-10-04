@@ -61,6 +61,10 @@ export default function PreguntaA({ navigation }) {
     }
   }
 
+  useEffect(() => { 
+    setEstado(false) 
+  }, [ tema])
+  
   const correcta = (opcion) => {
     setEstado(true)
     setRespuesta(opcion[0]) 

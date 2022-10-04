@@ -14,7 +14,6 @@ export function conectionDb(){
 export function initDb(){
     const db = conectionDb();
     createUserTable(db)
-    
     return db
 }
 

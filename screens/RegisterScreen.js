@@ -15,7 +15,7 @@ const heightC = Dimensions.get("window").height;
 
 
 export default function RegisterScreen({navigation}) {
-  const db = UseDbContext()
+  const {db, count, user} = UseDbContext()
   const [userName, setUserName] = useState('');
   const [lastName, setLastName] = useState('');
   const [genero, setGenero] = useState(0);
@@ -62,8 +62,7 @@ export default function RegisterScreen({navigation}) {
     }
   }
 
-  function createUser(){  
-    
+  function createUser(){   
     if(userName === '' || lastName === '' || selectedItem.name === null){
       setShow(true)
       setTexto('Por favor llene los campos')  
@@ -86,7 +85,7 @@ export default function RegisterScreen({navigation}) {
         ])
       } catch (error) {
         setShow(true)
-        setTexto('Por favor Verifique los campos') 
+        setTexto('Error de registro') 
         console.log(db);
         console.log(userName)
         console.log(lastName) 

@@ -2,20 +2,25 @@ import React,{useEffect, useState} from "react";
 import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, Alert, onPress } from "react-native";
 import * as data from '../Data/avatars.json';
 import { Avatars } from "../Data/imagenes";
-import {conectionDb} from "../utils/db"
+import { UseDbContext } from '../Contexts/DataContext'; 
 import ModalPoup from "../components/ModalPoup";
+import { getUser } from "../utils/userModel";
 
 export default function AvatarScreen({}) {  
   const avatar = data.Avatars
   const [user, setUser] = useState(0)//imagen de usuario
+  const [users, setUsers] = useState()
   const [show, setShow] = useState(false)
   const [titulo, setTitulo] = useState("")
   const [texto, setTexto] = useState("")
   const [imagen, setImagen] = useState(require("../assets/screenAssets/success.png"))
   const [botones, setBotones] = useState([])
   const [success, setSuccess] = useState(false)
+  const {db, count} = UseDbContext()
 
   useEffect(() => {
+    getUser(db, setUsers)
+    console.log("Usuario:",users);
     avatar.map((item) => {
       if(item.Selected){
         setUser(item.id)
@@ -77,7 +82,7 @@ export default function AvatarScreen({}) {
         <ModalPoup visible={show} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={getUserId} />
         <View style={Styles.topContainer}>
           <Image source={Avatars[user].url} style={Styles.Ubox}></Image> 
-          <Text style={Styles.textUser}>Laura</Text>
+          <Text style={Styles.textUser}>{users}</Text>
         </View>
         <Text style={Styles.textUser}>Mis Avatares</Text>
         <View style={Styles.boxContainer}>
