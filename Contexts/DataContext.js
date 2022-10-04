@@ -24,7 +24,7 @@ export  function DataContext({children}) {
         console.log(count)
         if(count<1){
             //setDB => carga la data
-            setDB(db)
+            //setDB(db)
         }
         setIsLoading(false)
     }, [])
