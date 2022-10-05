@@ -44,8 +44,6 @@ export default function ContenidoScreen({navigation}) {
 
   }, [])
   
-  
-
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar hidden /> 

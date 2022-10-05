@@ -13,11 +13,8 @@ const ESPACIO_CONTENEDOR = (width - ANCHO_CONTENEDOR) / 2;
 export default function OnboardingScreen({navigation})  {
    
   const startAnimation = useRef(new Animated.Value(0)).current;
-
   const endAnimation = useRef(new Animated.Value(350)).current;
-
   const edges = useSafeAreaInsets()
-
   const timeAnimation = 8000;
   
   useEffect(() => {

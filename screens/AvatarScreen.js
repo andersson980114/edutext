@@ -24,7 +24,7 @@ export default function AvatarScreen({}) {
   useEffect(() => {
     getUser(db, setUsers)
     getAvatar(db, setAvatares)
-    console.log(Avatares);
+    //console.log(Avatares);
     //console.log("Usuario:",users);
     avatar.map((item) => {
       if(item.Selected){

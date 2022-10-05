@@ -4,10 +4,6 @@ import {DataContext} from './Contexts/DataContext';
 
 import Route from './Route'
 
- 
-
-
-
 export default function App() {
   
     return (

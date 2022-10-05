@@ -10,6 +10,7 @@ export default function Tema({db, nombre, Texto, favo, completado, visto, Onchag
     const noFavorite =  require('../assets/screenAssets/noFavorite.png');
 
     const handleChange = () =>{
+        update([nombre[1], fav, true, completado])
         Onchage(nombre)
     }
 

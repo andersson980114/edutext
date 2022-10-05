@@ -43,7 +43,7 @@ export  function  getContenido(db, setContenido){
             `SELECT * FROM contenido`,
             [],
             (sqlTxn, res) => {
-                console.log("contenido obtenida");
+                //console.log("contenido obtenido");
                 let len  = res.rows.length;
                 if(len > 0){
                     let results =[]
@@ -68,7 +68,7 @@ export  function  getContenido(db, setContenido){
 export function updateContenido(db, id, Visto){
     db.transaction((tx) => {
         tx.executeSql(
-            `UPDATE contenido set Visto = '${Visto}'   where id = '${id}'`,
+            `UPDATE contenido set Visto = '${Visto}' where id = '${id}'`,
             [id],
             (sqlTxn, res) => {
                 console.log("contenido alterado")

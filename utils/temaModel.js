@@ -48,8 +48,7 @@ export  function  getTema(db, setTemas){
                     let results =[]
                     for(let i =0; i<len; i++){
                         let item =   res.rows.item(i);
-                        //console.log(item)
-                        //console.log("VERIFICANDO ---",item.Nombre,": ", item.Favorito)
+                        //console.log(item) 
                         results.push({id: item.id, Opcion: item.Opcion , Nivel: item.Nivel ,  Nombre: item.Nombre , Favorito: item.Favorito , Visto: item.Visto , Completado: item.Completado})
                     }  
                     //console.log(results) 
@@ -66,7 +65,7 @@ export  function  getTema(db, setTemas){
 }
 
 
-export function updateTema(db, id,Favorito, Visto, Completado, setTemasD){
+export function updateTema(db, id,Favorito, Visto, Completado){
     try {
         db.transaction((tx) => {
             tx.executeSql(
@@ -82,11 +81,57 @@ export function updateTema(db, id,Favorito, Visto, Completado, setTemasD){
             )
         },
         null)
-    
-        
     } catch (error) {
         console.log("error");
     } 
     
 } 
+
+
+export function completeTema(db, id, Completado){
+    try {
+        db.transaction((tx) => {
+            tx.executeSql(
+                `UPDATE tema set Completado = '${Completado}'
+                        where id = '${id}'  `,
+                [],
+                (sqlTxn, res) => {
+                   // console.log("Favorito Completado: ", Completado)
+                },
+                error => {console.log("no se pudo alterar tema - Favorito")}
+            )
+        },
+        null)
+    } catch (error) {
+        console.log("error");
+    } 
+    
+} 
+
+export  function  infoTema(db, id, setInfo){
+    db.transaction((tx) => {
+        tx.executeSql(
+            `SELECT * FROM tema where id= '${id}'`,
+            [],
+            (sqlTxn, res) => { 
+                let len  = res.rows.length;
+                if(len > 0){
+                    let results =[]
+                    for(let i =0; i<len; i++){
+                        let item =   res.rows.item(i);
+                        //console.log(item) 
+                        results.push({id: item.id, Opcion: item.Opcion , Nivel: item.Nivel ,  Nombre: item.Nombre , Favorito: item.Favorito , Visto: item.Visto , Completado: item.Completado})
+                    }  
+                    //console.log(results) 
+                    setInfo(results)
+                    return results;
+                }else{
+                    console.log("no hay tema")
+                }
+            },
+            error => {console.log("error")}
+        )
+    }
+    )
+}
 

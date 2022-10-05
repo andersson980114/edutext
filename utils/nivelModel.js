@@ -45,7 +45,7 @@ export  function  getNivel(db, opcion, setNivels){
             `SELECT * FROM nivel`,
             [],
             (sqlTxn, res) => {
-                console.log("nivel obtenida");
+                //console.log("niveles obtenidos");
                 let len  = res.rows.length;
                 if(len > 0){
                     let results =[]

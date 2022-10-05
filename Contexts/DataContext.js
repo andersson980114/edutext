@@ -26,7 +26,7 @@ export  function DataContext({children}) {
         createUserTable(db)
         //console.log(db)
         getUsers(db, setCount)
-        console.log(count)
+        //console.log(count)
         
     }, [])
 
@@ -34,16 +34,13 @@ export  function DataContext({children}) {
         setIsLoading(false)
     }, [count])
     
-
     if(isLoading){
-
-        console.log("user:",user)
+        //console.log("user:",user)
         return(
             <Splach/>
         )
     }
      
-
     const handleTemas = (a) =>{
         setTemas(a)
     }

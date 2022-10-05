@@ -19,6 +19,8 @@ export default function RegisterScreen({navigation}) {
   const [userName, setUserName] = useState('');
   const [lastName, setLastName] = useState('');
   const [genero, setGenero] = useState(0);
+  const [success, setSuccess] = useState(false)
+  const [selectedItem, setSelectedItem] = useState(null)
   //alert
   const [show, setShow] = useState(false)
   const [titulo, setTitulo] = useState("Intentelo de Nuevo")
@@ -33,10 +35,13 @@ export default function RegisterScreen({navigation}) {
 
     }
   ])
-  const [success, setSuccess] = useState(false)
-
-
-  const [selectedItem, setSelectedItem] = useState(null)
+  
+  useEffect(() => {
+    if(count>0){
+      navigation.navigate('Inicio') 
+    }
+  }, [])
+  
 
   const onSelect = (item)=>{
       setSelectedItem(item)
@@ -86,9 +91,8 @@ export default function RegisterScreen({navigation}) {
       } catch (error) {
         setShow(true)
         setTexto('Error de registro') 
-        console.log(db);
-        console.log(userName)
-        console.log(lastName) 
+        //console.log(db);
+        //console.log(userName)
         console.log(`error catch:${error.message}`)
       } 
     }

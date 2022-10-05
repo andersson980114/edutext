@@ -43,7 +43,7 @@ export  function  getInsignia(db, setInsignias){
             `SELECT * FROM insignia`,
             [],
             (sqlTxn, res) => {
-                console.log("Insignia obtenida");
+                //console.log("Insignias obtenidas");
                 let len  = res.rows.length;
                 if(len > 0){
                     let results =[]
@@ -71,7 +71,7 @@ export function updateInsignia(db, id, Bloqueado){
             `UPDATE insignia set Bloqueado = '${Bloqueado}'   where id = '${id}'`,
             [id],
             (sqlTxn, res) => {
-                console.log("insignia alterado")
+                //console.log("insignia alterado")
             },
             error => {console.log("no se pudo alterar insignia")}
         )

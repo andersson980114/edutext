@@ -17,14 +17,6 @@ export default function InsigniaScreen() {
     
   }, [])
   
-  /*
-  useEffect(() => {
-    insignia.map((item) => {
-      console.log(item.id)
-    })
-  }, [insignia])
-  */
-
   return (
     <View  style={Styles.container}>  
         <Text style={Styles.textUser}>Mis Insignias</Text>
@@ -34,7 +26,7 @@ export default function InsigniaScreen() {
               let url=""
               let id = item.id -1
               let bloqueado;
-              console.log(id)
+              //console.log(id)
               if(item.Bloqueado>0){bloqueado=true}else{bloqueado=false}
               if(bloqueado){
                 url = require("../assets/screenAssets/Bloqueado.png")

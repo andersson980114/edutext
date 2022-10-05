@@ -13,7 +13,6 @@ import OnboardingScreen from './screens/OnboardingScreen';
 import SplashScreen from './screens/SplashScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import Head from './components/Head';
-import Open from './screens/Open';
 import {initDb} from './utils/db' 
 //import {initDatadabase} from './utils/db' 
 const Stack = createNativeStackNavigator();
@@ -47,7 +46,7 @@ export default function App() {
     return (
         <NavigationContainer > 
         
-          <Stack.Navigator    initialRouteName='Inicio'
+          <Stack.Navigator    initialRouteName='Splash'
             screenOptions ={{ 
                 
               headerStyle: {
@@ -59,6 +58,7 @@ export default function App() {
                 fontSize:44, 
               }, 
             }}
+            options={{ gestureEnabled: false }}
           >
             <Stack.Screen  
               name="Inicio"
@@ -66,11 +66,11 @@ export default function App() {
               options={({ route }) => ({
                 headerTitle: getHeaderTitle(route),
                 headerBackVisible:false
-              })}
+              })} 
               
             />
             
-            <Stack.Screen name="Word" options={() =>( {
+            <Stack.Screen name="Word" options={() =>( { 
                 headerTitle:String(opcion[0])
             })} component={WordScreen}  />
 
@@ -86,8 +86,6 @@ export default function App() {
                 headerTitle:String(pregunta[0]), 
                 headerBackVisible:false
             })} component={PreguntaA}  />
-  
-            <Stack.Screen name="Open" component={Open}  />
 
             <Stack.Screen name="Onboarding" component={OnboardingScreen}  options={{header: ()=>null}} />
             

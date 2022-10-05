@@ -6,7 +6,6 @@ import { UseDbContext } from "../Contexts/DataContext";
 import Tema from "../components/Tema"; 
 import { getTema, updateTema } from "../utils/temaModel";
 
-
 const deviceWidth = Math.round(Dimensions.get('window').width)
 const deviceHeight = Math.round(Dimensions.get('window').height)
 
@@ -24,9 +23,6 @@ export default function TemasScreen({navigation }) {
   useEffect(() => { 
     getTema(db, setTemasD)
   }, [])
-  
-   
-  
 
   const handleChange = (nombre) => { 
     handleTema(nombre)
@@ -41,20 +37,19 @@ export default function TemasScreen({navigation }) {
       bol=0
     }
 
-    updateTema(db ,data[0]+1,bol,data[2],data[3], setTemasD)
+    updateTema(db ,data[0]+1,bol,data[2],data[3])
   }
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'  }}>
       <ScrollView  >
         {
-          temasD.map((item, key) => {
+          temasA.map((item, key) => {
             //console.log(item.Nivel, ", ", item.Opcion)
             //console.log(nivel[1], " - ", opcion[1])
-           
-            let id = item.id-1
+            let id = item.id
             if(item.Nivel == nivel[1] && item.Opcion == opcion[1] ){ 
-              //console.log(item.Nombre,": ", item.Favorito)
+              console.log(item.Nombre,"  - Favorito:", item.Favorito,"  - visto:", item.Visto,"  - completado:", item.Completado)
               return(
                 <Tema  key={key} db={db} nombre={[item.Nombre, id]} Texto={item.Nombre} favo={item.Favorito} completado={item.Completado} visto={item.Visto} Onchage={handleChange} update={updateChage}/>
               )
@@ -69,8 +64,6 @@ export default function TemasScreen({navigation }) {
 
 
 const styles = StyleSheet.create({
-
-
   imgCard:{
     width: 43,
     height: 40,  
@@ -102,5 +95,5 @@ const styles = StyleSheet.create({
     margin: 10,
   },
 
-  })
+})
   

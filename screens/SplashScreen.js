@@ -16,9 +16,6 @@ export default function SplashScreen ({navigation, logueo})  {
     }, []);
     
     useEffect(() => { 
-       
-         
-
         if(authLoaded){
             if(count<1 ){ 
                 setDB(db)

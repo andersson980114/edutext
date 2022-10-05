@@ -31,7 +31,7 @@ export  function  getUsers(db, setData){
             `SELECT * FROM user`,
             [],
             (sqlTxn, res) => {
-                console.log("users obtenidos");
+                //console.log("users obtenidos");
                 let len  = res.rows.length;
                 setData(len) 
                 if(len > 0){
@@ -65,7 +65,7 @@ export  function  getUser(db, setUser){
             [],
             (sqlTxn, res) => {
                 setUser(res.rows.item(0).Nombre)
-                console.log(res.rows.item(0).Nombre)
+                //console.log(res.rows.item(0).Nombre)
             },
             error => {console.log(error)}
         )

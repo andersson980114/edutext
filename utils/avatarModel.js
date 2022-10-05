@@ -22,7 +22,7 @@ export function insertAvatar(db, selected, bloqueado){
             (sqlTxn, res) => {
                 //console.log("avatar ingresado")
             },
-            error => {console.log("no se pudo insert avatar")}
+            error => {console.log("no se pudo insertar avatar")}
         )
     },
     null)
@@ -43,7 +43,7 @@ export  function  getAvatar(db, setAvatars){
             `SELECT * FROM avatar`,
             [],
             (sqlTxn, res) => {
-                console.log("avatar obtenida");
+                //console.log("avatars obtenidos");
                 let len  = res.rows.length;
                 if(len > 0){
                     let results =[]
@@ -67,7 +67,7 @@ export  function  getAvatar(db, setAvatars){
 export function updateAvatar(db, id, Selected, Bloqueado){
     db.transaction((tx) => {
         tx.executeSql(
-            `UPDATE avatar set Selected = '${Selected}' Bloqueado = '${Bloqueado}' where id = '${id}'`,
+            `UPDATE avatar set Selected = '${Selected}', Bloqueado = '${Bloqueado}' where id = '${id}'`,
             [id],
             (sqlTxn, res) => {
                 console.log("avatar alterado")
