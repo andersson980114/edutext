@@ -62,7 +62,6 @@ export default function TemasScreen({navigation }) {
   )
 }
 
-
 const styles = StyleSheet.create({
   imgCard:{
     width: 43,
