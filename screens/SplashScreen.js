@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react' 
 import { StyleSheet, View, Image } from "react-native";
 import { UseDbContext } from '../Contexts/DataContext';
+import { setDB } from '../utils/db';
 import { getUsers } from '../utils/userModel'; 
 
 export default function SplashScreen ({navigation, logueo})  {
     
-    const {db, count, user} = UseDbContext()
+    const {db, count} = UseDbContext()
     const [authLoaded, setAuthLoaded] = useState(false)  
 
     useEffect(() => { 
@@ -16,8 +17,11 @@ export default function SplashScreen ({navigation, logueo})  {
     
     useEffect(() => { 
        
+         
+
         if(authLoaded){
-            if(count<1 ){
+            if(count<1 ){ 
+                setDB(db)
                 navigation.navigate('Onboarding')
             }else{
                 navigation.navigate('Inicio') 

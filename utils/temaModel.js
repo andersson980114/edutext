@@ -3,7 +3,7 @@ import * as data from '../Data/wordTemas.json';
 export  function createTemaTable(db){
     db.transaction((tx) =>{
         tx.executeSql(
-            "CREATE TABLE IF NOT EXISTS tema (id INTEGER PRIMARY KEY AUTOINCREMENT, Favorito Boolean, Visto Boolean,  Completado Boolean)",
+            "CREATE TABLE IF NOT EXISTS tema ( id INTEGER PRIMARY KEY AUTOINCREMENT, Opcion INTEGER, Nivel INTEGER,  Nombre VARCHAR(128), Favorito Boolean,  Visto Boolean, Completado Boolean )",
             [],
             (sqlTxn, res) => {
                 //console.log("tabla Tema creado")
@@ -14,11 +14,11 @@ export  function createTemaTable(db){
     llenar(db)
 }
 
-export function insertTema(db, Favorito, Visto, Completado){
+export function insertTema(db, Opcion , Nivel ,  Nombre , Favorito ,  Visto , Completado  ){
     db.transaction((tx) => {
         tx.executeSql(
-            "INSERT INTO tema ( Favorito, Visto, Completado)VALUES (?,?,?)",
-            [Favorito, Visto, Completado],
+            "INSERT INTO tema ( Opcion , Nivel ,  Nombre , Favorito ,  Visto , Completado  )VALUES (?,?,?,?,?,?)",
+            [Opcion , Nivel ,  Nombre , Favorito ,  Visto , Completado  ],
             (sqlTxn, res) => {
                // console.log("tema ingresado")
             },
@@ -32,49 +32,61 @@ function llenar(db){
     const temas = data.Temas
     
     temas.map((item) =>{
-           insertTema(db, false, false, false)
+           insertTema(db, item.Opcion , item.Nivel ,  item.Nombre , item.Favorito ,  item.Visto , item.Completado )
         }
-    )
+    ) 
 }
 
-export  function  getTema(db){
+export  function  getTema(db, setTemas){
     db.transaction((tx) => {
         tx.executeSql(
-            `SELECT * FROM tema`,
+            `SELECT * FROM tema `,
             [],
-            (sqlTxn, res) => {
-                console.log("tema obtenida");
+            (sqlTxn, res) => { 
                 let len  = res.rows.length;
                 if(len > 0){
                     let results =[]
                     for(let i =0; i<len; i++){
                         let item =   res.rows.item(i);
                         //console.log(item)
-                        results.push(item)
+                        //console.log("VERIFICANDO ---",item.Nombre,": ", item.Favorito)
+                        results.push({id: item.id, Opcion: item.Opcion , Nivel: item.Nivel ,  Nombre: item.Nombre , Favorito: item.Favorito , Visto: item.Visto , Completado: item.Completado})
                     }  
-                    console.log(results)
+                    //console.log(results) 
+                    setTemas(results)
                     return results;
                 }else{
                     console.log("no hay tema")
                 }
             },
-            error => {console.log(error)}
+            error => {console.log("error")}
         )
     }
     )
 }
 
 
-export function updateTema(db, id,Favorito, Visto, Completado){
-    db.transaction((tx) => {
-        tx.executeSql(
-            `UPDATE tema set Favorito = '${Favorito}' Visto = '${Visto}' Completado = '${Completado}' where id = '${id}'`,
-            [id],
-            (sqlTxn, res) => {
-                console.log("tema alterado")
-            },
-            error => {console.log("no se pudo alterar tema")}
-        )
-    },
-    null)
-}
+export function updateTema(db, id,Favorito, Visto, Completado, setTemasD){
+    try {
+        db.transaction((tx) => {
+            tx.executeSql(
+                `UPDATE tema set Favorito = '${Favorito}' , 
+                                 Visto = '${Visto}',
+                                 Completado = '${Completado}'
+                        where id = '${id}'  `,
+                [],
+                (sqlTxn, res) => {
+                   // console.log("Favorito alterado: ", Favorito)
+                },
+                error => {console.log("no se pudo alterar tema - Favorito")}
+            )
+        },
+        null)
+    
+        
+    } catch (error) {
+        console.log("error");
+    } 
+    
+} 
+

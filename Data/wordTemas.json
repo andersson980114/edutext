@@ -14,7 +14,7 @@
             "Opcion": 0,
             "Nivel": 0, 
             "Nombre": "Primera Vista",
-            "Favorito": true,
+            "Favorito": false,
             "Visto": false,
             "Completado": false
         },

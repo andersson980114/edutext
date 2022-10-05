@@ -1,7 +1,7 @@
 export  function createUserTable(db){
     db.transaction((tx) =>{
         tx.executeSql(
-            "CREATE TABLE IF NOT EXISTS user (id INTEGER PRIMARY KEY AUTOINCREMENT, Nombre VARCHAR(128), Apellido  VARCHAR(128), Genero VARCHAR(128))",
+            "CREATE TABLE IF NOT EXISTS user (id INTEGER PRIMARY KEY AUTOINCREMENT, Nombre VARCHAR(128), Apellido  VARCHAR(128), Genero VARCHAR(128), Puntaje INTEGER)",
             [],
             (sqlTxn, res) => {
               //  console.log("tabla User ccreada")
@@ -14,8 +14,8 @@ export  function createUserTable(db){
 export function insertUsers(db, name, lastName, genero){
     db.transaction((tx) => {
         tx.executeSql(
-            "INSERT INTO user (Nombre, Apellido, Genero) VALUES (?,?,?)",
-            [name,lastName,genero],
+            "INSERT INTO user (Nombre, Apellido, Genero, Puntaje) VALUES (?,?,?,?)",
+            [name,lastName,genero, 0],
             (sqlTxn, res) => {
                 console.log("user ingresado")
             },

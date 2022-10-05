@@ -133,7 +133,7 @@ export const Niveles = [
     },
     {
         id: 4,
-        url: require('../assets/screenAssets/diamante.png')
+        url: require('../assets/screenAssets/favoritos.png')
     },
 ]
 

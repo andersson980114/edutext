@@ -1,9 +1,11 @@
-import React,{useContext, useEffect} from "react";
+import React,{useContext, useEffect, useState} from "react";
 import { Text, View,ScrollView, Image, StyleSheet, Dimensions, Pressable } from "react-native";
 import * as data from '../Data/wordNiveles.json';
 import { UseNivelContext, UseOpcionContext ,UsePreguntaContext} from "../Contexts/InfoProvider";
+import { UseDbContext } from "../Contexts/DataContext";
 import Nivel from "../components/Nivel";
 import {Niveles} from '../Data/imagenes' 
+import { getNivel } from "../utils/nivelModel";
 
 const d1 = "Prueba"
 const d2 = ['Prueba',0]
@@ -13,6 +15,14 @@ export default function WordScreen({ navigation }) {
   const Nivels = data.Niveles
   const {nivel, handleNivel} =  UseNivelContext() 
   const {opcion, handleOpcion} =  UseOpcionContext() 
+  const [niveles, setNiveles] = useState([])
+  const {db, count} = UseDbContext()
+
+  useEffect(() => {
+    getNivel(db, opcion, setNiveles)
+  }, [])
+  
+
 
   const handleChange = (nombre) => {
     handleNivel(nombre)
@@ -22,11 +32,12 @@ export default function WordScreen({ navigation }) {
   return ( 
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         {
-          Nivels.map((item, key) => {
+          niveles.map((item, key) => {
             if(item.idOpcion==opcion[1]){
-              const url = Niveles[item.idNivel].url
+              let id = item.idNivel
+              const url = Niveles[id].url
               return(
-                  <Nivel  key={key} nivel={item.Nivel} nombre={item.idNivel}  img={url}  progreso={item.Progreso}  onChange={handleChange} />
+                  <Nivel  key={key} nivel={item.Nivel} nombre={id}  img={url}  progreso={item.Progreso}  onChange={handleChange} />
                 
               )    
             }

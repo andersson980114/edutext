@@ -1,9 +1,11 @@
 import React,{useState} from 'react'
 import { View, Image, Text, TouchableOpacity,StyleSheet, Dimensions, } from 'react-native'
+import { updateTema } from '../utils/temaModel';
  
 
-export default function Tema({nombre, Texto, favo, Onchage}) {
+export default function Tema({db, nombre, Texto, favo, completado, visto, Onchage, update}) {
     const  [fav, setFav] = useState(favo)
+    const  [favor, setFavor] = useState(0)
     const favorite = require('../assets/screenAssets/favorite.png') ;
     const noFavorite =  require('../assets/screenAssets/noFavorite.png');
 
@@ -12,7 +14,9 @@ export default function Tema({nombre, Texto, favo, Onchage}) {
     }
 
     const handleFav = () =>{
-        setFav(!fav)
+      setFav(!fav) 
+      update([nombre[1], !fav, visto, completado])
+        
     }
     return (
         <View  >
@@ -22,7 +26,7 @@ export default function Tema({nombre, Texto, favo, Onchage}) {
                     {Texto}
                 </Text>
 
-                <TouchableOpacity onPress={handleFav}>
+                <TouchableOpacity onPress={() =>handleFav()}>
                     <Image 
                         resizeMode="cover"
                         source={fav ? favorite: noFavorite}
@@ -37,8 +41,6 @@ export default function Tema({nombre, Texto, favo, Onchage}) {
 
 const deviceWidth = Math.round(Dimensions.get('window').width)
 const styles = StyleSheet.create({
-
-
   imgCard:{
     width: 43,
     height: 40,  

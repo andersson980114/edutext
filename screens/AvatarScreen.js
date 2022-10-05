@@ -5,9 +5,12 @@ import { Avatars } from "../Data/imagenes";
 import { UseDbContext } from '../Contexts/DataContext'; 
 import ModalPoup from "../components/ModalPoup";
 import { getUser } from "../utils/userModel";
+import { getAvatar } from "../utils/avatarModel";
+
 
 export default function AvatarScreen({}) {  
   const avatar = data.Avatars
+  const {db, count} = UseDbContext()
   const [user, setUser] = useState(0)//imagen de usuario
   const [users, setUsers] = useState()
   const [show, setShow] = useState(false)
@@ -16,11 +19,13 @@ export default function AvatarScreen({}) {
   const [imagen, setImagen] = useState(require("../assets/screenAssets/success.png"))
   const [botones, setBotones] = useState([])
   const [success, setSuccess] = useState(false)
-  const {db, count} = UseDbContext()
+  const [Avatares, setAvatares] = useState([])
 
   useEffect(() => {
     getUser(db, setUsers)
-    console.log("Usuario:",users);
+    getAvatar(db, setAvatares)
+    console.log(Avatares);
+    //console.log("Usuario:",users);
     avatar.map((item) => {
       if(item.Selected){
         setUser(item.id)
@@ -28,13 +33,15 @@ export default function AvatarScreen({}) {
     })
   }, [])
   
+  /* */
   const getUserId = (opcion) =>{
     if(opcion[0]){
       setUser(opcion[1])
     } 
     setShow(false)
   }
- 
+  
+
   const cambioUser =(id, bloqueado) =>{
     if(!bloqueado && user != id){
       setShow(true)
@@ -87,16 +94,19 @@ export default function AvatarScreen({}) {
         <Text style={Styles.textUser}>Mis Avatares</Text>
         <View style={Styles.boxContainer}>
           {
-            avatar.map((item) => { 
+            Avatares.map((item) => { 
               let url=""
-              if(item.Bloqueado){
+              let id = item.id -1
+              let bloqueado;
+              if(item.Bloqueado>0){bloqueado=true}else{bloqueado=false}
+              if(item.Bloqueado>0){
                 url = require("../assets/screenAssets/Bloqueado.png")
               }else{
-                url = Avatars[item.id].url
+                url = Avatars[id].url
               }
               return(
                 <View key={item.id}>
-                  <TouchableOpacity onPress={() => cambioUser(item.id, item.Bloqueado)}>
+                  <TouchableOpacity onPress={() => cambioUser(id, bloqueado)}>
                     <Image source={url} style={Styles.box} ></Image>  
                   </TouchableOpacity>
                 </View>

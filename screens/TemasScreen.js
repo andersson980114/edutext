@@ -2,7 +2,9 @@ import React , { useEffect, useState } from "react";
 import { Text, View,ScrollView, Image, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
 import * as data from '../Data/wordTemas.json';
 import { UseInfoContext, UseTemaContext} from "../Contexts/InfoProvider";
-import Tema from "../components/Tema";
+import { UseDbContext } from "../Contexts/DataContext";
+import Tema from "../components/Tema"; 
+import { getTema, updateTema } from "../utils/temaModel";
 
 
 const deviceWidth = Math.round(Dimensions.get('window').width)
@@ -11,29 +13,51 @@ const deviceHeight = Math.round(Dimensions.get('window').height)
 export default function TemasScreen({navigation }) {
   const {opcion, nivel, tema} = UseInfoContext();
   const {mytema, handleTema} = UseTemaContext();
-  
+  const {db, count} = UseDbContext()
   const favorite = require('../assets/screenAssets/favorite.png') ;
   const noFavorite =  require('../assets/screenAssets/noFavorite.png');
-  const temas = data.Temas
+  const temasA = data.Temas
 
   const  [fav, setFav] = useState(false)
+  const [temasD, setTemasD] = useState([])
+ 
+  useEffect(() => { 
+    getTema(db, setTemasD)
+  }, [])
+  
+   
+  
 
-  const handleChange = (nombre) => {
+  const handleChange = (nombre) => { 
     handleTema(nombre)
     navigation.navigate('Contenido')
   }
   
+  const updateChage = (data) =>{
+    let bol;
+    if(data[1]){
+      bol=1
+    }else{
+      bol=0
+    }
+
+    updateTema(db ,data[0]+1,bol,data[2],data[3], setTemasD)
+  }
+
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'  }}>
       <ScrollView  >
         {
-          temas.map((item, key) => {
+          temasD.map((item, key) => {
             //console.log(item.Nivel, ", ", item.Opcion)
             //console.log(nivel[1], " - ", opcion[1])
+           
+            let id = item.id-1
             if(item.Nivel == nivel[1] && item.Opcion == opcion[1] ){ 
-             return(
-                <Tema  key={key} nombre={[item.Nombre, item.id]} Texto={item.Nombre} favo={item.Favorito} Onchage={handleChange}  />
-             )
+              //console.log(item.Nombre,": ", item.Favorito)
+              return(
+                <Tema  key={key} db={db} nombre={[item.Nombre, id]} Texto={item.Nombre} favo={item.Favorito} completado={item.Completado} visto={item.Visto} Onchage={handleChange} update={updateChage}/>
+              )
             }
           })
         }

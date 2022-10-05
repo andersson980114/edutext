@@ -32,12 +32,12 @@ function llenar(db){
     const avatar = data.Avatars
     
     avatar.map((item) =>{
-            insertAvatar(db, false, false)
+            insertAvatar(db, 0, 1)
         }
     )
 }
 
-export  function  getAvatar(db){
+export  function  getAvatar(db, setAvatars){
     db.transaction((tx) => {
         tx.executeSql(
             `SELECT * FROM avatar`,
@@ -50,10 +50,10 @@ export  function  getAvatar(db){
                     for(let i =0; i<len; i++){
                         let item =   res.rows.item(i);
                         //console.log(item)
-                        results.push(item)
+                        results.push({id: item.id ,Selected: item.Selected, Bloqueado: item.Bloqueado})
                     }  
-                    console.log(results)
-                    return results;
+                    //console.log(results)
+                    setAvatars(results) 
                 }else{
                     console.log("no hay avatar")
                 }

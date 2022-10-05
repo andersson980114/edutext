@@ -1,22 +1,45 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import { StyleSheet, Text, View, Image, Dimensions } from "react-native";
 import * as data from '../Data/insignias.json';
 import { Insignias } from "../Data/imagenes";
+import { getInsignia } from "../utils/insigniaModel";
+import { UseDbContext } from "../Contexts/DataContext";
 
 
 export default function InsigniaScreen() {
   const insignias = data.Insignias
+  const {db, count} = UseDbContext()
+
+  const [insignia, setinsIgnia] = useState([])
+
+  useEffect(() => {
+    getInsignia(db, setinsIgnia)
+    
+  }, [])
+  
+  /*
+  useEffect(() => {
+    insignia.map((item) => {
+      console.log(item.id)
+    })
+  }, [insignia])
+  */
+
   return (
     <View  style={Styles.container}>  
         <Text style={Styles.textUser}>Mis Insignias</Text>
         <View style={Styles.boxContainer}>
           {
-            insignias.map((item,  key) => { 
+            insignia.map((item,  key) => { 
               let url=""
-              if(item.Bloqueado){
+              let id = item.id -1
+              let bloqueado;
+              console.log(id)
+              if(item.Bloqueado>0){bloqueado=true}else{bloqueado=false}
+              if(bloqueado){
                 url = require("../assets/screenAssets/Bloqueado.png")
               }else{
-                url = Insignias[item.id].url
+                url = Insignias[id].url
               }
               return(
                 <Image style={Styles.box} key={key} source={url}></Image> 

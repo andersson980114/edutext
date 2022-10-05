@@ -32,12 +32,12 @@ function llenar(db){
     const insignia = data.Insignias
     
     insignia.map((item) =>{
-            insertInsignia(db, false)
+            insertInsignia(db, 1)
         }
     )
 }
 
-export  function  getInsignia(db){
+export  function  getInsignia(db, setInsignias){
     db.transaction((tx) => {
         tx.executeSql(
             `SELECT * FROM insignia`,
@@ -50,10 +50,11 @@ export  function  getInsignia(db){
                     for(let i =0; i<len; i++){
                         let item =   res.rows.item(i);
                         //console.log(item)
-                        results.push(item)
+                        results.push({id:item.id, Bloqueado: item.Bloqueado})
                     }  
-                    console.log(results)
-                    return results;
+                    //console.log(results)
+                    setInsignias(results)
+                     
                 }else{
                     console.log("no hay Insignia")
                 }

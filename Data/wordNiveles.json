@@ -5,28 +5,28 @@
             "idOpcion": 0,
             "Nivel": "Introducción",
             "idNivel":0,
-            "Progreso": 60
+            "Progreso": 0
         },
         {
             "id": 1,
             "idOpcion": 0,
             "Nivel": "Bronce",
             "idNivel":1,
-            "Progreso": 50
+            "Progreso": 0
         },
         {
             "id": 2,
             "idOpcion": 0,
             "Nivel": "Plata",
             "idNivel":2,
-            "Progreso": 40
+            "Progreso": 0
         },
         {
             "id": 3,
             "idOpcion": 0,
             "Nivel": "Oro",
             "idNivel":3,
-            "Progreso": 10
+            "Progreso": 0
         },
         {
             "id": 4,

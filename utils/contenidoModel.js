@@ -37,7 +37,7 @@ function llenar(db){
     )
 }
 
-export  function  getContenido(db){
+export  function  getContenido(db, setContenido){
     db.transaction((tx) => {
         tx.executeSql(
             `SELECT * FROM contenido`,
@@ -50,9 +50,10 @@ export  function  getContenido(db){
                     for(let i =0; i<len; i++){
                         let item =   res.rows.item(i);
                         //console.log(item)
-                        results.push(item)
+                        results.push({id: item.id, Prueba: item.Prueba, Visto: item.Visto})
                     }  
-                    console.log(results)
+                    //console.log(results)
+                    setContenido(results)
                     return results;
                 }else{
                     console.log("no hay contenido")
@@ -64,10 +65,10 @@ export  function  getContenido(db){
     )
 }
 
-export function updateContenido(db, id, Bloqueado){
+export function updateContenido(db, id, Visto){
     db.transaction((tx) => {
         tx.executeSql(
-            `UPDATE contenido set Bloqueado = '${Bloqueado}'   where id = '${id}'`,
+            `UPDATE contenido set Visto = '${Visto}'   where id = '${id}'`,
             [id],
             (sqlTxn, res) => {
                 console.log("contenido alterado")
