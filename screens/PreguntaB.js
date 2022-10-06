@@ -12,7 +12,7 @@ import ModalPoup from "../components/ModalPoup";
 let tema;
 let index;
 let tipo; 
-export default function PreguntaA({ navigation }) {
+export default function PreguntaB({ navigation }) {
   const {pregunta, setPregunta} = UsePreguntaContext() 
   const [estado, setEstado] = useState(false) //si se activo una respuesta o no
   const [respuesta, setRespuesta] = useState(false)
@@ -70,18 +70,32 @@ export default function PreguntaA({ navigation }) {
     setRespuesta(opcion[0]) 
     setPress(true)    
     setRetro(opcion[0])
+    console.log("Press:",pres);
   }
 
   useEffect(() =>
     navigation.addListener('beforeRemove', (e) => {
-      const action = e.data.action; 
-      console.log(pregunta)
-      e.preventDefault();
-      //console.log("word");
-      navigation.dispatch(action),
-      navigation.navigate('Inicio')
-      
+        const action = e.data.action; 
+        console.log("validate: ",pres)
+        e.preventDefault();
+        //console.log("word");
+        navigation.dispatch(action)
+        /*
+        if(estado){ 
+        
+            Alert.alert(
+                '¡Cuidado!',
+                'No puedes salir sin contestar la pregunta',
+                [
+                { text: "Aceptar", style: 'destructive', onPress: () => {} },
+                ]
+            );
+        }else{
+            navigation.dispatch(action)
+        }
+        */
     }
+    
   ),
   [navigation])
   

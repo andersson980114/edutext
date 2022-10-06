@@ -1,16 +1,39 @@
-import React from "react";
-import { Text, View,Button, Image, StyleSheet, Dimensions, Pressable ,SafeAreaView} from "react-native";
+import React, {useEffect} from "react";
+import { Text, View,Button, Image, StyleSheet, Dimensions, Pressable ,Alert} from "react-native";
 import { Card} from 'react-native-elements'
-import { UseOpcionContext } from "../Contexts/InfoProvider";
+import { UseOpcionContext,UsePreguntaContext } from "../Contexts/InfoProvider";
 
 export default function HomeScreen({ navigation }) {
 
   const {opcion, handleOption} = UseOpcionContext()
-
+  const {pregunta, handlePregunta} = UsePreguntaContext()
   const handleChange = (nombre) => {
     handleOption(nombre)
+    handlePregunta(nombre)
     navigation.navigate('Word')
   }
+
+  useEffect(() =>
+    navigation.addListener('beforeRemove', (e) => {
+      const action = e.data.action; 
+
+      e.preventDefault();
+      //navigation.dispatch(action),
+      Alert.alert(
+        '¡Cuidado!',
+        '¿Deseas salir de EduText?',
+        [
+          { text: "No", style: 'cancel', onPress: () => {} },
+          {
+            text: 'Si',
+            style: 'destructive',
+            onPress: () => {},
+          },
+        ]
+      );
+    
+  }),
+  [navigation])
 
   return (
     <View View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>

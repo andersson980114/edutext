@@ -2,7 +2,7 @@ import React,{useState, useEffect, component }from 'react'
 import { Text, View,Button, StyleSheet, TextInput, Pressable, Dimensions, Alert, Image } from "react-native";
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Dropdown from '../components/Dropdown';
-import { UseDbContext } from '../Contexts/DataContext';
+import { UseDbContext, UseCountContext } from '../Contexts/DataContext';
 import { insertUsers } from '../utils/userModel'; 
 import ModalPoup from "../components/ModalPoup";
 
@@ -16,6 +16,7 @@ const heightC = Dimensions.get("window").height;
 
 export default function RegisterScreen({navigation}) {
   const {db, count, user} = UseDbContext()
+  const {counte, handleCount} = UseCountContext()
   const [userName, setUserName] = useState('');
   const [lastName, setLastName] = useState('');
   const [genero, setGenero] = useState(0);
@@ -38,10 +39,32 @@ export default function RegisterScreen({navigation}) {
   
   useEffect(() => {
     if(count>0){
-      navigation.navigate('Inicio') 
+      
     }
   }, [])
   
+  useEffect(() =>
+    navigation.addListener('beforeRemove', (e) => {
+      const action = e.data.action; 
+
+      e.preventDefault();
+      //navigation.dispatch(action),
+      Alert.alert(
+        '¡Cuidado!',
+        '¿Deseas salir de EduText?',
+        [
+          { text: "No", style: 'cancel', onPress: () => {} },
+          {
+            text: 'Si',
+            style: 'destructive',
+            onPress: () => {},
+          },
+        ]
+      );
+    
+    
+  }),
+  [navigation])
 
   const onSelect = (item)=>{
       setSelectedItem(item)

@@ -6,7 +6,7 @@ import { getInsignia } from "../utils/insigniaModel";
 import { UseDbContext } from "../Contexts/DataContext";
 
 
-export default function InsigniaScreen() {
+export default function InsigniaScreen({ navigation }) {
   const insignias = data.Insignias
   const {db, count} = UseDbContext()
 
@@ -16,7 +16,17 @@ export default function InsigniaScreen() {
     getInsignia(db, setinsIgnia)
     
   }, [])
-  
+  useEffect(() =>
+    navigation.addListener('beforeRemove', (e) => {
+      const action = e.data.action; 
+
+      e.preventDefault();
+      //console.log("word");
+      navigation.dispatch(action)
+      navigation.navigate('Inicio')
+    
+  }),
+  [navigation])
   return (
     <View  style={Styles.container}>  
         <Text style={Styles.textUser}>Mis Insignias</Text>

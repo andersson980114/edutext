@@ -43,6 +43,18 @@ export default function ContenidoScreen({navigation}) {
     setCantidad(data.length-1)
 
   }, [])
+
+  useEffect(() =>
+    navigation.addListener('beforeRemove', (e) => {
+      const action = e.data.action; 
+
+      e.preventDefault();
+      //console.log("word");
+      navigation.dispatch(action)
+      navigation.navigate('Temas')
+    
+  }),
+  [navigation])
   
   return (
     <SafeAreaView style={styles.container}>

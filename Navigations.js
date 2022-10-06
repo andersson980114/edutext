@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import HomeScreen from './screens/HomeScreen';
 import AvatarScreen from './screens/AvatarScreen';
@@ -12,7 +12,8 @@ import { Colors, Header } from 'react-native/Libraries/NewAppScreen';
 const Tab = createBottomTabNavigator();//tab o footer  
 
 export default function Navigation(){
- 
+
+    
     return(
         
         <Tab.Navigator initialRouteName='Home'

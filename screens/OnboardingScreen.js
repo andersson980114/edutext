@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from "react";
-import { StyleSheet, Text, View, Image, Dimensions, Pressable, Button, Animated} from "react-native";
+import { StyleSheet, Text, View, Image, Alert, Dimensions, Pressable, Button, Animated} from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 
@@ -39,7 +39,27 @@ export default function OnboardingScreen({navigation})  {
     }, timeAnimation)
   }, [])
 
+  useEffect(() =>
+  navigation.addListener('beforeRemove', (e) => {
+    const action = e.data.action; 
+
+    e.preventDefault();
+    //navigation.dispatch(action),
+    Alert.alert(
+      '¡Cuidado!',
+      '¿Deseas salir de EduText?',
+      [
+        { text: "No", style: 'cancel', onPress: () => {} },
+        {
+          text: 'Si',
+          style: 'destructive',
+          onPress: () => {},
+        },
+      ]
+    );
   
+}),
+[navigation])
   
 
   return (

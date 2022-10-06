@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import { View, Image,Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { UseOpcionContext, UseNivelContext, UsePreguntaContext, UseTemaContext} from "../Contexts/InfoProvider";
-import { UseDbContext } from '../Contexts/DataContext'; 
+import { UseDbContext, UseCountContext } from '../Contexts/DataContext'; 
 import { infoTema, completeTema } from '../utils/temaModel';
-
+import { StackActions } from '@react-navigation/native';
 
 function random(min, max) { 
     min = Math.ceil(min);
@@ -20,26 +20,28 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
     const {nivel, handleNivel} =  UseNivelContext() 
     const {pregunta, handlePregunta} = UsePreguntaContext()
     const {opcion, handleOpcion} =  UseOpcionContext() 
-    const {db, count} = UseDbContext()
+    const {db, counte} = UseDbContext()
+    const {count, handleCount} = UseCountContext()
     const [info, setInfo] = useState([])
 
     const handleChange = () =>{
         var val= random(nivel[1], (parseInt(nivel[1])+1)*3)
-        console.log(tema)
-        
-        handlePregunta([opcion[0], val])
-        
+        const popAction = StackActions.pop(2);
+        handlePregunta([opcion[0], val]) 
         if(pregunta[0]!='Onboarding'){
-            let id= tema[1]+1 
-            completeTema(db, id, true)
-
+           
             if(prueba && !visto){
-                navigation.navigate('PreguntaA')
+                let id= tema[1]+1 
+                completeTema(db, id, true)
+                navigation.navigate('PreguntaB')
             }else{
-                navigation.navigate('Temas')
+                let id= tema[1]+1 
+                completeTema(db, id, true)
+                navigation.dispatch(popAction)
             }
         }else{
-            navigation.navigate('Inicio')
+            handleCount(1)
+            navigation.navigate('Example')
             
         }
     }

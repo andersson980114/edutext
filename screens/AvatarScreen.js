@@ -8,7 +8,7 @@ import { getUser } from "../utils/userModel";
 import { getAvatar } from "../utils/avatarModel";
 
 
-export default function AvatarScreen({}) {  
+export default function AvatarScreen({ navigation }) {  
   const avatar = data.Avatars
   const {db, count} = UseDbContext()
   const [user, setUser] = useState(0)//imagen de usuario
@@ -32,6 +32,18 @@ export default function AvatarScreen({}) {
       }
     })
   }, [])
+
+  useEffect(() =>
+    navigation.addListener('beforeRemove', (e) => {
+      const action = e.data.action; 
+
+      e.preventDefault();
+      //console.log("word");
+      navigation.dispatch(action)
+      navigation.navigate('Inicio')
+    
+  }),
+  [navigation])
   
   /* */
   const getUserId = (opcion) =>{

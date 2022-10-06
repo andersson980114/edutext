@@ -5,6 +5,7 @@ import { createUserTable, getUsers } from '../utils/userModel';
 import Splach from '../components/Splach'; 
 const DbContext = React.createContext();
 const temasContext = React.createContext();
+const countContext = React.createContext();
 let db;
 
 export function UseDbContext(){
@@ -13,6 +14,10 @@ export function UseDbContext(){
 
 export function UseTemasContext(){
     return useContext(temasContext)
+}
+
+export function UseCountContext(){
+    return useContext(countContext)
 }
 
 export  function DataContext({children}) { 
@@ -45,11 +50,17 @@ export  function DataContext({children}) {
         setTemas(a)
     }
 
+    const handleCount = (a)=>{
+        setCount(a)
+        console.log(count)
+    }
     return (
         <DbContext.Provider value={{db, count, user}}>
-            <temasContext.Provider value={{temas, handleTemas}}>
-                {children} 
-            </temasContext.Provider>
+            <countContext.Provider value={{count, handleCount}}>
+                <temasContext.Provider value={{temas, handleTemas}}>
+                    {children} 
+                </temasContext.Provider>
+            </countContext.Provider>
         </DbContext.Provider>
     )
 }

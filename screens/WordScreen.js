@@ -22,7 +22,17 @@ export default function WordScreen({ navigation }) {
     getNivel(db, opcion, setNiveles)
   }, [])
   
+  useEffect(() =>
+    navigation.addListener('beforeRemove', (e) => {
+      const action = e.data.action; 
 
+      e.preventDefault();
+      //console.log("word");
+      navigation.dispatch(action)
+      navigation.navigate('Inicio')
+    
+  }),
+  [navigation])
 
   const handleChange = (nombre) => {
     handleNivel(nombre)
