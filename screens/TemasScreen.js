@@ -58,12 +58,12 @@ export default function TemasScreen({navigation }) {
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'  }}>
       <ScrollView  >
         {
-          temasA.map((item, key) => {
+          temasD.map((item, key) => {
             //console.log(item.Nivel, ", ", item.Opcion)
             //console.log(nivel[1], " - ", opcion[1])
             let id = item.id-1
             if(item.Nivel == nivel[1] && item.Opcion == opcion[1] ){ 
-              //console.log(item.Nombre,"  - Favorito:", item.Favorito,"  - visto:", item.Visto,"  - completado:", item.Completado)
+              //console.log(item.id,"  - Fav:", item.Favorito,"  - vis:", item.Visto,"  - com:", item.Completado)
               return(
                 <Tema  key={key} db={db} nombre={[item.Nombre, id]} Texto={item.Nombre} favo={item.Favorito} completado={item.Completado} visto={item.Visto} Onchage={handleChange} update={updateChage}/>
               )
@@ -109,4 +109,3 @@ const styles = StyleSheet.create({
   },
 
 })
-  
