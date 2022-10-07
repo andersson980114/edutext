@@ -1,7 +1,7 @@
 export  function createUserTable(db){
     db.transaction((tx) =>{
         tx.executeSql(
-            "CREATE TABLE IF NOT EXISTS user (id INTEGER PRIMARY KEY AUTOINCREMENT, Nombre VARCHAR(128), Apellido  VARCHAR(128), Genero VARCHAR(128), Puntaje INTEGER)",
+            "CREATE TABLE IF NOT EXISTS user (id INTEGER PRIMARY KEY AUTOINCREMENT, Nombre VARCHAR(128), Apellido  VARCHAR(128), Genero VARCHAR(128), Puntaje INTEGER, Avatar INTEGER)",
             [],
             (sqlTxn, res) => {
               //  console.log("tabla User ccreada")
@@ -11,11 +11,11 @@ export  function createUserTable(db){
     })
 }
 
-export function insertUsers(db, name, lastName, genero){
+export function insertUsers(db, name, lastName, genero, Avatar){
     db.transaction((tx) => {
         tx.executeSql(
-            "INSERT INTO user (Nombre, Apellido, Genero, Puntaje) VALUES (?,?,?,?)",
-            [name,lastName,genero, 0],
+            "INSERT INTO user (Nombre, Apellido, Genero, Puntaje, Avatar) VALUES (?,?,?,?,?)",
+            [name,lastName,genero, 0,Avatar],
             (sqlTxn, res) => {
                 console.log("user ingresado")
             },
@@ -55,7 +55,26 @@ export  function  getUsers(db, setData){
     )
 }
 
-export  function  getUser(db, setUser){
+export function changeAvatar(db, Avatar){
+    try {
+        db.transaction((tx) => {
+            tx.executeSql(
+                `UPDATE user set Avatar = '${Avatar}'`,
+                [],
+                (sqlTxn, res) => {
+                    console.log("Avatar Alterado: ", Avatar)
+                },
+                error => {console.log("no se pudo alterar Avatar -", Avatar)}
+            )
+        },
+        null)
+    } catch (error) {
+        console.log("error complete");
+    } 
+    
+} 
+
+export  function  getUser(db, setUser, setAvatar, setPuntaje){
     db.transaction((tx) => {
         tx.executeSql(
             `SELECT * from user
@@ -64,7 +83,11 @@ export  function  getUser(db, setUser){
             )`,
             [],
             (sqlTxn, res) => {
-                setUser(res.rows.item(0).Nombre)
+                const item = res.rows.item(0)
+                setUser(item.Nombre)
+                setAvatar(item.Avatar-1)
+                setPuntaje(item.Puntaje)
+                console.log(item.Nombre, item.Avatar, item.Puntaje)
                 //console.log(res.rows.item(0).Nombre)
             },
             error => {console.log(error)}

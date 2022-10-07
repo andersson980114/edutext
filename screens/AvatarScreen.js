@@ -4,7 +4,7 @@ import * as data from '../Data/avatars.json';
 import { Avatars } from "../Data/imagenes";
 import { UseDbContext } from '../Contexts/DataContext'; 
 import ModalPoup from "../components/ModalPoup";
-import { getUser } from "../utils/userModel";
+import { changeAvatar, getUser } from "../utils/userModel";
 import { getAvatar } from "../utils/avatarModel";
 
 
@@ -12,7 +12,8 @@ export default function AvatarScreen({ navigation }) {
   const avatar = data.Avatars
   const {db, count} = UseDbContext()
   const [user, setUser] = useState(0)//imagen de usuario
-  const [users, setUsers] = useState()
+  const [users, setUsers] = useState("")
+  const [puntaje, setPuntaje] = useState(1) 
   const [show, setShow] = useState(false)
   const [titulo, setTitulo] = useState("")
   const [texto, setTexto] = useState("")
@@ -22,15 +23,11 @@ export default function AvatarScreen({ navigation }) {
   const [Avatares, setAvatares] = useState([])
 
   useEffect(() => {
-    getUser(db, setUsers)
+    getUser(db, setUsers, setUser,setPuntaje)
     getAvatar(db, setAvatares)
     //console.log(Avatares);
     //console.log("Usuario:",users);
-    avatar.map((item) => {
-      if(item.Selected){
-        setUser(item.id)
-      }
-    })
+    console.log("Obtenido",users, puntaje, avatar); 
   }, [])
 
   useEffect(() =>
@@ -49,6 +46,7 @@ export default function AvatarScreen({ navigation }) {
   const getUserId = (opcion) =>{
     if(opcion[0]){
       setUser(opcion[1])
+      changeAvatar(db, opcion[1]+1)
     } 
     setShow(false)
   }

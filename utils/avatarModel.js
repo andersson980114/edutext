@@ -68,10 +68,10 @@ export  function  getAvatar(db, setAvatars){
     )
 }
 
-export function updateAvatar(db, id, Selected, Bloqueado){
+export function updateAvatar(db, id, Bloqueado){
     db.transaction((tx) => {
         tx.executeSql(
-            `UPDATE avatar set Selected = '${Selected}', Bloqueado = '${Bloqueado}' where id = '${id}'`,
+            `UPDATE avatar set  Bloqueado = '${Bloqueado}' where id = '${id}'`,
             [id],
             (sqlTxn, res) => {
                 console.log("avatar alterado")
