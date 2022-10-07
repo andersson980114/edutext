@@ -224,6 +224,24 @@
             "Favorito": false,
             "Visto": false,
             "Completado": false
+        },
+        {
+            "id":25 ,
+            "Opcion": 1,
+            "Nivel": 2, 
+            "Nombre": "Edición",
+            "Favorito": false,
+            "Visto": false,
+            "Completado": false
+        },
+        {
+            "id":26 ,
+            "Opcion": 1,
+            "Nivel": 3, 
+            "Nombre": "no se",
+            "Favorito": false,
+            "Visto": false,
+            "Completado": false
         }
     ]
 }
