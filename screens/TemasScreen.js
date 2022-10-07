@@ -58,7 +58,7 @@ export default function TemasScreen({navigation }) {
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'  }}>
       <ScrollView  >
         {
-          temasD.map((item, key) => {
+          temasA.map((item, key) => {
             //console.log(item.Nivel, ", ", item.Opcion)
             //console.log(nivel[1], " - ", opcion[1])
             let id = item.id-1
