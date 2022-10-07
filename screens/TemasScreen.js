@@ -63,7 +63,7 @@ export default function TemasScreen({navigation }) {
             //console.log(nivel[1], " - ", opcion[1])
             let id = item.id-1
             if(item.Nivel == nivel[1] && item.Opcion == opcion[1] ){ 
-              console.log(item.id,"  - Fav:", item.Favorito,"  - vis:", item.Visto,"  - com:", item.Completado)
+              //console.log(item.id,"  - Fav:", item.Favorito,"  - vis:", item.Visto,"  - com:", item.Completado)
               return(
                 <Tema  key={key} db={db} nombre={[item.Nombre, id]} Texto={item.Nombre} favo={item.Favorito} completado={item.Completado} visto={item.Visto} Onchage={handleChange} update={updateChage}/>
               )
@@ -109,4 +109,3 @@ const styles = StyleSheet.create({
   },
 
 })
-  
