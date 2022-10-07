@@ -32,7 +32,11 @@ function llenar(db){
     const avatar = data.Avatars
     
     avatar.map((item) =>{
-            insertAvatar(db, 0, 1)
+            if(item.id<2){
+                insertAvatar(db, 0, 0)
+            }else{
+                insertAvatar(db, 0, 1)
+            }
         }
     )
 }

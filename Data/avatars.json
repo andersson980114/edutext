@@ -2,12 +2,12 @@
     "Avatars":[
         {
             "id": 0, 
-            "Bloqueado": false,
+            "Bloqueado": true,
             "Selected": true
         },
         {
             "id": 1, 
-            "Bloqueado": false,
+            "Bloqueado": true,
             "Selected": false
         },
         {

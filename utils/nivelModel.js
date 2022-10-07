@@ -70,12 +70,12 @@ export  function  getNivel(db, opcion, setNivels){
 export function updateNivel(db, id,Progreso){
     db.transaction((tx) => {
         tx.executeSql(
-            `UPDATE nivel set Progreso = '${Progreso}' where id = '${id}'`,
-            [id],
+            `UPDATE nivel set Progreso = Progreso +  '${Progreso}' where id = '${id}'`,
+            [],
             (sqlTxn, res) => {
-                console.log("nivel alterado")
+                console.log("nivel alterado:",Progreso, id)
             },
-            error => {console.log("no se pudo alterar nivel")}
+            error => {console.log("no se pudo alterar nivel: ",Progreso, id)}
         )
     },
     null)

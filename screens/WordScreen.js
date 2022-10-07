@@ -29,7 +29,6 @@ export default function WordScreen({ navigation }) {
       e.preventDefault();
       //console.log("word");
       navigation.dispatch(action)
-      navigation.navigate('Inicio')
     
   }),
   [navigation])

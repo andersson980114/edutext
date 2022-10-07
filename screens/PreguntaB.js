@@ -70,13 +70,13 @@ export default function PreguntaB({ navigation }) {
     setRespuesta(opcion[0]) 
     setPress(true)    
     setRetro(opcion[0])
-    console.log("Press:",pres);
+    //console.log("Press:",pres);
   }
 
   useEffect(() =>
     navigation.addListener('beforeRemove', (e) => {
         const action = e.data.action; 
-        console.log("validate: ",pres)
+        //console.log("validate: ",pres)
         e.preventDefault();
         //console.log("word");
         navigation.dispatch(action)

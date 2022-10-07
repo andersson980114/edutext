@@ -66,6 +66,8 @@ export  function  getTema(db, setTemas){
 
 
 export function updateTema(db, id,Favorito, Visto, Completado){
+    //console.log("cambio");
+    //console.log(id,"  - Fav:",Favorito,"  - vis:", Visto, "  - com:",Completado)
     try {
         db.transaction((tx) => {
             tx.executeSql(
@@ -75,14 +77,14 @@ export function updateTema(db, id,Favorito, Visto, Completado){
                         where id = '${id}'  `,
                 [],
                 (sqlTxn, res) => {
-                   // console.log("Favorito alterado: ", Favorito)
+                    console.log("Favorito alterado: ", Favorito, Visto, Completado)
                 },
                 error => {console.log("no se pudo alterar tema - Favorito")}
             )
         },
         null)
     } catch (error) {
-        console.log("error");
+        console.log("error update");
     } 
     
 } 
@@ -103,7 +105,7 @@ export function completeTema(db, id, Completado){
         },
         null)
     } catch (error) {
-        console.log("error");
+        console.log("error complete");
     } 
     
 } 
@@ -111,7 +113,7 @@ export function completeTema(db, id, Completado){
 export  function  infoTema(db, id, setInfo){
     db.transaction((tx) => {
         tx.executeSql(
-            `SELECT * FROM tema where id= '${id}'`,
+            `SELECT * FROM tema `,
             [],
             (sqlTxn, res) => { 
                 let len  = res.rows.length;
@@ -119,14 +121,14 @@ export  function  infoTema(db, id, setInfo){
                     let results =[]
                     for(let i =0; i<len; i++){
                         let item =   res.rows.item(i);
-                        //console.log(item) 
+                        console.log(item) 
                         results.push({id: item.id, Opcion: item.Opcion , Nivel: item.Nivel ,  Nombre: item.Nombre , Favorito: item.Favorito , Visto: item.Visto , Completado: item.Completado})
                     }  
                     //console.log(results) 
                     setInfo(results)
                     return results;
                 }else{
-                    console.log("no hay tema")
+                    console.log("no hay Infotema")
                 }
             },
             error => {console.log("error")}

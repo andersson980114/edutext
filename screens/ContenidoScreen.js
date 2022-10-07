@@ -33,6 +33,7 @@ export default function ContenidoScreen({navigation}) {
   const [cantidad, setCantidad] = useState(0)
 
   useEffect(() => {
+    console.log(tema)
     const data = []
     Contenido.map((item) => {
       if(item.Nivel == nivel[1] && item.Opcion == opcion[1] && item.Tema == tema[1] ){

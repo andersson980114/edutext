@@ -6,6 +6,7 @@ const InfoContext = React.createContext();
 const OpcionContext = React.createContext();
 const NivelContext = React.createContext();
 const TemaContext = React.createContext();
+const InfoTemaContext = React.createContext();
 const PreguntaContext = React.createContext();
 
 export function UseInfoContext(){
@@ -22,6 +23,10 @@ export function UseNivelContext(){
 
 export function UseTemaContext(){
   return useContext(TemaContext)
+}
+
+export function UseInfoTemaContext(){
+  return useContext(InfoTemaContext)
 }
 
 export function UsePreguntaContext(){
@@ -43,6 +48,7 @@ export  function InfoProvider({children}) {
   const [nivel, setNivel] = useState(['Introduccion',0])
   const [tema, setTema] = useState(['Inicio',0])
   const [pregunta, setPregunta] = useState(['Onboarding',random(0, 3)])
+  const [info, setInfo] = useState([false, false])
   
 
   const handleOption = (a) =>{
@@ -56,6 +62,10 @@ export  function InfoProvider({children}) {
   const handleTema = (a) =>{
     setTema(a)
   }
+
+  const handleInfoTema = (a) =>{
+    setInfo(a)
+  }
  
   const handlePregunta = (a) =>{ 
     setPregunta(a)
@@ -65,13 +75,15 @@ export  function InfoProvider({children}) {
     <OpcionContext.Provider  value={{opcion,handleOption}}>
       <NivelContext.Provider  value={{nivel,handleNivel}}>
         <TemaContext.Provider  value={{tema,handleTema}}> 
-          <PreguntaContext.Provider value={{pregunta, handlePregunta}}>
+          <InfoTemaContext.Provider  value={{info,handleInfoTema}}> 
+            <PreguntaContext.Provider value={{pregunta, handlePregunta}}>
 
-            <InfoContext.Provider value={{opcion,nivel, tema}}> 
-                {children} 
-            </InfoContext.Provider>
+              <InfoContext.Provider value={{opcion,nivel, tema}}> 
+                  {children} 
+              </InfoContext.Provider>
 
-          </PreguntaContext.Provider>
+            </PreguntaContext.Provider>
+          </InfoTemaContext.Provider>
         </TemaContext.Provider>
       </NivelContext.Provider>
     </OpcionContext.Provider>

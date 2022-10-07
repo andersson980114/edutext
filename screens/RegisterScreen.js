@@ -24,6 +24,9 @@ export default function RegisterScreen({navigation}) {
   const [selectedItem, setSelectedItem] = useState(null)
   //alert
   const [show, setShow] = useState(false)
+  const [show2, setShow2] = useState(false)
+  const [show3, setShow3] = useState(false)
+  const [show4, setShow4] = useState(false)
   const [titulo, setTitulo] = useState("Intentelo de Nuevo")
   const [texto, setTexto] = useState("")
   const [imagen, setImagen] = useState(require("../assets/screenAssets/prohibited.png"))
@@ -83,11 +86,66 @@ export default function RegisterScreen({navigation}) {
     this.setState({gener: gener})
   }
 
-  const cerrrar = () =>{
+  const Avatar1 = () =>{
     setShow(false)
-    if(success){
+    setTitulo('¡Avatar Desbloqueado!')
+    setTexto("Has desnloqueado un Nuevo Avatar ")
+    setImagen(require("../assets/avatarAssets/Neutro.png"))
+    setSuccess(false)
+    setBotones([
+      {
+        texto: "Aceptar",
+        id: 0,  
+        success: false,
+        boton: "succes"
+
+      }
+    ])
+    setShow2(true)
+  
+  }
+
+  const Avatar2 = () =>{
+    setShow3(false)
+    setTitulo('¡Avatar Desbloqueado!')
+    setTexto("Has desnloqueado un Nuevo Avatar ")
+    setImagen(require("../assets/avatarAssets/Monroe.png"))
+    setSuccess(false)
+    setBotones([
+      {
+        texto: "Aceptar",
+        id: 0,  
+        success: false,
+        boton: "succes"
+
+      }
+    ])
+    setShow4(true)
+  }
+
+  const Insignia= () =>{
+    setShow2(false)
+    setTitulo('¡Insignia Desbloqueada!')
+    setTexto("Has desnloqueado una Nuevoa Insignia ")
+    setImagen(require("../assets/insigniasAssets/RegistroExito.png"))
+    setSuccess(false)
+    setBotones([
+      {
+        texto: "Aceptar",
+        id: 0,  
+        success: false,
+        boton: "succes"
+
+      }
+    ])
+    setShow3(true)
+  }
+
+  const cerrar = () =>{
+    setShow4(false)
+    
       navigation.navigate('PreguntaA')
-    }
+    
   }
 
   function createUser(){   
@@ -127,7 +185,10 @@ export default function RegisterScreen({navigation}) {
       <View  style={styles.container}>
 
         <View>
-              <ModalPoup visible={show} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={cerrrar} />
+              <ModalPoup visible={show} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={Avatar1} />
+              <ModalPoup visible={show2} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={Insignia} />
+              <ModalPoup visible={show3} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={Avatar2} />
+              <ModalPoup visible={show4} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={cerrar} />
         </View>
 
         <View style={styles.head}>

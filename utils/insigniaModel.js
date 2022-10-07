@@ -32,7 +32,12 @@ function llenar(db){
     const insignia = data.Insignias
     
     insignia.map((item) =>{
-            insertInsignia(db, 1)
+            if(item.id<1){
+                insertInsignia(db, 0)
+
+            }else{
+                insertInsignia(db, 1)
+            }
         }
     )
 }

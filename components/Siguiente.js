@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 import { View, Image,Text, StyleSheet, TouchableOpacity } from 'react-native'
-import { UseOpcionContext, UseNivelContext, UsePreguntaContext, UseTemaContext} from "../Contexts/InfoProvider";
+import { UseOpcionContext, UseNivelContext, UsePreguntaContext, UseTemaContext, UseInfoTemaContext} from "../Contexts/InfoProvider";
 import { UseDbContext, UseCountContext } from '../Contexts/DataContext'; 
-import { infoTema, completeTema } from '../utils/temaModel';
+import { infoTema, completeTema, updateTema } from '../utils/temaModel';
 import { StackActions } from '@react-navigation/native';
+import { updateNivel } from '../utils/nivelModel';
 
 function random(min, max) { 
     min = Math.ceil(min);
@@ -16,28 +17,41 @@ function random(min, max) {
 export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
     
     
-  const {tema, handleTema} = UseTemaContext();
+    const {tema, handleTema} = UseTemaContext();
+    const  {info,handleInfoTema} = UseInfoTemaContext()
     const {nivel, handleNivel} =  UseNivelContext() 
     const {pregunta, handlePregunta} = UsePreguntaContext()
     const {opcion, handleOpcion} =  UseOpcionContext() 
     const {db, counte} = UseDbContext()
     const {count, handleCount} = UseCountContext()
-    const [info, setInfo] = useState([])
 
     const handleChange = () =>{
-        var val= random(nivel[1], (parseInt(nivel[1])+1)*3)
-        const popAction = StackActions.pop(2);
+        var val= random(nivel[1], (parseInt(nivel[1])+1)*3) 
+        console.log("nivel:", nivel[1]," \ninfo:",info[1], info[0],"\ntema", tema);
+         
+        //console.log(id,prueba, visto)
+        
         handlePregunta([opcion[0], val]) 
+        console.log("get:", info[0])
         if(pregunta[0]!='Onboarding'){
-           
-            if(prueba && !visto){
-                let id= tema[1]+1 
-                completeTema(db, id, true)
+            if(info[0] && !info[1]){ 
+                updateNivel(db,  nivel[1]+1, 20)
+            }
+            
+            if(prueba && !info[1]){
+                let id= tema[1]+1  
+                handleInfoTema([true, true]) 
+                completeTema(db, id, true) 
                 navigation.navigate('PreguntaB')
             }else{
                 let id= tema[1]+1 
                 completeTema(db, id, true)
-                navigation.dispatch(popAction)
+                if(prueba){
+                    navigation.dispatch(StackActions.pop(4))
+                }else{
+                    navigation.dispatch(StackActions.pop(3))
+                }
+                
             }
         }else{
             handleCount(1)
