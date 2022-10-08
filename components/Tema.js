@@ -15,7 +15,7 @@ export default function Tema({db, nombre, Texto, favo, completado, visto, Onchag
         //console.log("cambiando-------------------------------")
         //console.log("nombre",nombre[1], favo)
         handleInfoTema([true, completado])
-        console.log("set:", true)
+        //console.log("set:", true)
         update([nombre[1], fav, true, completado])
         //updateTema(db, [nombre[1], favo, true, completado])
         Onchage(nombre)

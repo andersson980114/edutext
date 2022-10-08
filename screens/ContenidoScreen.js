@@ -32,13 +32,19 @@ export default function ContenidoScreen({navigation}) {
   const [content, setContent] = useState([])
   const [cantidad, setCantidad] = useState(0)
 
-  useEffect(() => {
-    console.log(tema)
+  useEffect(() => { 
     const data = []
     Contenido.map((item) => {
-      if(item.Nivel == nivel[1] && item.Opcion == opcion[1] && item.Tema == tema[1] ){
-        data.push(item)
+       
+      if(nivel[0]=="Favoritos"){
+        if(item.Opcion == opcion[1] && item.Tema == tema[1] ){
+          data.push(item)
+        } 
       }
+      else if(item.Opcion == opcion[1] && item.Nivel == nivel[1] && item.Tema == tema[1] ){
+        data.push(item)
+      } 
+      
     })
     setContent(data)
     setCantidad(data.length-1)

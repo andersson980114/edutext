@@ -27,7 +27,7 @@ export default function AvatarScreen({ navigation }) {
     getAvatar(db, setAvatares)
     //console.log(Avatares);
     //console.log("Usuario:",users);
-    console.log("Obtenido",users, puntaje, avatar); 
+    //console.log("Obtenido",users, puntaje, avatar); 
   }, [])
 
   useEffect(() =>
