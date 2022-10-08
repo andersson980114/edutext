@@ -32,7 +32,7 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
         //console.log(id,prueba, visto)
         
         handlePregunta([opcion[0], val]) 
-        console.log("get:", info[0])
+        //console.log("get:", info[0])
         if(pregunta[0]!='Onboarding'){
             if(info[0] && !info[1]){ 
                 updateNivel(db,  nivel[1]+1, 20)
@@ -40,13 +40,14 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
             
             if(prueba && !info[1]){
                 let id= tema[1]+1  
-                handleInfoTema([true, true]) 
+                handleInfoTema([false, true]) 
                 completeTema(db, id, true) 
                 navigation.navigate('PreguntaB')
             }else{
                 let id= tema[1]+1 
                 completeTema(db, id, true)
-                if(prueba){
+                if(prueba && !info[0]){
+                    handleInfoTema([true, true]) 
                     navigation.dispatch(StackActions.pop(4))
                 }else{
                     navigation.dispatch(StackActions.pop(3))

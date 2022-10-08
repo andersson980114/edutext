@@ -5,6 +5,7 @@ import { UseInfoContext, UseTemaContext} from "../Contexts/InfoProvider";
 import { UseDbContext } from "../Contexts/DataContext";
 import Tema from "../components/Tema"; 
 import { getTema, updateTema } from "../utils/temaModel";
+import Jefe from "../components/Jefe";
 
 const deviceWidth = Math.round(Dimensions.get('window').width)
 const deviceHeight = Math.round(Dimensions.get('window').height)
@@ -42,6 +43,11 @@ export default function TemasScreen({navigation }) {
     handleTema(nombre)
     navigation.navigate('Contenido')
   }
+
+  const prueba = (nombre) => { 
+    handleTema(nombre)
+    navigation.navigate('PruebaB')
+  }
   
   const updateChage = (data) =>{
     let bol;
@@ -78,6 +84,7 @@ export default function TemasScreen({navigation }) {
             }
           })
         }
+        <Jefe nivel={nivel[0]} nombre={["Prueba", nivel[1]]} Onchage={prueba}  />
       </ScrollView>
 
     </View>
