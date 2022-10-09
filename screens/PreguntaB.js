@@ -3,7 +3,7 @@ import { Text, View,Button, Alert, StyleSheet, Dimensions, Pressable } from "rea
 import { Card} from 'react-native-elements'
 import * as data from  '../Data/preguntas.json'
 import Retroalimentacion from "../components/Retroalimentacion";
-import {UsePreguntaContext} from '../Contexts/InfoProvider';
+import {UseInfoContext, UseItemsContext, UsePreguntaContext} from '../Contexts/InfoProvider';
 import PreguntaOpciones from '../components/PreguntaOpciones.js'
 import PreguntaFV from '../components/PreguntaFV.js'
 import PreguntaImagenes from '../components/PreguntaImagenes.js'
@@ -24,8 +24,9 @@ export default function PreguntaB({ navigation }) {
   const [imagen, setImagen] = useState(require("../assets/screenAssets/correcto.png"))
   const [botones, setBotones] = useState([])
   const [success, setSuccess] = useState(false)
+  const {items, handleItems} = UseItemsContext()
 
-  index = pregunta[1] 
+  index = pregunta[1]  
   switch(pregunta[0]){
     case 'Word':
       tema = data.Word
@@ -36,14 +37,18 @@ export default function PreguntaB({ navigation }) {
     default:
       tema = data.Onboarding
       break;
-  }
+  } 
   tipo = tema[index].Tipo
 
   const cerrrar = () =>{
     setShow(false)
   }
+  
   const setRetro = (respuesta) =>{
-    if(!respuesta){
+    if(!respuesta){ 
+      const repite = {val: pregunta[1], estado:false}
+      let actual = items
+      actual.unshift(repite)  
       setShow(true)
       setTitulo('Incorrecto')
       setTexto(tema[index].Retro)
@@ -72,6 +77,12 @@ export default function PreguntaB({ navigation }) {
     setRetro(opcion[0])
     //console.log("Press:",pres);
   }
+
+  useEffect(() => {
+    
+    setEstado(false)
+  }, [index])
+  
 
   useEffect(() =>
     navigation.addListener('beforeRemove', (e) => {

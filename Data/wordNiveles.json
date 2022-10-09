@@ -5,70 +5,80 @@
             "idOpcion": 0,
             "Nivel": "Introducción",
             "idNivel":0,
-            "Progreso": 0
+            "Progreso": 0,
+            "Evaluated":false
         },
         {
             "id": 1,
             "idOpcion": 0,
             "Nivel": "Bronce",
             "idNivel":1,
-            "Progreso": 0
+            "Progreso": 0,
+            "Evaluated":false
         },
         {
             "id": 2,
             "idOpcion": 0,
             "Nivel": "Plata",
             "idNivel":2,
-            "Progreso": 0
+            "Progreso": 0,
+            "Evaluated":false
         },
         {
             "id": 3,
             "idOpcion": 0,
             "Nivel": "Oro",
             "idNivel":3,
-            "Progreso": 0
+            "Progreso": 0,
+            "Evaluated":false
         },
         {
             "id": 4,
             "idOpcion": 0,
             "Nivel": "Favoritos",
             "idNivel":4,
-            "Progreso": 0
+            "Progreso": 0,
+            "Evaluated":false
         },
         {
             "id": 5,
             "idOpcion": 1,
             "Nivel": "Introducción",
             "idNivel":0,
-            "Progreso": 0
+            "Progreso": 0,
+            "Evaluated":false
         },
         {
             "id": 6,
             "idOpcion": 1,
             "Nivel": "Bronce",
             "idNivel":1,
-            "Progreso": 0
+            "Progreso": 0,
+            "Evaluated":false
         },
         {
             "id": 7,
             "idOpcion": 1,
             "Nivel": "Plata",
             "idNivel":2,
-            "Progreso": 0
+            "Progreso": 0,
+            "Evaluated":false
         },
         {
             "id": 8,
             "idOpcion": 1,
             "Nivel": "Oro",
             "idNivel":3,
-            "Progreso": 0
+            "Progreso": 0,
+            "Evaluated":false
         },
         {
             "id": 9,
             "idOpcion": 1,
             "Nivel": "Favoritos",
             "idNivel":4,
-            "Progreso": 0
+            "Progreso": 0,
+            "Evaluated":false
         }
     ]
 

@@ -1,7 +1,7 @@
 import React , { useEffect, useState } from "react";
 import { Text, View,ScrollView, Alert, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
 import * as data from '../Data/wordTemas.json';
-import { UseInfoContext, UseTemaContext} from "../Contexts/InfoProvider";
+import { UseInfoContext, UseTemaContext,UsePreguntaContext} from "../Contexts/InfoProvider";
 import { UseDbContext } from "../Contexts/DataContext";
 import Tema from "../components/Tema"; 
 import { getTema, updateTema } from "../utils/temaModel";
@@ -17,7 +17,7 @@ export default function TemasScreen({navigation }) {
   const favorite = require('../assets/screenAssets/favorite.png') ;
   const noFavorite =  require('../assets/screenAssets/noFavorite.png');
   const temasA = data.Temas
-
+  const {pregunta, handlePregunta} = UsePreguntaContext()
   const  [fav, setFav] = useState(false)
   const [temasD, setTemasD] = useState([])
  
@@ -46,7 +46,7 @@ export default function TemasScreen({navigation }) {
 
   const prueba = (nombre) => { 
     handleTema(nombre)
-    navigation.navigate('PruebaB')
+    navigation.navigate('PreguntaB')
   }
   
   const updateChage = (data) =>{
@@ -84,7 +84,7 @@ export default function TemasScreen({navigation }) {
             }
           })
         }
-        <Jefe nivel={nivel[0]} nombre={["Prueba", nivel[1]]} Onchage={prueba}  />
+        <Jefe nivel={nivel} nombre={["Prueba", nivel[1]]} Onchage={prueba}  />
       </ScrollView>
 
     </View>

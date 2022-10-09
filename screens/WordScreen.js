@@ -5,7 +5,7 @@ import { UseNivelContext, UseOpcionContext ,UsePreguntaContext} from "../Context
 import { UseDbContext } from "../Contexts/DataContext";
 import Nivel from "../components/Nivel";
 import {Niveles} from '../Data/imagenes' 
-import { getNivel } from "../utils/nivelModel";
+import { getNivels } from "../utils/nivelModel";
 
 const d1 = "Prueba"
 const d2 = ['Prueba',0]
@@ -19,7 +19,7 @@ export default function WordScreen({ navigation }) {
   const {db, count} = UseDbContext()
 
   useEffect(() => {
-    getNivel(db, opcion, setNiveles)
+    getNivels(db, opcion, setNiveles)
   }, [])
   
   useEffect(() =>
@@ -46,7 +46,7 @@ export default function WordScreen({ navigation }) {
               let id = item.idNivel
               const url = Niveles[id].url
               return(
-                  <Nivel  key={key} nivel={item.Nivel} nombre={id}  img={url}  progreso={item.Progreso}  onChange={handleChange} />
+                  <Nivel  key={key} id={item.id} nivel={item.Nivel} nombre={id}  img={url} Evaluado={item.Evaluado} progreso={item.Progreso}  onChange={handleChange} />
                 
               )    
             }

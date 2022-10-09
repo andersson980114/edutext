@@ -9,10 +9,6 @@ const ANCHO_CONTENEDOR = width * 0.9;
 const ALTURA_CONTENEDOR = height*0.9;
 
 export default function Retroalimentacion({respuesta, estado, navigation}) {
-  
-
-  
-
     if(estado){
         return (
           <View>

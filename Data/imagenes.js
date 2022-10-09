@@ -1877,7 +1877,7 @@ export const Contenido = [
         Tema:15,
         Texto:"Comandos de opciones de formato del procesador de textos Microsoft Word, parte 2.",
         url:require("../assets/Niveles/intro/3-19.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -1887,7 +1887,7 @@ export const Contenido = [
         Tema:16,
         Texto:"Google docs.",
         url:require("../assets/Niveles/intro/5-abrir.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -1897,7 +1897,7 @@ export const Contenido = [
         Tema:16,
         Texto:"El primer paso para abrir Google Docs, es abrir el navegadorde tu preferencia, en este caso se abrirá 'Google Chrome'.",
         url:require("../assets/Niveles/intro/5-1.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -1907,7 +1907,7 @@ export const Contenido = [
         Tema:16,
         Texto:"En la barra de direcciones escribe 'drive.google.com'.",
         url:require("../assets/Niveles/intro/5-2.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -1917,7 +1917,7 @@ export const Contenido = [
         Tema:16,
         Texto:"Una vez haya cargado la página, de clic en 'Acceder'.",
         url:require("../assets/Niveles/intro/5-3.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -1927,7 +1927,7 @@ export const Contenido = [
         Tema:16,
         Texto:"Accede a tu Cuenta de Google con tu nombre de usuario y contraseña.",
         url:require("../assets/Niveles/intro/5-4.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -1937,7 +1937,7 @@ export const Contenido = [
         Tema:16,
         Texto:"Ya con el acceso, debe dar clic en los 6 puntos al lado de la imagen de la cuenta y hacer clic sobre 'Documentos'.",
         url:require("../assets/Niveles/intro/5-5.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -1947,7 +1947,7 @@ export const Contenido = [
         Tema:17,
         Texto:"Primera vista del pocesador de textos Google Docs.",
         url:require("../assets/Niveles/intro/5-vista.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -1957,7 +1957,7 @@ export const Contenido = [
         Tema:17,
         Texto:"1-Menú principal. 2-Plantillas. 3-Documentos recientes.",
         url:require("../assets/Niveles/intro/5-6.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -1977,7 +1977,7 @@ export const Contenido = [
         Tema:17,
         Texto:"2. Se muestran las plantillas recientes, solo debe dar clic sobre ellas para acceder y modificar el documento.",
         url:require("../assets/Niveles/intro/5-8.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -1987,7 +1987,7 @@ export const Contenido = [
         Tema:17,
         Texto:"3. Se visualizan documentos recientes configurando la vista, el propietario y orden en que se muestran, solo de clic en la opcione que requiera.",
         url:require("../assets/Niveles/intro/5-9.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -1997,7 +1997,7 @@ export const Contenido = [
         Tema:17,
         Texto:"Para crear un documento nuevo de Google Docs, debe dar clic en 'En blanco'.",
         url:require("../assets/Niveles/intro/5-10.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2007,7 +2007,7 @@ export const Contenido = [
         Tema:18,
         Texto:"Punto de inserción.",
         url:require("../assets/Niveles/intro/5-insercion.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2017,7 +2017,7 @@ export const Contenido = [
         Tema:18,
         Texto:"Se inicia en un documento en blanco, ubicando el punto de inserción (línea vertical), indicando donde comenzará la escritura.",
         url:require("../assets/Niveles/intro/5-11.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2027,7 +2027,7 @@ export const Contenido = [
         Tema:18,
         Texto:"Inicio de escritura, borrar, salto de línea, copiar, pegar y cortar un texto.",
         url:require("../assets/Niveles/intro/5-escritura.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2037,7 +2037,7 @@ export const Contenido = [
         Tema:18,
         Texto:"Se comienza el tipeo según el texto, teniendo presente el punto de inserción.",
         url:require("../assets/Niveles/intro/5-12.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2047,7 +2047,7 @@ export const Contenido = [
         Tema:18,
         Texto:"Si se equivoca en la redacción de su documento, puede solo presionar la tecla de retroceso para eliminar lo no deseado.",
         url:require("../assets/Niveles/intro/5-13.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2057,7 +2057,7 @@ export const Contenido = [
         Tema:18,
         Texto:"Otra opción para eliminar es usar la selección (clic izquierdo sin soltar y arrastrar el mouse sobre la palabra o frase) y presionar la tecla de retroceso.",
         url:require("../assets/Niveles/intro/5-14.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2067,7 +2067,7 @@ export const Contenido = [
         Tema:18,
         Texto:"Para realizar un salto de línea (presione la tecla [Shift] + la tecla [Intro], puede implementar cuantos necesite.",
         url:require("../assets/Niveles/intro/5-15.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2077,7 +2077,7 @@ export const Contenido = [
         Tema:18,
         Texto:"Si quiere agregar información al documento sin hacerlo manual, use selección, luego clic derecho y escoja 'Copiar'.",
         url:require("../assets/Niveles/intro/5-16.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2087,7 +2087,7 @@ export const Contenido = [
         Tema:18,
         Texto:"Otra manera de Copiar un texto es usar la selección y el atajo de las teclas [Ctrl] + [C] esto hará la misma función explicada en el paso anterior.",
         url:require("../assets/Niveles/intro/5-17.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2097,7 +2097,7 @@ export const Contenido = [
         Tema:18,
         Texto:"Para pegar la información copiada debe situarse sobre el procesador de textos, verificar el punto de inserción, luego dar clic derecho y tendrá dos opciones de pegado.",
         url:require("../assets/Niveles/intro/5-18.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2147,7 +2147,7 @@ export const Contenido = [
         Tema:19,
         Texto:"Puede compartir los archivos que se almacenen en Google Drive con cualquier persona.",
         url:require("../assets/Niveles/intro/5-compartir.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2157,7 +2157,7 @@ export const Contenido = [
         Tema:19,
         Texto:"Para compartir el documento debe ir al área superior derecha y haz clic en 'Compartir'. El documento se encuentra privado por configuración predeterminada.",
         url:require("../assets/Niveles/intro/5-22.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2167,7 +2167,7 @@ export const Contenido = [
         Tema:19,
         Texto:"Sí aún no ha asignado un nombre al archivo, saldrá una ventana solicitando nombrarlo o saltar el paso y dejar el predeterminado.",
         url:require("../assets/Niveles/intro/5-23.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2177,7 +2177,7 @@ export const Contenido = [
         Tema:19,
         Texto:"Una vez escoja cualquiera de las dos opciones, se abrirá otra ventana con diferentes opciones.",
         url:require("../assets/Niveles/intro/5-24.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2187,7 +2187,7 @@ export const Contenido = [
         Tema:19,
         Texto:"1-Escriba el correo de la persona que deseea agregar al documento, si ya lo tiene ligado a su cuenta, puede ingresar solo el nombre y seleccionar con un clic.",
         url:require("../assets/Niveles/intro/5-25.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2197,7 +2197,7 @@ export const Contenido = [
         Tema:19,
         Texto:"",
         url:require("../assets/Niveles/intro/5-26.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2207,7 +2207,7 @@ export const Contenido = [
         Tema:19,
         Texto:"2-La privacidad del documento puede ser restringida, es decir solo a quienes agregue. También con una identificación especial en el correo o por un enlace.",
         url:require("../assets/Niveles/intro/5-27.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2217,7 +2217,7 @@ export const Contenido = [
         Tema:19,
         Texto:"3-Al dar clic sobre 'Copiar enlace' automáticamente se copiará, con esto solo deberá pegarlo y enviarlo con quienes desee compartir el documento.",
         url:require("../assets/Niveles/intro/5-28.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2227,7 +2227,7 @@ export const Contenido = [
         Tema:19,
         Texto:"Puede agregar comentarios a lo largo del documento, esto se aplica si trabaja solo o comparte el archivo. Solo debe hacer clic en el ícono.",
         url:require("../assets/Niveles/intro/5-29.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2237,7 +2237,7 @@ export const Contenido = [
         Tema:19,
         Texto:"Ubique el punto de inserción donde desea agregar el comentario. Con las opciones puede filtrar los tipos de comentarios, si se tomaron el cuenta y quién los leyó.",
         url:require("../assets/Niveles/intro/5-30.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2247,7 +2247,7 @@ export const Contenido = [
         Tema:20,
         Texto:"Nuevo documento de Google Docs.",
         url:require("../assets/Niveles/intro/5-nuevo.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2257,7 +2257,7 @@ export const Contenido = [
         Tema:20,
         Texto:"Debe dirigirse a la pestaña 'Archivo'. Si requiere un documento nuevo, diferente al actual, solo situe el mouse en 'Nuevo' y puede seleccionar uno vacío o plantilla.",
         url:require("../assets/Niveles/intro/5-31.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2267,7 +2267,7 @@ export const Contenido = [
         Tema:20,
         Texto:"Si selecciona una plantilla le abrirá una ventana nueva con todas las plantillas disponibles, seleccione con un clic la de su preferencia",
         url:require("../assets/Niveles/intro/5-32.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2277,7 +2277,7 @@ export const Contenido = [
         Tema:20,
         Texto:"Si requiere abrir un documento ya existente, de clic en 'Abrir'. Esto le abrirá una ventana y podrá buscar el documento tanto en la nube o subirlo desde su equipo.",
         url:require("../assets/Niveles/intro/5-33.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2287,7 +2287,7 @@ export const Contenido = [
         Tema:20,
         Texto:"Descargar o exportar el documento según el formato requerido.",
         url:require("../assets/Niveles/intro/5-descargar.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2297,7 +2297,7 @@ export const Contenido = [
         Tema:20,
         Texto:"Debe dirigirse a la pestaña 'Archivo'. Si requiere descargar el documento donde está trabajando, debe situarse en 'Descargar' y con un clic seleccione el formato.",
         url:require("../assets/Niveles/intro/5-34.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2307,7 +2307,7 @@ export const Contenido = [
         Tema:20,
         Texto:"Una vez seleccionado el formato del documento se abrirá un cuadro de diálogo para determinar el lugar para ser almacenado, una vez escogido de clic en 'Guardar'.",
         url:require("../assets/Niveles/intro/5-35.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2317,7 +2317,7 @@ export const Contenido = [
         Tema:21,
         Texto:"Configuración de página.",
         url:require("../assets/Niveles/intro/5-configuracion.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2327,7 +2327,7 @@ export const Contenido = [
         Tema:21,
         Texto:"Debe dirigirse a la pestaña 'Archivo'. Si requiere configurar el documento en el que se encuentra trabajando solo debe dar clic sobre 'Configurar Página'.",
         url:require("../assets/Niveles/intro/5-36.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2337,7 +2337,7 @@ export const Contenido = [
         Tema:21,
         Texto:"Se abrirá una ventana para cambiar la orientación de la página, tamaño del papel, márgenes de la hoja, color de la página con solo un clic. Al terminar clic en 'Aceptar'.",
         url:require("../assets/Niveles/intro/5-37.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2347,7 +2347,7 @@ export const Contenido = [
         Tema:21,
         Texto:"Si requiere ingresar bastantes imagenes o tablas anchas, puede ir por la opción de 'Sin páginas'. Permite añadirlas sin saltos de línea.",
         url:require("../assets/Niveles/intro/5-38.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2357,7 +2357,7 @@ export const Contenido = [
         Tema:21,
         Texto:"Imprimir un documento.",
         url:require("../assets/Niveles/intro/5-imprimir.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2367,7 +2367,7 @@ export const Contenido = [
         Tema:21,
         Texto:"Debe dirigirse a la pestaña 'Archivo'. Si requiere una impresión del documento en el que está trabajando. Haga clic en 'Imprimir'.",
         url:require("../assets/Niveles/intro/5-39.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2377,7 +2377,7 @@ export const Contenido = [
         Tema:21,
         Texto:"Se abrirá una ventana con la configuración de la impresión como tamaño del papel, páginas, márgenes, color. Al finalizar de clic en 'Imprimir'.",
         url:require("../assets/Niveles/intro/5-40.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2387,7 +2387,7 @@ export const Contenido = [
         Tema:22,
         Texto:"Deshacer, rehacer, eliminar y seleccionar todo.",
         url:require("../assets/Niveles/intro/5-rehacer.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2397,7 +2397,7 @@ export const Contenido = [
         Tema:22,
         Texto:"Debe dirigirse a la pestaña 'Editar'. Si por error realiza una acción en el documento que deseea revetir, solo debe dar clic en 'Deshacer'.",
         url:require("../assets/Niveles/intro/5-41.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2407,7 +2407,7 @@ export const Contenido = [
         Tema:22,
         Texto:"Debe dirigirse a la pestaña 'Editar'. Si por error revierte información en su documento y quiere dejarlo como estaba, solo debe dar clic en 'Rehacer'.",
         url:require("../assets/Niveles/intro/5-42.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2417,7 +2417,7 @@ export const Contenido = [
         Tema:22,
         Texto:"Debe dirigirse a la pestaña 'Editar'. Sí desea eliminar un texto que no necesita, use selección y clic en 'Eliminar'.",
         url:require("../assets/Niveles/intro/5-43.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2427,7 +2427,7 @@ export const Contenido = [
         Tema:22,
         Texto:"Debe dirigirse a la pestaña 'Editar'. Si requiere usar selección en todo el documento, de clic en 'Seleccionar todo' para mayor facilidad.",
         url:require("../assets/Niveles/intro/5-44.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2437,7 +2437,7 @@ export const Contenido = [
         Tema:22,
         Texto:"Opciones para la visualización del documento.",
         url:require("../assets/Niveles/intro/5-opciones.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2447,7 +2447,7 @@ export const Contenido = [
         Tema:22,
         Texto:"La selección de 'Mostrar diseño de impresión' permite que sea visible la división entre página y página. Para marcarlo debe dar clic.",
         url:require("../assets/Niveles/intro/5-45.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2457,7 +2457,7 @@ export const Contenido = [
         Tema:22,
         Texto:"La selección de 'Mostrar regla' permite que sea visible la sangría del texto del documento, puede modificarse una vez puesta. Para marcarla debe dar clic.",
         url:require("../assets/Niveles/intro/5-46.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2467,7 +2467,7 @@ export const Contenido = [
         Tema:22,
         Texto:"La selección de 'Mostrar esquema' permite visibilidad al lado izquierdo con los títulos de todo el documento, además de permitir agregar un resumen para vista previa.",
         url:require("../assets/Niveles/intro/5-47.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2477,7 +2477,7 @@ export const Contenido = [
         Tema:22,
         Texto:"La selección de 'Mostrar saltos de sección' permite visibilidad cuando se realiza un salto. Para marcar debe dar clic.",
         url:require("../assets/Niveles/intro/5-48.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2487,7 +2487,7 @@ export const Contenido = [
         Tema:22,
         Texto:"La selección de 'Pantalla completa' permite que el documento ocupe la mayoría de la pantalla. Para marcar debe dar clic. Para deshacerlo presione la tecla [Esc].",
         url:require("../assets/Niveles/intro/5-49.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2497,7 +2497,7 @@ export const Contenido = [
         Tema:23,
         Texto:"Insertar imágenes y tablas.",
         url:require("../assets/Niveles/intro/5-imagen.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2507,7 +2507,7 @@ export const Contenido = [
         Tema:23,
         Texto:"En la pestaña 'Insertar' > Imagen. Permite agregar imágenes al documento por medio de varias opciones. Haga clic sobre la preferida.",
         url:require("../assets/Niveles/intro/5-50.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2517,7 +2517,7 @@ export const Contenido = [
         Tema:23,
         Texto:"1-Subir del ordenador. Al dar clic saldrá un cuadro de diálogo, permitiendo buscar la imagen en las carpetas del equipo.",
         url:require("../assets/Niveles/intro/5-51.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2527,7 +2527,7 @@ export const Contenido = [
         Tema:23,
         Texto:"2-Buscar en la web. Al dar clic cargará al lado derecho un buscador de google, puede escribir para filtrar las imágenes.",
         url:require("../assets/Niveles/intro/5-52.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2537,7 +2537,7 @@ export const Contenido = [
         Tema:23,
         Texto:"3-Drive. Al dar clic cargará al lado derecho una ventana con las imágenes almacenadas en la cuenta de google drive ligada.",
         url:require("../assets/Niveles/intro/5-53.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2547,7 +2547,7 @@ export const Contenido = [
         Tema:23,
         Texto:"4-Fotos. Al dar clic cargará al lado derecho una ventana con las fotos almacenadas en la nube de la cuenta ligada.",
         url:require("../assets/Niveles/intro/5-54.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2557,7 +2557,7 @@ export const Contenido = [
         Tema:23,
         Texto:"5-Por URL. Al dar clic se abrirá una ventana solicitando el URL de la imagen ha agregar en el documento.",
         url:require("../assets/Niveles/intro/5-55.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2567,7 +2567,7 @@ export const Contenido = [
         Tema:23,
         Texto:"6-Cámara. Al dar clic se abrirá una ventana solicitando permiso para acceder a la cámara del equipo y tomar la imagen en el momento.",
         url:require("../assets/Niveles/intro/5-56.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2577,7 +2577,7 @@ export const Contenido = [
         Tema:23,
         Texto:"En la pestaña 'Insertar' > Tabla. Se permite agregar tablas al documento por medio una selección de columnas y filas o una plantilla.",
         url:require("../assets/Niveles/intro/5-57.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2587,7 +2587,7 @@ export const Contenido = [
         Tema:23,
         Texto:"Al situarse sobre 'Plantilla' se desglosarán 4 tipos, solo debe dar clic sobre el preferido y modificar la información según lo necesario.",
         url:require("../assets/Niveles/intro/5-58.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2597,7 +2597,7 @@ export const Contenido = [
         Tema:23,
         Texto:"Para crear una tabla de manera rápida, solo mueva el cursor sobre la cuadrícula hasta que haya resaltado el número de columnas y filas que quiera.",
         url:require("../assets/Niveles/intro/5-59.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2607,7 +2607,7 @@ export const Contenido = [
         Tema:24,
         Texto:"Insertar dibujos, gráficos, encabezado y pie de página.",
         url:require("../assets/Niveles/intro/5-dibujo.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2617,7 +2617,7 @@ export const Contenido = [
         Tema:24,
         Texto:"En la pestaña 'Insertar' > Dibujo. Permite agregar dibujos al documento por medio de dos opciones. 1-De drive. 2-Nuevo. Haga clic en la preferida.",
         url:require("../assets/Niveles/intro/5-60.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {
@@ -2627,7 +2627,7 @@ export const Contenido = [
         Tema:24,
         Texto:"Si selecciona 'Nuevo', cargará una ventana para que pueda realizar el dibujo desde cero. Al terminar presione 'Guardar y cerrar'.",
         url:require("../assets/Niveles/intro/5-61.png"),
-        Prueba: true, 
+        Prueba: false, 
         Visto: false,
     },
     {

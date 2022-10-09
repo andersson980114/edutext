@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Image, Text, StyleSheet, Dimensions, Pressable} from 'react-native'
+import { UseEvaluadoContext } from '../Contexts/InfoProvider';
 
 const deviceWidth = (Dimensions.get("window").height) * 0.5
 const height = (Dimensions.get("window").height) * 0.5;
@@ -7,10 +8,12 @@ const progres = deviceWidth-35
 const ANCHO_CONTENEDOR = (height / deviceWidth ) * 90 ; 
 const ALTO_CONTENEDOR = (height / deviceWidth ) * 90 ;  
 
-export default function Nivel({ nivel, nombre, img, progreso, onChange}) { 
+export default function Nivel({ id, nivel, nombre, img, progreso, Evaluado, onChange}) { 
    
+    const {evaluado, handleEvaluado} = UseEvaluadoContext()
     const porcentaje = (progres*progreso)/100
     const handleChange = () =>{
+        handleEvaluado(Evaluado)
         onChange([nivel,nombre]) 
     }
 

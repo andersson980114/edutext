@@ -8,6 +8,9 @@ const NivelContext = React.createContext();
 const TemaContext = React.createContext();
 const InfoTemaContext = React.createContext();
 const PreguntaContext = React.createContext();
+const ItemsContext = React.createContext();
+const EvaluadoContext = React.createContext();
+
 
 export function UseInfoContext(){
   return useContext(InfoContext)
@@ -33,6 +36,15 @@ export function UsePreguntaContext(){
   return useContext(PreguntaContext)
 }
 
+export function UseItemsContext(){
+  return useContext(ItemsContext)
+}
+
+export function UseEvaluadoContext(){
+  return useContext(EvaluadoContext)
+}
+
+
 
 function random(min, max) {
   min = Math.ceil(min);
@@ -49,6 +61,9 @@ export  function InfoProvider({children}) {
   const [tema, setTema] = useState(['Inicio',0])
   const [pregunta, setPregunta] = useState(['Onboarding',random(0, 3)])
   const [info, setInfo] = useState([false, false])
+  const [items, setItems] = useState([])
+  const [evaluado, setEvaluado] = useState(false)
+  
   
 
   const handleOption = (a) =>{
@@ -70,6 +85,14 @@ export  function InfoProvider({children}) {
   const handlePregunta = (a) =>{ 
     setPregunta(a)
   }
+  const handleItems = (a) =>{ 
+    setItems(a)
+  }
+
+  const handleEvaluado = (a) =>{ 
+    setEvaluado(a)
+  }
+
 
   return (
     <OpcionContext.Provider  value={{opcion,handleOption}}>
@@ -77,11 +100,16 @@ export  function InfoProvider({children}) {
         <TemaContext.Provider  value={{tema,handleTema}}> 
           <InfoTemaContext.Provider  value={{info,handleInfoTema}}> 
             <PreguntaContext.Provider value={{pregunta, handlePregunta}}>
+              <ItemsContext.Provider value={{items, handleItems}}>
+                <EvaluadoContext.Provider value={{evaluado, handleEvaluado}}>
+                  
 
-              <InfoContext.Provider value={{opcion,nivel, tema}}> 
-                  {children} 
-              </InfoContext.Provider>
+                  <InfoContext.Provider value={{opcion,nivel, tema}}> 
+                      {children} 
+                  </InfoContext.Provider>
 
+                </EvaluadoContext.Provider>
+              </ItemsContext.Provider>
             </PreguntaContext.Provider>
           </InfoTemaContext.Provider>
         </TemaContext.Provider>
