@@ -69,7 +69,7 @@ export default function TemasScreen({navigation }) {
             //console.log(nivel[1], " - ", opcion[1])
             let id = item.id-1
             if(nivel[0]=="Favoritos"){
-              console.log("Favoritos");
+              //console.log("Favoritos");
               if(item.Favorito && item.Opcion == opcion[1] ){
                 return(
                   <Tema  key={key} db={db} nombre={[item.Nombre, id]} Texto={item.Nombre} favo={item.Favorito} completado={item.Completado} visto={item.Visto} Onchage={handleChange} update={updateChage}/>

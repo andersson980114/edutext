@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import { View, Image,Text, StyleSheet, TouchableOpacity } from 'react-native'
-import { UseOpcionContext, UseNivelContext, UsePreguntaContext, UseTemaContext, UseInfoTemaContext, UseItemsContext, UseEvaluadoContext} from "../Contexts/InfoProvider";
+import { UseOpcionContext, UseNivelContext, UsePreguntaContext, UseTemaContext, UseInfoTemaContext, UseItemsContext, UseEvaluadoContext, UseCompletadoContext, UseProgresoContext} from "../Contexts/InfoProvider";
 import { UseDbContext, UseCountContext } from '../Contexts/DataContext'; 
 import { infoTema, completeTema, updateTema } from '../utils/temaModel';
 import { StackActions } from '@react-navigation/native';
-import { evaluatedNivel, getNivel, updateNivel } from '../utils/nivelModel';
-
+import { completedNivel, evaluatedNivel, getNivel, updateNivel } from '../utils/nivelModel';
+var ni;
 function random(min, max) { 
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -26,13 +26,32 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
     const {count, handleCount} = UseCountContext()
     const {items, handleItems} = UseItemsContext()
     const {evaluado, handleEvaluado} = UseEvaluadoContext()
+    const {completado, handleCompletado} = UseCompletadoContext()
+    const {progreso, handleProgreso} = UseProgresoContext()
 
+    useEffect(() => {
+        if(opcion[1]>0){
+            ni = nivel[1]+1+5
+        }else{
+            ni = nivel[1]+1
+        }
+        
+      if(progreso>=80 && !completado){
+        completedNivel(db, ni, true)
+        handleCompletado(true)
+        
+        console.log(progreso)
+        console.log("\n----------------------------completado----------------------------\n")
+      }
+      
+      console.log(progreso)
+    }, [progreso])
     
 
     const handleChange = () =>{
         var val= random(nivel[1], (parseInt(nivel[1])+1)*3)
         //console.log("nivel:", nivel[1]," \ninfo:",info[1], info[0],"\ntema", tema);
-        var ni;
+        
         if(opcion[1]>0){
             ni = nivel[1]+1+5
         }else{
@@ -46,6 +65,8 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
         if(pregunta[0]!='Onboarding'){
             if(info[0] && !info[1]){  
                 updateNivel(db,  ni, 20)
+                handleProgreso(progreso+20)
+                console.log(progreso)
                 //console.log("Opcion:---",opcion[1]);
             }
             
@@ -61,6 +82,7 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
                 }else{
                     if(!evaluado){
                        // console.log("Opcion:---",opcion[1]);
+                        handleProgreso(progreso+20)
                         updateNivel(db,  ni, 20)
                         handleEvaluado(true)
                         evaluatedNivel(db, nivel[1]+1, true)

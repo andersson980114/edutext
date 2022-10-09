@@ -34,17 +34,17 @@ export default function Jefe({ nivel,nombre, Onchage}) {
             preguntas.push({val: item, estado:false})
         })
         handleItems(preguntas)
-        console.log(preguntas)
+        //console.log(preguntas)
         return preguntas.pop()
     }
 
     const handleChange = () =>{
         const val = generarPreguntas() 
         handlePregunta([opcion[0],val.val])
-        console.log(opcion[0],val.val)
+        //console.log(opcion[0],val.val)
         Onchage(nombre)
     } 
-    if(nivel!="Favoritos"){
+    if(nivel[0]!="Favoritos"){
         return (
             <View  >
                 <TouchableOpacity onPress={() => handleChange()}  style={styles.cardContainer}>

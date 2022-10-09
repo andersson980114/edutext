@@ -10,6 +10,8 @@ const InfoTemaContext = React.createContext();
 const PreguntaContext = React.createContext();
 const ItemsContext = React.createContext();
 const EvaluadoContext = React.createContext();
+const CompletedContext = React.createContext();
+const ProgresoContext = React.createContext();
 
 
 export function UseInfoContext(){
@@ -39,9 +41,16 @@ export function UsePreguntaContext(){
 export function UseItemsContext(){
   return useContext(ItemsContext)
 }
-
 export function UseEvaluadoContext(){
   return useContext(EvaluadoContext)
+}
+
+export function UseCompletadoContext(){
+  return useContext(CompletedContext)
+}
+
+export function UseProgresoContext(){
+  return useContext(ProgresoContext)
 }
 
 
@@ -63,6 +72,8 @@ export  function InfoProvider({children}) {
   const [info, setInfo] = useState([false, false])
   const [items, setItems] = useState([])
   const [evaluado, setEvaluado] = useState(false)
+  const [completado, setCompletado] = useState(false)
+  const [progreso, setProgreso] = useState(0)
   
   
 
@@ -92,6 +103,14 @@ export  function InfoProvider({children}) {
   const handleEvaluado = (a) =>{ 
     setEvaluado(a)
   }
+  
+  const handleCompletado = (a) =>{ 
+    setCompletado(a)
+  }
+
+  const handleProgreso = (a) =>{ 
+    setProgreso(a)
+  }
 
 
   return (
@@ -102,12 +121,15 @@ export  function InfoProvider({children}) {
             <PreguntaContext.Provider value={{pregunta, handlePregunta}}>
               <ItemsContext.Provider value={{items, handleItems}}>
                 <EvaluadoContext.Provider value={{evaluado, handleEvaluado}}>
-                  
+                  <CompletedContext.Provider value={{completado, handleCompletado}}>
+                    <ProgresoContext.Provider value={{progreso, handleProgreso}}>
+          
+                      <InfoContext.Provider value={{opcion,nivel, tema}}> 
+                          {children} 
+                      </InfoContext.Provider>
 
-                  <InfoContext.Provider value={{opcion,nivel, tema}}> 
-                      {children} 
-                  </InfoContext.Provider>
-
+                    </ProgresoContext.Provider>
+                  </CompletedContext.Provider>
                 </EvaluadoContext.Provider>
               </ItemsContext.Provider>
             </PreguntaContext.Provider>

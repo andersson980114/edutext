@@ -46,7 +46,7 @@ export default function WordScreen({ navigation }) {
               let id = item.idNivel
               const url = Niveles[id].url
               return(
-                  <Nivel  key={key} id={item.id} nivel={item.Nivel} nombre={id}  img={url} Evaluado={item.Evaluado} progreso={item.Progreso}  onChange={handleChange} />
+                  <Nivel  key={key} id={item.id} nivel={item.Nivel} nombre={id}  img={url} Evaluado={item.Evaluado} Completed={item.Completed} progreso={item.Progreso}  onChange={handleChange} />
                 
               )    
             }

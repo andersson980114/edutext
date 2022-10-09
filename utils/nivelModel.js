@@ -3,7 +3,7 @@ import * as data from '../Data/wordNiveles.json';
 export  function createNivelTable(db){
     db.transaction((tx) =>{
         tx.executeSql(
-            "CREATE TABLE IF NOT EXISTS nivel (id INTEGER PRIMARY KEY AUTOINCREMENT, Nivel  VARCHAR(128), idNivel  INTEGER, idOpcion INTEGER, Progreso INTEGER, Evaluado BOOLEAN)",
+            "CREATE TABLE IF NOT EXISTS nivel (id INTEGER PRIMARY KEY AUTOINCREMENT, Nivel  VARCHAR(128), idNivel  INTEGER, idOpcion INTEGER, Progreso INTEGER, Evaluado BOOLEAN, Completed BOOLEAN)",
             [],
             (sqlTxn, res) => {
               //  console.log("tabla Nivel creado")
@@ -15,11 +15,11 @@ export  function createNivelTable(db){
 }
 
 
-export function insertNivel(db, Nivel , idNivel, idOpcion , Progreso, Evaluado){
+export function insertNivel(db, Nivel , idNivel, idOpcion , Progreso, Evaluado, Completed){
     db.transaction((tx) => {
         tx.executeSql(
-            "INSERT INTO nivel ( Nivel , idNivel, idOpcion , Progreso, Evaluado)VALUES (?,?,?,?,?)",
-            [Nivel , idNivel, idOpcion , Progreso, Evaluado],
+            "INSERT INTO nivel ( Nivel , idNivel, idOpcion , Progreso, Evaluado, Completed)VALUES (?,?,?,?,?,?)",
+            [Nivel , idNivel, idOpcion , Progreso, Evaluado, Completed],
             (sqlTxn, res) => {
               //  console.log("nivel ingresado")
             },
@@ -33,7 +33,7 @@ function llenar(db){
     const nivel = data.Niveles
     
     nivel.map((item) =>{ 
-            insertNivel(db, item.Nivel, item.idNivel, item.idOpcion, item.Progreso, false)
+            insertNivel(db, item.Nivel, item.idNivel, item.idOpcion, item.Progreso, false, false)
         }
     )
       
@@ -52,7 +52,7 @@ export  function  getNivels(db, opcion, setNivels){
                     for(let i =0; i<len; i++){
                         let item =   res.rows.item(i);
                         //console.log(item)
-                        results.push({id: item.id, Nivel:item.Nivel, idNivel: item.idNivel, idOpcion: item.idOpcion, Progreso: item.Progreso, Evaluado:item.Evaluado})
+                        results.push({id: item.id, Nivel:item.Nivel, idNivel: item.idNivel, idOpcion: item.idOpcion, Progreso: item.Progreso, Evaluado:item.Evaluado, Completed: item.Completed})
                     }  
                     //console.log(results)
                     setNivels(results)
@@ -68,6 +68,7 @@ export  function  getNivels(db, opcion, setNivels){
 }
 
 export function updateNivel(db, id,Progreso){
+     
     db.transaction((tx) => {
         tx.executeSql(
             `UPDATE nivel set Progreso = Progreso +  '${Progreso}' where id = '${id}'`,
@@ -78,7 +79,7 @@ export function updateNivel(db, id,Progreso){
             error => {console.log("no se pudo alterar nivel: ",Progreso, id)}
         )
     },
-    null)
+    null) 
 }
 
 
@@ -96,3 +97,18 @@ export function evaluatedNivel(db, id,Evaluado){
     },
     null)
 }
+
+export function completedNivel(db, id,Completed){
+    db.transaction((tx) => {
+        tx.executeSql(
+            `UPDATE nivel set Completed = '${Completed}' where id = '${id}'`,
+            [],
+            (sqlTxn, res) => {
+                console.log("nivel Completed:",Completed, id)
+            },
+            error => {console.log("no se pudo Completed nivel: ",Completed, id)}
+        )
+    },
+    null)
+}
+
