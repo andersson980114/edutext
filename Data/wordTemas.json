@@ -166,7 +166,7 @@
             "id":18 ,
             "Opcion": 1,
             "Nivel": 0, 
-            "Nombre": "tema no se",
+            "Nombre": "Inserción",
             "Favorito": false,
             "Visto": false,
             "Completado": false
@@ -175,7 +175,7 @@
             "id":19 ,
             "Opcion": 1,
             "Nivel": 0, 
-            "Nombre": "compartir?",
+            "Nombre": "Compartir",
             "Favorito": false,
             "Visto": false,
             "Completado": false
@@ -184,7 +184,7 @@
             "id":20 ,
             "Opcion": 1,
             "Nivel": 1, 
-            "Nombre": "tema?",
+            "Nombre": "Documento",
             "Favorito": false,
             "Visto": false,
             "Completado": false
@@ -193,7 +193,7 @@
             "id":21 ,
             "Opcion": 1,
             "Nivel": 1, 
-            "Nombre": "tema2?",
+            "Nombre": "Configuración",
             "Favorito": false,
             "Visto": false,
             "Completado": false
@@ -202,7 +202,7 @@
             "id":22 ,
             "Opcion": 1,
             "Nivel": 1, 
-            "Nombre": "tema3?",
+            "Nombre": "Edición",
             "Favorito": false,
             "Visto": false,
             "Completado": false
@@ -211,7 +211,7 @@
             "id":23 ,
             "Opcion": 1,
             "Nivel": 2, 
-            "Nombre": "Imágenes y tablas",
+            "Nombre": "Ilustraciones I",
             "Favorito": false,
             "Visto": false,
             "Completado": false
@@ -220,7 +220,7 @@
             "id":24 ,
             "Opcion": 1,
             "Nivel": 2, 
-            "Nombre": "Insertar",
+            "Nombre": "Ilustraciones II",
             "Favorito": false,
             "Visto": false,
             "Completado": false
@@ -238,7 +238,25 @@
             "id":26 ,
             "Opcion": 1,
             "Nivel": 3, 
-            "Nombre": "no se",
+            "Nombre": "Estilos",
+            "Favorito": false,
+            "Visto": false,
+            "Completado": false
+        },
+        {
+            "id":27 ,
+            "Opcion": 1,
+            "Nivel": 3, 
+            "Nombre": "Numeración",
+            "Favorito": false,
+            "Visto": false,
+            "Completado": false
+        },
+        {
+            "id":28 ,
+            "Opcion": 1,
+            "Nivel": 3, 
+            "Nombre": "Herramientas",
             "Favorito": false,
             "Visto": false,
             "Completado": false
