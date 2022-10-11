@@ -1,15 +1,16 @@
 import React , { useEffect, useState } from "react";
 import { Text, View,ScrollView, Alert, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
 import * as data from '../Data/wordTemas.json';
-import { UseInfoContext, UseTemaContext,UsePreguntaContext} from "../Contexts/InfoProvider";
+import { UseInfoContext, UseTemaContext,UsePreguntaContext, UseProgresoContext, UseCompletadoContext} from "../Contexts/InfoProvider";
 import { UseDbContext } from "../Contexts/DataContext";
 import Tema from "../components/Tema"; 
 import { getTema, updateTema } from "../utils/temaModel";
 import Jefe from "../components/Jefe";
+import { completedNivel } from "../utils/nivelModel";
 
 const deviceWidth = Math.round(Dimensions.get('window').width)
 const deviceHeight = Math.round(Dimensions.get('window').height)
-
+let ni;
 export default function TemasScreen({navigation }) {
   const {opcion, nivel, tema} = UseInfoContext();
   const {mytema, handleTema} = UseTemaContext();
@@ -20,9 +21,27 @@ export default function TemasScreen({navigation }) {
   const {pregunta, handlePregunta} = UsePreguntaContext()
   const  [fav, setFav] = useState(false)
   const [temasD, setTemasD] = useState([])
+  const {progreso, handleProgreso} = UseProgresoContext()
+  const {completado, handleCompletado} = UseCompletadoContext()
  
   useEffect(() => { 
     getTema(db, setTemasD)
+    if(opcion[1]>0){
+            ni = nivel[1]+1+5
+        }else{
+            ni = nivel[1]+1
+    }
+      
+    if(progreso>=100 && !completado){
+       
+      completedNivel(db, ni, true)
+      handleCompletado(true)
+      
+      console.log(progreso)
+      console.log("\n--------------------------------------------------------\n")
+    }
+      
+      console.log(progreso)
   }, [])
 
 

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { View, Image,Text, StyleSheet, TouchableOpacity } from 'react-native'
-import { UseOpcionContext, UseNivelContext, UsePreguntaContext, UseTemaContext, UseInfoTemaContext, UseItemsContext, UseEvaluadoContext, UseCompletadoContext, UseProgresoContext} from "../Contexts/InfoProvider";
+import { UseOpcionContext, UseNivelContext, UsePreguntaContext, UseTemaContext, UseInfoTemaContext, UseItemsContext, UseEvaluadoContext, UseCompletadoContext, UseProgresoContext, UsePressContext} from "../Contexts/InfoProvider";
 import { UseDbContext, UseCountContext } from '../Contexts/DataContext'; 
 import { infoTema, completeTema, updateTema } from '../utils/temaModel';
 import { StackActions } from '@react-navigation/native';
@@ -8,6 +8,9 @@ import { completedNivel, evaluatedNivel, getNivel, updateNivel } from '../utils/
 var ni;
 function random(min, max) { 
     min = Math.ceil(min);
+    if(min>0){
+        min=min*5
+    }
     max = Math.floor(max);
     var val = Math.floor((Math.random() * (max - min + 1)) + min)-1; 
     if(val<0){val=0}
@@ -28,6 +31,7 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
     const {evaluado, handleEvaluado} = UseEvaluadoContext()
     const {completado, handleCompletado} = UseCompletadoContext()
     const {progreso, handleProgreso} = UseProgresoContext()
+    const {press, handlePress} = UsePressContext()
 
     useEffect(() => {
         if(opcion[1]>0){
@@ -41,7 +45,7 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
         handleCompletado(true)
         
         console.log(progreso)
-        console.log("\n----------------------------completado----------------------------\n")
+        console.log("\n--------------------------------------------------------\n")
       }
       
       console.log(progreso)
@@ -64,10 +68,10 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
         //console.log("get:", info[0])
         if(pregunta[0]!='Onboarding'){
             if(info[0] && !info[1]){  
+                if(progreso<100){
                 updateNivel(db,  ni, 20)
-                handleProgreso(progreso+20)
+                handleProgreso(progreso+20)}
                 console.log(progreso)
-                //console.log("Opcion:---",opcion[1]);
             }
             
             if(prueba && !info[1]){
@@ -77,13 +81,15 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
                 navigation.navigate('PreguntaB')
             }else if(tema[0]=="Prueba" ){ 
                 if(items.length>0 ){
+                    handlePress(false)
                     handlePregunta([opcion[0], items.pop().val]) 
                     navigation.navigate('PreguntaB')
                 }else{
                     if(!evaluado){
                        // console.log("Opcion:---",opcion[1]);
+                       if(progreso<100){
                         handleProgreso(progreso+20)
-                        updateNivel(db,  ni, 20)
+                        updateNivel(db,  ni, 20)}
                         handleEvaluado(true)
                         evaluatedNivel(db, nivel[1]+1, true)
                     }

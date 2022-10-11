@@ -1,27 +1,37 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Text, View, StyleSheet, Dimensions, Pressable } from "react-native";
+import { UsePressContext } from '../Contexts/InfoProvider';
 
 
-export default function Respuesta({item, texto, correctaR, pres, onChange}) {
+export default function Respuesta({navigation, item, texto, correctaR, pres, onChange}) {
     
   const [color, setColor] = useState("#EBEBEB")
-  const [border, setBorder] = useState("#EBEBEB")
-
-  
-  const correcta = (opcion) => { 
-    if(!pres){
-        if(correctaR){
-            setColor("#ACF6AB")
-            setBorder("#16B20C")
-        }else {
-            setColor("#ED735B")
-            setBorder("#D32300") 
-        }
+  const [border, setBorder] = useState("#EBEBEB") 
+  const [presi, setPress] = useState(pres)
+  const {press, handlePress} = UsePressContext()
+  const correcta = (opcion) => {   
+    if(!press){ 
+          if(correctaR ){
+              setColor("#ACF6AB")
+              setBorder("#16B20C")
+          }else {
+              setColor("#ED735B")
+              setBorder("#D32300") 
+          } 
         
         onChange(opcion)
     }
+    setPress(true)
+    handlePress(true)
   }
-
+  
+  useEffect(() => {
+    if(press!=presi){
+    setColor("#EBEBEB")
+    setBorder("#EBEBEB") }
+  }, [press])
+  
+    
   return (
     <View style={{
         width: deviceWidth - 35, 

@@ -1,16 +1,20 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import {View, StyleSheet, Text, Pressable, Dimensions,TouchableOpacity} from 'react-native'
 import Respuesta from '../components/Respuesta.js'
 
-export default function PreguntaOpciones({onChange, tema, index, pres}) {
+export default function PreguntaOpciones({navigation, onChange, tema, index, pres}) {
     
     
     const [presi, setPress] = useState(pres)  
 
-    const correcta = (opcion) => { 
-        setPress(true)   
+    const correcta = (opcion) => {     
+        setPress(true)
         onChange(opcion)
     }
+    
+    
+  
+
     return (
         <View>
             <View style={styles.pregunta} >
@@ -23,11 +27,8 @@ export default function PreguntaOpciones({onChange, tema, index, pres}) {
             {
                 tema[index].Opciones.map((item, key) => {
                     return(
-                    <View key={key}>
-                        <Pressable  >  
-                            <Respuesta    onChange={correcta} item={item.item} texto={item.text} correctaR={item.correcta}  pres={presi}/> 
-                        </Pressable>
-                        
+                    <View key={key}> 
+                        <Respuesta    onChange={correcta} item={item.item} texto={item.text} correctaR={item.correcta}  pres={pres} navigation={navigation} />  
                     </View>
                     )
                 })

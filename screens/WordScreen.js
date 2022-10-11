@@ -1,7 +1,7 @@
 import React,{useContext, useEffect, useState} from "react";
 import { Text, View,ScrollView, Image, StyleSheet, Dimensions, Pressable } from "react-native";
 import * as data from '../Data/wordNiveles.json';
-import { UseNivelContext, UseOpcionContext ,UsePreguntaContext} from "../Contexts/InfoProvider";
+import { UseCompletadoContext, UseNivelContext, UseOpcionContext ,UsePreguntaContext, UseProgresoContext} from "../Contexts/InfoProvider";
 import { UseDbContext } from "../Contexts/DataContext";
 import Nivel from "../components/Nivel";
 import {Niveles} from '../Data/imagenes' 
@@ -10,16 +10,34 @@ import { getNivels } from "../utils/nivelModel";
 const d1 = "Prueba"
 const d2 = ['Prueba',0]
 const d3 = require('../assets/screenAssets/bronce.png')
-
+let ni;
 export default function WordScreen({ navigation }) {
   const Nivels = data.Niveles
   const {nivel, handleNivel} =  UseNivelContext() 
   const {opcion, handleOpcion} =  UseOpcionContext() 
   const [niveles, setNiveles] = useState([])
   const {db, count} = UseDbContext()
+  const {progreso, handleProgreso} = UseProgresoContext();
+  const {completado, handleCompletado} =  UseCompletadoContext();
 
   useEffect(() => {
     getNivels(db, opcion, setNiveles)
+    if(opcion[1]>0){
+      ni = nivel[1]+1+5
+    }else{
+        ni = nivel[1]+1
+    }
+    console.log("completado: ", completado)
+    if(progreso==100 && !completado){
+    
+    completedNivel(db, ni, true)
+    handleCompletado(true)
+
+    console.log(progreso)
+    console.log("\n----------------------------completado----------------------------\n")
+    }
+
+    console.log(progreso)
   }, [])
   
   useEffect(() =>

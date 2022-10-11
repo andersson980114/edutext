@@ -13,7 +13,7 @@ export default function AvatarScreen({ navigation }) {
   const {db, count} = UseDbContext()
   const [user, setUser] = useState(0)//imagen de usuario
   const [users, setUsers] = useState("")
-  const [puntaje, setPuntaje] = useState(1) 
+  const [puntaje, setPuntaje] = useState(0) 
   const [show, setShow] = useState(false)
   const [titulo, setTitulo] = useState("")
   const [texto, setTexto] = useState("")
@@ -99,7 +99,10 @@ export default function AvatarScreen({ navigation }) {
         <ModalPoup visible={show} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={getUserId} />
         <View style={Styles.topContainer}>
           <Image source={Avatars[user].url} style={Styles.Ubox}></Image> 
-          <Text style={Styles.textUser}>{users}</Text>
+          <View>
+            <Text style={Styles.textUser}>{users}</Text>
+            <Text style={Styles.textPuntos}>{puntaje}pts.</Text>
+          </View>
         </View>
         <Text style={Styles.textUser}>Mis Avatares</Text>
         <View style={Styles.boxContainer}>
@@ -157,8 +160,19 @@ const Styles = StyleSheet.create({
     flexDirection: 'row',  
   },
   textUser:{
+    fontWeight: "bold",
     fontSize:40,  
     marginLeft: '10%',
+  },
+  textPuntos:{
+    backgroundColor:"#2C6B80",
+    textAlign: "center", 
+    fontSize:20,  
+    color: "#fff",
+    marginLeft: '45%',
+    fontWeight: "bold",
+    borderRadius: 15,
+    paddingHorizontal: 10
   },
   Ubox:{
     height: 100,

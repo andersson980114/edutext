@@ -3,7 +3,7 @@ import { Text, View,Button, Alert, StyleSheet, Dimensions, Pressable } from "rea
 import { Card} from 'react-native-elements'
 import * as data from  '../Data/preguntas.json'
 import Retroalimentacion from "../components/Retroalimentacion";
-import {UseInfoContext, UseItemsContext, UsePreguntaContext} from '../Contexts/InfoProvider';
+import {UseInfoContext, UseItemsContext, UsePreguntaContext, UsePressContext} from '../Contexts/InfoProvider';
 import PreguntaOpciones from '../components/PreguntaOpciones.js'
 import PreguntaFV from '../components/PreguntaFV.js'
 import PreguntaImagenes from '../components/PreguntaImagenes.js'
@@ -14,6 +14,7 @@ let index;
 let tipo; 
 export default function PreguntaB({ navigation }) {
   const {pregunta, setPregunta} = UsePreguntaContext() 
+  const {press, handlePress} = UsePressContext()
   const [estado, setEstado] = useState(false) //si se activo una respuesta o no
   const [respuesta, setRespuesta] = useState(false)
   const [pres, setPress] = useState(false)
@@ -29,23 +30,23 @@ export default function PreguntaB({ navigation }) {
   index = pregunta[1]  
   switch(pregunta[0]){
     case 'Word':
-      tema = data.Word
+      tema = data.Word 
       break;
     case 'Docs':
-      tema = data.Docs
+      tema = data.Docs 
       break;
     default:
-      tema = data.Onboarding
+      tema = data.Onboarding 
       break;
   } 
   tipo = tema[index].Tipo
 
-  const cerrrar = () =>{
+  const cerrrar = () =>{  
     setShow(false)
   }
   
   const setRetro = (respuesta) =>{
-    if(!respuesta){ 
+    if(!respuesta){  
       const repite = {val: pregunta[1], estado:false}
       let actual = items
       actual.unshift(repite)  
@@ -67,22 +68,30 @@ export default function PreguntaB({ navigation }) {
   }
 
   useEffect(() => { 
-    setEstado(false) 
+    handlePress(false)
+    setEstado(false)  
   }, [ tema])
   
   const correcta = (opcion) => {
+    handlePress(true) 
+    setPress(true)
     setEstado(true)
-    setRespuesta(opcion[0]) 
-    setPress(true)    
+    setRespuesta(opcion[0])  
     setRetro(opcion[0])
     //console.log("Press:",pres);
   }
-
+ 
   useEffect(() => {
-    
+    handlePress(false)
+    setPress(false) 
     setEstado(false)
   }, [index])
   
+  useEffect(() => { 
+    setPress(false)
+    handlePress(false)
+  }, [])
+   
 
   useEffect(() =>
     navigation.addListener('beforeRemove', (e) => {
@@ -109,12 +118,11 @@ export default function PreguntaB({ navigation }) {
     
   ),
   [navigation])
-  
   if(tipo == 0){
     return (
       <View style={styles.container}>
 
-          <PreguntaOpciones onChange={correcta} tema={tema} index={index} />
+          <PreguntaOpciones onChange={correcta} tema={tema} index={index} pres={pres} navigation={navigation}/>
 
           <View>
               <ModalPoup visible={show} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={cerrrar} />
@@ -135,7 +143,7 @@ export default function PreguntaB({ navigation }) {
               <ModalPoup visible={show} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={cerrrar} />
           </View>
           
-          <PreguntaFV onChange={correcta} tema={tema} index={index} />
+          <PreguntaFV onChange={correcta} tema={tema} index={index} pres={pres} navigation={navigation}/>
           
           <View style={styles.notificacion}  >
             <Retroalimentacion respuesta={respuesta} estado={estado} navigation={navigation} pres={pres} />
@@ -151,7 +159,7 @@ export default function PreguntaB({ navigation }) {
               <ModalPoup visible={show} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={cerrrar} />
           </View>
           
-          <PreguntaImagenes onChange={correcta} tema={tema} index={index} />
+          <PreguntaImagenes onChange={correcta} tema={tema} index={index} pres={pres} navigation={navigation}/>
           
           <View style={styles.notificacion}  >
             <Retroalimentacion respuesta={respuesta} estado={estado} navigation={navigation} pres={pres} />

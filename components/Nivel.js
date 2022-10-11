@@ -13,9 +13,11 @@ export default function Nivel({ id, nivel, nombre, img, progreso, Evaluado, Comp
     const {evaluado, handleEvaluado} = UseEvaluadoContext()
     const {progresos, handleProgreso} = UseProgresoContext()
     const {completado, handleCompletado} = UseCompletadoContext()
-    const porcentaje = (progres*progreso)/100
-
+    const porcentaje = progreso>=100 ? (progres*100)/100 :(progres*progreso)/100
+    
     useEffect(() => {
+      
+      handleCompletado(Completed)
       handleProgreso(progreso)
     }, [])
     

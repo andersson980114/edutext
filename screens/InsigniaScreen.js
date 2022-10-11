@@ -77,6 +77,7 @@ const Styles = StyleSheet.create({
   textUser:{
     fontSize:40,  
     marginLeft: '10%',
+    fontWeight: "bold",
   }, 
   box:{
     height: ALTO_CONTENEDOR,

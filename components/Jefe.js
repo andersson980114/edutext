@@ -10,6 +10,9 @@ const jefes = [
 
 function random(min, max) { 
     min = Math.ceil(min);
+    if(min>0){
+        min=min*5
+    }
     max = Math.floor(max);
     var val = Math.floor((Math.random() * (max - min + 1)) + min)-1; 
     if(val<0){val=0}
@@ -18,23 +21,23 @@ function random(min, max) {
 export default function Jefe({ nivel,nombre, Onchage}) {
     const {items, handleItems} = UseItemsContext()
     const {pregunta, handlePregunta} = UsePreguntaContext()
-    const {opcion, handleOpcion} = UseOpcionContext();
+    const {opcion, handleOpcion} = UseOpcionContext(); 
     const jefe = jefes[nombre[1]]
     let preguntas=[];
     let randomnumbers = new Set, ans;
    
     
     const generarPreguntas =() =>{
-        while(randomnumbers.size <3){
-            randomnumbers.add(random(nivel[1], (parseInt(nivel[1])+1)*3) ) 
+        while(randomnumbers.size <4){
+            randomnumbers.add(random(nivel[1], (parseInt(nivel[1])+1)*5) ) 
         }
         ans = [...randomnumbers];
         
         ans.map((item)=>{
             preguntas.push({val: item, estado:false})
         })
-        handleItems(preguntas)
-        //console.log(preguntas)
+        handleItems(preguntas) 
+        console.log(preguntas)
         return preguntas.pop()
     }
 

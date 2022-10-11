@@ -12,6 +12,7 @@ const ItemsContext = React.createContext();
 const EvaluadoContext = React.createContext();
 const CompletedContext = React.createContext();
 const ProgresoContext = React.createContext();
+const PressContext = React.createContext();
 
 
 export function UseInfoContext(){
@@ -53,6 +54,10 @@ export function UseProgresoContext(){
   return useContext(ProgresoContext)
 }
 
+export function UsePressContext(){
+  return useContext(PressContext)
+}
+
 
 
 function random(min, max) {
@@ -74,6 +79,7 @@ export  function InfoProvider({children}) {
   const [evaluado, setEvaluado] = useState(false)
   const [completado, setCompletado] = useState(false)
   const [progreso, setProgreso] = useState(0)
+  const [press, setPress] = useState(false)
   
   
 
@@ -112,6 +118,9 @@ export  function InfoProvider({children}) {
     setProgreso(a)
   }
 
+  const handlePress = (a) =>{
+    setPress(a)
+  }
 
   return (
     <OpcionContext.Provider  value={{opcion,handleOption}}>
@@ -122,12 +131,14 @@ export  function InfoProvider({children}) {
               <ItemsContext.Provider value={{items, handleItems}}>
                 <EvaluadoContext.Provider value={{evaluado, handleEvaluado}}>
                   <CompletedContext.Provider value={{completado, handleCompletado}}>
-                    <ProgresoContext.Provider value={{progreso, handleProgreso}}>
+                    <ProgresoContext.Provider value={{progreso, handleProgreso}}> 
+                      <PressContext.Provider value={{press, handlePress}}>
           
                       <InfoContext.Provider value={{opcion,nivel, tema}}> 
                           {children} 
                       </InfoContext.Provider>
 
+                      </PressContext.Provider>
                     </ProgresoContext.Provider>
                   </CompletedContext.Provider>
                 </EvaluadoContext.Provider>

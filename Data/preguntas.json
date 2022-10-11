@@ -107,7 +107,7 @@
 
     "Word":[
         {
-            "id": 1, 
+            "id": 0, 
             "Tipo": 0,
             "Pregunta": "¿Cuál de las siguientes opciones no es de la primera vista?",
             "Retro": "Fuente no es una opción de la primera vista ya que es una opción del documento",
@@ -184,6 +184,52 @@
         {
             "id": 3, 
             "Tipo": 0,
+            "Pregunta": "El punto de inserción se encarga de:",
+            "Retro": "El punto de inserción es el encargado de MARCAR el lugar del inicio de la escritura",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Indicar el tipo de formato",
+                    "correcta": false
+                },
+                {
+                    "item": "b",
+                    "text":"Signos de puntuación",
+                    "correcta": false
+                },
+                {
+                    "item": "c",
+                    "text":"Marca el lugar del inicio de la escritura",
+                    "correcta": true
+                },
+                {
+                    "item": "d",
+                    "text":"Crear un documento en blanco",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 4, 
+            "Tipo": 1,
+            "Pregunta": "¿Word permite guardar un mismo documento en diversos formatos?",
+            "Retro": "Word si nos permite eguardar un mismo documento en diversos formatos como .Pdf o .Docx",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Verdadero",
+                    "correcta": true
+                },
+                {
+                    "item": "b",
+                    "text":"Falso",
+                    "correcta": false
+                }
+            ] 
+        }, 
+        {
+            "id": 5, 
+            "Tipo": 0,
             "Pregunta": "¿Cuál de las siguientes opciones no es del portapapeles?",
             "Retro": "RESALTAR es una opción de fuente que nos permite hacer énsfasis en el texto, más no es una opción del portapapeles",
             "Opciones":[
@@ -210,7 +256,7 @@
             ] 
         },
         {
-            "id": 4, 
+            "id": 6, 
             "Tipo": 1,
             "Pregunta": "¿Word nos permite asignar diferentes colores a nuestras fuentes?",
             "Retro": "Word nos permite asignar colores, tamaños y demás estilos a las fuentes de textos",
@@ -228,7 +274,7 @@
             ] 
         },
         {
-            "id": 5, 
+            "id": 7, 
             "Tipo": 2,
             "Inicio": "Podemos usar la opción de",
             "Fin": "para hacer énfasis en nuestro texto",
@@ -257,10 +303,57 @@
             ] 
         },
         {
-            "id": 6, 
+            "id": 8, 
+            "Tipo": 1,
+            "Pregunta": "¿Si desea cambiar los estilos aplicados en el texto, debe borrar todo y escribirlo de nuevo?",
+            "Retro": "No es necesario escribir de nuevo el texto, solo se debe seleccionar y aplicarle los estilos deseados",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Verdadero",
+                    "correcta": false
+                },
+                {
+                    "item": "b",
+                    "text":"Falso",
+                    "correcta": true
+                }
+            ] 
+        },
+        {
+            "id": 9, 
+            "Tipo": 2,
+            "Inicio": "El aplicar espacio de texto hacia la hoja, se conoce como",
+            "Fin": ".",
+            "Retro": "RESALTAR es una opción de fuente que nos permite hacer énsfasis en el texto, más no es una opción del portapapeles",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Salto de línea",
+                    "correcta": false
+                },
+                {
+                    "item": "b",
+                    "text":"Sangría",
+                    "correcta": true
+                },
+                {
+                    "item": "c",
+                    "text":"Resaltar",
+                    "correcta": false
+                },
+                {
+                    "item": "d",
+                    "text":"Alineación",
+                    "correcta": false
+                }
+            ] 
+        }, 
+        {
+            "id": 10, 
             "Tipo": 0,
-            "Pregunta": "¿Cuál de las siguientes opciones no es dePáginas?",
-            "Retro": "Cubir Página no es una opción siquiera de Microsoft Word",
+            "Pregunta": "¿Cuál de las siguientes opciones no es de Páginas?",
+            "Retro": "Cubrir Página no es una opción siquiera de Microsoft Word",
             "Opciones":[
                 {
                     "item": "a",
@@ -280,12 +373,12 @@
                 {
                     "item": "d",
                     "text":"Salto de Página",
-                    "correcta": true
+                    "correcta": false
                 }
             ] 
         },
         {
-            "id": 7, 
+            "id": 11, 
             "Tipo": 1,
             "Pregunta": "¿Word nos permite quitar la portada de un documento?",
             "Retro": "Word si nos permite quitar la portada actual de un documento",
@@ -303,7 +396,7 @@
             ] 
         },
         {
-            "id": 8, 
+            "id": 12, 
             "Tipo": 2,
             "Inicio": "Podemos usar la opción de",
             "Fin": "para agregar Fotos al documento",
@@ -332,7 +425,64 @@
             ] 
         },
         {
-            "id": 9, 
+            "id": 13, 
+            "Tipo": 2,
+            "Inicio": "En la pestaña de ",
+            "Fin": " Podemos agregar un pie de pagina",
+            "Retro": "En la pestaña de Encabezado y Pie de Pagina podemos agregar un pie de pagina",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Diseño",
+                    "correcta": false
+                },
+                {
+                    "item": "b",
+                    "text":"Encabezado",
+                    "correcta": true
+                },
+                {
+                    "item": "c",
+                    "text":"Archivo",
+                    "correcta": false
+                },
+                {
+                    "item": "d",
+                    "text":"Vista",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 14, 
+            "Tipo": 0,
+            "Pregunta": "¿Cuál de las siguientes opciones no es de Ilustraciones?",
+            "Retro": "Dibujar no es una opción siquiera de Microsoft Word",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Gráficos",
+                    "correcta": false
+                },
+                {
+                    "item": "b",
+                    "text":"Dibujar",
+                    "correcta": true
+                },
+                {
+                    "item": "c",
+                    "text":"Formas",
+                    "correcta": false
+                },
+                {
+                    "item": "d",
+                    "text":"Imagenes",
+                    "correcta": false
+                }
+            ] 
+        }, 
+        {
+            "id": 15, 
             "Tipo": 0,
             "Pregunta": "¿Cuál de las siguientes opciones no se permite en la portada?",
             "Retro": "DISPOSITIVO no es una Opcion de portada",
@@ -360,7 +510,7 @@
             ] 
         },
         {
-            "id": 10, 
+            "id": 16, 
             "Tipo": 1,
             "Pregunta": "¿Word nos permite usar portadas predeterminadas?",
             "Retro": "Word si nos permite usar portadas predeterminadas",
@@ -378,7 +528,7 @@
             ] 
         },
         {
-            "id": 11, 
+            "id": 17, 
             "Tipo": 2,
             "Inicio": "Para insertar una tabla debemos escoger las",
             "Fin": ".",
@@ -407,7 +557,7 @@
             ] 
         },
         {
-            "id": 12, 
+            "id": 18, 
             "Tipo": 0,
             "Pregunta": "¿Cuál de las siguientes opciones se permite modificar en disposición?",
             "Retro": "MARGENES es la opción que se nos permite modificar en disposición",
@@ -435,7 +585,7 @@
             ] 
         },
         {
-            "id": 13, 
+            "id": 19, 
             "Tipo": 1,
             "Pregunta": "¿Click derecho nos muestra los atajos de Word?",
             "Retro": "CLICK DERECHO SI nos muestra los atajos de Word",
@@ -453,7 +603,7 @@
             ] 
         },
         {
-            "id": 14, 
+            "id": 20, 
             "Tipo": 2,
             "Inicio": "Se puede corregir la Gramática y ",
             "Fin": " en la pestaña revisar de Word.",
@@ -485,28 +635,497 @@
 
     "Docs":[
         {
-            "id": 0,
+            "id": 0, 
             "Tipo": 0,
-            "Pregunta": "¿Cuál de los siguientes es un procesador de textos?",
+            "Pregunta": "¿Cuál de las siguientes opciones no es de la primera vista?",
+            "Retro": "Compartir no es una opción de la primera vista ya que es una opción del documento",
             "Opciones":[
                 {
                     "item": "a",
-                    "text":"Excel",
+                    "text":"Crear Documento",
                     "correcta": false
                 },
                 {
                     "item": "b",
-                    "text":"Block de notas",
+                    "text":"Documentos Recientes",
                     "correcta": false
                 },
                 {
                     "item": "c",
-                    "text":"Word",
+                    "text":"Compartir",
                     "correcta": true
                 },
                 {
                     "item": "d",
-                    "text":"Power Point",
+                    "text":"Plantillas",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 1, 
+            "Tipo": 1,
+            "Pregunta": "¿Word nos permite elegir plantillas para nuestro documento?",
+            "Retro": "Word si nos permite elegir plantillas en blanco o personalizadas para los documentos",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Verdadero",
+                    "correcta": true
+                },
+                {
+                    "item": "b",
+                    "text":"Falso",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 2, 
+            "Tipo": 2,
+            "Inicio": "Documento en blanco es una",
+            "Fin": "que permite crear un nuevo documento",
+            "Retro": "Documento en blanco es una PLANTILLA que nos permite crear un nuevo documento",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Plantilla",
+                    "correcta": true
+                },
+                {
+                    "item": "b",
+                    "text":"Cuenta",
+                    "correcta": false
+                },
+                {
+                    "item": "c",
+                    "text":"Vista",
+                    "correcta": false
+                },
+                {
+                    "item": "d",
+                    "text":"Versión",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 3, 
+            "Tipo": 0,
+            "Pregunta": "El punto de inserción se encarga de:",
+            "Retro": "El punto de inserción es el encargado de MARCAR el lugar del inicio de la escritura",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Indicar el tipo de formato",
+                    "correcta": false
+                },
+                {
+                    "item": "b",
+                    "text":"Signos de puntuación",
+                    "correcta": false
+                },
+                {
+                    "item": "c",
+                    "text":"Marca el lugar del inicio de la escritura",
+                    "correcta": true
+                },
+                {
+                    "item": "d",
+                    "text":"Crear un documento en blanco",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 4, 
+            "Tipo": 1,
+            "Pregunta": "¿Word permite guardar un mismo documento en diversos formatos?",
+            "Retro": "Word si nos permite eguardar un mismo documento en diversos formatos como .Pdf o .Docx",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Verdadero",
+                    "correcta": true
+                },
+                {
+                    "item": "b",
+                    "text":"Falso",
+                    "correcta": false
+                }
+            ] 
+        }, 
+        {
+            "id": 5, 
+            "Tipo": 0,
+            "Pregunta": "¿Cuál de las siguientes opciones no es del portapapeles?",
+            "Retro": "RESALTAR es una opción de fuente que nos permite hacer énsfasis en el texto, más no es una opción del portapapeles",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Copiar",
+                    "correcta": false
+                },
+                {
+                    "item": "b",
+                    "text":"Cortar",
+                    "correcta": false
+                },
+                {
+                    "item": "c",
+                    "text":"Pegar",
+                    "correcta": false
+                },
+                {
+                    "item": "d",
+                    "text":"Resaltar",
+                    "correcta": true
+                }
+            ] 
+        },
+        {
+            "id": 6, 
+            "Tipo": 1,
+            "Pregunta": "¿Word nos permite asignar diferentes colores a nuestras fuentes?",
+            "Retro": "Word nos permite asignar colores, tamaños y demás estilos a las fuentes de textos",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Verdadero",
+                    "correcta": true
+                },
+                {
+                    "item": "b",
+                    "text":"Falso",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 7, 
+            "Tipo": 2,
+            "Inicio": "Podemos usar la opción de",
+            "Fin": "para hacer énfasis en nuestro texto",
+            "Retro": "RESALTAR es una opción de fuente que nos permite hacer énsfasis en el texto, más no es una opción del portapapeles",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Plantilla",
+                    "correcta": false
+                },
+                {
+                    "item": "b",
+                    "text":"Cuenta",
+                    "correcta": false
+                },
+                {
+                    "item": "c",
+                    "text":"Opción",
+                    "correcta": false
+                },
+                {
+                    "item": "d",
+                    "text":"Resaltar",
+                    "correcta": true
+                }
+            ] 
+        },
+        {
+            "id": 8, 
+            "Tipo": 1,
+            "Pregunta": "¿Si desea cambiar los estilos aplicados en el texto, debe borrar todo y escribirlo de nuevo?",
+            "Retro": "No es necesario escribir de nuevo el texto, solo se debe seleccionar y aplicarle los estilos deseados",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Verdadero",
+                    "correcta": false
+                },
+                {
+                    "item": "b",
+                    "text":"Falso",
+                    "correcta": true
+                }
+            ] 
+        },
+        {
+            "id": 9, 
+            "Tipo": 2,
+            "Inicio": "El aplicar espacio de texto hacia la hoja, se conoce como",
+            "Fin": ".",
+            "Retro": "RESALTAR es una opción de fuente que nos permite hacer énsfasis en el texto, más no es una opción del portapapeles",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Salto de línea",
+                    "correcta": false
+                },
+                {
+                    "item": "b",
+                    "text":"Sangría",
+                    "correcta": true
+                },
+                {
+                    "item": "c",
+                    "text":"Resaltar",
+                    "correcta": false
+                },
+                {
+                    "item": "d",
+                    "text":"Alineación",
+                    "correcta": false
+                }
+            ] 
+        }, 
+        {
+            "id": 10, 
+            "Tipo": 0,
+            "Pregunta": "¿Cuál de las siguientes opciones no es de Páginas?",
+            "Retro": "Cubrir Página no es una opción siquiera de Microsoft Word",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Portada",
+                    "correcta": false
+                },
+                {
+                    "item": "b",
+                    "text":"Pagina en Blanco",
+                    "correcta": false
+                },
+                {
+                    "item": "c",
+                    "text":"Cubrir Página",
+                    "correcta": true
+                },
+                {
+                    "item": "d",
+                    "text":"Salto de Página",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 11, 
+            "Tipo": 1,
+            "Pregunta": "¿Word nos permite quitar la portada de un documento?",
+            "Retro": "Word si nos permite quitar la portada actual de un documento",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Verdadero",
+                    "correcta": true
+                },
+                {
+                    "item": "b",
+                    "text":"Falso",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 12, 
+            "Tipo": 2,
+            "Inicio": "Podemos usar la opción de",
+            "Fin": "para agregar Fotos al documento",
+            "Retro": "Con la opcion de IMAGENES podemos agregar cualquier foto a nuestro documento",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Imagenes",
+                    "correcta": true
+                },
+                {
+                    "item": "b",
+                    "text":"Tablas",
+                    "correcta": false
+                },
+                {
+                    "item": "c",
+                    "text":"Fuente",
+                    "correcta": false
+                },
+                {
+                    "item": "d",
+                    "text":"Resaltar",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 13, 
+            "Tipo": 2,
+            "Inicio": "En la pestaña de ",
+            "Fin": " Podemos agregar un pie de pagina",
+            "Retro": "En la pestaña de Encabezado y Pie de Pagina podemos agregar un pie de pagina",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Diseño",
+                    "correcta": false
+                },
+                {
+                    "item": "b",
+                    "text":"Encabezado",
+                    "correcta": true
+                },
+                {
+                    "item": "c",
+                    "text":"Archivo",
+                    "correcta": false
+                },
+                {
+                    "item": "d",
+                    "text":"Vista",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 14, 
+            "Tipo": 0,
+            "Pregunta": "¿Cuál de las siguientes opciones no es de Ilustraciones?",
+            "Retro": "Dibujar no es una opción siquiera de Microsoft Word",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Gráficos",
+                    "correcta": false
+                },
+                {
+                    "item": "b",
+                    "text":"Dibujar",
+                    "correcta": true
+                },
+                {
+                    "item": "c",
+                    "text":"Formas",
+                    "correcta": false
+                },
+                {
+                    "item": "d",
+                    "text":"Imagenes",
+                    "correcta": false
+                }
+            ] 
+        }, 
+        {
+            "id": 15, 
+            "Tipo": 0,
+            "Pregunta": "¿Cuál de las siguientes opciones no se permite en la portada?",
+            "Retro": "DISPOSITIVO no es una Opcion de portada",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Titulo",
+                    "correcta": false
+                },
+                {
+                    "item": "b",
+                    "text":"Autor",
+                    "correcta": false
+                },
+                {
+                    "item": "c",
+                    "text":"Dispositivo",
+                    "correcta": true
+                },
+                {
+                    "item": "d",
+                    "text":"Fecha",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 16, 
+            "Tipo": 1,
+            "Pregunta": "¿Word nos permite usar portadas predeterminadas?",
+            "Retro": "Word si nos permite usar portadas predeterminadas",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Verdadero",
+                    "correcta": true
+                },
+                {
+                    "item": "b",
+                    "text":"Falso",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 17, 
+            "Tipo": 2,
+            "Inicio": "Para insertar una tabla debemos escoger las",
+            "Fin": ".",
+            "Retro": "Las FILAS y COLUMNAS son necesarias para generar una tabla",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Filas y Columnas",
+                    "correcta": true
+                },
+                {
+                    "item": "b",
+                    "text":"Frases y Palabras",
+                    "correcta": false
+                },
+                {
+                    "item": "c",
+                    "text":"Colores y Fuentes",
+                    "correcta": false
+                },
+                {
+                    "item": "d",
+                    "text":"Imagenes y formas",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 18, 
+            "Tipo": 0,
+            "Pregunta": "¿Cuál de las siguientes opciones se permite modificar en disposición?",
+            "Retro": "MARGENES es la opción que se nos permite modificar en disposición",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Margenes",
+                    "correcta": true
+                },
+                {
+                    "item": "b",
+                    "text":"Color",
+                    "correcta": false
+                },
+                {
+                    "item": "c",
+                    "text":"Titulo",
+                    "correcta": false
+                },
+                {
+                    "item": "d",
+                    "text":"Fuente",
+                    "correcta": false
+                }
+            ] 
+        },
+        {
+            "id": 19, 
+            "Tipo": 1,
+            "Pregunta": "¿Click derecho nos muestra los atajos de Word?",
+            "Retro": "CLICK DERECHO SI nos muestra los atajos de Word",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Verdadero",
+                    "correcta": true
+                },
+                {
+                    "item": "b",
+                    "text":"Falso",
                     "correcta": false
                 }
             ] 
