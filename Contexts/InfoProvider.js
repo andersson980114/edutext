@@ -1,6 +1,5 @@
-import React,{ useState, useContext } from 'react'
-import { View } from 'react-native'
-import DataContext from './DataContext';
+import React,{ useState, useContext, useEffect } from 'react'
+import { View } from 'react-native' 
 
 const InfoContext = React.createContext();
 const OpcionContext = React.createContext();
@@ -12,6 +11,7 @@ const ItemsContext = React.createContext();
 const EvaluadoContext = React.createContext();
 const CompletedContext = React.createContext();
 const ProgresoContext = React.createContext();
+const PuntajeContext = React.createContext();
 const PressContext = React.createContext();
 
 
@@ -54,6 +54,10 @@ export function UseProgresoContext(){
   return useContext(ProgresoContext)
 }
 
+export function UsePuntajeContext(){
+  return useContext(PuntajeContext)
+}
+
 export function UsePressContext(){
   return useContext(PressContext)
 }
@@ -79,9 +83,10 @@ export  function InfoProvider({children}) {
   const [evaluado, setEvaluado] = useState(false)
   const [completado, setCompletado] = useState(false)
   const [progreso, setProgreso] = useState(0)
+  const [puntaje, setPuntaje] = useState(0)
   const [press, setPress] = useState(false)
-  
-  
+ 
+    
 
   const handleOption = (a) =>{
     setOpcion(a)
@@ -107,6 +112,7 @@ export  function InfoProvider({children}) {
   }
 
   const handleEvaluado = (a) =>{ 
+    console.log(a)
     setEvaluado(a)
   }
   
@@ -116,6 +122,10 @@ export  function InfoProvider({children}) {
 
   const handleProgreso = (a) =>{ 
     setProgreso(a)
+  }
+
+  const handlePuntaje = (a) =>{ 
+    setPuntaje(a)
   }
 
   const handlePress = (a) =>{
@@ -132,13 +142,15 @@ export  function InfoProvider({children}) {
                 <EvaluadoContext.Provider value={{evaluado, handleEvaluado}}>
                   <CompletedContext.Provider value={{completado, handleCompletado}}>
                     <ProgresoContext.Provider value={{progreso, handleProgreso}}> 
-                      <PressContext.Provider value={{press, handlePress}}>
-          
-                      <InfoContext.Provider value={{opcion,nivel, tema}}> 
-                          {children} 
-                      </InfoContext.Provider>
+                      <PuntajeContext.Provider value={{puntaje, handlePuntaje}}> 
+                        <PressContext.Provider value={{press, handlePress}}>
+            
+                          <InfoContext.Provider value={{opcion,nivel, tema}}> 
+                              {children} 
+                          </InfoContext.Provider>
 
-                      </PressContext.Provider>
+                        </PressContext.Provider>
+                      </PuntajeContext.Provider>
                     </ProgresoContext.Provider>
                   </CompletedContext.Provider>
                 </EvaluadoContext.Provider>

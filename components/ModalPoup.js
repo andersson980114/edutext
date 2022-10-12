@@ -83,7 +83,8 @@ const styles = StyleSheet.create({
     titulo:{ 
         fontWeight: "bold",
         fontSize:30, 
-        marginBottom: 20 
+        marginBottom: 20,
+        textAlign: "center"
 
     },
     img:{

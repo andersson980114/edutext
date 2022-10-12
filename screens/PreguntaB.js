@@ -8,6 +8,7 @@ import PreguntaOpciones from '../components/PreguntaOpciones.js'
 import PreguntaFV from '../components/PreguntaFV.js'
 import PreguntaImagenes from '../components/PreguntaImagenes.js'
 import ModalPoup from "../components/ModalPoup";
+import { updatePuntaje } from "../utils/userModel";
 
 let tema;
 let index;

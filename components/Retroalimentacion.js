@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { Text, View,Button, Image, StyleSheet, Dimensions, Pressable } from "react-native";
+import { UseEvaluadoContext } from '../Contexts/InfoProvider';
 import Siguiente from './Siguiente';
 
 const width = Dimensions.get("window").width;
@@ -9,6 +10,8 @@ const ANCHO_CONTENEDOR = width * 0.9;
 const ALTURA_CONTENEDOR = height*0.9;
 
 export default function Retroalimentacion({respuesta, estado, navigation}) {
+    
+  
     if(estado){
         return (
           <View>
@@ -32,7 +35,9 @@ export default function Retroalimentacion({respuesta, estado, navigation}) {
                 left: -width/2 +10
                 
               }}>
-                <Text style={styles.retoText}>{respuesta ? "Respuesta correcta +5pts." : "Error, la respuesta es incorrecta" }</Text>
+              
+              <Text style={styles.retoText}>{respuesta ? "Respuesta correcta +5pts." : "Error, la respuesta es incorrecta" }</Text>
+                  
           
             </View>
             <View style={styles.boton}>

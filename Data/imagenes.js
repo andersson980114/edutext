@@ -41,11 +41,11 @@ export const Avatars = [
     },
     {
         id: 10,
-        url:  require("../assets/avatarAssets/Monroe.png"), 
+        url:  require("../assets/avatarAssets/Avatar.png"), 
     },
     {
         id: 11,
-        url:  require("../assets/avatarAssets/Neutro.png"), 
+        url:  require("../assets/avatarAssets/Avatar2.png"), 
     }
     
   ]
@@ -54,62 +54,74 @@ export const Avatars = [
     {
         id: 0,
         url: require("../assets/insigniasAssets/RegistroExito.png"),
-        Bloqueado: true
+        Bloqueado: true,
+        Descripcion: "Por completar el registro exitosamente"
     },
     {
         id: 1,
         url: require("../assets/insigniasAssets/IniciacionW.png"),
-        Bloqueado: true
+        Bloqueado: true,
+        Descripcion: "Por completar la INTRODUCCIÓN de WORD"
     },
     {
         id: 2,
         url:  require("../assets/insigniasAssets/BronceWord.png"),
-        Bloqueado: true
+        Bloqueado: true,
+        Descripcion: "Por completar el nivel BRONCE de WORD"
     },
     {
         id: 3,
         url: require("../assets/insigniasAssets/PlataWord.png" ),
-        Bloqueado: true
+        Bloqueado: true,
+        Descripcion: "Por completar el nivel Plata de WORD"
     },
     {
         id: 4,
         url:  require("../assets/insigniasAssets/OroWord.png"),
-        Bloqueado: true
+        Bloqueado: true,
+        Descripcion: "Por completar el nivel ORO de WORD"
     },
     {
         id: 5,
         url:  require("../assets/insigniasAssets/IniciacionG.png"),
-        Bloqueado: true
+        Bloqueado: true,
+        Descripcion: "Por completar la INTRODUCCIÓN de DOCS"
     },
     {
         id: 6,
         url: require("../assets/insigniasAssets/BronceDocs.png") ,
-        Bloqueado: true
+        Bloqueado: true,
+        Descripcion: "Por completar el nivel BRONCE de DOCS"
     },
     {
         id: 7,
         url: require("../assets/insigniasAssets/PlataDocs.png" ),
-        Bloqueado: true
+        Bloqueado: true,
+        Descripcion: "Por completar el nivel PLATA de DOCS"
     },
     {
         id: 8,
         url: require("../assets/insigniasAssets/OroDocs.png") ,
-        Bloqueado: true
+        Bloqueado: true,
+        Descripcion: "Por completar el nivel ORO de DOCS"
     },
     {
         id: 9,
         url:  require("../assets/insigniasAssets/PrimerWord.png"),
-        Bloqueado: true
+        Bloqueado: true,
+        Descripcion: "Por realizar la primera prueba de WORD"
     },
     {
         id: 10,
         url:  require("../assets/insigniasAssets/PrimerGoogle.png"),
-        Bloqueado: true
+        Bloqueado: true,
+        Descripcion: "Por realizar la primera prueba de DOCS"
     },
     {
         id: 11,
         url:  require("../assets/insigniasAssets/DosCaminos.png"),
-        Bloqueado: true
+        Bloqueado: true,
+        Descripcion: "Por completar el aprendizaje de WORD y DOCS"
     }
     
   ]

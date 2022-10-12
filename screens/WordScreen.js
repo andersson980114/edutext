@@ -1,11 +1,12 @@
 import React,{useContext, useEffect, useState} from "react";
 import { Text, View,ScrollView, Image, StyleSheet, Dimensions, Pressable } from "react-native";
 import * as data from '../Data/wordNiveles.json';
-import { UseCompletadoContext, UseNivelContext, UseOpcionContext ,UsePreguntaContext, UseProgresoContext} from "../Contexts/InfoProvider";
+import { UseCompletadoContext, UseNivelContext, UseOpcionContext ,UseEvaluadoContext, UseProgresoContext} from "../Contexts/InfoProvider";
 import { UseDbContext } from "../Contexts/DataContext";
 import Nivel from "../components/Nivel";
 import {Niveles} from '../Data/imagenes' 
 import { getNivels } from "../utils/nivelModel";
+import { useIsFocused } from '@react-navigation/native';
 
 const d1 = "Prueba"
 const d2 = ['Prueba',0]
@@ -19,16 +20,21 @@ export default function WordScreen({ navigation }) {
   const {db, count} = UseDbContext()
   const {progreso, handleProgreso} = UseProgresoContext();
   const {completado, handleCompletado} =  UseCompletadoContext();
-
+  const {evaluado, handleEvaluado} = UseEvaluadoContext()
+  const isFocused = useIsFocused();
   useEffect(() => {
     getNivels(db, opcion, setNiveles)
+    console.log("-------------------------------wordScreeb",evaluado);
+    /*
     if(opcion[1]>0){
       ni = nivel[1]+1+5
     }else{
         ni = nivel[1]+1
     }
     console.log("completado: ", completado)
-    if(progreso==100 && !completado){
+    console.log("progreso: ",progreso)
+
+    if(progreso>=100 && !completado){
     
     completedNivel(db, ni, true)
     handleCompletado(true)
@@ -36,22 +42,16 @@ export default function WordScreen({ navigation }) {
     console.log(progreso)
     console.log("\n----------------------------completado----------------------------\n")
     }
-
-    console.log(progreso)
-  }, [])
+    */
+   
+  }, [isFocused])
   
-  useEffect(() =>
-    navigation.addListener('beforeRemove', (e) => {
-      const action = e.data.action; 
 
-      e.preventDefault();
-      //console.log("word");
-      navigation.dispatch(action)
-    
-  }),
-  [navigation])
-
-  const handleChange = (nombre) => {
+  const handleChange = (nombre,Evaluado, progreso,Completed) => {
+    console.log("progreso:",progreso, "evaluado:", Evaluado, "copletado:", Completed);
+    handleEvaluado(Evaluado)
+    handleProgreso(progreso)
+    handleCompletado(Completed)   
     handleNivel(nombre)
     navigation.navigate('Temas')
   }

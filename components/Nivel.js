@@ -1,33 +1,60 @@
-import React,{ useEffect } from 'react';
+import React,{ useEffect, useState } from 'react';
 import { View, Image, Text, StyleSheet, Dimensions, Pressable} from 'react-native'
-import { UseCompletadoContext, UseEvaluadoContext, UseProgresoContext } from '../Contexts/InfoProvider';
+import { UseCompletadoContext, UseEvaluadoContext, UseProgresoContext, UseOpcionContext,UseInfoContext, UseNivelContext } from '../Contexts/InfoProvider';
+import {UseDbContext} from '../Contexts/DataContext';
+import { useIsFocused } from '@react-navigation/native';
+import { completedNivel, evaluatedNivel } from '../utils/nivelModel';
 
 const deviceWidth = (Dimensions.get("window").height) * 0.5
 const height = (Dimensions.get("window").height) * 0.5;
 const progres = deviceWidth-35
 const ANCHO_CONTENEDOR = (height / deviceWidth ) * 90 ; 
 const ALTO_CONTENEDOR = (height / deviceWidth ) * 90 ;  
-
+let ni;
 export default function Nivel({ id, nivel, nombre, img, progreso, Evaluado, Completed, onChange}) { 
    
     const {evaluado, handleEvaluado} = UseEvaluadoContext()
     const {progresos, handleProgreso} = UseProgresoContext()
     const {completado, handleCompletado} = UseCompletadoContext()
+    
+    const {Nivel, handleNivel} = UseNivelContext();
+    const {opcion, handleOpcion} =  UseOpcionContext() 
+    const {db, count} = UseDbContext()
     const porcentaje = progreso>=100 ? (progres*100)/100 :(progres*progreso)/100
+    const [evaluated, setEvaluated] = useState( )
+    const isFocused = useIsFocused();
     
     useEffect(() => {
+      //console.log("progreso:",progreso, "evaluado:", Evaluado, "copletado:", Completed);
+      //handleEvaluado(Evaluado)
+      //handleCompletado(Completed)
+      //handleProgreso(progreso)
+      //console.log("nivel:",nivel, nombre);
+      /*
+      if(evaluado){
+        if(opcion[1]>0){
+          ni = nombre+1+5
+        }else{
+            ni = nombre+1
+        }
+        console.log("---------------------------------Evaluado--------------------------")
+          evaluatedNivel(db, ni, false)
+          handleEvaluado(false)
+      }
       
-      handleCompletado(Completed)
-      handleProgreso(progreso)
-    }, [])
+      */
+      //console.log("first\n")
+    }, [isFocused])
     
 
     const handleChange = () =>{
-        handleEvaluado(Evaluado)
-        handleProgreso(progreso)
-        handleCompletado(Completed)
+       console.log("progreso:",progreso, "evaluado:", Evaluado, "copletado:", Completed);
+        //handleEvaluado(Evaluado)
+        //handleProgreso(progreso)
+        //handleCompletado(Completed)  
+        onChange([nivel,nombre],Evaluado, progreso,Completed) 
         
-        onChange([nivel,nombre]) 
+      console.log("second", Evaluado)
     }
 
    

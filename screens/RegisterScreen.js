@@ -89,7 +89,7 @@ export default function RegisterScreen({navigation}) {
   const Avatar1 = () =>{
     setShow(false)
     setTitulo('¡Avatar Desbloqueado!')
-    setTexto("Has desnloqueado un Nuevo Avatar ")
+    setTexto("Has desbloqueado un Nuevo Avatar ")
     setImagen(require("../assets/avatarAssets/Neutro.png"))
     setSuccess(false)
     setBotones([
@@ -108,7 +108,7 @@ export default function RegisterScreen({navigation}) {
   const Avatar2 = () =>{
     setShow3(false)
     setTitulo('¡Avatar Desbloqueado!')
-    setTexto("Has desnloqueado un Nuevo Avatar ")
+    setTexto("Has desbloqueado un Nuevo Avatar ")
     setImagen(require("../assets/avatarAssets/Monroe.png"))
     setSuccess(false)
     setBotones([
@@ -126,7 +126,7 @@ export default function RegisterScreen({navigation}) {
   const Insignia= () =>{
     setShow2(false)
     setTitulo('¡Insignia Desbloqueada!')
-    setTexto("Has desnloqueado una Nuevoa Insignia ")
+    setTexto("Has desbloqueado una Nuevoa Insignia ")
     setImagen(require("../assets/insigniasAssets/RegistroExito.png"))
     setSuccess(false)
     setBotones([

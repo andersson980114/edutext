@@ -19,13 +19,14 @@ export default function TemasScreen({navigation }) {
   const noFavorite =  require('../assets/screenAssets/noFavorite.png');
   const temasA = data.Temas
   const {pregunta, handlePregunta} = UsePreguntaContext()
-  const  [fav, setFav] = useState(false)
-  const [temasD, setTemasD] = useState([])
   const {progreso, handleProgreso} = UseProgresoContext()
   const {completado, handleCompletado} = UseCompletadoContext()
+  const  [fav, setFav] = useState(false)
+  const [temasD, setTemasD] = useState([])
  
   useEffect(() => { 
     getTema(db, setTemasD)
+
     if(opcion[1]>0){
             ni = nivel[1]+1+5
         }else{

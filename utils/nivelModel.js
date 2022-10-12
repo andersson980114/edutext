@@ -112,3 +112,39 @@ export function completedNivel(db, id,Completed){
     null)
 }
 
+export  function  getProgreso(db, id, setProgreso){
+    db.transaction((tx) => {
+        tx.executeSql(
+            `SELECT * from nivel
+                    where id = '${id}'`,
+            [],
+            (sqlTxn, res) => {
+                const item = res.rows.item(0)
+                setProgreso(item.Progreso) 
+                console.log(item.Progreso)
+                //console.log(res.rows.item(0).Nombre)
+            },
+            error => {console.log("no se pudo obtener el progreso del nivel", id)}
+        )
+    }
+    )
+}
+
+export  function  getEvaluado(db, id, setEvaluado){
+    db.transaction((tx) => {
+        tx.executeSql(
+            `SELECT * from nivel
+                    where id = '${id}'`,
+            [],
+            (sqlTxn, res) => {
+                const item = res.rows.item(0)
+                setEvaluado(item.Evaluado) 
+                console.log("db evaluado",item.Evaluado)
+                //console.log(res.rows.item(0).Nombre)
+                //return item.Evaluado;
+            },
+            error => {console.log("no se pudo obtener el Evaluado del nivel", id)}
+        )
+    }
+    )
+}

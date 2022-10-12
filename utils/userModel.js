@@ -84,13 +84,49 @@ export  function  getUser(db, setUser, setAvatar, setPuntaje){
             [],
             (sqlTxn, res) => {
                 const item = res.rows.item(0)
+                setPuntaje(item.Puntaje)
                 setUser(item.Nombre)
                 setAvatar(item.Avatar-1)
-                setPuntaje(item.Puntaje)
                 console.log(item.Nombre, item.Avatar, item.Puntaje)
                 //console.log(res.rows.item(0).Nombre)
             },
             error => {console.log(error)}
+        )
+    }
+    )
+}
+
+export function updatePuntaje(db,Puntaje ){ 
+    try {
+        db.transaction((tx) => {
+            tx.executeSql(
+                `UPDATE user set Puntaje = Puntaje +'${Puntaje}' 
+                         `,
+                [],
+                (sqlTxn, res) => {
+                    console.log("Puntaje alterado: ", Puntaje)
+                },
+                error => {console.log("no se pudo alterar Puntaje")}
+            )
+        },
+        null)
+    } catch (error) {
+        console.log("error update");
+    } 
+    
+} 
+
+export function  getPuntaje(db, id, setPuntaje){
+    db.transaction((tx) => {
+        tx.executeSql(
+            `SELECT * from user`,
+            [],
+            (sqlTxn, res) => {
+                const item = res.rows.item(0)
+                setPuntaje(item.Puntaje)  
+                console.log("get puntaje", item.Puntaje)
+            },
+            error => {console.log("no se pudo obtener el Puntaje del nivel", id)}
         )
     }
     )

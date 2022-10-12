@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import { Text, View,Button, Image, StyleSheet, Dimensions, Pressable ,Alert} from "react-native";
 import { Card} from 'react-native-elements'
 import { UseOpcionContext,UsePreguntaContext } from "../Contexts/InfoProvider";
+import { getPuntaje } from "../utils/userModel";
 
 export default function HomeScreen({ navigation }) {
 
@@ -12,7 +13,7 @@ export default function HomeScreen({ navigation }) {
     handlePregunta(nombre)
     navigation.navigate('Word')
   }
-
+ 
   useEffect(() =>
     navigation.addListener('beforeRemove', (e) => {
       const action = e.data.action; 

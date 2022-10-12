@@ -36,7 +36,7 @@ export default function InsigniaScreen({ navigation }) {
               let url=""
               let id = item.id -1
               let bloqueado;
-              //console.log(id)
+              //console.log(item.Bloqueado)
               if(item.Bloqueado>0){bloqueado=true}else{bloqueado=false}
               if(bloqueado){
                 url = require("../assets/screenAssets/Bloqueado.png")

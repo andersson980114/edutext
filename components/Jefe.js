@@ -37,7 +37,7 @@ export default function Jefe({ nivel,nombre, Onchage}) {
             preguntas.push({val: item, estado:false})
         })
         handleItems(preguntas) 
-        console.log(preguntas)
+        //console.log(preguntas)
         return preguntas.pop()
     }
 

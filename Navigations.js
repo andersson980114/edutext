@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useState} from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import HomeScreen from './screens/HomeScreen';
 import AvatarScreen from './screens/AvatarScreen';
@@ -12,7 +12,7 @@ import { Colors, Header } from 'react-native/Libraries/NewAppScreen';
 const Tab = createBottomTabNavigator();//tab o footer  
 
 export default function Navigation(){
-
+    
     
     return(
         
@@ -30,7 +30,9 @@ export default function Navigation(){
                     if(route.name === "Home"){
                         iconName = 'home';
                     }else if(route.name === "Avatar"){
-                        iconName =  "smile"; 
+                        iconName =  "smile";
+                        
+
                     }else if(route.name === "Insignias"){
                         iconName = "medal";
                     }
@@ -41,9 +43,9 @@ export default function Navigation(){
             })}
             >
             
-            <Tab.Screen name='Avatar' component={AvatarScreen}/>
-            <Tab.Screen name='Home' component={HomeScreen} />
-            <Tab.Screen name='Insignias' component={InsigniaScreen}/>
+            <Tab.Screen name='Avatar' component={AvatarScreen} options={{unmountOnBlur: true}}/>
+            <Tab.Screen name='Home' component={HomeScreen} options={{unmountOnBlur: true}}/>
+            <Tab.Screen name='Insignias' component={InsigniaScreen} options={{unmountOnBlur: true}}/>
             
         </Tab.Navigator>
     )

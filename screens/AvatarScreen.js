@@ -4,8 +4,9 @@ import * as data from '../Data/avatars.json';
 import { Avatars } from "../Data/imagenes";
 import { UseDbContext } from '../Contexts/DataContext'; 
 import ModalPoup from "../components/ModalPoup";
-import { changeAvatar, getUser } from "../utils/userModel";
+import { changeAvatar, getPuntaje, getUser } from "../utils/userModel";
 import { getAvatar } from "../utils/avatarModel";
+import { UsePuntajeContext } from "../Contexts/InfoProvider";
 
 
 export default function AvatarScreen({ navigation }) {  
@@ -21,26 +22,15 @@ export default function AvatarScreen({ navigation }) {
   const [botones, setBotones] = useState([])
   const [success, setSuccess] = useState(false)
   const [Avatares, setAvatares] = useState([])
-
+  const {Puntaje, handlePuntaje} = UsePuntajeContext()
   useEffect(() => {
     getUser(db, setUsers, setUser,setPuntaje)
-    getAvatar(db, setAvatares)
+    getAvatar(db, setAvatares) 
     //console.log(Avatares);
     //console.log("Usuario:",users);
     //console.log("Obtenido",users, puntaje, avatar); 
   }, [])
 
-  useEffect(() =>
-    navigation.addListener('beforeRemove', (e) => {
-      const action = e.data.action; 
-
-      e.preventDefault();
-      //console.log("word");
-      navigation.dispatch(action)
-      navigation.navigate('Inicio')
-    
-  }),
-  [navigation])
   
   /* */
   const getUserId = (opcion) =>{
@@ -91,9 +81,7 @@ export default function AvatarScreen({ navigation }) {
       ])
     } 
   }
-
-
-
+ 
   return (
     <View  style={Styles.container}> 
         <ModalPoup visible={show} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={getUserId} />

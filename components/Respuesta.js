@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import { Text, View, StyleSheet, Dimensions, Pressable } from "react-native";
-import { UsePressContext } from '../Contexts/InfoProvider';
+import { UseDbContext } from '../Contexts/DataContext';
+import { UseEvaluadoContext, UsePressContext, UsePuntajeContext } from '../Contexts/InfoProvider';
+import { updatePuntaje } from '../utils/userModel';
 
 
 export default function Respuesta({navigation, item, texto, correctaR, pres, onChange}) {
@@ -9,11 +11,18 @@ export default function Respuesta({navigation, item, texto, correctaR, pres, onC
   const [border, setBorder] = useState("#EBEBEB") 
   const [presi, setPress] = useState(pres)
   const {press, handlePress} = UsePressContext()
+  const {db, count} = UseDbContext() 
+  const {evaluado, handleEvaluado} = UseEvaluadoContext()
+  const {puntaje, handlePuntaje} = UsePuntajeContext()
+
   const correcta = (opcion) => {   
     if(!press){ 
           if(correctaR ){
               setColor("#ACF6AB")
               setBorder("#16B20C")
+              if(!evaluado){
+                updatePuntaje(db,5)
+                handlePuntaje(puntaje+5)}
           }else {
               setColor("#ED735B")
               setBorder("#D32300") 

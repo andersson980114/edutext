@@ -16,7 +16,6 @@ import SplashScreen from './screens/SplashScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import ExampleScreen from './screens/ExampleScreen';
 const Stack = createNativeStackNavigator();
-  
 
 function getHeaderTitle(route) {
   const routeName = getFocusedRouteNameFromRoute(route) ?? 'Inicio'; 
@@ -31,11 +30,12 @@ function getHeaderTitle(route) {
 }
  
 export default function App() {
-    const [logueado, setLogueado] = useState(true);
-    const {opcion, nivel, tema} = UseInfoContext()
-    const {pregunta, setPregunta} = UsePreguntaContext()
-    const {db, count} = UseDbContext() 
-
+  const [logueado, setLogueado] = useState(true);
+  const {opcion, nivel, tema} = UseInfoContext()
+  const {pregunta, setPregunta} = UsePreguntaContext()
+  const {db, count} = UseDbContext() 
+  
+  
     return (
         <NavigationContainer > 
 
