@@ -1,17 +1,22 @@
 import React,{useContext, useEffect, useState} from "react";
 import { Text, View,ScrollView, Image, StyleSheet, Dimensions, Pressable } from "react-native";
 import * as data from '../Data/wordNiveles.json';
-import { UseCompletadoContext, UseNivelContext, UseOpcionContext ,UseEvaluadoContext, UseProgresoContext} from "../Contexts/InfoProvider";
+import { UseCompletadoContext, UseNivelContext, UseOpcionContext ,UseEvaluadoContext, UseProgresoContext, UsePuntajeContext} from "../Contexts/InfoProvider";
 import { UseDbContext } from "../Contexts/DataContext";
 import Nivel from "../components/Nivel";
 import {Niveles} from '../Data/imagenes' 
-import { getNivels } from "../utils/nivelModel";
+import { completedNivel, getNivels } from "../utils/nivelModel";
 import { useIsFocused } from '@react-navigation/native';
+import ModalPoup from "../components/ModalPoup"; 
+import { Insignias, Avatars } from "../Data/imagenes";
+import { updateInsignia } from "../utils/insigniaModel";
+import { getAvatarStatus, updateAvatar } from "../utils/avatarModel";
 
 const d1 = "Prueba"
 const d2 = ['Prueba',0]
 const d3 = require('../assets/screenAssets/bronce.png')
 let ni;
+
 export default function WordScreen({ navigation }) {
   const Nivels = data.Niveles
   const {nivel, handleNivel} =  UseNivelContext() 
@@ -21,30 +26,122 @@ export default function WordScreen({ navigation }) {
   const {progreso, handleProgreso} = UseProgresoContext();
   const {completado, handleCompletado} =  UseCompletadoContext();
   const {evaluado, handleEvaluado} = UseEvaluadoContext()
+  const {puntaje, handlePuntaje} = UsePuntajeContext()
   const isFocused = useIsFocused();
+  const [bloqueado, setBloqueado] = useState([])
+  //alert
+  const [show, setShow] = useState(false)
+  const [show2, setShow2] = useState(false)
+  const [titulo, setTitulo] = useState("Intentelo de Nuevo")
+  const [texto, setTexto] = useState("")
+  const [imagen, setImagen] = useState(require("../assets/screenAssets/prohibited.png"))
+  const [botones, setBotones] = useState([]) 
+  const [success, setSuccess] = useState(false)
+
+  const cerrar = () =>{
+    handleEvaluado(true) 
+    handleCompletado(true)
+    setShow(false) 
+  }
+  const cerrar2 = () =>{
+    handleEvaluado(true) 
+    handleCompletado(true)
+    setShow2(false) 
+  } 
+
+  const insignia = (db, id) =>{
+    // console.log("desbloqueada insignia: ", id, nivel)
+      updateInsignia(db, id+1, false)
+      setTexto(Insignias[id-1].Descripcion)
+      setShow(true)
+      setTitulo('¡Insignia Desbloqueada!') 
+      setImagen(Insignias[id].url)
+      setSuccess(true)
+      setBotones([
+      {
+          texto: "Aceptar",
+          id: 0,  
+          success: false,
+          boton: "succes"
+
+      }
+      ]) 
+  }
+
+  const avatar = (db, id) =>{
+      updateAvatar(db, id, 1)
+      setTexto("Nuevo AVATAR consegudo por tus puntos")
+      setShow2(true)
+      setTitulo('¡AVATAR Desbloqueado!') 
+      setImagen(Avatars[id-1].url)
+      setSuccess(true)
+      setBotones([
+      {
+          texto: "Aceptar",
+          id: 0,  
+          success: false,
+          boton: "succes"
+
+      }
+      ]) 
+  }
+
   useEffect(() => {
     getNivels(db, opcion, setNiveles)
-    console.log("-------------------------------wordScreeb",evaluado);
-    /*
+    getAvatarStatus(db, puntaje-(puntaje%20), setBloqueado)
     if(opcion[1]>0){
       ni = nivel[1]+1+5
     }else{
         ni = nivel[1]+1
     }
+    console.log("=====================================prueba Niveles===========================")
+    console.log("opcion: ", opcion[0], opcion[1])
+    console.log("Nivel: ",nivel[0], nivel[1])
+    console.log("Progeso: ", progreso)
+    console.log("evaluado: ", evaluado)
     console.log("completado: ", completado)
-    console.log("progreso: ",progreso)
+    console.log("puntaje: ", puntaje)
+    console.log(puntaje-(puntaje%20)) 
 
-    if(progreso>=100 && !completado){
-    
-    completedNivel(db, ni, true)
-    handleCompletado(true)
-
-    console.log(progreso)
-    console.log("\n----------------------------completado----------------------------\n")
+    if(!completado && progreso>=100){
+      console.log("completado")
+      insignia(db, ni)
+      completedNivel(db, ni, true)
+      setShow(true)
     }
-    */
+    console.log("Bloqueado?",bloqueado[0], bloqueado[1],"================")
+    if(bloqueado[0]==1){
+      setShow2(true)
+      setBloqueado[0]
+      avatar(db, bloqueado[1])
+      updateAvatar(db, puntaje-(puntaje%20), 0)
+      console.log("desbloqueado Avaatar Nivel")
+    }
    
   }, [isFocused])
+  
+  useEffect(() => {
+    console.log("--------------////////////////////////------------//////////////------");
+    console.log("------------------------------NAVIGATION------------------");
+    if(bloqueado[0]==1){
+      setShow2(true)
+      setBloqueado[0]
+      avatar(db, bloqueado[1])
+      updateAvatar(db, puntaje-(puntaje%20), 0)
+      console.log("desbloqueado Avaatar Nivel")
+    }
+  }, [navigation])
+  useEffect(() => {
+    console.log("--------------////////////////////////------------//////////////------");
+    console.log("------------------------------BLOQUEADO------------------");
+    if(bloqueado[0]==1){
+      setShow2(true)
+      setBloqueado[0]
+      avatar(db, bloqueado[1])
+      updateAvatar(db, puntaje-(puntaje%20), 0)
+      console.log("desbloqueado Avaatar Nivel")
+    }
+  }, [bloqueado[0], bloqueado[1]])
   
 
   const handleChange = (nombre,Evaluado, progreso,Completed) => {
@@ -58,6 +155,8 @@ export default function WordScreen({ navigation }) {
 
   return ( 
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <ModalPoup visible={show} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={cerrar} />
+      <ModalPoup visible={show2} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={cerrar2} />
         {
           niveles.map((item, key) => {
             if(item.idOpcion==opcion[1]){

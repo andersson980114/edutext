@@ -1,16 +1,27 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import { Text, View,Button, Image, StyleSheet, Dimensions, Pressable ,Alert} from "react-native";
 import { Card} from 'react-native-elements'
-import { UseOpcionContext,UsePreguntaContext } from "../Contexts/InfoProvider";
+import { UseDbContext } from "../Contexts/DataContext";
+import { UseOpcionContext,UsePreguntaContext, UsePuntajeContext } from "../Contexts/InfoProvider";
 import { getPuntaje } from "../utils/userModel";
 
 export default function HomeScreen({ navigation }) {
 
+  const {db, count} = UseDbContext()
   const {opcion, handleOption} = UseOpcionContext()
   const {pregunta, handlePregunta} = UsePreguntaContext()
+  const {Puntaje, handlePuntaje} = UsePuntajeContext()
+  const [puntaje, setPuntaje] = useState(0)
+
+  useEffect(() => {
+    getPuntaje(db, 0, setPuntaje)
+  }, [])
+  
+
   const handleChange = (nombre) => {
     handleOption(nombre)
     handlePregunta(nombre)
+    handlePuntaje(puntaje)
     navigation.navigate('Word')
   }
  

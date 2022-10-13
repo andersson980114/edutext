@@ -68,13 +68,13 @@ export  function  getAvatar(db, setAvatars){
     )
 }
 
-export function updateAvatar(db, id, Bloqueado){
+export function updateAvatar(db, Puntaje, Bloqueado){
     db.transaction((tx) => {
         tx.executeSql(
-            `UPDATE avatar set  Bloqueado = '${Bloqueado}' where id = '${id}'`,
-            [id],
+            `UPDATE avatar set  Bloqueado = '${Bloqueado}' where Puntaje <= '${Puntaje}'`,
+            [],
             (sqlTxn, res) => {
-                console.log("avatar alterado")
+                console.log("avatar alterado", Puntaje)
             },
             error => {console.log("no se pudo alterar avatar")}
         )
@@ -83,28 +83,20 @@ export function updateAvatar(db, id, Bloqueado){
 }
 
 
-export  function  getAvatarID(db, Puntaje, setAvatars){
+export  function  getAvatarStatus(db, Puntaje, setBloqueado){
     db.transaction((tx) => {
         tx.executeSql(
-            `SELECT * FROM avatar where Puntaje <= '${Puntaje}' and Bloqueado= 1`,
+            `SELECT * FROM avatar where Puntaje = '${Puntaje}'`,
             [],
             (sqlTxn, res) => {
                 //console.log("avatars obtenidos");
-                let len  = res.rows.length;
-                if(len > 0){
-                    let results =[]
-                    for(let i =0; i<len; i++){
-                        let item =   res.rows.item(i);
-                        console.log(item.id, item.Bloqueado)
-                        results.push({id: item.id})
-                    }  
-                    //console.log(results)
-                    setAvatars(results) 
-                }else{
-                    console.log("no hay avatar puntaje y desbloqueo: ", Puntaje, 1)
-                }
+                
+                let item =   res.rows.item(0);
+                console.log("id:",item.id," status:", item.Bloqueado) 
+                setBloqueado([item.Bloqueado, item.id]) 
+                console.log("get Status", item.Bloqueado)
             },
-            error => {console.log(error)}
+            error => {console.log("no hay avatar puntaje y desbloqueo: ", Puntaje, 1)}
         )
     }
     )

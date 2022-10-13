@@ -56,7 +56,7 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
     const insignia = (db, id) =>{
        // console.log("desbloqueada insignia: ", id, nivel)
         updateInsignia(db, id, false)
-        setTexto("¡Por culminar esta prueba exitosamente!")
+        setTexto(Insignias[id].Descripcion)
         setShow(true)
         setTitulo('¡Insignia Desbloqueada!') 
         setImagen(Insignias[id].url)
@@ -70,10 +70,10 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
 
         }
         ]) 
- 
-            
-        
-        
+    }
+
+    const avatar = (db,id) =>{
+
     }
 
     const handleChange = () =>{
@@ -115,21 +115,15 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
                 }else {
                 console.log("evaluado llega", evaluado)
                     if(evaluado==0 || evaluado==false){
-                        insignia(db, ni+1)
-                        setShow(true)
-                        //set(getEvaluado(db, ni))
-                        //console.log("evaluado: ",evaluado);
-                     
-                        //console.log("Opcion:---",opcion[1]);
-                        
-                        //console.log("Evaluado", evaluado)
-                        //handleProgreso(progreso+20)
-                        updateNivel(db,  ni, 10)
+                        //insignia(db, ni+1)
+                        //setShow(true)
+                        handleProgreso(progreso+20)
+                        updateNivel(db,  ni, 20)
                         evaluatedNivel(db, ni, true)
-                        
+                        navigation.dispatch(StackActions.pop(1))
                     }else{
                         handleEvaluado(false)
-                        navigation.dispatch(StackActions.pop(3))
+                        navigation.dispatch(StackActions.pop(1))
                     }
                     //console.log("handleEvaluado", evaluado)
                          

@@ -21,7 +21,8 @@ export default function RegisterScreen({navigation}) {
   const [lastName, setLastName] = useState('');
   const [genero, setGenero] = useState(0);
   const [success, setSuccess] = useState(false)
-  const [selectedItem, setSelectedItem] = useState([{id:null, name:""}])
+  const [selectedItem, setSelectedItem] = useState("")
+  const [complete, setComplete] = useState(false)
   //alert
   const [show, setShow] = useState(false)
   const [show2, setShow2] = useState(false)
@@ -101,7 +102,8 @@ export default function RegisterScreen({navigation}) {
 
       }
     ])
-    setShow2(true)
+    if(complete){
+    setShow2(true)}
   
   }
 
@@ -149,7 +151,8 @@ export default function RegisterScreen({navigation}) {
   }
 
   function createUser(){   
-    if(userName === '' || lastName === '' || selectedItem.name === ""){
+    console.log(selectedItem[0])
+    if(userName === '' || lastName === '' || selectedItem === ""){
       setShow(true)
       setTexto('Por favor llene los campos')  
     }else{
@@ -159,6 +162,7 @@ export default function RegisterScreen({navigation}) {
         }else{
           insertUsers(db, userName, lastName, selectedItem.name,1)  
         }
+        setComplete(true)
         setShow(true)
         setTitulo('¡Usuario Creado!')
         setTexto("Bienvenido "+ userName)

@@ -7,8 +7,8 @@ import ModalPoup from "../components/ModalPoup";
 import { changeAvatar, getPuntaje, getUser } from "../utils/userModel";
 import { getAvatar } from "../utils/avatarModel";
 import { UsePuntajeContext } from "../Contexts/InfoProvider";
-
-
+import { useIsFocused } from '@react-navigation/native';                                
+ 
 export default function AvatarScreen({ navigation }) {  
   const avatar = data.Avatars
   const {db, count} = UseDbContext()
@@ -23,15 +23,16 @@ export default function AvatarScreen({ navigation }) {
   const [success, setSuccess] = useState(false)
   const [Avatares, setAvatares] = useState([])
   const {Puntaje, handlePuntaje} = UsePuntajeContext()
+  const isFocused = useIsFocused();
   useEffect(() => {
     getUser(db, setUsers, setUser,setPuntaje)
     getAvatar(db, setAvatares) 
+    
     //console.log(Avatares);
     //console.log("Usuario:",users);
     //console.log("Obtenido",users, puntaje, avatar); 
   }, [])
-
-  
+ 
   /* */
   const getUserId = (opcion) =>{
     if(opcion[0]){
@@ -98,9 +99,9 @@ export default function AvatarScreen({ navigation }) {
             Avatares.map((item) => { 
               let url=""
               let id = item.id -1
-              let bloqueado;
+              let bloqueado; 
               if(item.Bloqueado>0){bloqueado=true}else{bloqueado=false}
-              if(item.Bloqueado>0){
+              if(item.Bloqueado>0 || !!bloqueado){
                 url = require("../assets/screenAssets/Bloqueado.png")
               }else{
                 url = Avatars[id].url

@@ -94,7 +94,8 @@ const styles = StyleSheet.create({
     },
     texto:{
         fontSize:20, 
-        marginBottom: 20 
+        marginBottom: 20,
+        textAlign: "center"
     },
     contBotones:{
         flexDirection: 'row',
