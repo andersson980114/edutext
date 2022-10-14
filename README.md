@@ -21,8 +21,8 @@
 
 - [Introduccion](#Introduccion)
 - [Características](#Características)
-- [Instalaciónes](#Instalaciónes)
-- [Ejecucion](#Ejecucion) 
+- [Instalaciones](#Instalaciones)
+- [Ejecución](#Ejecución) 
 - [Colaboradores](#Colaboradores)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -58,7 +58,7 @@ Algunas de las Características de EduText:
   <img src = "https://user-images.githubusercontent.com/70853111/195790294-e98c130a-6417-4a43-a3e0-456b66efd372.png" width=700>
 </p>
 
-## Instalaciónes
+## Instalaciones
 
 Para realizar las siguientes instalaciones es necesario tener ya instalado [Node.js](https://nodejs.org/es/download/) en una version igual o superior a v10.0. Además de Android SDK
 
@@ -81,7 +81,7 @@ Una vez clonado es necesario ubicarnos desde la terminal en la carpeta raiz del 
 $ npm install
 ```
  
-## Ejecucion
+## Ejecución
 Para la ejecución del aplicativo se debe ubicar en la raiz del proyecto desde la terminal, postariormente escribir una de las dos lineas.
 ```bash
 # Expo 
