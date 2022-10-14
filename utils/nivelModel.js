@@ -149,3 +149,20 @@ export  function  getEvaluado(db, id, setEvaluado){
     }
     )
 }
+
+export  function  getCompletados(db, setCompletados){
+    db.transaction((tx) => {
+        tx.executeSql(
+            `select * from nivel where  completed = 1`,
+            [],
+            (sqlTxn, res) => {
+                const item = res.rows.length;
+                  setCompletados(item)
+                //setCompletados(item) 
+                console.log("Completados",item)
+            },
+            error => {console.log("no se pudo obtener la cantidad de niveles completados")}
+        )
+    }
+    )
+}

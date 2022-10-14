@@ -117,6 +117,7 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
                 if(items.length>0 ){
                     handlePress(false)
                     //se reasigna la nueva pregunta
+                    console.log("residuo:",items)
                     handlePregunta([opcion[0], items.pop().val])  
                     //se navega de nuevo a la prueba con la nueva pregunta
                     navigation.navigate('PreguntaB')
@@ -132,7 +133,7 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
                         handleProgreso(progreso+20)
                         updateNivel(db,  ni, 20)
                         evaluatedNivel(db, ni, true)
-                        ////////////////////////poner la condicionela para las insignias de desbloqueo
+                        //verificamos si es introducción si es así se desvloquea y mostramos el modal
                         if(nivel[0]=="Introducción" && opcion[0]=="Word"){
                             insignia(db, 10)
                         }else if(nivel[0]=="Introducción" && opcion[0]=="Word"){
@@ -164,10 +165,11 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
                 }else{
 
                     //preguntamos si estamos en Abrir word o Abrir docs, si es así, se desbloquea la insignia correspondiente
-                    if(tema[0]=="Abrir Word" && info[0]==0){
+                    console.log("info", info)
+                    if(tema[0]=="Abrir Word" && info[1]==0){
                         insignia(db, 2)
                         setShow(true)
-                    }else if(tema[0]=="Abrir Docs" && info[0]==0){
+                    }else if(tema[0]=="Abrir Docs" && info[1]==0){
                         insignia(db, 6)
                         setShow(true)
                     //si nos prueba ni introduccion solo se devuelve
@@ -223,26 +225,4 @@ const styles = StyleSheet.create({
 
     }
 })
-
-    /*
-    useEffect(() => {
-        
-        if(opcion[1]>0){
-            ni = nivel[1]+1+5
-        }else{
-            ni = nivel[1]+1
-        }
-        
-      if(progreso>=80 && !completado){
-        completedNivel(db, ni, true)
-        handleCompletado(true)
-        
-        console.log(progreso)
-        console.log("\n--------------------------------------------------------\n")
-      }
-      
-      console.log(progreso)
-      
-    }, [progreso])
-    
-    */
+ 

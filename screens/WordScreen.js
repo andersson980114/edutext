@@ -5,11 +5,11 @@ import { UseCompletadoContext, UseNivelContext, UseOpcionContext ,UseEvaluadoCon
 import { UseDbContext } from "../Contexts/DataContext";
 import Nivel from "../components/Nivel";
 import {Niveles} from '../Data/imagenes' 
-import { completedNivel, getNivels } from "../utils/nivelModel";
+import { completedNivel, getCompletados, getNivels } from "../utils/nivelModel";
 import { useIsFocused } from '@react-navigation/native';
 import ModalPoup from "../components/ModalPoup"; 
 import { Insignias, Avatars } from "../Data/imagenes";
-import { updateInsignia } from "../utils/insigniaModel";
+import { getCaminos, updateInsignia } from "../utils/insigniaModel";
 import { getAvatarStatus, updateAvatar } from "../utils/avatarModel";
 
 const d1 = "Prueba"
@@ -18,17 +18,22 @@ const d3 = require('../assets/screenAssets/bronce.png')
 let ni;
 
 export default function WordScreen({ navigation }) {
+  //const
   const Nivels = data.Niveles
+  const isFocused = useIsFocused();
+  //context
   const {nivel, handleNivel} =  UseNivelContext() 
   const {opcion, handleOpcion} =  UseOpcionContext() 
-  const [niveles, setNiveles] = useState([])
   const {db, count} = UseDbContext()
   const {progreso, handleProgreso} = UseProgresoContext();
   const {completado, handleCompletado} =  UseCompletadoContext();
   const {evaluado, handleEvaluado} = UseEvaluadoContext()
   const {puntaje, handlePuntaje} = UsePuntajeContext()
-  const isFocused = useIsFocused();
+  //states
   const [bloqueado, setBloqueado] = useState([])
+  const [caminos, setCaminos] = useState([])//indica si los dos caminos estan bloqueados
+  const [niveles, setNiveles] = useState([])
+  const [completados,setCompletados] = useState(0)
   //alert
   const [show, setShow] = useState(false)
   const [show2, setShow2] = useState(false)
@@ -95,6 +100,8 @@ export default function WordScreen({ navigation }) {
 
   useEffect(() => {
     getNivels(db, opcion, setNiveles)
+    getCompletados(db, setCompletados)
+    getCaminos(db, 12, setCaminos)
     getAvatarStatus(db, puntaje-(puntaje%20), setBloqueado)
     if(opcion[1]>0){
       ni = nivel[1]+1+5
@@ -119,6 +126,7 @@ export default function WordScreen({ navigation }) {
   }, [isFocused])
   
   useEffect(() => { 
+     
     if(bloqueado[0]==1){
       setShow2(true)
       setBloqueado[0]
@@ -129,6 +137,7 @@ export default function WordScreen({ navigation }) {
   }, [navigation])
   
   useEffect(() => { 
+     
     if(bloqueado[0]==1){
       setShow2(true)
       setBloqueado[0]
@@ -137,6 +146,13 @@ export default function WordScreen({ navigation }) {
       //console.log("desbloqueado Avaatar Nivel")
     }
   }, [bloqueado[0], bloqueado[1]])
+
+  useEffect(() => {
+    console.log("caminos", caminos);
+    if(completados>=8 && caminos==1){
+      console.log("completados")
+    }
+  }, [completados, caminos])
   
 
   const handleChange = (nombre,Evaluado, progreso,Completed) => { 
