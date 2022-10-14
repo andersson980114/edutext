@@ -1,21 +1,23 @@
 import React,{useState, useEffect} from "react";
 import { StyleSheet, Text, View, Image, Dimensions } from "react-native";
-import * as data from '../Data/insignias.json';
 import { Insignias } from "../Data/imagenes";
 import { getInsignia } from "../utils/insigniaModel";
 import { UseDbContext } from "../Contexts/DataContext";
+import * as data from '../Data/insignias.json';
 
-
+//Screen encargado de mostrar las insignias
 export default function InsigniaScreen({ navigation }) {
   const insignias = data.Insignias
+  //context
   const {db, count} = UseDbContext()
-
+  //useState
   const [insignia, setinsIgnia] = useState([])
 
   useEffect(() => {
     getInsignia(db, setinsIgnia)
     
   }, [])
+
   useEffect(() =>
     navigation.addListener('beforeRemove', (e) => {
       const action = e.data.action; 
@@ -27,6 +29,7 @@ export default function InsigniaScreen({ navigation }) {
     
   }),
   [navigation])
+  //componentes
   return (
     <View  style={Styles.container}>  
         <Text style={Styles.textUser}>Mis Insignias</Text>

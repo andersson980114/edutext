@@ -1,6 +1,7 @@
 
 import { Contenido } from '../Data/imagenes';
 
+//modelo de contenido
 export  function createContenidoTable(db){
     db.transaction((tx) =>{
         tx.executeSql(

@@ -2,14 +2,13 @@ import React, {useState, useEffect, useRef} from "react";
 import { StyleSheet, Text, View, Image, Alert, Dimensions, Pressable, Button, Animated} from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
 const ANCHO_CONTENEDOR = width * 0.5;
 const ALTURA_CONTENEDOR = height * 0.5;
 const ESPACIO_CONTENEDOR = (width - ANCHO_CONTENEDOR) / 2;
-
+//componente de onboarding
 export default function OnboardingScreen({navigation})  {
    
   const startAnimation = useRef(new Animated.Value(0)).current;

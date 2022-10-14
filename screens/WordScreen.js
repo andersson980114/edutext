@@ -35,27 +35,34 @@ export default function WordScreen({ navigation }) {
   const [titulo, setTitulo] = useState("Intentelo de Nuevo")
   const [texto, setTexto] = useState("")
   const [imagen, setImagen] = useState(require("../assets/screenAssets/prohibited.png"))
-  const [botones, setBotones] = useState([]) 
+  const [botones, setBotones] = useState([])  
+  const [titulo2, setTitulo2] = useState("Intentelo de Nuevo")
+  const [texto2, setTexto2] = useState("")
+  const [imagen2, setImagen2] = useState(require("../assets/screenAssets/prohibited.png"))
+  const [botones2, setBotones2] = useState([]) 
   const [success, setSuccess] = useState(false)
 
   const cerrar = () =>{
     handleEvaluado(true) 
     handleCompletado(true)
-    setShow(false) 
+    setShow(false)  
+    setSuccess(true)
   }
+
   const cerrar2 = () =>{
     handleEvaluado(true) 
-    handleCompletado(true)
+    handleCompletado(true) 
     setShow2(false) 
-  } 
+    setSuccess(true) 
+  }
 
   const insignia = (db, id) =>{
     // console.log("desbloqueada insignia: ", id, nivel)
       updateInsignia(db, id+1, false)
-      setTexto(Insignias[id-1].Descripcion)
+      setTexto(""+Insignias[id+1].Descripcion)
       setShow(true)
       setTitulo('¡Insignia Desbloqueada!') 
-      setImagen(Insignias[id].url)
+      setImagen(Insignias[id+1].url)
       setSuccess(true)
       setBotones([
       {
@@ -70,12 +77,12 @@ export default function WordScreen({ navigation }) {
 
   const avatar = (db, id) =>{
       updateAvatar(db, id, 1)
-      setTexto("Nuevo AVATAR consegudo por tus puntos")
+      setTexto2("Nuevo AVATAR desbloqueado por tus puntos")
       setShow2(true)
-      setTitulo('¡AVATAR Desbloqueado!') 
-      setImagen(Avatars[id-1].url)
+      setTitulo2('¡AVATAR Desbloqueado!') 
+      setImagen2(Avatars[id-1].url)
       setSuccess(true)
-      setBotones([
+      setBotones2([
       {
           texto: "Aceptar",
           id: 0,  
@@ -93,59 +100,46 @@ export default function WordScreen({ navigation }) {
       ni = nivel[1]+1+5
     }else{
         ni = nivel[1]+1
-    }
-    console.log("=====================================prueba Niveles===========================")
-    console.log("opcion: ", opcion[0], opcion[1])
-    console.log("Nivel: ",nivel[0], nivel[1])
-    console.log("Progeso: ", progreso)
-    console.log("evaluado: ", evaluado)
-    console.log("completado: ", completado)
-    console.log("puntaje: ", puntaje)
-    console.log(puntaje-(puntaje%20)) 
+    } 
 
     if(!completado && progreso>=100){
       console.log("completado")
       insignia(db, ni)
       completedNivel(db, ni, true)
       setShow(true)
-    }
-    console.log("Bloqueado?",bloqueado[0], bloqueado[1],"================")
+    } 
     if(bloqueado[0]==1){
       setShow2(true)
       setBloqueado[0]
       avatar(db, bloqueado[1])
       updateAvatar(db, puntaje-(puntaje%20), 0)
-      console.log("desbloqueado Avaatar Nivel")
+      //console.log("desbloqueado Avaatar Nivel")
     }
    
   }, [isFocused])
   
-  useEffect(() => {
-    console.log("--------------////////////////////////------------//////////////------");
-    console.log("------------------------------NAVIGATION------------------");
+  useEffect(() => { 
     if(bloqueado[0]==1){
       setShow2(true)
       setBloqueado[0]
       avatar(db, bloqueado[1])
       updateAvatar(db, puntaje-(puntaje%20), 0)
-      console.log("desbloqueado Avaatar Nivel")
+      //console.log("desbloqueado Avaatar Nivel")
     }
   }, [navigation])
-  useEffect(() => {
-    console.log("--------------////////////////////////------------//////////////------");
-    console.log("------------------------------BLOQUEADO------------------");
+  
+  useEffect(() => { 
     if(bloqueado[0]==1){
       setShow2(true)
       setBloqueado[0]
       avatar(db, bloqueado[1])
       updateAvatar(db, puntaje-(puntaje%20), 0)
-      console.log("desbloqueado Avaatar Nivel")
+      //console.log("desbloqueado Avaatar Nivel")
     }
   }, [bloqueado[0], bloqueado[1]])
   
 
-  const handleChange = (nombre,Evaluado, progreso,Completed) => {
-    console.log("progreso:",progreso, "evaluado:", Evaluado, "copletado:", Completed);
+  const handleChange = (nombre,Evaluado, progreso,Completed) => { 
     handleEvaluado(Evaluado)
     handleProgreso(progreso)
     handleCompletado(Completed)   
@@ -156,7 +150,7 @@ export default function WordScreen({ navigation }) {
   return ( 
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <ModalPoup visible={show} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={cerrar} />
-      <ModalPoup visible={show2} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={cerrar2} />
+      <ModalPoup visible={show2} titulo={titulo2} texto={texto2} imagen={imagen2} botones={botones2}  onChange={cerrar2} />
         {
           niveles.map((item, key) => {
             if(item.idOpcion==opcion[1]){

@@ -1,14 +1,12 @@
 import React,{useState, useEffect} from "react";
-import { Text, View,Button, Alert, StyleSheet, Dimensions, Pressable } from "react-native";
-import { Card} from 'react-native-elements'
+import {  View,StyleSheet, Dimensions } from "react-native"; 
+import {UseItemsContext, UsePreguntaContext, UsePressContext} from '../Contexts/InfoProvider';
 import * as data from  '../Data/preguntas.json'
 import Retroalimentacion from "../components/Retroalimentacion";
-import {UseInfoContext, UseItemsContext, UsePreguntaContext, UsePressContext} from '../Contexts/InfoProvider';
 import PreguntaOpciones from '../components/PreguntaOpciones.js'
 import PreguntaFV from '../components/PreguntaFV.js'
 import PreguntaImagenes from '../components/PreguntaImagenes.js'
-import ModalPoup from "../components/ModalPoup";
-import { updatePuntaje } from "../utils/userModel";
+import ModalPoup from "../components/ModalPoup"; 
 
 let tema;
 let index;

@@ -1,5 +1,5 @@
 import * as data from '../Data/avatars.json';
-
+//modelo de avatar
 export  function createAvatarTable(db){
     db.transaction((tx) =>{
         tx.executeSql(

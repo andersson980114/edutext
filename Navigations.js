@@ -11,8 +11,8 @@ import { Colors, Header } from 'react-native/Libraries/NewAppScreen';
 //constantes de navegacion
 const Tab = createBottomTabNavigator();//tab o footer  
 
+//tab menu, retorna: AvatarScreen, HomeScreen e InsigniaScreen
 export default function Navigation(){
-    
     
     return(
         

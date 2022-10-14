@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
+//componente usado por las preguntas de completar
 export default function Completado({texto}) {
   return (
     <View style={styles.container} >

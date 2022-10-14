@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import { Text, View, StyleSheet, Dimensions, Pressable } from "react-native";
-import { UseDbContext } from '../Contexts/DataContext';
 import { UseEvaluadoContext, UsePressContext, UsePuntajeContext } from '../Contexts/InfoProvider';
+import { UseDbContext } from '../Contexts/DataContext';
 import { updatePuntaje } from '../utils/userModel';
 
-
+//componente encargado de mostrar las opciones de respuesta para cada tipo de pregun
 export default function Respuesta({navigation, item, texto, correctaR, pres, onChange}) {
     
-  const [color, setColor] = useState("#EBEBEB")
+  const [color, setColor] = useState("#EBEBEB")//colores iniciales
   const [border, setBorder] = useState("#EBEBEB") 
   const [presi, setPress] = useState(pres)
   const {press, handlePress} = UsePressContext()
@@ -17,6 +17,7 @@ export default function Respuesta({navigation, item, texto, correctaR, pres, onC
 
   const correcta = (opcion) => {   
     if(!press){ 
+      //se asigna un color dependiendo del estado de la selección
           if(correctaR ){
               setColor("#ACF6AB")
               setBorder("#16B20C")
@@ -40,7 +41,7 @@ export default function Respuesta({navigation, item, texto, correctaR, pres, onC
     setBorder("#EBEBEB") }
   }, [press])
   
-    
+  //mostrar el componente
   return (
     <View style={{
         width: deviceWidth - 35, 

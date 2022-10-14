@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from 'react' 
 import { StyleSheet, View, Image } from "react-native";
 import { UseDbContext, UseCountContext } from '../Contexts/DataContext';
-import { setDB } from '../utils/db';
-import { getUsers } from '../utils/userModel'; 
+import { setDB } from '../utils/db'; 
 
+//Splash screen
 export default function SplashScreen ({navigation, logueo})  {
-    
-    const {db, count} = UseDbContext()
-    const {counte, handleCount} = UseCountContext()
+    //context
+    const {db, count} = UseDbContext() 
+    //state
     const [authLoaded, setAuthLoaded] = useState(false)  
 
     useEffect(() => { 

@@ -6,6 +6,7 @@ import { createNivelTable } from "./nivelModel";
 import { createTemaTable } from "./temaModel";
 import { createUserTable } from "./userModel";
 
+//Iniciar la conexión a la db
 export function conectionDb(){
     const db = SQLite.openDatabase('main');
     return db;

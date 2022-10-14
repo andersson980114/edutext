@@ -1,6 +1,8 @@
+
+//crearemos los contextos o variables globales
 import React,{ useState, useContext, useEffect } from 'react'
 import { View } from 'react-native' 
-
+//contextos
 const InfoContext = React.createContext();
 const OpcionContext = React.createContext();
 const NivelContext = React.createContext();
@@ -14,7 +16,7 @@ const ProgresoContext = React.createContext();
 const PuntajeContext = React.createContext();
 const PressContext = React.createContext();
 
-
+//
 export function UseInfoContext(){
   return useContext(InfoContext)
 }
@@ -63,7 +65,7 @@ export function UsePressContext(){
 }
 
 
-
+//random para la prueba del onboarding
 function random(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -73,7 +75,7 @@ function random(min, max) {
 }
 
 export  function InfoProvider({children}) {
-
+  //useState
   const [opcion, setOpcion] = useState(['Word', 0])
   const [nivel, setNivel] = useState(['Introduccion',0])
   const [tema, setTema] = useState(['Inicio',0])
@@ -87,7 +89,7 @@ export  function InfoProvider({children}) {
   const [press, setPress] = useState(false)
  
     
-
+  //modificadores
   const handleOption = (a) =>{
     setOpcion(a)
   }
@@ -132,6 +134,7 @@ export  function InfoProvider({children}) {
     setPress(a)
   }
 
+  //componentes
   return (
     <OpcionContext.Provider  value={{opcion,handleOption}}>
       <NivelContext.Provider  value={{nivel,handleNivel}}>

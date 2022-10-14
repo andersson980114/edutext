@@ -1,9 +1,8 @@
 import React,{useState, useEffect} from "react";
-import { Text, View,Button, Alert, StyleSheet, Dimensions, Pressable } from "react-native";
-import { Card} from 'react-native-elements'
+import { View, StyleSheet, Dimensions } from "react-native";
+import {UsePreguntaContext} from '../Contexts/InfoProvider';
 import * as data from  '../Data/preguntas.json'
 import Retroalimentacion from "../components/Retroalimentacion";
-import {UsePreguntaContext} from '../Contexts/InfoProvider';
 import PreguntaOpciones from '../components/PreguntaOpciones.js'
 import PreguntaFV from '../components/PreguntaFV.js'
 import PreguntaImagenes from '../components/PreguntaImagenes.js'
@@ -12,12 +11,15 @@ import ModalPoup from "../components/ModalPoup";
 let tema;
 let index;
 let tipo; 
+//Screen de la pregunta A
 export default function PreguntaA({ navigation }) {
+  //context
   const {pregunta, setPregunta} = UsePreguntaContext() 
+  //states
   const [estado, setEstado] = useState(false) //si se activo una respuesta o no
   const [respuesta, setRespuesta] = useState(false)
   const [pres, setPress] = useState(false)
-  //
+  //modal
   const [show, setShow] = useState(false)
   const [titulo, setTitulo] = useState("")
   const [texto, setTexto] = useState("")
@@ -25,6 +27,7 @@ export default function PreguntaA({ navigation }) {
   const [botones, setBotones] = useState([])
   const [success, setSuccess] = useState(false)
 
+  //Identificamo el tema y tipo: Word, Docs, Onboarding
   index = pregunta[1] 
   switch(pregunta[0]){
     case 'Word':
@@ -39,9 +42,11 @@ export default function PreguntaA({ navigation }) {
   }
   tipo = tema[index].Tipo
 
+  //cerrar modal
   const cerrrar = () =>{
     setShow(false)
   }
+  //modal de retroalimentación: en caso de se respuesta mala
   const setRetro = (respuesta) =>{
     if(!respuesta){
       setShow(true)
@@ -64,7 +69,7 @@ export default function PreguntaA({ navigation }) {
   useEffect(() => { 
     setEstado(false) 
   }, [ tema])
-  
+  //alteramos state's
   const correcta = (opcion) => {
     setEstado(true)
     setRespuesta(opcion[0]) 
@@ -72,6 +77,7 @@ export default function PreguntaA({ navigation }) {
     setRetro(opcion[0])
   }
 
+  //pevenir gobcak
   useEffect(() =>
     navigation.addListener('beforeRemove', (e) => {
       const action = e.data.action; 
@@ -85,6 +91,7 @@ export default function PreguntaA({ navigation }) {
   ),
   [navigation])
   
+  //componente
   if(tipo == 0){
     return (
       <View style={styles.container}>

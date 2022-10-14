@@ -37,15 +37,15 @@ export const Avatars = [
     },
     {
         id: 9,
-        url:  require("../assets/avatarAssets/Queen.png"), 
-    },
-    {
-        id: 10,
         url:  require("../assets/avatarAssets/Avatar.png"), 
     },
     {
-        id: 11,
+        id: 10,
         url:  require("../assets/avatarAssets/Avatar2.png"), 
+    },
+    {
+        id: 11,
+        url:  require("../assets/avatarAssets/Avatar3.png"), 
     }
     
   ]

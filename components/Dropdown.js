@@ -1,7 +1,7 @@
 import React,{useState, useEffect, component }from 'react'
 import { Text, View, StyleSheet, TouchableOpacity, Image} from "react-native";
 
-
+//componente usado para desplegables en formularios
 export default function Dropdown({
     data = [], 
     value = {},
@@ -15,19 +15,14 @@ export default function Dropdown({
     }
     return (
         <View>
-            <TouchableOpacity 
-                style={styles.select} 
-                activeOpacity={0.8}
-                onPress={() => setShow(!show)}
-            >
+            <TouchableOpacity  style={styles.select}  activeOpacity={0.8} onPress={() => setShow(!show)} >
                 <Text style={styles.placeholder} >
                     {!!value ? value?.name : "Seleccionar"}
                 </Text>
                 
-                <Image 
-                    source={require('../assets/dropdown.png')} 
+                <Image  source={require('../assets/dropdown.png')} 
                     style={{transform: [{rotate: show? '180deg' : '0deg'}], margin:10}} 
-                    />
+                />
             </TouchableOpacity>
 
            {show && (<View>
@@ -46,14 +41,14 @@ export default function Dropdown({
                         
                             <Text key={String(i)} 
                                 style={{
-                                    fontSize: 24,
-                                    width: 267,
-                                    color: '#000' , 
-                                    textAlign: 'left', 
-                                    paddingLeft: 20,  
-                                }}
-                            
-                            >{val.name}</Text>
+                                fontSize: 24,
+                                width: 267,
+                                color: '#000' , 
+                                textAlign: 'left', 
+                                paddingLeft: 20,  
+                                }}>
+                                {val.name}
+                            </Text>
                         </TouchableOpacity>
                     )
                     })

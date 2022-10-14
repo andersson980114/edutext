@@ -13,29 +13,32 @@ import { getAvatarStatus, updateAvatar } from "../utils/avatarModel";
 import { updateInsignia } from "../utils/insigniaModel";
 import { Insignias, Avatars } from "../Data/imagenes";
 
-
+//dimension
 const deviceWidth = Math.round(Dimensions.get('window').width)
 const deviceHeight = Math.round(Dimensions.get('window').height)
 let ni;
+
+//Screen encargada de mostrar los temas
 export default function TemasScreen({navigation }) {
-  const {opcion, nivel, tema} = UseInfoContext();
-  const {mytema, handleTema} = UseTemaContext();
-  const {db, count} = UseDbContext()
+  //const
   const favorite = require('../assets/screenAssets/favorite.png') ;
   const noFavorite =  require('../assets/screenAssets/noFavorite.png');
   const temasA = data.Temas
+  const isFocused = useIsFocused();
+  //context
   const {pregunta, handlePregunta} = UsePreguntaContext()
   const {progreso, handleProgreso} = UseProgresoContext()
   const {completado, handleCompletado} = UseCompletadoContext()
-  const  [fav, setFav] = useState(false)
-  const [temasD, setTemasD] = useState([])
-   
+  const {opcion, nivel, tema} = UseInfoContext();
+  const {mytema, handleTema} = UseTemaContext();
+  const {db, count} = UseDbContext()
   const {evaluado, handleEvaluado} = UseEvaluadoContext ()
   const {puntaje, handlePuntaje} = UsePuntajeContext()
-  const isFocused = useIsFocused();
+  //states
+  const [fav, setFav] = useState(false)
+  const [temasD, setTemasD] = useState([])
   const [bloqueado, setBloqueado] = useState([0,0])
   const [niveles, setNiveles] = useState([])
-  
   //alert
   const [show, setShow] = useState(false)
   const [show2, setShow2] = useState(false)
@@ -43,28 +46,36 @@ export default function TemasScreen({navigation }) {
   const [texto, setTexto] = useState("")
   const [imagen, setImagen] = useState(require("../assets/screenAssets/prohibited.png"))
   const [botones, setBotones] = useState([]) 
+  const [titulo2, setTitulo2] = useState("Intentelo de Nuevo")
+  const [texto2, setTexto2] = useState("")
+  const [imagen2, setImagen2] = useState(require("../assets/screenAssets/prohibited.png"))
+  const [botones2, setBotones2] = useState([]) 
   const [success, setSuccess] = useState(false)
 
+  //cerrar
   const cerrar = () =>{
     handleEvaluado(true) 
     handleCompletado(true)
-    setShow(false) 
+    setShow(false)  
+    setSuccess(true)
   }
 
   const cerrar2 = () =>{
     handleEvaluado(true) 
     handleCompletado(true) 
-    setShow2(false)
+    setShow2(false) 
+    setSuccess(true)
+    
   }
-
+  //modal Insignia
   const insignia = (db, id) =>{
-    // console.log("desbloqueada insignia: ", id, nivel)
-      updateInsignia(db, id+1, false)
+    // console.log("desbloqueada Insignia: ", id)
+      updateInsignia(db, id+2, false)//debloqueamos insignia
       handleEvaluado(true)
-      setTexto(Insignias[id-1].Descripcion)
+      setTexto(""+Insignias[id+1].Descripcion)
       setShow(true)
       setTitulo('¡Insignia Desbloqueada!') 
-      setImagen(Insignias[id].url)
+      setImagen(Insignias[id+1].url)
       setSuccess(true)
       setBotones([
       {
@@ -77,15 +88,16 @@ export default function TemasScreen({navigation }) {
       ]) 
   }
 
+  //modal avatar
   const avatar = (db, id) =>{
-    
-      updateAvatar(db, id, 1)
-      setTexto("Nuevo AVATAR consegudo por tus puntos")
+      // console.log("desbloqueado Avatar: ", id)
+      updateAvatar(db, id, 1)//debloqueamos insignia
+      setTexto2("Nuevo AVATAR desbloqueado por tus puntos")
       setShow2(true)
-      setTitulo('¡AVATAR Desbloqueado!') 
-      setImagen(Avatars[id-1].url)
+      setTitulo2('¡AVATAR Desbloqueado!') 
+      setImagen2(Avatars[id-1].url)
       setSuccess(true)
-      setBotones([
+      setBotones2([
       {
           texto: "Aceptar",
           id: 0,  
@@ -104,15 +116,7 @@ export default function TemasScreen({navigation }) {
       ni = nivel[1]+1+5
     }else{
         ni = nivel[1]+1
-    }
-    console.log("=====================================prueba Temas============================")
-    console.log("opcion: ", opcion[0], opcion[1])
-    console.log("Nivel: ",nivel[0], nivel[1])
-    console.log("Progeso: ", progreso)
-    console.log("evaluado: ", evaluado)
-    console.log("completado: ", completado)
-    console.log("puntaje: ", puntaje)
-    console.log(puntaje-(puntaje%20)) 
+    } 
 
     if(!completado && progreso>=100){
       console.log("completado")
@@ -125,32 +129,29 @@ export default function TemasScreen({navigation }) {
     if(bloqueado[0]==1){
       setShow2(true)
       avatar(db, bloqueado[1])
-      updateAvatar(db, 100, 0)
+      updateAvatar(db,  puntaje-(puntaje%20), 0)
       console.log("desbloqueado avatar tema")
     }
   
   }, [isFocused])
   
-  useEffect(() => {
-    console.log("--------------////////////////////////------------//////////////------");
-    console.log("------------------------------NAVIGATION------------------");
+  useEffect(() => { 
     if(bloqueado[0]==1){
       setShow2(true)
       setBloqueado[0]
       avatar(db, bloqueado[1])
       updateAvatar(db, puntaje-(puntaje%20), 0)
-      console.log("desbloqueado Avaatar Nivel")
+      //console.log("desbloqueado Avaatar ")
     }
   }, [navigation])
-  useEffect(() => {
-    console.log("--------------////////////////////////------------//////////////------");
-    console.log("------------------------------BLOQUEADO------------------");
+  
+  useEffect(() => { 
     if(bloqueado[0]==1){
       setShow2(true)
       setBloqueado[0]
       avatar(db, bloqueado[1])
       updateAvatar(db, puntaje-(puntaje%20), 0)
-      console.log("desbloqueado Avaatar Nivel")
+      //console.log("desbloqueado Avaatar")
     }
   }, [bloqueado[0], bloqueado[1]])
   
@@ -191,11 +192,12 @@ export default function TemasScreen({navigation }) {
     updateTema(db ,data[0]+1,bol,data[2],data[3])
   }
 
+  //componente
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'  }}>
       <ScrollView  >
       <ModalPoup visible={show} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={cerrar} />
-      <ModalPoup visible={show2} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={cerrar2} />
+      <ModalPoup visible={show2} titulo={titulo2} texto={texto2} imagen={imagen2} botones={botones2}  onChange={cerrar2} />
         
         {
           temasD.map((item, key) => {

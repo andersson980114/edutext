@@ -17,6 +17,7 @@ import RegisterScreen from './screens/RegisterScreen';
 import ExampleScreen from './screens/ExampleScreen';
 const Stack = createNativeStackNavigator();
 
+//obtenemos el nombre de la ruta del tab menu
 function getHeaderTitle(route) {
   const routeName = getFocusedRouteNameFromRoute(route) ?? 'Inicio'; 
   switch (routeName) {
@@ -28,14 +29,22 @@ function getHeaderTitle(route) {
       return 'Insignias'; 
   }
 }
- 
+
+//funcion principal
+///
+/// Rutas de la aplicacion
+///
 export default function App() {
+  //state
   const [logueado, setLogueado] = useState(true);
+  //context
   const {opcion, nivel, tema} = UseInfoContext()
   const {pregunta, setPregunta} = UsePreguntaContext()
   const {db, count} = UseDbContext() 
   
-  
+  //componente:
+  //primero retorna el splah
+  //segundo analiza si hay un usuario registrado, de esta consulta define si reenvia a RegisterScreen o al HomeScreen
     return (
         <NavigationContainer > 
 

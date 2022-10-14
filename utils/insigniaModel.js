@@ -1,5 +1,6 @@
 import * as data from '../Data/insignias.json';
 
+//modelo de insignia
 export  function createInsigniaTable(db){
     db.transaction((tx) =>{
         tx.executeSql(

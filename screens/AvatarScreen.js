@@ -1,17 +1,20 @@
 import React,{useEffect, useState} from "react";
-import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, Alert, onPress } from "react-native";
-import * as data from '../Data/avatars.json';
+import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity } from "react-native";
 import { Avatars } from "../Data/imagenes";
 import { UseDbContext } from '../Contexts/DataContext'; 
-import ModalPoup from "../components/ModalPoup";
-import { changeAvatar, getPuntaje, getUser } from "../utils/userModel";
+import { changeAvatar, getUser } from "../utils/userModel";
 import { getAvatar } from "../utils/avatarModel";
 import { UsePuntajeContext } from "../Contexts/InfoProvider";
-import { useIsFocused } from '@react-navigation/native';                                
- 
+import { useIsFocused } from '@react-navigation/native';       
+import * as data from '../Data/avatars.json';                         
+import ModalPoup from "../components/ModalPoup"; 
+
+//Screen encargada de mostrar los avatares
 export default function AvatarScreen({ navigation }) {  
-  const avatar = data.Avatars
+  //context
+  const {Puntaje, handlePuntaje} = UsePuntajeContext()
   const {db, count} = UseDbContext()
+  //useState
   const [user, setUser] = useState(0)//imagen de usuario
   const [users, setUsers] = useState("")
   const [puntaje, setPuntaje] = useState(0) 
@@ -22,18 +25,16 @@ export default function AvatarScreen({ navigation }) {
   const [botones, setBotones] = useState([])
   const [success, setSuccess] = useState(false)
   const [Avatares, setAvatares] = useState([])
-  const {Puntaje, handlePuntaje} = UsePuntajeContext()
+  //var
   const isFocused = useIsFocused();
+  const avatar = data.Avatars
   useEffect(() => {
     getUser(db, setUsers, setUser,setPuntaje)
     getAvatar(db, setAvatares) 
-    
-    //console.log(Avatares);
-    //console.log("Usuario:",users);
-    //console.log("Obtenido",users, puntaje, avatar); 
+     
   }, [])
- 
-  /* */
+  
+  //Asignar el avatar del usuario
   const getUserId = (opcion) =>{
     if(opcion[0]){
       setUser(opcion[1])
@@ -41,8 +42,8 @@ export default function AvatarScreen({ navigation }) {
     } 
     setShow(false)
   }
-  
-
+   
+  //modal cambio de avatar de usuario
   const cambioUser =(id, bloqueado) =>{
     if(!bloqueado && user != id){
       setShow(true)
@@ -83,6 +84,7 @@ export default function AvatarScreen({ navigation }) {
     } 
   }
  
+  //componente
   return (
     <View  style={Styles.container}> 
         <ModalPoup visible={show} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={getUserId} />

@@ -3,31 +3,25 @@ import { View, Image, Text, TouchableOpacity,StyleSheet, Dimensions, } from 'rea
 import { UseInfoTemaContext } from '../Contexts/InfoProvider';
 import { updateTema } from '../utils/temaModel';
  
-
+//componente encargado en mostrar los cards de los temas
 export default function Tema({db, nombre, Texto, favo, completado, visto, Onchage, update}) {
     const  [fav, setFav] = useState(favo)
     const  [favor, setFavor] = useState(0)
     const {info,handleInfoTema} = UseInfoTemaContext()
     const favorite = require('../assets/screenAssets/favorite.png') ;
     const noFavorite =  require('../assets/screenAssets/noFavorite.png');
-
+    //call back
     const handleChange = () =>{
-        //console.log("cambiando-------------------------------")
-        //console.log("nombre",nombre[1], favo)
         handleInfoTema([true, completado])
-        //console.log("set:", true)
         update([nombre[1], fav, true, completado])
-        //updateTema(db, [nombre[1], favo, true, completado])
         Onchage(nombre)
     }
-
+    //cambiar el estado de favorito
     const handleFav = () =>{
       setFav(!fav) 
       update([nombre[1], !fav, true, completado])
-
-      //updateTema(db,[nombre[1], !fav, visto, completado])
-        
     }
+    //componente
     return (
         <View  >
             <TouchableOpacity onPress={() => handleChange()}  style={styles.cardContainer}>

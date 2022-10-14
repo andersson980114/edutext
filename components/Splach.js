@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react' 
 import { StyleSheet, View, Image } from "react-native";
-
+//Componente encargado en la splach screen
 export default function Splach() {
   return (
     <View style={styles.container}>

@@ -1,3 +1,5 @@
+
+//modelo de Usuario
 export  function createUserTable(db){
     db.transaction((tx) =>{
         tx.executeSql(

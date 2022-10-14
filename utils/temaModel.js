@@ -1,5 +1,6 @@
 import * as data from '../Data/wordTemas.json';
 
+//modelo de Tema
 export  function createTemaTable(db){
     db.transaction((tx) =>{
         tx.executeSql(

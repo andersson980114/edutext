@@ -1,19 +1,18 @@
 import React,{useState, useEffect, component }from 'react'
 import { Text, View,Button, StyleSheet, TextInput, Pressable, Dimensions, Alert, Image } from "react-native";
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Dropdown from '../components/Dropdown';
 import { UseDbContext, UseCountContext } from '../Contexts/DataContext';
 import { insertUsers } from '../utils/userModel'; 
+import Dropdown from '../components/Dropdown';
 import ModalPoup from "../components/ModalPoup";
 
-//
-
+//opciones del desplegable
 let options = [{id:1, name:'Hombre'},{id:2, name:'Mujer'},{id:3, name:'Otro'}]
-
+//Dimension
 const widthC = Dimensions.get("window").width; 
 const heightC = Dimensions.get("window").height;
 
-
+//Screen encargada del registro
 export default function RegisterScreen({navigation}) {
   const {db, count, user} = UseDbContext()
   const {counte, handleCount} = UseCountContext()
@@ -46,7 +45,7 @@ export default function RegisterScreen({navigation}) {
       
     }
   }, [])
-  
+  //prevenir el goBack
   useEffect(() =>
     navigation.addListener('beforeRemove', (e) => {
       const action = e.data.action; 
@@ -70,6 +69,7 @@ export default function RegisterScreen({navigation}) {
   }),
   [navigation])
 
+  //alteradores
   const onSelect = (item)=>{
       setSelectedItem(item)
   }
@@ -87,6 +87,7 @@ export default function RegisterScreen({navigation}) {
     this.setState({gener: gener})
   }
 
+  //modal
   const Avatar1 = () =>{
     setShow(false)
     setTitulo('¡Avatar Desbloqueado!')
@@ -107,6 +108,7 @@ export default function RegisterScreen({navigation}) {
   
   }
 
+  //modal
   const Avatar2 = () =>{
     setShow3(false)
     setTitulo('¡Avatar Desbloqueado!')
@@ -125,6 +127,7 @@ export default function RegisterScreen({navigation}) {
     setShow4(true)
   }
 
+  //modal
   const Insignia= () =>{
     setShow2(false)
     setTitulo('¡Insignia Desbloqueada!')
@@ -142,7 +145,7 @@ export default function RegisterScreen({navigation}) {
     ])
     setShow3(true)
   }
-
+  //cerrar modal
   const cerrar = () =>{
     setShow4(false)
     
@@ -150,6 +153,7 @@ export default function RegisterScreen({navigation}) {
     
   }
 
+  //crear usuario
   function createUser(){   
     console.log(selectedItem[0])
     if(userName === '' || lastName === '' || selectedItem === ""){
@@ -179,17 +183,14 @@ export default function RegisterScreen({navigation}) {
         ])
       } catch (error) {
         setShow(true)
-        setTexto('Error de registro') 
-        //console.log(db);
-        //console.log(userName)
+        setTexto('Error de registro')  
         console.log(`error catch:${error.message}`)
       } 
     }
     
   }
-
+  //componente
   return (
-      
       <View  style={styles.container}>
 
         <View>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { View, Image, Text, StyleSheet, Modal, TouchableOpacity } from 'react-native'
 
-
+//componente modal encargado de mostrar los avisos correspondientes
 const imagenes = [
     {
         url: require("../assets/screenAssets/success.png")
@@ -11,7 +11,7 @@ const imagenes = [
     },
 ]
  
-
+//segun el show(false || true) se da visibilidad o no al modal, con los props recibidos
 export default function ModalPoup({visible, titulo, texto, imagen, botones, onChange}) {
     const [show, setShow] = useState(visible) 
  

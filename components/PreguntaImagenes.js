@@ -1,9 +1,10 @@
 import React, {useState,useEffect} from 'react' 
 import {View, StyleSheet, Text, Pressable, Dimensions,TouchableOpacity} from 'react-native'
+import { UsePressContext } from '../Contexts/InfoProvider';
 import Respuesta from '../components/Respuesta.js'
 import Completado from './Completado.js'
-import { UsePressContext } from '../Contexts/InfoProvider';
 
+//componente correspondiente a las preguntas de completar la frase
 export default function PreguntaImagenes({navigation ,onChange, tema, index, pres}) {
     
     
@@ -11,6 +12,7 @@ export default function PreguntaImagenes({navigation ,onChange, tema, index, pre
     const [texto, setTexto] = useState("            ")
     const {press, handlePress} = UsePressContext()
 
+    //callback
     const correcta = (opcion) => {  
         setPress(true) 
         setTexto(opcion[1])
@@ -23,6 +25,7 @@ export default function PreguntaImagenes({navigation ,onChange, tema, index, pre
       }, [press])
       
 
+    //retornamos el componente
     return (
         <View>
             <View style={styles.pregunta} >

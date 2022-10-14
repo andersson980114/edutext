@@ -1,25 +1,9 @@
 import React, { useEffect } from 'react';
-import { View, Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { Constants } from 'expo';
+import { View, Image, StyleSheet, Text, TouchableOpacity } from 'react-native'; 
 
+//Screen encargado de mostrar el ejemplo de contenido
 export default function ExampleScreen({navigation}) {
     let mensaje ="Recuerda deslizar las imagenes \n para continuar viendo el contenido"
-    /*
-    useEffect(() =>
-      navigation.addListener('beforeRemove', (e) => {
-        const action = e.data.action; 
-
-        e.preventDefault();
-        //console.log("word");
-        navigation.dispatch(action)
-        navigation.navigate('Inicio')
-      
-      }
-    ),
-    [navigation])
-    */
-
-   
   
     return (
       <View style={styles.container}>

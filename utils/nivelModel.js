@@ -1,5 +1,6 @@
 import * as data from '../Data/wordNiveles.json';
 
+//modelo de Nivel
 export  function createNivelTable(db){
     db.transaction((tx) =>{
         tx.executeSql(

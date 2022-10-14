@@ -3,11 +3,16 @@ import * as SQLite from "expo-sqlite";
 import { initDb } from '../utils/db';
 import { createUserTable, getUsers } from '../utils/userModel';
 import Splach from '../components/Splach'; 
+
+//crearemos los contextos o variables globales, relacionadas con la DB
+
+//Los contextos
 const DbContext = React.createContext();
 const temasContext = React.createContext();
 const countContext = React.createContext();
 let db;
 
+//
 export function UseDbContext(){
     return useContext(DbContext)
 }
@@ -20,6 +25,8 @@ export function UseCountContext(){
     return useContext(countContext)
 }
 
+//funcion principal
+//retorna los valores actu
 export  function DataContext({children}) { 
     const [isLoading, setIsLoading] = useState(true) 
     const [count, setCount] = useState(0)

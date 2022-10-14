@@ -1,11 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
 import React,{useState, useEffect}from 'react';
-import { View, Text, StyleSheet, FlatList, Image, Dimensions, SafeAreaView, Animated} from 'react-native' 
-import * as data from '../Data/wordContenido.json'
+import { View, Text, StyleSheet, Image, Dimensions, SafeAreaView, Animated} from 'react-native' 
+import { StatusBar } from 'expo-status-bar';
 import { Contenido } from '../Data/imagenes';
 import { UseInfoContext} from "../Contexts/InfoProvider";
 import Siguiente from '../components/Siguiente';
-
+import * as data from '../Data/wordContenido.json'
+//imagenes staticas
 const imagenes = [
   require("../assets/Niveles/intro/1.png"),
   require("../assets/Niveles/intro/2.png"),
@@ -13,18 +13,16 @@ const imagenes = [
 
 ];
 
-
+//constantes de dimensión
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
-
 const ANCHO_CONTENEDOR = width * 0.9;
 const ESPACIO_CONTENEDOR = (width - ANCHO_CONTENEDOR) / 2;
 const ALTURA_CONTENEDOR = height*0.9;
 const ESPACIO = 10;
 const ALTURA_BACKDROP = height * 0.1;
 
- 
-
+//Screen encargado de mostrar el contenido
 export default function ContenidoScreen({navigation}) {
   
   const {opcion, nivel, tema} = UseInfoContext(); 
@@ -97,9 +95,8 @@ export default function ContenidoScreen({navigation}) {
           const scrollY = scrollX.interpolate({
             inputRange,
             outputRange: [0, -50, 0],
-          });   
-          //console.log(item.Nivel, ", ", item.Opcion, ", ", item.Tema)
-          //console.log(nivel[1], " - ", opcion[1], " - ", tema[1])
+          });    
+
           return (
             <View style={{ width: ANCHO_CONTENEDOR }} >
               <Animated.View 

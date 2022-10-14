@@ -2,19 +2,18 @@ import React, {useState,useEffect} from 'react'
 import {View, StyleSheet, Text, Pressable, Dimensions,TouchableOpacity} from 'react-native'
 import Respuesta from '../components/Respuesta.js'
 
+//componente correspondiente a las preguntas de falso y verdadero.
 export default function PreguntaOpciones({navigation, onChange, tema, index, pres}) {
-    
-    
+     
     const [presi, setPress] = useState(pres)  
 
+    //callback
     const correcta = (opcion) => {     
         setPress(true)
         onChange(opcion)
-    }
-    
-    
-  
+    } 
 
+    //retornamos el componente
     return (
         <View>
             <View style={styles.pregunta} >

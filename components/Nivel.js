@@ -1,63 +1,25 @@
 import React,{ useEffect, useState } from 'react';
-import { View, Image, Text, StyleSheet, Dimensions, Pressable} from 'react-native'
-import { UseCompletadoContext, UseEvaluadoContext, UseProgresoContext, UseOpcionContext,UseInfoContext, UseNivelContext } from '../Contexts/InfoProvider';
-import {UseDbContext} from '../Contexts/DataContext';
-import { useIsFocused } from '@react-navigation/native';
-import { completedNivel, evaluatedNivel } from '../utils/nivelModel';
-
+import { View, Image, Text, StyleSheet, Dimensions, Pressable} from 'react-native' 
+//constantes de diseño
 const deviceWidth = (Dimensions.get("window").height) * 0.5
 const height = (Dimensions.get("window").height) * 0.5;
 const progres = deviceWidth-35
 const ANCHO_CONTENEDOR = (height / deviceWidth ) * 90 ; 
 const ALTO_CONTENEDOR = (height / deviceWidth ) * 90 ;  
-let ni;
+
+//Componente encargado de mostrar las cards de cada nivel con sus props debidas
 export default function Nivel({ id, nivel, nombre, img, progreso, Evaluado, Completed, onChange}) { 
    
-    const {evaluado, handleEvaluado} = UseEvaluadoContext()
-    const {progresos, handleProgreso} = UseProgresoContext()
-    const {completado, handleCompletado} = UseCompletadoContext()
-    
-    const {Nivel, handleNivel} = UseNivelContext();
-    const {opcion, handleOpcion} =  UseOpcionContext() 
-    const {db, count} = UseDbContext()
     const porcentaje = progreso>=100 ? (progres*100)/100 :(progres*progreso)/100
-    const [evaluated, setEvaluated] = useState( )
-    const isFocused = useIsFocused();
-    
-    useEffect(() => {
-      //console.log("progreso:",progreso, "evaluado:", Evaluado, "copletado:", Completed);
-      //handleEvaluado(Evaluado)
-      //handleCompletado(Completed)
-      //handleProgreso(progreso)
-      //console.log("nivel:",nivel, nombre);
-      /*
-      if(evaluado){
-        if(opcion[1]>0){
-          ni = nombre+1+5
-        }else{
-            ni = nombre+1
-        }
-        console.log("---------------------------------Evaluado--------------------------")
-          evaluatedNivel(db, ni, false)
-          handleEvaluado(false)
-      }
-      
-      */
-      //console.log("first\n")
-    }, [isFocused])
-    
-
+    //call back: al presionarse atrapa los atributos de la card y los envia como respuesta a una funcion externa
     const handleChange = () =>{
-       console.log("progreso:",progreso, "evaluado:", Evaluado, "copletado:", Completed);
-        //handleEvaluado(Evaluado)
-        //handleProgreso(progreso)
-        //handleCompletado(Completed)  
-        onChange([nivel,nombre],Evaluado, progreso,Completed) 
+      console.log("progreso:",progreso, "evaluado:", Evaluado, "copletado:", Completed);
+      onChange([nivel,nombre],Evaluado, progreso,Completed) 
         
       console.log("second", Evaluado)
     }
 
-   
+   //retornamos el componente
     if(img == null){
         return(
             <View style={styles.cardContainer} >

@@ -1,19 +1,23 @@
 import React,{useState} from 'react'
 import { View, Image, Text, TouchableOpacity,StyleSheet, Dimensions, } from 'react-native'
 import { UseItemsContext, UsePreguntaContext, UseOpcionContext } from '../Contexts/InfoProvider';
+//componente que retorna un card que representa Pruebas, al ser presionado genera las preguntas sin repetir
 
+//imagenes correspondiente al jefe
 const jefes = [
     require("../assets/screenAssets/JefeIntro.png"),
     require("../assets/screenAssets/JefeBronce.png"),
     require("../assets/screenAssets/JefePlata.png"),
     require("../assets/screenAssets/JefeOro.png"),]
-
+//generear un pseudo aleatorio min>=max
 function random(min, max) { 
     min = Math.ceil(min);
+    max = Math.floor(max);
     if(min>0){
         min=min*5
+        max=min+5
     }
-    max = Math.floor(max);
+    
     var val = Math.floor((Math.random() * (max - min + 1)) + min)-1; 
     if(val<0){val=0}
     return val
@@ -26,10 +30,10 @@ export default function Jefe({ nivel,nombre, Onchage}) {
     let preguntas=[];
     let randomnumbers = new Set, ans;
    
-    
+    //generar una pila de preguntas irepetibles
     const generarPreguntas =() =>{
         while(randomnumbers.size <4){
-            randomnumbers.add(random(nivel[1], (parseInt(nivel[1])+1)*5) ) 
+            randomnumbers.add(random(nivel[1], (parseInt(nivel[1])+1)*5+5) ) 
         }
         ans = [...randomnumbers];
         
@@ -40,13 +44,15 @@ export default function Jefe({ nivel,nombre, Onchage}) {
         //console.log(preguntas)
         return preguntas.pop()
     }
-
+    //disparador que se ejecuta al presionar la card
     const handleChange = () =>{
         const val = generarPreguntas() 
         handlePregunta([opcion[0],val.val])
         //console.log(opcion[0],val.val)
         Onchage(nombre)
     } 
+
+    //componente de la card
     if(nivel[0]!="Favoritos"){
         return (
             <View  >

@@ -2,16 +2,15 @@ import React, {useState, useEffect} from 'react'
 import { Text, View,Button, Image, StyleSheet, Dimensions, Pressable } from "react-native";
 import { UseEvaluadoContext } from '../Contexts/InfoProvider';
 import Siguiente from './Siguiente';
-
+//constantes de diseño
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
-
 const ANCHO_CONTENEDOR = width * 0.9;
 const ALTURA_CONTENEDOR = height*0.9;
-
+//componente encargado de mostrar si la opción elegida es correcta o no
 export default function Retroalimentacion({respuesta, estado, navigation}) {
     
-  
+    //retornamos el componente
     if(estado){
         return (
           <View>

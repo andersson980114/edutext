@@ -1,23 +1,23 @@
 import React, {useEffect, useState} from "react";
-import { Text, View,Button, Image, StyleSheet, Dimensions, Pressable ,Alert} from "react-native";
-import { Card} from 'react-native-elements'
+import { View, Image, StyleSheet, Dimensions, Pressable } from "react-native"; 
 import { UseDbContext } from "../Contexts/DataContext";
 import { UseOpcionContext,UsePreguntaContext, UsePuntajeContext } from "../Contexts/InfoProvider";
 import { getPuntaje } from "../utils/userModel";
-
+//Screen de Inicio
 export default function HomeScreen({ navigation }) {
-
+  //context
   const {db, count} = UseDbContext()
   const {opcion, handleOption} = UseOpcionContext()
   const {pregunta, handlePregunta} = UsePreguntaContext()
   const {Puntaje, handlePuntaje} = UsePuntajeContext()
+  //useState
   const [puntaje, setPuntaje] = useState(0)
 
   useEffect(() => {
     getPuntaje(db, 0, setPuntaje)
   }, [])
   
-
+  //calback
   const handleChange = (nombre) => {
     handleOption(nombre)
     handlePregunta(nombre)
@@ -25,28 +25,7 @@ export default function HomeScreen({ navigation }) {
     navigation.navigate('Word')
   }
  
-  useEffect(() =>
-    navigation.addListener('beforeRemove', (e) => {
-      const action = e.data.action; 
-
-      e.preventDefault();
-      //navigation.dispatch(action),
-      Alert.alert(
-        '¡Cuidado!',
-        '¿Deseas salir de EduText?',
-        [
-          { text: "No", style: 'cancel', onPress: () => {} },
-          {
-            text: 'Si',
-            style: 'destructive',
-            onPress: () => {},
-          },
-        ]
-      );
-    
-  }),
-  [navigation])
-
+  //componentes
   return (
     <View View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         
