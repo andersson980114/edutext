@@ -104,3 +104,22 @@ export  function  getDescripcion(db, id, setDescripcion){
     }
     )
 }
+
+
+export  function  getCaminos(db, id, setBloqueado){
+    db.transaction((tx) => {
+        tx.executeSql(
+            `SELECT * from insignia
+                    where id = '${id}'`,
+            [],
+            (sqlTxn, res) => {
+                const item = res.rows.item(0)
+                setBloqueado(item.Bloqueado) 
+                console.log(item.Bloqueado)
+                //console.log(res.rows.item(0).Nombre)
+            },
+            error => {console.log("no se pudo obtener el Bloqueo de la insignia", id)}
+        )
+    }
+    )
+}

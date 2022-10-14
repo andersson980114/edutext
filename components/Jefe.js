@@ -10,14 +10,13 @@ const jefes = [
     require("../assets/screenAssets/JefePlata.png"),
     require("../assets/screenAssets/JefeOro.png"),]
 //generear un pseudo aleatorio min>=max
-function random(min, max) { 
+function random(min, max) {  
     min = Math.ceil(min);
     max = Math.floor(max);
     if(min>0){
         min=min*5
         max=min+5
-    }
-    
+    } 
     var val = Math.floor((Math.random() * (max - min + 1)) + min)-1; 
     if(val<0){val=0}
     return val
@@ -33,7 +32,7 @@ export default function Jefe({ nivel,nombre, Onchage}) {
     //generar una pila de preguntas irepetibles
     const generarPreguntas =() =>{
         while(randomnumbers.size <4){
-            randomnumbers.add(random(nivel[1], (parseInt(nivel[1])+1)*5+5) ) 
+            randomnumbers.add(random(nivel[1], (parseInt(nivel[1])+1)*5) ) 
         }
         ans = [...randomnumbers];
         
@@ -41,7 +40,7 @@ export default function Jefe({ nivel,nombre, Onchage}) {
             preguntas.push({val: item, estado:false})
         })
         handleItems(preguntas) 
-        //console.log(preguntas)
+        console.log(preguntas)
         return preguntas.pop()
     }
     //disparador que se ejecuta al presionar la card

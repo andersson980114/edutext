@@ -3,7 +3,7 @@ import { View, Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 //Screen encargado de mostrar el ejemplo de contenido
 export default function ExampleScreen({navigation}) {
-    let mensaje ="Recuerda deslizar las imagenes \n para continuar viendo el contenido"
+    let mensaje ="¡IMPORTANTE! Desliza las imagenes \n para continuar viendo el contenido"
   
     return (
       <View style={styles.container}>

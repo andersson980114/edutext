@@ -131,7 +131,7 @@ export default function RegisterScreen({navigation}) {
   const Insignia= () =>{
     setShow2(false)
     setTitulo('¡Insignia Desbloqueada!')
-    setTexto("Has desbloqueado una Nuevoa Insignia ")
+    setTexto("Has desbloqueado una Nueva Insignia ")
     setImagen(require("../assets/insigniasAssets/RegistroExito.png"))
     setSuccess(false)
     setBotones([
