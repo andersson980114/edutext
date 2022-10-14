@@ -101,7 +101,7 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
                 if(progreso<100){
                 updateNivel(db,  ni, 20)
                 handleProgreso(progreso+20)}
-                console.log(progreso)
+                //console.log(progreso)
             }
             //si el tema tiene prueba y el tema no esta visto
             if(prueba && !info[1]){
@@ -117,7 +117,7 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
                 if(items.length>0 ){
                     handlePress(false)
                     //se reasigna la nueva pregunta
-                    console.log("residuo:",items)
+                    //console.log("residuo:",items)
                     handlePregunta([opcion[0], items.pop().val])  
                     //se navega de nuevo a la prueba con la nueva pregunta
                     navigation.navigate('PreguntaB')
@@ -151,7 +151,7 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
                 }
             //si no estamos en una prueba se realiza lo siguienta   
             }else{
-                console.log("info:", info, " Tema:", tema, " nivel:",nivel, " opcion:", opcion[0]) 
+                //console.log("info:", info, " Tema:", tema, " nivel:",nivel, " opcion:", opcion[0]) 
  
                 let id= tema[1]+1 
                 completeTema(db, id, true)
@@ -165,7 +165,7 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
                 }else{
 
                     //preguntamos si estamos en Abrir word o Abrir docs, si es así, se desbloquea la insignia correspondiente
-                    console.log("info", info)
+                   //console.log("info", info)
                     if(tema[0]=="Abrir Word" && info[1]==0){
                         insignia(db, 2)
                         setShow(true)

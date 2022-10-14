@@ -101,7 +101,7 @@ export default function OnboardingScreen({navigation})  {
             ]
           }}>
             <View style={Styles.info}> 
-                <Text style={Styles.textInfo}>¡Ingresa ya! Completa los desafios y obtén las recompensas</Text>  
+                <Text style={Styles.textInfo}>¡Ingresa ya! Completa los desafíos y obtén las recompensas</Text>  
                 <Image  source={require("../assets/screenAssets/oboarding2.png")} 
                 style={{
                   margin: 15,

@@ -10,16 +10,13 @@ const jefes = [
     require("../assets/screenAssets/JefePlata.png"),
     require("../assets/screenAssets/JefeOro.png"),]
 //generear un pseudo aleatorio min>=max
-function random(min, max) { 
-    console.log(min, max)
+function random(min, max) {  
     min = Math.ceil(min);
     max = Math.floor(max);
     if(min>0){
         min=min*5
         max=min+5
-    }
-    console.log("===========")
-    console.log(min, max)
+    } 
     var val = Math.floor((Math.random() * (max - min + 1)) + min)-1; 
     if(val<0){val=0}
     return val
