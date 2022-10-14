@@ -638,7 +638,7 @@
             "id": 0, 
             "Tipo": 0,
             "Pregunta": "¿Cuál de las siguientes opciones no es de la primera vista?",
-            "Retro": "Compartir no es una opción de la primera vista ya que es una opción del documento",
+            "Retro": "Compartir no es una opción de la primera vista, debido a que es una opción del documento",
             "Opciones":[
                 {
                     "item": "a",
@@ -665,8 +665,8 @@
         {
             "id": 1, 
             "Tipo": 1,
-            "Pregunta": "¿Word nos permite elegir plantillas para nuestro documento?",
-            "Retro": "Word si nos permite elegir plantillas en blanco o personalizadas para los documentos",
+            "Pregunta": "¿Google Docs nos permite elegir plantillas para nuestro documento?",
+            "Retro": "Docs si nos permite elegir plantillas en blanco o personalizadas para los documentos",
             "Opciones":[
                 {
                     "item": "a",
@@ -740,8 +740,8 @@
         {
             "id": 4, 
             "Tipo": 1,
-            "Pregunta": "¿Word permite guardar un mismo documento en diversos formatos?",
-            "Retro": "Word si nos permite eguardar un mismo documento en diversos formatos como .Pdf o .Docx",
+            "Pregunta": "¿Google Docs permite guardar un mismo documento en diversos formatos?",
+            "Retro": "Docs si nos permite guardar un mismo documento en diversos formatos como .Pdf o .Docx",
             "Opciones":[
                 {
                     "item": "a",
@@ -758,27 +758,27 @@
         {
             "id": 5, 
             "Tipo": 0,
-            "Pregunta": "¿Cuál de las siguientes opciones no es del portapapeles?",
-            "Retro": "RESALTAR es una opción de fuente que nos permite hacer énsfasis en el texto, más no es una opción del portapapeles",
+            "Pregunta": "¿Cuál de las siguientes opciones no es de Configuración de página?",
+            "Retro": "ESCALA es una opción de impresión que nos permite ajustar los detalles del documento.",
             "Opciones":[
                 {
                     "item": "a",
-                    "text":"Copiar",
+                    "text":"Orientación",
                     "correcta": false
                 },
                 {
                     "item": "b",
-                    "text":"Cortar",
+                    "text":"Tamaño de papel",
                     "correcta": false
                 },
                 {
                     "item": "c",
-                    "text":"Pegar",
+                    "text":"Color de página",
                     "correcta": false
                 },
                 {
                     "item": "d",
-                    "text":"Resaltar",
+                    "text":"Escala",
                     "correcta": true
                 }
             ] 
@@ -786,8 +786,8 @@
         {
             "id": 6, 
             "Tipo": 1,
-            "Pregunta": "¿Word nos permite asignar diferentes colores a nuestras fuentes?",
-            "Retro": "Word nos permite asignar colores, tamaños y demás estilos a las fuentes de textos",
+            "Pregunta": "¿Google Docs nos permite asignar diferentes colores a nuestras fuentes?",
+            "Retro": "Docs nos permite asignar colores, tamaños y demás estilos a las fuentes de textos",
             "Opciones":[
                 {
                     "item": "a",
@@ -853,7 +853,7 @@
             "Tipo": 2,
             "Inicio": "El aplicar espacio de texto hacia la hoja, se conoce como",
             "Fin": ".",
-            "Retro": "RESALTAR es una opción de fuente que nos permite hacer énsfasis en el texto, más no es una opción del portapapeles",
+            "Retro": "SANGRÍA se refiere a la distancia entre el margen de la página y el borde derecho o izquierdo del párrafo.",
             "Opciones":[
                 {
                     "item": "a",
@@ -862,12 +862,12 @@
                 },
                 {
                     "item": "b",
-                    "text":"Sangría",
+                    "text":"Impresión",
                     "correcta": true
                 },
                 {
                     "item": "c",
-                    "text":"Resaltar",
+                    "text":"Sangría",
                     "correcta": false
                 },
                 {
@@ -880,27 +880,27 @@
         {
             "id": 10, 
             "Tipo": 0,
-            "Pregunta": "¿Cuál de las siguientes opciones no es de Páginas?",
-            "Retro": "Cubrir Página no es una opción siquiera de Microsoft Word",
+            "Pregunta": "¿Con cuál navegador puede ser abierto Google Docs?",
+            "Retro": "Google Docs puede ser abierto desde cualquier navegador.",
             "Opciones":[
                 {
                     "item": "a",
-                    "text":"Portada",
+                    "text":"Mozilla",
                     "correcta": false
                 },
                 {
                     "item": "b",
-                    "text":"Pagina en Blanco",
+                    "text":"Google Chrome",
                     "correcta": false
                 },
                 {
                     "item": "c",
-                    "text":"Cubrir Página",
+                    "text":"Todas las anteriores",
                     "correcta": true
                 },
                 {
                     "item": "d",
-                    "text":"Salto de Página",
+                    "text":"Brave",
                     "correcta": false
                 }
             ] 
@@ -908,8 +908,8 @@
         {
             "id": 11, 
             "Tipo": 1,
-            "Pregunta": "¿Word nos permite quitar la portada de un documento?",
-            "Retro": "Word si nos permite quitar la portada actual de un documento",
+            "Pregunta": "¿Google Docs nos permite quitar la portada de un documento?",
+            "Retro": "Docs si nos permite quitar la portada actual de un documento",
             "Opciones":[
                 {
                     "item": "a",
@@ -956,17 +956,17 @@
             "id": 13, 
             "Tipo": 2,
             "Inicio": "En la pestaña de ",
-            "Fin": " Podemos agregar un pie de pagina",
-            "Retro": "En la pestaña de Encabezado y Pie de Pagina podemos agregar un pie de pagina",
+            "Fin": " Podemos Rehacer lo realizado en el documento.",
+            "Retro": "En la pestaña de Editar podemos rehacer/deshacer lo realizado en el documento.",
             "Opciones":[
                 {
                     "item": "a",
-                    "text":"Diseño",
+                    "text":"Formato",
                     "correcta": false
                 },
                 {
                     "item": "b",
-                    "text":"Encabezado",
+                    "text":"Editar",
                     "correcta": true
                 },
                 {
@@ -976,7 +976,7 @@
                 },
                 {
                     "item": "d",
-                    "text":"Vista",
+                    "text":"Ver",
                     "correcta": false
                 }
             ] 
@@ -984,8 +984,8 @@
         {
             "id": 14, 
             "Tipo": 0,
-            "Pregunta": "¿Cuál de las siguientes opciones no es de Ilustraciones?",
-            "Retro": "Dibujar no es una opción siquiera de Microsoft Word",
+            "Pregunta": "¿Cuál de las siguientes opciones de Ilustraciones  permite insertar por URL?",
+            "Retro": "Imagen es la opción que permite subir por medio de URL.",
             "Opciones":[
                 {
                     "item": "a",
@@ -994,7 +994,7 @@
                 },
                 {
                     "item": "b",
-                    "text":"Dibujar",
+                    "text":"Imagen",
                     "correcta": true
                 },
                 {
@@ -1004,7 +1004,7 @@
                 },
                 {
                     "item": "d",
-                    "text":"Imagenes",
+                    "text":"Dibujo",
                     "correcta": false
                 }
             ] 
@@ -1040,8 +1040,8 @@
         {
             "id": 16, 
             "Tipo": 1,
-            "Pregunta": "¿Word nos permite usar portadas predeterminadas?",
-            "Retro": "Word si nos permite usar portadas predeterminadas",
+            "Pregunta": "¿Google Docs nos permite elaborar un documento sin tipear?",
+            "Retro": "Docs si nos permite elaborar un documento solo por comando de voz.",
             "Opciones":[
                 {
                     "item": "a",
@@ -1087,27 +1087,27 @@
         {
             "id": 18, 
             "Tipo": 0,
-            "Pregunta": "¿Cuál de las siguientes opciones se permite modificar en disposición?",
-            "Retro": "MARGENES es la opción que se nos permite modificar en disposición",
+            "Pregunta": "¿Cuál de las siguientes opciones no pertenece a viñetas y numeración?",
+            "Retro": "COLUMNAS es la opción que nos permite crear y modificar las columnas del documento.",
             "Opciones":[
                 {
                     "item": "a",
-                    "text":"Margenes",
+                    "text":"Columnas",
                     "correcta": true
                 },
                 {
                     "item": "b",
-                    "text":"Color",
+                    "text":"Lista numerada",
                     "correcta": false
                 },
                 {
                     "item": "c",
-                    "text":"Titulo",
+                    "text":"Lista con viñetas",
                     "correcta": false
                 },
                 {
                     "item": "d",
-                    "text":"Fuente",
+                    "text":"Lista de comprobación",
                     "correcta": false
                 }
             ] 
@@ -1115,8 +1115,8 @@
         {
             "id": 19, 
             "Tipo": 1,
-            "Pregunta": "¿Click derecho nos muestra los atajos de Word?",
-            "Retro": "CLICK DERECHO SI nos muestra los atajos de Word",
+            "Pregunta": "¿Click derecho nos muestra los atajos de Google Docs?",
+            "Retro": "CLICK DERECHO SI nos muestra los atajos de Docs",
             "Opciones":[
                 {
                     "item": "a",
