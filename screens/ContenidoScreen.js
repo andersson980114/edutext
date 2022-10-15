@@ -80,7 +80,7 @@ export default function ContenidoScreen({navigation}) {
 
         snapToInterval={ANCHO_CONTENEDOR}
         decelerationRate={0}
-        scrollEventThrottle={16}
+        scrollEventThrottle={10}
         
         //contenido
         data={content}

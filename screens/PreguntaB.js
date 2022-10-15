@@ -44,8 +44,10 @@ export default function PreguntaB({ navigation }) {
     setShow(false)
   }
   
+  //si la respuesta es erronea, se repite
   const setRetro = (respuesta) =>{
     if(!respuesta){  
+      console.log("\n\n=========================== INCORRECTO ===========================");
       const repite = {val: pregunta[1], estado:false}
       let actual = items
       actual.unshift(repite)  
