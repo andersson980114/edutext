@@ -153,7 +153,7 @@ export  function  getEvaluado(db, id, setEvaluado){
 export  function  getCompletados(db, setCompletados){
     db.transaction((tx) => {
         tx.executeSql(
-            `select * from nivel where  completed = 1`,
+            `select * from nivel where completed != '${0}'`,
             [],
             (sqlTxn, res) => {
                 const item = res.rows.length;
