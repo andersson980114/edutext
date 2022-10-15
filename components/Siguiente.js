@@ -120,10 +120,7 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
                 //las pruebas se dan por un array de 1 a 5 puestos. Por ende si hay pruebas en el array se ejecuta lo siguiente                 
                 if(items.length>0 ){
                     handlePress(false)
-                    //se reasigna la nueva pregunta
-                    //console.log("residuo:",items) 
-                    console.log("\n\n=========================== Residuo ===========================");
-                    console.log(items);
+                    //se reasigna la nueva pregunta 
                     handlePregunta([opcion[0], items.pop().val])  
                     
                     //se navega de nuevo a la prueba con la nueva pregunta

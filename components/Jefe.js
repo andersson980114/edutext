@@ -39,9 +39,7 @@ export default function Jefe({ nivel,nombre, Onchage}) {
         ans.map((item)=>{
             preguntas.push({val: item, estado:false})
         })
-        handleItems(preguntas) 
-        console.log("\n\n=========================== Inicial ===========================");
-        console.log(preguntas)
+        handleItems(preguntas)  
         return preguntas.pop()
     }
     //disparador que se ejecuta al presionar la card
