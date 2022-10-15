@@ -70,22 +70,23 @@ export default function TemasScreen({navigation }) {
   //modal Insignia
   const insignia = (db, id) =>{
     // console.log("desbloqueada Insignia: ", id)
-      updateInsignia(db, id+2, false)//debloqueamos insignia
-      handleEvaluado(true)
-      setTexto(""+Insignias[id+1].Descripcion)
-      setShow(true)
-      setTitulo('¡Insignia Desbloqueada!') 
-      setImagen(Insignias[id+1].url)
-      setSuccess(true)
-      setBotones([
-      {
-          texto: "Aceptar",
-          id: 0,  
-          success: false,
-          boton: "succes"
+    
+        updateInsignia(db, id+2, false)//debloqueamos insignia
+        handleEvaluado(true)
+        setTexto(""+Insignias[id+1].Descripcion)
+        setShow(true)
+        setTitulo('¡Insignia Desbloqueada!') 
+        setImagen(Insignias[id+1].url)
+        setSuccess(true)
+        setBotones([
+        {
+            texto: "Aceptar",
+            id: 0,  
+            success: false,
+            boton: "succes"
 
-      }
-      ]) 
+        }
+        ]) 
   }
 
   //modal avatar
@@ -113,16 +114,22 @@ export default function TemasScreen({navigation }) {
     getNivels(db, opcion, setNiveles)
     getAvatarStatus(db, puntaje-(puntaje%20), setBloqueado)
     if(opcion[1]>0){
-      ni = nivel[1]+1+5
+      ni = nivel[1]+5
     }else{
         ni = nivel[1]+1
     } 
 
     if(!completado && progreso>=100){
       console.log("completado")
-      insignia(db, ni)
-      completedNivel(db, ni, true)
-      setShow(true)
+      let imge =ni+1;
+      let IdIns=ni+2;//id insignia
+      console.log("id: ",ni, " id+2:",ni+2);
+
+      if( IdIns != 6 && IdIns != 10){
+        insignia(db, ni)
+        completedNivel(db, ni, true)
+        setShow(true)
+      }
     }
     
     console.log("Bloqueado?",bloqueado[0], bloqueado[1])

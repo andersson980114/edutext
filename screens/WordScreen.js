@@ -64,10 +64,10 @@ export default function WordScreen({ navigation }) {
   const insignia = (db, id) =>{
     // console.log("desbloqueada insignia: ", id, nivel)
       updateInsignia(db, id+1, false)
-      setTexto(""+Insignias[id+1].Descripcion)
+      setTexto(Insignias[id].Descripcion)
       setShow(true)
       setTitulo('¡Insignia Desbloqueada!') 
-      setImagen(Insignias[id+1].url)
+      setImagen(Insignias[id].url)
       setSuccess(true)
       setBotones([
       {
@@ -148,9 +148,11 @@ export default function WordScreen({ navigation }) {
   }, [bloqueado[0], bloqueado[1]])
 
   useEffect(() => {
-    console.log("caminos", caminos);
+    console.log("------------caminos", caminos);
+    console.log("-------------Completados:", completados)
     if(completados>=8 && caminos==1){
       console.log("completados")
+      insignia(db, 11)
     }
   }, [completados, caminos])
   

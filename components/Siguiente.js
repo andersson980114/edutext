@@ -29,7 +29,7 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
     //contexts
     const {db, counte} = UseDbContext()
     const {tema, handleTema} = UseTemaContext();
-    const {info,handleInfoTema} = UseInfoTemaContext()
+    const {info,handleInfoTema} = UseInfoTemaContext()//visto, completado
     const {nivel, handleNivel} =  UseNivelContext() 
     const {pregunta, handlePregunta} = UsePreguntaContext()
     const {opcion, handleOpcion} =  UseOpcionContext() 
@@ -51,8 +51,9 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
     const [botones, setBotones] = useState([]) 
     const [success, setSuccess] = useState(false)
 
+    //cerrar el modal
     const cerrar = () =>{
-        handleEvaluado(true) 
+        //handleEvaluado(true) ////
         setShow(false)
         if(nivel[0]=="Introducción"){
             
@@ -64,8 +65,9 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
 
     
     const insignia = (db, id) =>{
-       // console.log("desbloqueada insignia: ", id, nivel)
+       // console.log("desbloqueada insignia: ", id, nivel) 
         updateInsignia(db, id, false)
+        handleEvaluado(false)
         setTexto(Insignias[id-1].Descripcion)
         setShow(true)
         setTitulo('¡Insignia Desbloqueada!') 
@@ -84,41 +86,43 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
  
 
     const handleChange = () =>{
-        var val= random(nivel[1], (parseInt(nivel[1])+1)*3) 
-        
+        var val= random(nivel[1], (parseInt(nivel[1])+1)*5) 
+        //obtenemos el id del nivel  en la db
         if(opcion[1]>0){
             ni = nivel[1]+1+5
         }else{
             ni = nivel[1]+1
         }
          
-        handlePregunta([opcion[0], val]) 
-        //console.log("get:", info[0])
-        //si no es onboarding
+        //handlePregunta([opcion[0], val]) 
+        //Si no es onboarding ejecuta:
         if(pregunta[0]!='Onboarding'){
             //info[0] = visto, info[1]= completado
-            if(info[0] && !info[1]){  
+            //si el tema fue visto, y no está completado y no es Prueba aumenta 20pts al nivle
+            //si el tema es Prueba se trata aparete
+            if(info[0] && !info[1] && tema[0]!="Prueba"){  
                 if(progreso<100){
                 updateNivel(db,  ni, 20)
                 handleProgreso(progreso+20)}
                 //console.log(progreso)
             }
-            //si el tema tiene prueba y el tema no esta visto
+            //Si el tema tiene prueba y el tema no esta completado:
             if(prueba && !info[1]){
                 let id= tema[1]+1  
-                handleInfoTema([false, true]) //tema visto(para que no se repita una prueba en el tema)
+                handlePregunta([opcion[0], val]) 
+                handleInfoTema([false, true]) //tema completado(para que no se repita una prueba en el tema)
                 completeTema(db, id, true) 
                 navigation.navigate('PreguntaB')//nos dirigimos a prueba
             
             //si estamos en la prueba
             }else if(tema[0]=="Prueba" ){ 
                 
-                //las pruebas se dan por un array de 1 a 5 puestos. Por ende si hay pruebas en el array se ejecuta lo siguiente 
+                //las pruebas se dan por un array de 1 a 5 puestos. Por ende si hay pruebas en el array se ejecuta lo siguiente                 
                 if(items.length>0 ){
                     handlePress(false)
-                    //se reasigna la nueva pregunta
-                    //console.log("residuo:",items)
+                    //se reasigna la nueva pregunta 
                     handlePregunta([opcion[0], items.pop().val])  
+                    
                     //se navega de nuevo a la prueba con la nueva pregunta
                     navigation.navigate('PreguntaB')
                 
@@ -130,20 +134,22 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
                         //si no se ha realizado se aumenta el progreso en 20 
                         //    se cambia el estado de evaluado a true
                         //    se navega a la ventana anterior
+                        handleEvaluado(true)
                         handleProgreso(progreso+20)
                         updateNivel(db,  ni, 20)
                         evaluatedNivel(db, ni, true)
                         //verificamos si es introducción si es así se desvloquea y mostramos el modal
                         if(nivel[0]=="Introducción" && opcion[0]=="Word"){
+                             
                             insignia(db, 10)
-                        }else if(nivel[0]=="Introducción" && opcion[0]=="Word"){
+                        }else if(nivel[0]=="Introducción" && opcion[0]=="Docs"){
+                             
                             insignia(db, 11)
                         }else{
                             navigation.dispatch(StackActions.pop(1))
                         }
                     }else{
                         //si ya se evaluó solo se dirije a una ventana anterior
-                        handleEvaluado(false)
                         navigation.dispatch(StackActions.pop(1))
                     }
                     //console.log("handleEvaluado", evaluado)
@@ -163,13 +169,12 @@ export default function Siguiente({cantidad, id, prueba, visto, navigation}) {
 
                 //si no es prueba solo se va hacia atrás
                 }else{
-
                     //preguntamos si estamos en Abrir word o Abrir docs, si es así, se desbloquea la insignia correspondiente
                    //console.log("info", info)
-                    if(tema[0]=="Abrir Word" && info[1]==0){
+                    if(tema[0]=="Abrir Word" && info[1]==0){ 
                         insignia(db, 2)
                         setShow(true)
-                    }else if(tema[0]=="Abrir Docs" && info[1]==0){
+                    }else if(tema[0]=="Abrir Docs" && info[1]==0){ 
                         insignia(db, 6)
                         setShow(true)
                     //si nos prueba ni introduccion solo se devuelve
