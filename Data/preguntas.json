@@ -184,7 +184,7 @@
         {
             "id": 3, 
             "Tipo": 0,
-            "Pregunta": "El punto de inserción se encarga de:",
+            "Pregunta": "El punto de inserción en Word se encarga de:",
             "Retro": "El punto de inserción es el encargado de MARCAR el lugar del inicio de la escritura",
             "Opciones":[
                 {
@@ -194,13 +194,13 @@
                 },
                 {
                     "item": "b",
-                    "text":"Signos de puntuación",
-                    "correcta": false
+                    "text":"Marca el lugar del inicio de la escritura",
+                    "correcta": true
                 },
                 {
                     "item": "c",
-                    "text":"Marca el lugar del inicio de la escritura",
-                    "correcta": true
+                    "text":"Signos de puntuación",
+                    "correcta": false
                 },
                 {
                     "item": "d",
@@ -278,7 +278,7 @@
             "Tipo": 2,
             "Inicio": "Podemos usar la opción de",
             "Fin": "para hacer énfasis en nuestro texto",
-            "Retro": "RESALTAR es una opción de fuente que nos permite hacer énsfasis en el texto, más no es una opción del portapapeles",
+            "Retro": "RESALTAR es una opción de fuente que nos permite hacer énsfasis en el texto",
             "Opciones":[
                 {
                     "item": "a",
@@ -325,7 +325,7 @@
             "Tipo": 2,
             "Inicio": "El aplicar espacio de texto hacia la hoja, se conoce como",
             "Fin": ".",
-            "Retro": "RESALTAR es una opción de fuente que nos permite hacer énsfasis en el texto, más no es una opción del portapapeles",
+            "Retro": "SANGRÍA es el espaciado que existe del texto hacia la hoja",
             "Opciones":[
                 {
                     "item": "a",
@@ -353,7 +353,7 @@
             "id": 10, 
             "Tipo": 0,
             "Pregunta": "¿Cuál de las siguientes opciones no es de Páginas?",
-            "Retro": "Cubrir Página no es una opción siquiera de Microsoft Word",
+            "Retro": "CUBRIR Página no es una opción siquiera de Microsoft Word",
             "Opciones":[
                 {
                     "item": "a",
@@ -429,7 +429,7 @@
             "Tipo": 2,
             "Inicio": "En la pestaña de ",
             "Fin": " Podemos agregar un pie de pagina",
-            "Retro": "En la pestaña de Encabezado y Pie de Pagina podemos agregar un pie de pagina",
+            "Retro": "En la pestaña de ENCABEZADO Y PIE DE PÁGINA podemos agregar un pie de pagina",
             "Opciones":[
                 {
                     "item": "a",
@@ -689,8 +689,8 @@
             "Opciones":[
                 {
                     "item": "a",
-                    "text":"Plantilla",
-                    "correcta": true
+                    "text":"Página",
+                    "correcta": false
                 },
                 {
                     "item": "b",
@@ -699,8 +699,8 @@
                 },
                 {
                     "item": "c",
-                    "text":"Vista",
-                    "correcta": false
+                    "text":"Plantilla",
+                    "correcta": true
                 },
                 {
                     "item": "d",
@@ -712,7 +712,7 @@
         {
             "id": 3, 
             "Tipo": 0,
-            "Pregunta": "El punto de inserción se encarga de:",
+            "Pregunta": "El punto de inserción en Docs se encarga de:",
             "Retro": "El punto de inserción es el encargado de MARCAR el lugar del inicio de la escritura",
             "Opciones":[
                 {
@@ -806,7 +806,7 @@
             "Tipo": 2,
             "Inicio": "Podemos usar la opción de",
             "Fin": "para hacer énfasis en nuestro texto",
-            "Retro": "RESALTAR es una opción de fuente que nos permite hacer énsfasis en el texto, más no es una opción del portapapeles",
+            "Retro": "RESALTAR es una opción de fuente que nos permite hacer énsfasis en el texto",
             "Opciones":[
                 {
                     "item": "a",
@@ -815,18 +815,18 @@
                 },
                 {
                     "item": "b",
-                    "text":"Cuenta",
+                    "text":"Compartir",
                     "correcta": false
                 },
                 {
                     "item": "c",
-                    "text":"Opción",
-                    "correcta": false
+                    "text":"Resaltar",
+                    "correcta": true
                 },
                 {
                     "item": "d",
-                    "text":"Resaltar",
-                    "correcta": true
+                    "text":"Pegar",
+                    "correcta": false
                 }
             ] 
         },
@@ -863,12 +863,12 @@
                 {
                     "item": "b",
                     "text":"Impresión",
-                    "correcta": true
+                    "correcta": false
                 },
                 {
                     "item": "c",
                     "text":"Sangría",
-                    "correcta": false
+                    "correcta": true
                 },
                 {
                     "item": "d",
@@ -927,18 +927,18 @@
             "id": 12, 
             "Tipo": 2,
             "Inicio": "Podemos usar la opción de",
-            "Fin": "para agregar Fotos al documento",
+            "Fin": "para insertar rutas a nuestro documento",
             "Retro": "Con la opcion de IMAGENES podemos agregar cualquier foto a nuestro documento",
             "Opciones":[
                 {
                     "item": "a",
                     "text":"Imagenes",
-                    "correcta": true
+                    "correcta": false
                 },
                 {
                     "item": "b",
-                    "text":"Tablas",
-                    "correcta": false
+                    "text":"Enlace",
+                    "correcta": true
                 },
                 {
                     "item": "c",
@@ -1022,13 +1022,13 @@
                 },
                 {
                     "item": "b",
-                    "text":"Autor",
-                    "correcta": false
+                    "text":"Contactos",
+                    "correcta": true
                 },
                 {
                     "item": "c",
-                    "text":"Dispositivo",
-                    "correcta": true
+                    "text":"Autor",
+                    "correcta": false
                 },
                 {
                     "item": "d",
