@@ -206,7 +206,7 @@ export default function RegisterScreen({navigation}) {
         <View style={styles.formu}>
           <SafeAreaView >
               <Text style={styles.text}>
-                Nombre:
+                Primer Nombre:
               </Text> 
 
               <TextInput
@@ -217,7 +217,7 @@ export default function RegisterScreen({navigation}) {
 
               /> 
               <Text style={styles.text}>
-                Apellido:
+                Primer Apellido:
               </Text>
 
               <TextInput

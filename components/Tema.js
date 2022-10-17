@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { View, Image, Text, TouchableOpacity,StyleSheet, Dimensions, } from 'react-native'
-import { UseInfoTemaContext } from '../Contexts/InfoProvider';
+import { UseCompletadoContext, UseInfoTemaContext } from '../Contexts/InfoProvider';
 import { updateTema } from '../utils/temaModel';
  
 //componente encargado en mostrar los cards de los temas
@@ -8,12 +8,14 @@ export default function Tema({db, nombre, Texto, favo, completado, visto, Onchag
     const  [fav, setFav] = useState(favo)
     const  [favor, setFavor] = useState(0)
     const {info,handleInfoTema} = UseInfoTemaContext()
+    const {completed, handleConpleted} = UseCompletadoContext()
     const favorite = require('../assets/screenAssets/favorite.png') ;
     const noFavorite =  require('../assets/screenAssets/noFavorite.png');
     //call back
     const handleChange = () =>{
         handleInfoTema([true, completado])
         update([nombre[1], fav, true, completado])
+        console.log("nivel completado?",completado)
         Onchage(nombre)
     }
     //cambiar el estado de favorito

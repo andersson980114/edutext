@@ -179,7 +179,7 @@ export default function TemasScreen({navigation }) {
 
 
   const handleChange = (nombre) => { 
-    handleTema(nombre)
+    handleTema(nombre) 
     navigation.navigate('Contenido')
   }
 
