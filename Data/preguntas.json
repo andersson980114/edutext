@@ -637,121 +637,111 @@
         {
             "id": 0, 
             "Tipo": 0,
-            "Pregunta": "¿Cuál de las siguientes opciones no es de la primera vista?",
-            "Retro": "Compartir no es una opción de la primera vista, debido a que es una opción del documento",
+            "Pregunta": "¿Cuál de las siguientes opciones no pertenece a la primera vista de Docs?",
+            "Retro": "Descargar es una opción dentro del documento, no de primera vista.",
             "Opciones":[
                 {
                     "item": "a",
-                    "text":"Crear Documento",
+                    "text":"Plantillas",
                     "correcta": false
                 },
                 {
                     "item": "b",
-                    "text":"Documentos Recientes",
+                    "text":"Documentos recientes",
                     "correcta": false
                 },
                 {
                     "item": "c",
-                    "text":"Compartir",
-                    "correcta": true
+                    "text":"Documento en blanco",
+                    "correcta": false
                 },
                 {
                     "item": "d",
-                    "text":"Plantillas",
-                    "correcta": false
+                    "text":"Descargar",
+                    "correcta": true
                 }
             ] 
         },
         {
             "id": 1, 
             "Tipo": 1,
-            "Pregunta": "¿Google Docs nos permite elegir plantillas para nuestro documento?",
-            "Retro": "Docs si nos permite elegir plantillas en blanco o personalizadas para los documentos",
+            "Pregunta": "¿Puede usar Google Docs sin haber accedido a la cuenta Google?",
+            "Retro": "Para usar Google Docs, primero debe haber creado una cuenta Google y acceder en ella.",
             "Opciones":[
                 {
                     "item": "a",
                     "text":"Verdadero",
-                    "correcta": true
+                    "correcta": false
                 },
                 {
                     "item": "b",
                     "text":"Falso",
-                    "correcta": false
+                    "correcta": true
                 }
             ] 
         },
         {
             "id": 2, 
             "Tipo": 2,
-            "Inicio": "Documento en blanco es una",
-            "Fin": "que permite crear un nuevo documento",
-            "Retro": "Documento en blanco es una PLANTILLA que nos permite crear un nuevo documento",
+            "Inicio": "El punto de inserción es una",
+            "Fin": "intermitente que indica donde va a aparecer el siguiente carácter que se escriba.",
+            "Retro": "El punto de inserción es una LÍNEA VERTICAL o barra con forma de l.",
             "Opciones":[
                 {
                     "item": "a",
-                    "text":"Página",
-                    "correcta": false
+                    "text":"Línea vertical",
+                    "correcta": true
                 },
                 {
                     "item": "b",
-                    "text":"Cuenta",
+                    "text":"Punto",
                     "correcta": false
                 },
                 {
                     "item": "c",
                     "text":"Plantilla",
-                    "correcta": true
+                    "correcta": false
                 },
                 {
                     "item": "d",
-                    "text":"Versión",
+                    "text":"Letra",
                     "correcta": false
                 }
             ] 
         },
         {
             "id": 3, 
-            "Tipo": 0,
-            "Pregunta": "El punto de inserción en Docs se encarga de:",
-            "Retro": "El punto de inserción es el encargado de MARCAR el lugar del inicio de la escritura",
+            "Tipo": 1,
+            "Pregunta": "¿Solo puede compartirse el Documento agregando el correo del otro integrante?",
+            "Retro": "Puede compartir el DOCUMENTO por correo o por enlace.",
             "Opciones":[
                 {
                     "item": "a",
-                    "text":"Indicar el tipo de formato",
+                    "text":"Verdadero",
                     "correcta": false
                 },
                 {
                     "item": "b",
-                    "text":"Signos de puntuación",
-                    "correcta": false
-                },
-                {
-                    "item": "c",
-                    "text":"Marca el lugar del inicio de la escritura",
+                    "text":"Falso",
                     "correcta": true
-                },
-                {
-                    "item": "d",
-                    "text":"Crear un documento en blanco",
-                    "correcta": false
                 }
             ] 
         },
         {
             "id": 4, 
             "Tipo": 1,
-            "Pregunta": "¿Google Docs permite guardar un mismo documento en diversos formatos?",
-            "Retro": "Docs si nos permite guardar un mismo documento en diversos formatos como .Pdf o .Docx",
+            "Pregunta": "¿Para abrir un documento en DOCS, solo puede hacerlo si está almacenado en la nube?",
+            "Retro": "Docs permite abrir un documento almacenado en la nube y también en el equipo.",
             "Opciones":[
                 {
                     "item": "a",
                     "text":"Verdadero",
-                    "correcta": true
+                    "correcta": false
                 },
                 {
                     "item": "b",
                     "text":"Falso",
-                    "correcta": false
+                    "correcta": true
                 }
             ] 
         }, 
