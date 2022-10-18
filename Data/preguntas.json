@@ -748,36 +748,36 @@
         {
             "id": 5, 
             "Tipo": 0,
-            "Pregunta": "¿Cuál de las siguientes opciones no es de Configuración de página?",
-            "Retro": "ESCALA es una opción de impresión que nos permite ajustar los detalles del documento.",
+            "Pregunta": "¿Cuál de las siguientes opciones permite ingresar bastantes imágenes?",
+            "Retro": "SIN PÁGINAS permite ingresar bastantes imágenes o tablas anchas, en la configuración de página.",
             "Opciones":[
                 {
                     "item": "a",
-                    "text":"Orientación",
+                    "text":"Márgenes",
                     "correcta": false
                 },
                 {
                     "item": "b",
-                    "text":"Tamaño de papel",
-                    "correcta": false
+                    "text":"Sin páginas",
+                    "correcta": true
                 },
                 {
                     "item": "c",
-                    "text":"Color de página",
+                    "text":"Orientación",
                     "correcta": false
                 },
                 {
                     "item": "d",
-                    "text":"Escala",
-                    "correcta": true
+                    "text":"Páginas",
+                    "correcta": false
                 }
             ] 
         },
         {
             "id": 6, 
             "Tipo": 1,
-            "Pregunta": "¿Google Docs nos permite asignar diferentes colores a nuestras fuentes?",
-            "Retro": "Docs nos permite asignar colores, tamaños y demás estilos a las fuentes de textos",
+            "Pregunta": "¿Google Docs tiene la función de seleccionar todo?",
+            "Retro": "Docs nos tiene la función de Seleccionar todo, ubicado en la pestaña Editar.",
             "Opciones":[
                 {
                     "item": "a",
@@ -794,28 +794,28 @@
         {
             "id": 7, 
             "Tipo": 2,
-            "Inicio": "Podemos usar la opción de",
-            "Fin": "para hacer énfasis en nuestro texto",
+            "Inicio": "La pestaña de",
+            "Fin": "permite tener visibilidad del diseño de impresión, regla, esquma, saltos de sección.",
             "Retro": "RESALTAR es una opción de fuente que nos permite hacer énsfasis en el texto",
             "Opciones":[
                 {
                     "item": "a",
-                    "text":"Plantilla",
-                    "correcta": false
+                    "text":"Ver",
+                    "correcta": true
                 },
                 {
                     "item": "b",
-                    "text":"Compartir",
+                    "text":"Formato",
                     "correcta": false
                 },
                 {
                     "item": "c",
-                    "text":"Resaltar",
-                    "correcta": true
+                    "text":"Herramientas",
+                    "correcta": false
                 },
                 {
                     "item": "d",
-                    "text":"Pegar",
+                    "text":"Extensiones",
                     "correcta": false
                 }
             ] 
@@ -823,46 +823,46 @@
         {
             "id": 8, 
             "Tipo": 1,
-            "Pregunta": "¿Si desea cambiar los estilos aplicados en el texto, debe borrar todo y escribirlo de nuevo?",
-            "Retro": "No es necesario escribir de nuevo el texto, solo se debe seleccionar y aplicarle los estilos deseados",
+            "Pregunta": "¿Google Docs tiene una opción para eliminar los seleccionado?",
+            "Retro": "Google Docs tiene la opción de Eliminar en la pestaña Editar.",
             "Opciones":[
                 {
                     "item": "a",
                     "text":"Verdadero",
-                    "correcta": false
+                    "correcta": true
                 },
                 {
                     "item": "b",
                     "text":"Falso",
-                    "correcta": true
+                    "correcta": false
                 }
             ] 
         },
         {
             "id": 9, 
             "Tipo": 2,
-            "Inicio": "El aplicar espacio de texto hacia la hoja, se conoce como",
+            "Inicio": "La opción de insertar barras, líneas, columnas y hoja de cálculo se conoce cómo:",
             "Fin": ".",
-            "Retro": "SANGRÍA se refiere a la distancia entre el margen de la página y el borde derecho o izquierdo del párrafo.",
+            "Retro": "La opción de GRÁFICO, ayuda en la inserción de columnas, líneas, barras y hoja de cálculo. ",
             "Opciones":[
                 {
                     "item": "a",
-                    "text":"Salto de línea",
+                    "text":"Línea horizontal",
                     "correcta": false
                 },
                 {
                     "item": "b",
-                    "text":"Impresión",
+                    "text":"Imagen",
                     "correcta": false
                 },
                 {
                     "item": "c",
-                    "text":"Sangría",
+                    "text":"Gráfico",
                     "correcta": true
                 },
                 {
                     "item": "d",
-                    "text":"Alineación",
+                    "text":"Tabla",
                     "correcta": false
                 }
             ] 
@@ -870,27 +870,27 @@
         {
             "id": 10, 
             "Tipo": 0,
-            "Pregunta": "¿Con cuál navegador puede ser abierto Google Docs?",
+            "Pregunta": "¿Con cuál opción puedes poner la letra más gruesa?",
             "Retro": "Google Docs puede ser abierto desde cualquier navegador.",
             "Opciones":[
                 {
                     "item": "a",
-                    "text":"Mozilla",
-                    "correcta": false
+                    "text":"Negrita",
+                    "correcta": true
                 },
                 {
                     "item": "b",
-                    "text":"Google Chrome",
+                    "text":"Cursiva",
                     "correcta": false
                 },
                 {
                     "item": "c",
-                    "text":"Todas las anteriores",
-                    "correcta": true
+                    "text":"Tachar",
+                    "correcta": false
                 },
                 {
                     "item": "d",
-                    "text":"Brave",
+                    "text":"Subrayar",
                     "correcta": false
                 }
             ] 
@@ -898,8 +898,8 @@
         {
             "id": 11, 
             "Tipo": 1,
-            "Pregunta": "¿Google Docs nos permite quitar la portada de un documento?",
-            "Retro": "Docs si nos permite quitar la portada actual de un documento",
+            "Pregunta": "¿Google Docs permite agregar una imagen por medio de la cámara?",
+            "Retro": "Google Docs tiene la opción en la pestaña Insertas>Imagen>Cámara.",
             "Opciones":[
                 {
                     "item": "a",
@@ -915,48 +915,66 @@
         },
         {
             "id": 12, 
-            "Tipo": 2,
-            "Inicio": "Podemos usar la opción de",
-            "Fin": "para insertar rutas a nuestro documento",
-            "Retro": "Con la opcion de IMAGENES podemos agregar cualquier foto a nuestro documento",
+            "Tipo": 1,
+            "Pregunta": "¿Google Docs permite alinear el texto del párrafo?",
+            "Retro": "Google Docs permite linear a la izquierda, derecha, centrado y justificado el texto.",
             "Opciones":[
                 {
                     "item": "a",
-                    "text":"Imagenes",
-                    "correcta": false
-                },
-                {
-                    "item": "b",
-                    "text":"Enlace",
+                    "text":"Verdadero",
                     "correcta": true
                 },
                 {
-                    "item": "c",
-                    "text":"Fuente",
-                    "correcta": false
-                },
-                {
-                    "item": "d",
-                    "text":"Resaltar",
+                    "item": "b",
+                    "text":"Falso",
                     "correcta": false
                 }
-            ] 
+            ]  
         },
         {
             "id": 13, 
             "Tipo": 2,
-            "Inicio": "En la pestaña de ",
-            "Fin": " Podemos Rehacer lo realizado en el documento.",
-            "Retro": "En la pestaña de Editar podemos rehacer/deshacer lo realizado en el documento.",
+            "Inicio": "Puede usar la opción de",
+            "Fin": "para listar el texto numéricamente.",
+            "Retro": "Con la opcion de LISTA NUMERADA puede listar el texto numéricamente.",
             "Opciones":[
                 {
                     "item": "a",
-                    "text":"Formato",
+                    "text":"Lista numerada",
+                    "correcta": true
+                },
+                {
+                    "item": "b",
+                    "text":"Lista con viñetas",
+                    "correcta": false
+                },
+                {
+                    "item": "c",
+                    "text":"Lista de comprobación",
+                    "correcta": false
+                },
+                {
+                    "item": "d",
+                    "text":"Enumerar",
+                    "correcta": false
+                }
+            ]  
+        },
+        {
+            "id": 14, 
+            "Tipo": 2,
+            "Inicio": "En la opción de ",
+            "Fin": "permite configurar la numeración y posición.",
+            "Retro": "La opción de NUMEROS DE PÁGINA permite configurar la posición del numero.",
+            "Opciones":[
+                {
+                    "item": "a",
+                    "text":"Marca de agua",
                     "correcta": false
                 },
                 {
                     "item": "b",
-                    "text":"Editar",
+                    "text":"Numeros de página",
                     "correcta": true
                 },
                 {
@@ -966,41 +984,41 @@
                 },
                 {
                     "item": "d",
-                    "text":"Ver",
+                    "text":"Herramientas",
                     "correcta": false
                 }
-            ] 
-        },
+            ]  
+        }, 
         {
-            "id": 14, 
+            "id": 15, 
             "Tipo": 0,
-            "Pregunta": "¿Cuál de las siguientes opciones de Ilustraciones  permite insertar por URL?",
-            "Retro": "Imagen es la opción que permite subir por medio de URL.",
+            "Pregunta": "¿Cuál de las siguientes opciones de atajos de teclado permite deshacer?",
+            "Retro": "[Ctrl] + [z] permite deshacer lo realizado en el documento.",
             "Opciones":[
                 {
                     "item": "a",
-                    "text":"Gráficos",
+                    "text":"[Ctrl] + [x]",
                     "correcta": false
                 },
                 {
                     "item": "b",
-                    "text":"Imagen",
-                    "correcta": true
+                    "text":"[Ctrl] + [c]",
+                    "correcta": false
                 },
                 {
                     "item": "c",
-                    "text":"Formas",
+                    "text":"[Ctrl] + [v]",
                     "correcta": false
                 },
                 {
                     "item": "d",
-                    "text":"Dibujo",
-                    "correcta": false
+                    "text":"[Ctrl] + [z]",
+                    "correcta": true
                 }
             ] 
-        }, 
+        },
         {
-            "id": 15, 
+            "id": 16, 
             "Tipo": 0,
             "Pregunta": "¿Cuál de las siguientes opciones no se permite en la portada?",
             "Retro": "DISPOSITIVO no es una Opcion de portada",
@@ -1025,10 +1043,10 @@
                     "text":"Fecha",
                     "correcta": false
                 }
-            ] 
+            ]  
         },
         {
-            "id": 16, 
+            "id": 17, 
             "Tipo": 1,
             "Pregunta": "¿Google Docs nos permite elaborar un documento sin tipear?",
             "Retro": "Docs si nos permite elaborar un documento solo por comando de voz.",
@@ -1041,35 +1059,6 @@
                 {
                     "item": "b",
                     "text":"Falso",
-                    "correcta": false
-                }
-            ] 
-        },
-        {
-            "id": 17, 
-            "Tipo": 2,
-            "Inicio": "Para insertar una tabla debemos escoger las",
-            "Fin": ".",
-            "Retro": "Las FILAS y COLUMNAS son necesarias para generar una tabla",
-            "Opciones":[
-                {
-                    "item": "a",
-                    "text":"Filas y Columnas",
-                    "correcta": true
-                },
-                {
-                    "item": "b",
-                    "text":"Frases y Palabras",
-                    "correcta": false
-                },
-                {
-                    "item": "c",
-                    "text":"Colores y Fuentes",
-                    "correcta": false
-                },
-                {
-                    "item": "d",
-                    "text":"Imagenes y formas",
                     "correcta": false
                 }
             ] 
