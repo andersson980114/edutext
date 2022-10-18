@@ -67,43 +67,43 @@ export const Avatars = [
         id: 2,
         url:  require("../assets/insigniasAssets/BronceWord.png"),
         Bloqueado: true,
-        Descripcion: "¡Felicidades! Alcancaste el nivel BRONCE de WORD"
+        Descripcion: "¡Felicidades! Alcanzaste el nivel BRONCE de WORD"
     },
     {
         id: 3,
         url: require("../assets/insigniasAssets/PlataWord.png" ),
         Bloqueado: true,
-        Descripcion: "¡Felicidades! Alcancaste el nivel Plata de WORD"
+        Descripcion: "¡Felicidades! Alcanzaste el nivel Plata de WORD"
     },
     {
         id: 4,
         url:  require("../assets/insigniasAssets/OroWord.png"),
         Bloqueado: true,
-        Descripcion: "¡Felicidades! Alcancaste el nivel ORO de WORD"
+        Descripcion: "¡Felicidades! Alcanzaste el nivel ORO de WORD"
     },
     {
         id: 5,
         url:  require("../assets/insigniasAssets/IniciacionG.png"),
         Bloqueado: true,
-        Descripcion: "¡Felicidades! Alcancaste la INTRODUCCIÓN de DOCS"
+        Descripcion: "¡Felicidades! Realizaste la INTRODUCCIÓN de DOCS"
     },
     {
         id: 6,
         url: require("../assets/insigniasAssets/BronceDocs.png") ,
         Bloqueado: true,
-        Descripcion: "¡Felicidades! Alcancaste el nivel BRONCE de DOCS"
+        Descripcion: "¡Felicidades! Alcanzaste el nivel BRONCE de DOCS"
     },
     {
         id: 7,
         url: require("../assets/insigniasAssets/PlataDocs.png" ),
         Bloqueado: true,
-        Descripcion: "¡Felicidades! Alcancaste el nivel PLATA de DOCS"
+        Descripcion: "¡Felicidades! Alcanzaste el nivel PLATA de DOCS"
     },
     {
         id: 8,
         url: require("../assets/insigniasAssets/OroDocs.png") ,
         Bloqueado: true,
-        Descripcion: "¡Felicidades! Alcancaste el nivel ORO de DOCS"
+        Descripcion: "¡Felicidades! Alcanzaste el nivel ORO de DOCS"
     },
     {
         id: 9,
