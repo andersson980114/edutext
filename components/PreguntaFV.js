@@ -15,7 +15,7 @@ export default function PreguntaFV({navigation,onChange, tema, index, pres}) {
     return (
         <View>
             <View style={styles.pregunta} >
-                <Text style={styles.textPregunta}> 
+                <Text  allowFontScaling = {false} style={styles.textPregunta}> 
                 {tema[index].Pregunta}
                 </Text>
             </View>

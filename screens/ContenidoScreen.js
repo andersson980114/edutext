@@ -5,6 +5,7 @@ import { Contenido } from '../Data/imagenes';
 import { UseInfoContext} from "../Contexts/InfoProvider";
 import Siguiente from '../components/Siguiente';
 import * as data from '../Data/wordContenido.json'
+ 
 //imagenes staticas
 const imagenes = [
   require("../assets/Niveles/intro/1.png"),
@@ -110,7 +111,7 @@ export default function ContenidoScreen({navigation}) {
                 }}
               >
                 <Image source={item.url} style={styles.posterImage} />
-                <Text style={{ fontWeight: "bold", fontSize: 26,   paddingHorizontal:5, paddingVertical:5}}>
+                <Text  allowFontScaling = {false} style={{ fontWeight: "bold", fontSize: 26,   paddingHorizontal:5, paddingVertical:5}}>
                   {" "} 
                   {item.Texto}
                 </Text>

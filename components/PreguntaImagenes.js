@@ -29,7 +29,7 @@ export default function PreguntaImagenes({navigation ,onChange, tema, index, pre
     return (
         <View>
             <View style={styles.pregunta} >
-                <Text style={styles.textPregunta}> 
+                <Text allowFontScaling = {false}  style={styles.textPregunta}> 
                     {tema[index].Inicio} <Completado texto={texto}/> {tema[index].Fin}
                 </Text>
             </View>

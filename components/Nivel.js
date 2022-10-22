@@ -25,8 +25,8 @@ export default function Nivel({ id, nivel, nombre, img, progreso, Evaluado, Comp
             <View style={styles.cardContainer} >
                 <Pressable onPress={() => {handleChange()}} >
                     <View style={styles.topCard} > 
-                    <Text style={styles.titleIntro} >
-                    {nivel}
+                    <Text  allowFontScaling = {false} style={styles.titleIntro} >
+                      {nivel}
                     </Text>
                     </View>
                     <View  style={styles.bottomCard} >
@@ -54,7 +54,7 @@ export default function Nivel({ id, nivel, nombre, img, progreso, Evaluado, Comp
                     style={styles.imgCard}
                     />
                 </View>
-                <Text style={styles.titleCar} >
+                <Text  allowFontScaling = {false} style={styles.titleCar} >
                 {nivel}
                 </Text>
             </View>

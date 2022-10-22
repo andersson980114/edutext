@@ -35,7 +35,7 @@ export default function Retroalimentacion({respuesta, estado, navigation}) {
                 
               }}>
               
-              <Text style={styles.retoText}>{respuesta ? "Respuesta correcta +5pts." : "Error, la respuesta es incorrecta" }</Text>
+              <Text  allowFontScaling = {false} style={styles.retoText}>{respuesta ? "Respuesta correcta +5pts." : "Error, la respuesta es incorrecta" }</Text>
                   
           
             </View>
@@ -49,8 +49,7 @@ export default function Retroalimentacion({respuesta, estado, navigation}) {
     return(<View></View>)
 }
  
-
-
+ 
 const deviceWidth = Math.round(Dimensions.get('window').width)
 
 const styles = StyleSheet.create({

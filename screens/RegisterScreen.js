@@ -205,28 +205,28 @@ export default function RegisterScreen({navigation}) {
         </View>
         <View style={styles.formu}>
           <SafeAreaView >
-              <Text style={styles.text}>
+              <Text allowFontScaling = {false} style={styles.text}>
                 Primer Nombre:
               </Text> 
 
-              <TextInput
+              <TextInput  allowFontScaling = {false} 
                 style={styles.input}
                 placeholder='Ingrese su nombre' 
                 onChangeText ={setUserName}
                 value={userName} 
 
               /> 
-              <Text style={styles.text}>
+              <Text  allowFontScaling = {false} style={styles.text}>
                 Primer Apellido:
               </Text>
 
-              <TextInput
+              <TextInput allowFontScaling = {false} 
                 style={styles.input}
                 placeholder='Ingrese su Apellido' 
                 onChangeText={setLastName}
                 value={lastName}
               /> 
-              <Text style={styles.text}>
+              <Text  allowFontScaling = {false} style={styles.text}>
                 Genero:
               </Text>
 
@@ -237,7 +237,7 @@ export default function RegisterScreen({navigation}) {
               />
           
               <Pressable onPress={()=> createUser()} >
-                <Text style={styles.button}>
+                <Text  allowFontScaling = {false} style={styles.button}>
                   Ingresar
                 </Text>
               </Pressable>

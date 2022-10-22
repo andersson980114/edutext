@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useRef} from "react";
 import { StyleSheet, Text, View, Image, Alert, Dimensions, Pressable, Button, Animated} from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+ 
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
@@ -75,8 +76,9 @@ export default function OnboardingScreen({navigation})  {
               width: 310, 
               
             }}> 
-                <Text style={Styles.textUser}>¡HOLA!</Text>
-                <Text style={Styles.textUser}>Bienvenido a EDUTEXT</Text> 
+                <Text  allowFontScaling = {false}
+                style={Styles.textUser}>¡HOLA!</Text>
+                <Text allowFontScaling = {false} style={Styles.textUser}>Bienvenido a EDUTEXT</Text> 
             </View>
 
             <View style={{
@@ -84,7 +86,7 @@ export default function OnboardingScreen({navigation})  {
               backgroundColor:"#FCFFFD",
               width: 310,   
               }}> 
-                  <Text Text style={Styles.textInfo}>Aquí aprenderás a identificar e implementar los procesadores de textos que mas requieres en la actualidad</Text>  
+                  <Text allowFontScaling = {false} Text style={Styles.textInfo}>Aquí aprenderás a identificar e implementar los procesadores de textos que mas requieres en la actualidad</Text>  
             </View>
             <Image  source={require("../assets/screenAssets/oboarding1.png")}
               style={{
@@ -101,7 +103,7 @@ export default function OnboardingScreen({navigation})  {
             ]
           }}>
             <View style={Styles.info}> 
-                <Text style={Styles.textInfo}>¡Ingresa ya! Completa los desafíos y obtén las recompensas</Text>  
+                <Text allowFontScaling = {false} style={Styles.textInfo}>¡Ingresa ya! Completa los desafíos y obtén las recompensas</Text>  
                 <Image  source={require("../assets/screenAssets/oboarding2.png")} 
                 style={{
                   margin: 15,
@@ -110,7 +112,7 @@ export default function OnboardingScreen({navigation})  {
             </View>
   
             <Pressable style={Styles.button}  onPress={() => navigation.navigate('Register')}>
-              <Text style={Styles.textBut}>
+              <Text allowFontScaling = {false} style={Styles.textBut}>
               Iniciar Aventura
               </Text>
             </Pressable> 

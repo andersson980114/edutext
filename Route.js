@@ -46,27 +46,28 @@ export default function App() {
   //primero retorna el splah
   //segundo analiza si hay un usuario registrado, de esta consulta define si reenvia a RegisterScreen o al HomeScreen
     return (
-        <NavigationContainer > 
+        <NavigationContainer  > 
 
-          <Stack.Navigator    initialRouteName='Splash'
+          <Stack.Navigator    initialRouteName='Onboarding' 
+              
             screenOptions ={{ 
-                
+              
               headerStyle: {
                 backgroundColor: '#52ACB9',     
               }, 
               headerTintColor: '#fff',
               headerTitleAlign: "center",
-              headerTitleStyle:{
+              headerTitleStyle:{ 
                 fontSize:44, 
               }, 
             }}
             options={{ gestureEnabled: false }}
           >
             
-          < Stack.Screen name="Splash" component={SplashScreen}  navigation={Navigation} logueo={logueado} options={{header: ()=>null}}/>
+          < Stack.Screen name="Splash"   component={SplashScreen}  navigation={Navigation} logueo={logueado} options={{header: ()=>null}}/>
           
-          <Stack.Screen name="Example" options={() =>( {
-                headerTitle:String("¡IMPORTANTE!"), 
+          <Stack.Screen name="Example"    options={() =>( {
+                headerTitle:String("¡IMPORTANTE!"),  
                 headerStyle: {
                   backgroundColor: "#E71B1B",    
                 }, 

@@ -23,14 +23,14 @@ export default function ModalPoup({visible, titulo, texto, imagen, botones, onCh
         <Modal transparent visible={visible}>
             <View style={styles.back} >
                 <View style={styles.container} >
-                    <Text style={styles.titulo} >
+                    <Text  allowFontScaling = {false}  style={styles.titulo} >
                         {titulo}
                     </Text>
 
                     <View>
                         <Image style={styles.img} source={imagen}/>
                     </View>
-                    <Text style={styles.texto}>
+                    <Text  allowFontScaling = {false}  style={styles.texto}>
                         {texto}
                     </Text>
                     <View style={styles.contBotones} >
@@ -39,13 +39,13 @@ export default function ModalPoup({visible, titulo, texto, imagen, botones, onCh
                                 if(boton.boton === "danger"){
                                     return(
                                         <TouchableOpacity key={key} onPress={() => answer([boton.success, boton.id])}>
-                                            <Text style={styles.danger} >{boton.texto}</Text>
+                                            <Text  allowFontScaling = {false} style={styles.danger} >{boton.texto}</Text>
                                         </TouchableOpacity>
                                     )
                                 }else{
                                     return(
                                         <TouchableOpacity key={key} onPress={() => answer([boton.success, boton.id])}>
-                                            <Text style={styles.success}>{boton.texto}</Text>
+                                            <Text  allowFontScaling = {false} style={styles.success}>{boton.texto}</Text>
                                         </TouchableOpacity>
                                     )
                                 }

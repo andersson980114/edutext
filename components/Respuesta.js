@@ -65,7 +65,7 @@ export default function Respuesta({navigation, item, texto, correctaR, pres, onC
         margin: 10, 
       }} >
         <Pressable onPress={() => correcta([correctaR, texto])} >   
-            <Text style={styles.titleCar} >
+            <Text  allowFontScaling = {false} style={styles.titleCar} >
               {item} - {texto}
             </Text> 
         </Pressable>

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { View, Image, StyleSheet, Text, TouchableOpacity } from 'react-native'; 
+ 
 
 //Screen encargado de mostrar el ejemplo de contenido
 export default function ExampleScreen({navigation}) {
@@ -7,7 +8,7 @@ export default function ExampleScreen({navigation}) {
   
     return (
       <View style={styles.container}>
-        <Text
+        <Text  allowFontScaling = {false} 
            style={{fontSize: 24,  textAlign:"center", justifyContent:"center", paddingHorizontal:5}}
         >
         {mensaje}
@@ -24,7 +25,7 @@ export default function ExampleScreen({navigation}) {
           justifyContent: 'center',
           }}
         >
-          <Text
+          <Text  allowFontScaling = {false} 
              style={{fontSize: 20,  color:"#fff"}}
           >Continuar</Text>
         </TouchableOpacity>

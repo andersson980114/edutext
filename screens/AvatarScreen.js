@@ -8,7 +8,7 @@ import { UsePuntajeContext } from "../Contexts/InfoProvider";
 import { useIsFocused } from '@react-navigation/native';       
 import * as data from '../Data/avatars.json';                         
 import ModalPoup from "../components/ModalPoup"; 
-
+ 
 //Screen encargada de mostrar los avatares
 export default function AvatarScreen({ navigation }) {  
   //context
@@ -114,11 +114,11 @@ export default function AvatarScreen({ navigation }) {
         <View style={Styles.topContainer}>
           <Image source={Avatars[user].url} style={Styles.Ubox}></Image> 
           <View>
-            <Text style={Styles.textUser}>{users}</Text>
-            <Text style={Styles.textPuntos}>{puntaje}pts.</Text>
+            <Text  allowFontScaling = {false} style={Styles.textUser}>{users}</Text>
+            <Text  allowFontScaling = {false} style={Styles.textPuntos}>{puntaje}pts.</Text>
           </View>
         </View>
-        <Text style={Styles.textUser}>Mis Avatares</Text>
+        <Text  allowFontScaling = {false} style={Styles.textUser}>Mis Avatares</Text>
         <View style={Styles.boxContainer}>
           {
             Avatares.map((item) => { 

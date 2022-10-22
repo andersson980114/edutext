@@ -3,6 +3,7 @@ import { View, Image, StyleSheet, Dimensions, Pressable, Alert, BackHandler  } f
 import { UseDbContext } from "../Contexts/DataContext";
 import { UseOpcionContext,UsePreguntaContext, UsePuntajeContext } from "../Contexts/InfoProvider";
 import { getPuntaje } from "../utils/userModel";
+ 
 //Screen de Inicio
 export default function HomeScreen({ navigation }) {
   //context

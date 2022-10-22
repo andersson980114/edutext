@@ -5,7 +5,7 @@ import { View, Text, StyleSheet } from 'react-native'
 export default function Completado({texto}) {
   return (
     <View style={styles.container} >
-        <Text style={styles.texto} >
+        <Text  allowFontScaling = {false} style={styles.texto} >
             {texto}
         </Text>
     </View>

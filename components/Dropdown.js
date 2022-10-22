@@ -16,7 +16,7 @@ export default function Dropdown({
     return (
         <View>
             <TouchableOpacity  style={styles.select}  activeOpacity={0.8} onPress={() => setShow(!show)} >
-                <Text style={styles.placeholder} >
+                <Text allowFontScaling = {false}  style={styles.placeholder} >
                     {!!value ? value?.name : "Seleccionar"}
                 </Text>
                 
@@ -39,7 +39,7 @@ export default function Dropdown({
                             }}
                         >
                         
-                            <Text key={String(i)} 
+                            <Text  allowFontScaling = {false} key={String(i)} 
                                 style={{
                                 fontSize: 24,
                                 width: 267,

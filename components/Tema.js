@@ -31,7 +31,7 @@ export default function Tema({db, nombre, Texto, favo, completado, visto, Onchag
         <View  >
             <TouchableOpacity onPress={() => handleChange()}  style={styles.cardContainer}>
             
-                <Text style={styles.titleCar} >
+                <Text  allowFontScaling = {false} style={styles.titleCar} >
                     {Texto}
                 </Text>
 

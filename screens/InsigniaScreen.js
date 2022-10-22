@@ -4,7 +4,7 @@ import { Insignias } from "../Data/imagenes";
 import { getInsignia } from "../utils/insigniaModel";
 import { UseDbContext } from "../Contexts/DataContext";
 import * as data from '../Data/insignias.json';
-
+ 
 //Screen encargado de mostrar las insignias
 export default function InsigniaScreen({ navigation }) {
   const insignias = data.Insignias
@@ -32,7 +32,7 @@ export default function InsigniaScreen({ navigation }) {
   //componentes
   return (
     <View  style={Styles.container}>  
-        <Text style={Styles.textUser}>Mis Insignias</Text>
+        <Text  allowFontScaling = {false} style={Styles.textUser}>Mis Insignias</Text>
         <View style={Styles.boxContainer}>
           {
             insignia.map((item,  key) => { 

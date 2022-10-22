@@ -56,7 +56,7 @@ export default function Jefe({ nivel,nombre, Onchage}) {
             <View  >
                 <TouchableOpacity onPress={() => handleChange()}  style={styles.cardContainer}>
                 
-                    <Text style={styles.titleCar} >
+                    <Text  allowFontScaling = {false} style={styles.titleCar} >
                         Prueba
                     </Text>
      
