@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 import Navigation from './Navigations';
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -15,8 +15,11 @@ import OnboardingScreen from './screens/OnboardingScreen';
 import SplashScreen from './screens/SplashScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import ExampleScreen from './screens/ExampleScreen';
+
 const Stack = createNativeStackNavigator();
 
+const deviceHeight = Math.round(Dimensions.get('window').height) 
+const altura = deviceHeight * 0.044 
 //obtenemos el nombre de la ruta del tab menu
 function getHeaderTitle(route) {
   const routeName = getFocusedRouteNameFromRoute(route) ?? 'Inicio'; 
@@ -40,25 +43,25 @@ export default function App() {
   //context
   const {opcion, nivel, tema} = UseInfoContext()
   const {pregunta, setPregunta} = UsePreguntaContext()
-  const {db, count} = UseDbContext() 
-  
+  const {db, count} = UseDbContext()  
   //componente:
   //primero retorna el splah
   //segundo analiza si hay un usuario registrado, de esta consulta define si reenvia a RegisterScreen o al HomeScreen
     return (
         <NavigationContainer  > 
 
-          <Stack.Navigator    initialRouteName='Onboarding' 
+          <Stack.Navigator    initialRouteName='Splash' 
               
             screenOptions ={{ 
-              
+              gestureEnabled: false,
               headerStyle: {
                 backgroundColor: '#52ACB9',     
               }, 
               headerTintColor: '#fff',
-              headerTitleAlign: "center",
+              headerTitleAlign: "center", 
               headerTitleStyle:{ 
-                fontSize:44, 
+                fontSize:altura, 
+                
               }, 
             }}
             options={{ gestureEnabled: false }}
