@@ -66,7 +66,11 @@ export default function App() {
           < Stack.Screen name="Splash" component={SplashScreen}  navigation={Navigation} logueo={logueado} options={{header: ()=>null}}/>
           
           <Stack.Screen name="Example" options={() =>( {
-                headerTitle:String("Importante"), 
+                headerTitle:String("¡IMPORTANTE!"), 
+                headerStyle: {
+                  backgroundColor: "#E71B1B",    
+                }, 
+                
                 headerBackVisible:false
           })} component={ExampleScreen}  />
 

@@ -4,6 +4,7 @@ import { UseCompletadoContext, UseInfoTemaContext } from '../Contexts/InfoProvid
 import { updateTema } from '../utils/temaModel';
  
 //componente encargado en mostrar los cards de los temas
+ 
 export default function Tema({db, nombre, Texto, favo, completado, visto, Onchage, update}) {
     const  [fav, setFav] = useState(favo)
     const  [favor, setFavor] = useState(0)
@@ -11,6 +12,8 @@ export default function Tema({db, nombre, Texto, favo, completado, visto, Onchag
     const {completed, handleConpleted} = UseCompletadoContext()
     const favorite = require('../assets/screenAssets/favorite.png') ;
     const noFavorite =  require('../assets/screenAssets/noFavorite.png');
+     
+
     //call back
     const handleChange = () =>{
         handleInfoTema([true, completado])

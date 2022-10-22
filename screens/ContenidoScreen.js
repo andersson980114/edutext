@@ -16,7 +16,7 @@ const imagenes = [
 //constantes de dimensión
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
-const ANCHO_CONTENEDOR = width * 0.9;
+const ANCHO_CONTENEDOR = width * 0.8;
 const ESPACIO_CONTENEDOR = (width - ANCHO_CONTENEDOR) / 2;
 const ALTURA_CONTENEDOR = height*0.9;
 const ESPACIO = 10;
@@ -110,7 +110,7 @@ export default function ContenidoScreen({navigation}) {
                 }}
               >
                 <Image source={item.url} style={styles.posterImage} />
-                <Text style={{ fontWeight: "bold", fontSize: 26,}}>
+                <Text style={{ fontWeight: "bold", fontSize: 26,   paddingHorizontal:5, paddingVertical:5}}>
                   {" "} 
                   {item.Texto}
                 </Text>

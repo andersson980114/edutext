@@ -147,9 +147,7 @@ export default function WordScreen({ navigation }) {
     }
   }, [bloqueado[0], bloqueado[1]])
 
-  useEffect(() => {
-    console.log("------------caminos", caminos);
-    console.log("-------------Completados:", completados)
+  useEffect(() => { 
     if(completados>=8 && caminos==1){
       console.log("completados")
       insignia(db, 11)
@@ -166,22 +164,21 @@ export default function WordScreen({ navigation }) {
   }
 
   return ( 
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <ModalPoup visible={show} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={cerrar} />
-      <ModalPoup visible={show2} titulo={titulo2} texto={texto2} imagen={imagen2} botones={botones2}  onChange={cerrar2} />
-        {
-          niveles.map((item, key) => {
-            if(item.idOpcion==opcion[1]){
-              let id = item.idNivel
-              const url = Niveles[id].url
-              return(
-                  <Nivel  key={key} id={item.id} nivel={item.Nivel} nombre={id}  img={url} Evaluado={item.Evaluado} Completed={item.Completed} progreso={item.Progreso}  onChange={handleChange} />
-                
-              )    
-            }
-          })
-        }
-         
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}> 
+        <ModalPoup visible={show} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={cerrar} />
+        <ModalPoup visible={show2} titulo={titulo2} texto={texto2} imagen={imagen2} botones={botones2}  onChange={cerrar2} />
+          {
+            niveles.map((item, key) => {
+              if(item.idOpcion==opcion[1]){
+                let id = item.idNivel
+                const url = Niveles[id].url
+                return(
+                    <Nivel  key={key} id={item.id} nivel={item.Nivel} nombre={id}  img={url} Evaluado={item.Evaluado} Completed={item.Completed} progreso={item.Progreso}  onChange={handleChange} />
+                  
+                )    
+              }
+            })
+          } 
     </View> 
   )
 }

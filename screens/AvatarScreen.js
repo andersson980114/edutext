@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from "react";
-import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, Alert, BackHandler } from "react-native";
 import { Avatars } from "../Data/imagenes";
 import { UseDbContext } from '../Contexts/DataContext'; 
 import { changeAvatar, getUser } from "../utils/userModel";
@@ -34,6 +34,29 @@ export default function AvatarScreen({ navigation }) {
      
   }, [])
   
+  //salir de la app
+  useEffect(() =>
+    navigation.addListener('beforeRemove', (e) => {
+      const action = e.data.action; 
+
+      e.preventDefault();
+      //navigation.dispatch(action),
+      Alert.alert(
+        '¡Cuidado!',
+        '¿Deseas salir de EduText?',
+        [
+          { text: "No", style: 'cancel', onPress: () => {} },
+          {
+            text: 'Si',
+            style: 'destructive',
+            onPress: () => BackHandler.exitApp(),
+          },
+        ]
+      );
+
+  }),
+  [navigation])
+
   //Asignar el avatar del usuario
   const getUserId = (opcion) =>{
     if(opcion[0]){

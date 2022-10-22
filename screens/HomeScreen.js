@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { View, Image, StyleSheet, Dimensions, Pressable } from "react-native"; 
+import { View, Image, StyleSheet, Dimensions, Pressable, Alert, BackHandler  } from "react-native"; 
 import { UseDbContext } from "../Contexts/DataContext";
 import { UseOpcionContext,UsePreguntaContext, UsePuntajeContext } from "../Contexts/InfoProvider";
 import { getPuntaje } from "../utils/userModel";
@@ -17,6 +17,29 @@ export default function HomeScreen({ navigation }) {
     getPuntaje(db, 0, setPuntaje)
   }, [])
   
+  //salir de la app
+  useEffect(() =>
+    navigation.addListener('beforeRemove', (e) => {
+      const action = e.data.action; 
+
+      e.preventDefault();
+      //navigation.dispatch(action),
+      Alert.alert(
+        '¡Cuidado!',
+        '¿Deseas salir de EduText?',
+        [
+          { text: "No", style: 'cancel', onPress: () => {} },
+          {
+            text: 'Si',
+            style: 'destructive',
+            onPress: () => BackHandler.exitApp(),
+          },
+        ]
+      );
+
+  }),
+  [navigation])
+
   //calback
   const handleChange = (nombre) => {
     handleOption(nombre)

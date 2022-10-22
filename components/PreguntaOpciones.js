@@ -42,16 +42,14 @@ const deviceWidth = Math.round(Dimensions.get('window').width)
 const styles = StyleSheet.create({
 
   pregunta:{  
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'center', 
     height: '25%',
   },
 
   textPregunta:{
     fontWeight: "bold", 
-    fontSize: 26,   
-    alignItems: 'center',
-    justifyContent: 'center',
+    fontSize: 26,    
+    paddingHorizontal:5,  
   },
   opciones:{
     height: '55%', 

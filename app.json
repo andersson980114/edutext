@@ -21,8 +21,8 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.edutext.mynative",
-      "versionCode": 1
+      "package": "com.andersson0114.edutext",
+      "versionCode": 2
       },
     "web": {
       "favicon": "./assets/favicon.png"

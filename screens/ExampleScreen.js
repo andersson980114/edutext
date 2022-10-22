@@ -3,12 +3,12 @@ import { View, Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 //Screen encargado de mostrar el ejemplo de contenido
 export default function ExampleScreen({navigation}) {
-    let mensaje ="¡IMPORTANTE! Desliza las imagenes \n para continuar viendo el contenido"
+    let mensaje ="Desliza las imágenes para visualizar el contenido"
   
     return (
       <View style={styles.container}>
         <Text
-           style={{fontSize: 24,  textAlign:"center", justifyContent:"center"}}
+           style={{fontSize: 24,  textAlign:"center", justifyContent:"center", paddingHorizontal:5}}
         >
         {mensaje}
         </Text>
@@ -16,7 +16,7 @@ export default function ExampleScreen({navigation}) {
           style={{width: 300, height: 500,  marginVertical:20}}
           source={require("../assets/screenAssets/explicación.gif")} />
         <TouchableOpacity onPress={()=> navigation.navigate('Inicio')}
-          style={{backgroundColor:  'rgb(82, 172, 185)',
+          style={{backgroundColor:  '#C10707',
           width: 145,
           height: 60, 
           borderRadius: 25,
