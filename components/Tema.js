@@ -8,6 +8,7 @@ import { updateTema } from '../utils/temaModel';
 export default function Tema({db, nombre, Texto, favo, completado, visto, Onchage, update}) {
     const  [fav, setFav] = useState(favo)
     const  [favor, setFavor] = useState(0)
+    const [color, setColor] = useState("#EBEBEB")
     const {info,handleInfoTema} = UseInfoTemaContext()
     const {completed, handleConpleted} = UseCompletadoContext()
     const favorite = require('../assets/screenAssets/favorite.png') ;
@@ -18,7 +19,7 @@ export default function Tema({db, nombre, Texto, favo, completado, visto, Onchag
     const handleChange = () =>{
         handleInfoTema([true, completado])
         update([nombre[1], fav, true, completado])
-        console.log("nivel completado?",completado)
+        console.log("nivel completado?",completado) 
         Onchage(nombre)
     }
     //cambiar el estado de favorito
@@ -26,10 +27,11 @@ export default function Tema({db, nombre, Texto, favo, completado, visto, Onchag
       setFav(!fav) 
       update([nombre[1], !fav, true, completado])
     }
+  
     //componente
     return (
         <View  >
-            <TouchableOpacity onPress={() => handleChange()}  style={styles.cardContainer}>
+            <TouchableOpacity onPress={() => handleChange()}  style={completado ? styles.cardCompletedContainer : styles.cardContainer}>
             
                 <Text  allowFontScaling = {false} style={styles.titleCar} >
                     {Texto}
@@ -61,14 +63,16 @@ const styles = StyleSheet.create({
     marginTop: '20%', 
   },
  
-  cardContainer:{   
+  cardCompletedContainer:{   
     flexWrap: 'wrap',
     flexDirection: 'row', 
     justifyContent: 'space-evenly',
     alignItems: 'center',
     width: deviceWidth - 35,
     height: 140, 
-    backgroundColor: '#EBEBEB',
+    backgroundColor: '#EBEBEB', 
+    borderWidth:2,
+    borderColor: "#2FB5C3",
     borderRadius: 15,
     shadowColor:'#262322',
     shadowOffset: {
@@ -79,6 +83,30 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     elevation: 7,  
     margin: 12,
+    
+  },
+
+  cardContainer:{   
+    flexWrap: 'wrap',
+    flexDirection: 'row', 
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    width: deviceWidth - 35,
+    height: 140, 
+    backgroundColor: '#EBEBEB', 
+    borderWidth:5,
+    borderColor: "#EBEBEB",
+    borderRadius: 15,
+    shadowColor:'#262322',
+    shadowOffset: {
+      width: 5,
+      height: 5,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
+    elevation: 7,  
+    margin: 12,
+    
   },
 
   })

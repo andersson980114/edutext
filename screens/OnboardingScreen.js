@@ -15,7 +15,7 @@ export default function OnboardingScreen({navigation})  {
   const startAnimation = useRef(new Animated.Value(0)).current;
   const endAnimation = useRef(new Animated.Value(350)).current;
   const edges = useSafeAreaInsets()
-  const timeAnimation = 8000;
+  const timeAnimation = 9000;
   
   useEffect(() => {
     setTimeout(() =>{
@@ -30,7 +30,7 @@ export default function OnboardingScreen({navigation})  {
           Animated.timing(
             endAnimation,
             {
-              toValue:-700,
+              toValue:-height*0.8,
               useNativeDriver: true
             }
           )
