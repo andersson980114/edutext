@@ -30,7 +30,7 @@ export default function OnboardingScreen({navigation})  {
           Animated.timing(
             endAnimation,
             {
-              toValue:-height*0.8,
+              toValue:-height*0.9,
               useNativeDriver: true
             }
           )
@@ -86,7 +86,7 @@ export default function OnboardingScreen({navigation})  {
               backgroundColor:"#FCFFFD",
               width: 310,   
               }}> 
-                  <Text allowFontScaling = {false} Text style={Styles.textInfo}>Aquí aprenderás a identificar e implementar los procesadores de textos que mas requieres en la actualidad</Text>  
+                  <Text allowFontScaling = {false} Text style={Styles.textInfo}>Aquí aprenderás a identificar e implementar los procesadores de textos que más requieres en la actualidad</Text>  
             </View>
             <Image  source={require("../assets/screenAssets/oboarding1.png")}
               style={{

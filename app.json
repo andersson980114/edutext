@@ -22,7 +22,7 @@
     },
     "android": {
       "package": "com.andersson0114.edutext",
-      "versionCode": 2
+      "versionCode": 1
       },
     "web": {
       "favicon": "./assets/favicon.png"
