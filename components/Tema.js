@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
-import { View, Image, Text, TouchableOpacity,StyleSheet, Dimensions, } from 'react-native'
+import Toast from 'react-native-toast-message';
+import { View, Image, Text, TouchableOpacity,StyleSheet, ToastAndroid, Dimensions, } from 'react-native'
 import { UseCompletadoContext, UseInfoTemaContext } from '../Contexts/InfoProvider';
 import { updateTema } from '../utils/temaModel';
  
@@ -24,8 +25,20 @@ export default function Tema({db, nombre, Texto, favo, completado, visto, Onchag
     }
     //cambiar el estado de favorito
     const handleFav = () =>{
+      
       setFav(!fav) 
       update([nombre[1], !fav, true, completado])
+      if(!fav){
+        ToastAndroid.show("Agregado a Favoritos ", ToastAndroid.SHORT, 
+        ToastAndroid.SHORT,
+        ToastAndroid.BOTTOM
+        );
+      }else{
+        ToastAndroid.show("Eliminado de Favoritos", ToastAndroid.SHORT,
+        ToastAndroid.SHORT,
+        ToastAndroid.BOTTOM,
+        );
+      }
     }
   
     //componente
@@ -37,14 +50,18 @@ export default function Tema({db, nombre, Texto, favo, completado, visto, Onchag
                     {Texto}
                 </Text>
 
-                <TouchableOpacity onPress={() =>handleFav()}>
+                <TouchableOpacity onPress={() =>handleFav()} style={styles.estado} >
                     <Image 
                         resizeMode="cover"
                         source={fav ? favorite: noFavorite}
                         style={styles.imgCard}
                     />  
+                  {
+                    completado?  <Text allowFontScaling = {false}  style={{color: "#2FB5C3" }}>Completado</Text>: <View></View>
+                  }
+                  
                 </TouchableOpacity>
-
+            
             </TouchableOpacity>
         </View> 
     )
@@ -55,12 +72,20 @@ const styles = StyleSheet.create({
   imgCard:{
     width: 43,
     height: 40,  
-      
+    marginBottom: 25,
+    marginTop: 40
   },
 
   titleCar:{
     fontSize: 40,  
     marginTop: '20%', 
+  },
+
+  estado:{
+    flexWrap: 'wrap',
+    flexDirection: 'column', 
+    justifyContent: 'center',
+    alignItems: 'center',  
   },
  
   cardCompletedContainer:{   
