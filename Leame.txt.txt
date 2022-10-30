@@ -4,7 +4,7 @@ tanto por el director de trabajo de grado como el evaluador. Una vez hecho esto 
 encontrarse en la play store.
 
 Nota 2:
-Se recomienda usar el aplicativo sin el activar el modo oscuro del teléfono móvil.
+Se recomienda usar el aplicativo sin activar el modo oscuro del teléfono móvil.
 
 Nota 3:
 Los anexos del aplicativo se encuentran en la carpeta llamada .ANEXOS
@@ -15,7 +15,7 @@ Esta contiene tres carpetas más, entre los cuales:
 
 Nota 4:
 El apk de la aplicación se encuentra en el siguiente enlace de drive:
-https://drive.google.com/file/d/1POyDAJPHgjd5Z2OtEqMYvjSZy8N6rhxT/view?usp=sharing
+https://drive.google.com/file/d/1Mkrrlxo7x4ou28O6NdY9yY7JkOcEClnf/view?usp=sharing
 
 Nota 5: 
 El documento del aplicativo podrá ser encontrado en la carpeta llamada DOCUMENTO.

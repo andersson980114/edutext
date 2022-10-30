@@ -81,12 +81,12 @@ export default function App() {
           {
             count == 0? (
               <>
-                <Stack.Screen name="Onboarding" component={OnboardingScreen}  options={{header: ()=>null}} />
+                <Stack.Screen name="Onboarding" component={OnboardingScreen}  options={{header: ()=>null,}} />
                 <Stack.Screen name="Register" component={RegisterScreen}  navigation={Navigation}  
                     options={{header: ()=>null}}
                   />
                 <Stack.Screen name="PreguntaA" options={() =>( {
-                    headerTitle:String(pregunta[0]), 
+                    headerTitle:String("PRUEBATE"), 
                     headerBackVisible:false
                 })} component={PreguntaA}  />
                 
