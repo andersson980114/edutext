@@ -7,7 +7,8 @@
             "Nombre": "Abrir Word",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":1 ,
@@ -16,7 +17,8 @@
             "Nombre": "Primera Vista",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":2 ,
@@ -25,7 +27,8 @@
             "Nombre": "Documento",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":3 ,
@@ -34,7 +37,8 @@
             "Nombre": "Ideales",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":4 ,
@@ -43,7 +47,8 @@
             "Nombre": "Portapapeles",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":5 ,
@@ -52,7 +57,8 @@
             "Nombre": "Fuentes",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":6 ,
@@ -61,7 +67,8 @@
             "Nombre": "Párrafos",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":7 ,
@@ -70,7 +77,8 @@
             "Nombre": "Estilos",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":8 ,
@@ -79,7 +87,8 @@
             "Nombre": "Páginas",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":9 ,
@@ -88,7 +97,8 @@
             "Nombre": "Tablas",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":10 ,
@@ -97,7 +107,8 @@
             "Nombre": "Ilustraciones",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":11 ,
@@ -106,7 +117,8 @@
             "Nombre": "Encabezado",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":12 ,
@@ -115,7 +127,8 @@
             "Nombre": "Disposición",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":13 ,
@@ -124,7 +137,8 @@
             "Nombre": "Referencias",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":14 ,
@@ -133,7 +147,8 @@
             "Nombre": "Revisar",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":15 ,
@@ -142,7 +157,8 @@
             "Nombre": "Atajos",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":16 ,
@@ -151,7 +167,8 @@
             "Nombre": "Abrir Docs",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":17 ,
@@ -160,7 +177,8 @@
             "Nombre": "Primera Vista",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":18 ,
@@ -169,7 +187,8 @@
             "Nombre": "Inserción",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":19 ,
@@ -178,7 +197,8 @@
             "Nombre": "Compartir",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":20 ,
@@ -187,7 +207,8 @@
             "Nombre": "Documento",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":21 ,
@@ -196,7 +217,8 @@
             "Nombre": "Configuración",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":22 ,
@@ -205,7 +227,8 @@
             "Nombre": "Edición",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":23 ,
@@ -214,7 +237,8 @@
             "Nombre": "Visualizacion",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         }, 
         {
             "id":24 ,
@@ -223,7 +247,8 @@
             "Nombre": "Ilustraciones I",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":25 ,
@@ -232,7 +257,8 @@
             "Nombre": "Ilustraciones II",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":26 ,
@@ -241,7 +267,8 @@
             "Nombre": "Edición",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":27 ,
@@ -250,7 +277,8 @@
             "Nombre": "Estilos",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":28 ,
@@ -259,7 +287,8 @@
             "Nombre": "Viñetas",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":29 ,
@@ -268,7 +297,8 @@
             "Nombre": "Numeración",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":30 ,
@@ -277,7 +307,8 @@
             "Nombre": "Herramientas",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         },
         {
             "id":31 ,
@@ -286,7 +317,8 @@
             "Nombre": "Atajos",
             "Favorito": false,
             "Visto": false,
-            "Completado": false
+            "Completado": false,
+            "Introduccion": ""
         }
     ]
 }
