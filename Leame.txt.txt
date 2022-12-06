@@ -8,14 +8,23 @@ Se recomienda usar el aplicativo sin activar el modo oscuro del teléfono móvil
 
 Nota 3:
 Los anexos del aplicativo se encuentran en la carpeta llamada .ANEXOS
-Esta contiene tres carpetas más, entre los cuales:
-	- Capitulo 3: Anexo cap3 -> Anexo metodología
-	- Capitulo 4: Anexo cap4 -> Anexo Investigación
-	- Capitulo 5: Anexo cap5 -> Anexo pruebas
+Esta contiene cinco carpetas más, entre los cuales:
+	- Capitulo 1: Resultados Prueba De Campo Conocimientos Microsoft Word y Google Docs.
+	- Capitulo 3: Tablero.
+	- Capitulo 4: Modelos.
+	- Capitulo 5: -Casos de uso. 
+			  -Especificación de requisitos.
+			  -Formulario Audiencia Objeto.
+			  -Formulario de diseño.
+			  -Interfaz prototipo 2.
+			  -Interfaz prototipo inicial.
+			  -Investigación.
+			  -Perfilamiento del público objeto.
+	- Capitulo 6: Formulario de prueba de EduText.
 
 Nota 4:
 El apk de la aplicación se encuentra en el siguiente enlace de drive:
-https://drive.google.com/file/d/1Mkrrlxo7x4ou28O6NdY9yY7JkOcEClnf/view?usp=sharing
+https://drive.google.com/drive/folders/1YLKB12E7R58UMsF092rNdQ_xyimdBUI0?usp=sharing
 
 Nota 5: 
 El documento del aplicativo podrá ser encontrado en la carpeta llamada DOCUMENTO.
