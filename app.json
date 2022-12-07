@@ -23,9 +23,14 @@
     "android": {
       "package": "com.andersson0114.edutext",
       "versionCode": 1
-      },
+    },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "6dbb6f8c-eccf-4380-bc78-61733789cf42"
+      }
     }
   }
 }
