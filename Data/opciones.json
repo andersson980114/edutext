@@ -2,13 +2,19 @@
     "opciones":[
         {
             "id": 1,
-            "name": "Microsoft Word" ,
-            "temas": "Word.json"
+            "nombre": "Microsoft Word" ,
+            "temas": "Word.json",
+            "visto": false,
+            "titulo": "Un poco de WORD",
+            "texto": "Word es uno de los procesadores de texto más usados en la actualidad. Hace parte del paquete Office de Microsoft, contando con un sin número de herramientas de las cuales se aprenderán algunas en este apartado."
         },
         {
             "id": 2,
-            "name": "Google Docs" ,
-            "temas": "Docs.json"
+            "nombre": "Google Docs" ,
+            "temas": "Docs.json",
+            "visto": false,
+            "titulo": "Un poco de Docs",
+            "texto": "Docs es uno de los procesadores de texto en internet más usados en la actualidad. Hace parte de la suite de Google, contando con un sin número de herramientas de las cuales se aprenderán algunas en este apartado."
         }
     ]
 }

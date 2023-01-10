@@ -11,6 +11,9 @@ import ModalPoup from "../components/ModalPoup";
 import { Insignias, Avatars } from "../Data/imagenes";
 import { getCaminos, updateInsignia } from "../utils/insigniaModel";
 import { getAvatarStatus, updateAvatar } from "../utils/avatarModel";
+import { getVisto, updateModulo } from "../utils/moduleModel";
+import ModalInfo from "../components/ModalInfo";
+import dataOp from "../Data/opciones.json"
 
 const d1 = "Prueba"
 const d2 = ['Prueba',0]
@@ -20,6 +23,7 @@ let ni;
 export default function WordScreen({ navigation }) {
   //const
   const Nivels = data.Niveles
+  const opciones = dataOp.opciones
   const isFocused = useIsFocused();
   //context
   const {nivel, handleNivel} =  UseNivelContext() 
@@ -46,6 +50,12 @@ export default function WordScreen({ navigation }) {
   const [imagen2, setImagen2] = useState(require("../assets/screenAssets/prohibited.png"))
   const [botones2, setBotones2] = useState([]) 
   const [success, setSuccess] = useState(false)
+  //info
+  const [show3, setShow3] = useState(false)
+  const [titulo3, setTitulo3] = useState("")
+  const [texto3, setTexto3] = useState("") 
+  const [visto, setVisto] = useState(true)
+  const [success2, setSuccess2] = useState(false)
 
   const cerrar = () =>{
     handleEvaluado(true) 
@@ -59,6 +69,12 @@ export default function WordScreen({ navigation }) {
     handleCompletado(true) 
     setShow2(false) 
     setSuccess(true) 
+  }
+
+  const cerrar3 = () =>{ 
+    updateModulo(db, opcion[1]+1, 1)
+    setShow3(false) 
+    
   }
 
   const insignia = (db, id) =>{
@@ -103,6 +119,9 @@ export default function WordScreen({ navigation }) {
     getCompletados(db, setCompletados)
     getCaminos(db, 12, setCaminos)
     getAvatarStatus(db, puntaje-(puntaje%20), setBloqueado)
+    getVisto(db, opcion[1]+1, setVisto)
+
+    
     if(opcion[1]>0){
       ni = nivel[1]+1+5
     }else{
@@ -125,6 +144,16 @@ export default function WordScreen({ navigation }) {
    
   }, [isFocused])
   
+  useEffect(() => {
+    //console.log("vistooooooooooooooooo----------------", visto)
+     if(visto === false || visto == 0){
+      setTitulo3(opciones[opcion[1]].titulo)
+      setTexto3(opciones[opcion[1]].texto)
+      setShow3(true)
+     }
+  }, [visto])
+  
+
   useEffect(() => { 
      
     if(bloqueado[0]==1){
@@ -167,6 +196,7 @@ export default function WordScreen({ navigation }) {
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}> 
         <ModalPoup visible={show} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={cerrar} />
         <ModalPoup visible={show2} titulo={titulo2} texto={texto2} imagen={imagen2} botones={botones2}  onChange={cerrar2} />
+        <ModalInfo  visible={show3} titulo={titulo3} texto={texto3}   onChange={cerrar3} />
           {
             niveles.map((item, key) => {
               if(item.idOpcion==opcion[1]){

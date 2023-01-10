@@ -6,21 +6,25 @@ import { UseDbContext } from "../Contexts/DataContext";
 import Tema from "../components/Tema"; 
 import { getTema, updateTema } from "../utils/temaModel";
 import Jefe from "../components/Jefe";
-import { completedNivel, getNivels } from "../utils/nivelModel";
+import { completedNivel, getNivels, vistoNivel, getVisto } from "../utils/nivelModel";
 import { useIsFocused } from "@react-navigation/native";
 import ModalPoup from "../components/ModalPoup";
+import ModalInfo from "../components/ModalInfo";
 import { getAvatarStatus, updateAvatar } from "../utils/avatarModel";
 import { updateInsignia } from "../utils/insigniaModel";
 import { Insignias, Avatars } from "../Data/imagenes";
+import dataNi from "../Data/wordNiveles.json"
 
 //dimension
 const deviceWidth = Math.round(Dimensions.get('window').width)
 const deviceHeight = Math.round(Dimensions.get('window').height)
 let ni;
+let niv;
 
 //Screen encargada de mostrar los temas
 export default function TemasScreen({navigation }) {
   //const
+  const Nivel = dataNi.Niveles
   const favorite = require('../assets/screenAssets/favorite.png') ;
   const noFavorite =  require('../assets/screenAssets/noFavorite.png');
   const temasA = data.Temas
@@ -51,7 +55,12 @@ export default function TemasScreen({navigation }) {
   const [imagen2, setImagen2] = useState(require("../assets/screenAssets/prohibited.png"))
   const [botones2, setBotones2] = useState([]) 
   const [success, setSuccess] = useState(false)
-
+  //info
+  const [show3, setShow3] = useState(false)
+  const [titulo3, setTitulo3] = useState("Intentelo de Nuevo")
+  const [texto3, setTexto3] = useState("") 
+  const [visto, setVisto] = useState(true)
+  const [success2, setSuccess2] = useState(false)
   //cerrar
   const cerrar = () =>{
     handleEvaluado(true) 
@@ -65,6 +74,14 @@ export default function TemasScreen({navigation }) {
     handleCompletado(true) 
     setShow2(false) 
     setSuccess(true)
+    
+  }
+
+  const cerrar3 = () =>{ 
+    //console.log(ni, niv, nivel[1]+1)
+    //vistoNivel(db, ni, 1)
+     
+    setShow3(false) 
     
   }
   //modal Insignia
@@ -113,12 +130,21 @@ export default function TemasScreen({navigation }) {
     getTema(db, setTemasD)
     getNivels(db, opcion, setNiveles)
     getAvatarStatus(db, puntaje-(puntaje%20), setBloqueado)
+    
+
     if(opcion[1]>0){
       ni = nivel[1]+5
+      niv = nivel[1]+5
+      getVisto(db, niv, setVisto)
+      vistoNivel(db, niv, 1)
     }else{
-        ni = nivel[1]+1
+      ni = nivel[1]+1
+      niv = nivel[1]
+      getVisto(db, ni, setVisto)
+      vistoNivel(db, ni, 1)
     } 
-
+    
+    //console.log("nivel-----------",niv, ni )
     if(!completado && progreso>=100){
       console.log("completado")
       let imge =ni+1;
@@ -141,6 +167,15 @@ export default function TemasScreen({navigation }) {
     }
   
   }, [isFocused])
+
+  useEffect(() => {
+    //console.log("vistooooooooooooooooo----------------", visto)
+     if(visto === false || visto == 0){
+      setTitulo3(Nivel[niv].Nivel)
+      setTexto3(Nivel[niv].Objetivo)
+      setShow3(true)
+     }
+  }, [visto])
   
   useEffect(() => { 
     if(bloqueado[0]==1){
@@ -205,7 +240,7 @@ export default function TemasScreen({navigation }) {
       <ScrollView  >
       <ModalPoup visible={show} titulo={titulo} texto={texto} imagen={imagen} botones={botones}  onChange={cerrar} />
       <ModalPoup visible={show2} titulo={titulo2} texto={texto2} imagen={imagen2} botones={botones2}  onChange={cerrar2} />
-        
+      <ModalInfo visible={show3} titulo={titulo3} texto={texto3}    onChange={cerrar3} />
         {
           temasD.map((item, key) => {
             //console.log(item.Nivel, ", ", item.Opcion)

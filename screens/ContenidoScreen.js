@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, Dimensions, SafeAreaView, Animated} from
 import { StatusBar } from 'expo-status-bar';
 import { Contenido } from '../Data/imagenes';
 import { UseInfoContext} from "../Contexts/InfoProvider";
-import Siguiente from '../components/Siguiente';
+import Siguiente from '../components/Siguiente'; 
 import * as data from '../Data/wordContenido.json'
  
 //imagenes staticas
@@ -29,7 +29,7 @@ export default function ContenidoScreen({navigation}) {
   const {opcion, nivel, tema} = UseInfoContext(); 
   const scrollX = React.useRef(new Animated.Value(0)).current;
   const [content, setContent] = useState([])
-  const [cantidad, setCantidad] = useState(0)
+  const [cantidad, setCantidad] = useState(0) 
 
   useEffect(() => { 
     const data = []
@@ -63,7 +63,7 @@ export default function ContenidoScreen({navigation}) {
   [navigation])
   
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container}> 
       <StatusBar hidden /> 
       <Animated.FlatList
         onScroll={Animated.event(
@@ -111,7 +111,7 @@ export default function ContenidoScreen({navigation}) {
                 }}
               >
                 <Image source={item.url} style={styles.posterImage} />
-                <Text  allowFontScaling = {false} style={{ fontWeight: "bold", fontSize: 26, paddingHorizontal:2}}> 
+                <Text  allowFontScaling = {false} style={{ fontWeight: "bold", fontSize: 26, paddingHorizontal:2, textAlign: "justify"}}> 
                   {item.Texto}
                 </Text>
                 <View style={styles.boton}>

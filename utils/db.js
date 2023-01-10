@@ -5,6 +5,7 @@ import { createInsigniaTable } from "./insigniaModel";
 import { createNivelTable } from "./nivelModel";
 import { createTemaTable } from "./temaModel";
 import { createUserTable } from "./userModel";
+import { createModuleTable } from "./moduleModel";
 
 //Iniciar la conexión a la db
 export function conectionDb(){
@@ -22,6 +23,7 @@ export function setDB(db){
     createAvatarTable(db)
     createContenidoTable(db)
     createInsigniaTable(db)
+    createModuleTable(db)
     createNivelTable(db)
     createTemaTable(db)
 }

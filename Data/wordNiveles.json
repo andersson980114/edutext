@@ -7,7 +7,9 @@
             "idNivel":0,
             "Progreso": 0,
             "Evaluated":false,
-            "Completed":false
+            "Completed":false,
+            "Visto": false,
+            "Objetivo": "En este nivel aprenderás desde cómo abrir y crear un documento por primera vez, explicación de la vista del procesador de texto, hasta la ubicación correcta para comenzar la redacción en el documento. Además de poder realizar una prueba para concretar los conocimientos adquiridos."
         },
         {
             "id": 1,
@@ -16,7 +18,9 @@
             "idNivel":1,
             "Progreso": 0,
             "Evaluated":false,
-            "Completed":false
+            "Completed":false,
+            "Visto": false,
+            "Objetivo": "En este nivel se aprenderá sobre las funciones del portapapeles, además de  las características de escritura como lo son las fuentes, los párrafos y los estilos."
         },
         {
             "id": 2,
@@ -25,7 +29,9 @@
             "idNivel":2,
             "Progreso": 0,
             "Evaluated":false,
-            "Completed":false
+            "Completed":false,
+            "Visto": false,
+            "Objetivo": "En este nivel se encuentran las opciones de páginas, la creación de tablas, el uso de ilustraciones y la inserción de encabezados. Además de poder realizar una prueba para concretar los conocimientos adquiridos."
         },
         {
             "id": 3,
@@ -34,7 +40,9 @@
             "idNivel":3,
             "Progreso": 0,
             "Evaluated":false,
-            "Completed":false
+            "Completed":false,
+            "Visto": false,
+            "Objetivo": "En este nivel se aprenderá sobre la disposición de los documentos, el uso de las referencias, la revisión tanto de ortografía como de gramática y los atajos de Word. Además de poder realizar una prueba para concretar los conocimientos adquiridos."
         },
         {
             "id": 4,
@@ -43,7 +51,9 @@
             "idNivel":4,
             "Progreso": 0,
             "Evaluated":false,
-            "Completed":false
+            "Completed":false,
+            "Visto": false,
+            "Objetivo": "En este apartado encontraras tu temas favoritos de Word"
         },
         {
             "id": 5,
@@ -52,7 +62,9 @@
             "idNivel":0,
             "Progreso": 0,
             "Evaluated":false,
-            "Completed":false
+            "Completed":false,
+            "Visto": false,
+            "Objetivo": "En este nivel aprenderás desde cómo abrir el procesador de texto, explicación de la primera vista, hasta la ubicación correcta para comenzar la redacción en el documento y las opciones de compartir un archivo. Además de poder realizar una prueba para concretar los conocimientos adquiridos."
         },
         {
             "id": 6,
@@ -61,7 +73,9 @@
             "idNivel":1,
             "Progreso": 0,
             "Evaluated":false,
-            "Completed":false
+            "Completed":false,
+            "Visto": false,
+            "Objetivo": "En este nivel se aprenderá sobre las funciones de crear un documento nuevo, descargar uno ya existente, la configuración de página, además de las opciones de la pestaña Editar y Ver."
         },
         {
             "id": 7,
@@ -70,7 +84,9 @@
             "idNivel":2,
             "Progreso": 0,
             "Evaluated":false,
-            "Completed":false
+            "Completed":false,
+            "Visto": false,
+            "Objetivo": " En este nivel se aprenderá sobre la modificación del texto, estilos de párrafo y las opciones de inserción de imágenes, tablas, gráficos, entre otros. Además de poder realizar una prueba para concretar los conocimientos adquiridos."
         },
         {
             "id": 8,
@@ -79,7 +95,9 @@
             "idNivel":3,
             "Progreso": 0,
             "Evaluated":false,
-            "Completed":false
+            "Completed":false,
+            "Visto": false,
+            "Objetivo": "En este nivel se aprenderá sobre la disposición de los documentos, la aplicación de viñetas, numeración, la revisión tanto de ortografía como de gramática y los atajos de Docs. Además de poder realizar una prueba para concretar los conocimientos adquiridos."
         },
         {
             "id": 9,
@@ -88,7 +106,9 @@
             "idNivel":4,
             "Progreso": 0,
             "Evaluated":false,
-            "Completed":false
+            "Completed":false,
+            "Visto": false,
+            "Objetivo": "En este apartado encontraras tu temas favoritos de Docs"
         }
     ]
 
